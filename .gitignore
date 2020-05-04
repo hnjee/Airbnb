@@ -1,6 +1,8 @@
 # Created by https://www.gitignore.io/api/web,java,windows,eclipse
 # Edit at https://www.gitignore.io/?templates=web,java,windows,eclipse
 
+*.properties
+
 ### Eclipse ###
 .metadata
 bin/
