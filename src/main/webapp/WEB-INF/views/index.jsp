@@ -67,9 +67,13 @@
 									<div class="_9bj9d5">체크인/체크아웃</div>
 									<div class="_4poulv">날짜 추가</div>
 								</button>
+								
+								<!-- 		
 								<div class="calendar">
 									<input type="text" id="datepicker">
 								</div>
+								 -->
+								
 							</div>
 							</div>
 				
@@ -117,7 +121,10 @@
 				 </div>
 
     <script>
-        $("#datepicker").datepicker();
+        $("#datepicker").datepicker({
+        	dateFormat: 'mm월 dd일',
+        	showOn: button
+        });
         
         $(".dateBtn").click(function(){
         	

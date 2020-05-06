@@ -292,6 +292,43 @@
     font: 400 13.3333px Arial;
 }
 
+._1n9qhbno {
+    color: inherit !important;
+    cursor: pointer !important;
+    display: inline-block !important;
+    font-family: inherit !important;
+    font-size: inherit !important;
+    font-weight: inherit !important;
+    line-height: inherit !important;
+    text-align: left !important;
+    user-select: auto !important;
+    width: 100% !important;
+    text-overflow: ellipsis !important;
+    white-space: nowrap !important;
+    position: relative !important;
+    z-index: 2 !important;
+    background: rgb(249, 249, 249) !important;
+    border-width: 2px !important;
+    border-style: solid !important;
+    border-image: initial !important;
+    margin: 0px !important;
+    outline: none !important;
+    overflow: hidden !important;
+    padding: 16px 22px !important;
+    text-decoration: none !important;
+    transition: border-color 0.2s ease 0s !important;
+    border-radius: 12px 12px 0px 0px !important;
+    border-color: rgb(34, 34, 34) !important;
+    box-sizing: border-box;
+    letter-spacing: normal;
+    word-spacing: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    font: 400 13.3333px Arial;
+}
+
+
 ._4poulv {
     font-size: 14px !important;
     line-height: 18px !important;
