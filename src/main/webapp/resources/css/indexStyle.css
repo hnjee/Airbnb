@@ -45,7 +45,26 @@ ul{
 	border-top: 1px solid gray;
 }
 #footer2_div1{
+	width:1144px;
+	margin-right: 20px;
 	float: left;
-	font
+	font-size: 14px;
+}
+.dot{
+	display: inline-block;
+    text-align: center;
+    width: 7px;
+}
+
+#footer2_div2{
+	width: 415px;
+	float: left;
+	font-size:14px;
+}
+#footer2_div2 ul{
+	width: 186px;
+}
+#footer2_div2 li{
+	float: left;
 }
 
