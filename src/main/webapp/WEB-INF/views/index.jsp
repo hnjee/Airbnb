@@ -10,6 +10,42 @@
 
 </head>
 <body>
+	<div id="contents">
+		<div id="contents1">
+			<div id="c1_topBtm">
+				<div id="c1_content">
+					<span>모두가 힘을 모아 함께 한다면,<br>이겨낼 수 있습니다.</span>
+				</div>
+			</div>
+		</div>
+		
+		<div id="contents2">
+			<div id="c2_content">
+			</div>
+		</div>
+		
+		<div id="contents3">
+			<div id="c3_content">
+			<h1>온라인 체험</h1>
+			</div>
+		</div>
+		
+		<div id="contents4">
+			<div id="c4_topBtm">
+				<div id="c4_content">
+				</div>
+			</div>
+		</div>
+		
+		
+		<div id="contents5">
+			<div id="c5_topBtm">
+				<div id="c5_content">
+				</div>
+			</div>
+		</div>
+	</div>
+	
 	<footer>
 		<div id="footer1">
 			<section class="footer1_sec">
@@ -79,12 +115,11 @@
 						<a href="">도움말 센터</a>
 					</li>
 					<li>
-						<>에어비앤비 이웃 민원 지원</a>
+						<a href="">에어비앤비 이웃 민원 지원</a>
 					</li>
 				</ul>
 			</section>
 		</div>
-		
 		<div id="footer2">
 			<div id="footer2_div1">
 					<span> © 2020 Airbnb, Inc. All rights reserved</span>
@@ -98,8 +133,8 @@
 					<a href=""> 한국의 변경된 환불 정책 </a>
 			</div>
 			
-			<div id="footer2_div2">
-				<svg style="display:block;height:16px;width:16px;fill:currentColor" aria-hidden="true" role="presentation" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M1.24 11.251h3.307c.323 1.698.898 3.14 1.656 4.032a7.515 7.515 0 0 1-4.964-4.032zm13.52 0a7.516 7.516 0 0 1-4.962 4.032c.757-.892 1.332-2.334 1.655-4.033zm-4.849 0C9.473 13.298 8.685 14.75 8 14.75s-1.473-1.452-1.911-3.5zm.242-5.001a15.91 15.91 0 0 1 0 3.501H5.847a15.91 15.91 0 0 1 0-3.501zm5.142 0a7.52 7.52 0 0 1 0 3.5h-3.629a18.251 18.251 0 0 0 0-3.5zm-14.59 0h3.628a18.252 18.252 0 0 0 0 3.5H.706a7.52 7.52 0 0 1 0-3.5zM9.798.717A7.516 7.516 0 0 1 14.76 4.75h-3.307c-.308-1.612-.841-2.993-1.542-3.892zm-3.596 0c-.757.893-1.332 2.334-1.656 4.034L1.24 4.75A7.517 7.517 0 0 1 6.119.738zM8 1.25c.685 0 1.473 1.452 1.911 3.5H6.09c.437-2.048 1.225-3.5 1.91-3.5z"></path></svg>
+			<!-- <div id="footer2_div2">
+				<svg style="display:inline;height:16px;width:16px;fill:currentColor" aria-hidden="true" role="presentation" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M1.24 11.251h3.307c.323 1.698.898 3.14 1.656 4.032a7.515 7.515 0 0 1-4.964-4.032zm13.52 0a7.516 7.516 0 0 1-4.962 4.032c.757-.892 1.332-2.334 1.655-4.033zm-4.849 0C9.473 13.298 8.685 14.75 8 14.75s-1.473-1.452-1.911-3.5zm.242-5.001a15.91 15.91 0 0 1 0 3.501H5.847a15.91 15.91 0 0 1 0-3.501zm5.142 0a7.52 7.52 0 0 1 0 3.5h-3.629a18.251 18.251 0 0 0 0-3.5zm-14.59 0h3.628a18.252 18.252 0 0 0 0 3.5H.706a7.52 7.52 0 0 1 0-3.5zM9.798.717A7.516 7.516 0 0 1 14.76 4.75h-3.307c-.308-1.612-.841-2.993-1.542-3.892zm-3.596 0c-.757.893-1.332 2.334-1.656 4.034L1.24 4.75A7.517 7.517 0 0 1 6.119.738zM8 1.25c.685 0 1.473 1.452 1.911 3.5H6.09c.437-2.048 1.225-3.5 1.91-3.5z"></path></svg>
 				<span>한국어</span>
 				<span>₩</span>
 				<span>KRW</span>
@@ -110,9 +145,8 @@
 					<li><a rel="noopener noreferrer" target="_blank" href="https://blog.naver.com/airbnbkr"><svg viewBox="0 0 1024 1024" role="img" aria-label="네이버 블로그로 이동하기" focusable="false" style="height:18px;width:18px;display:block;fill:currentColor"><path d="m984 1024h-944c-22.1 0-40-17.9-40-40v-944c0-22.1 17.9-40 40-40h944c22.1 0 40 17.9 40 40v944c0 22.1-17.9 40-40 40z" fill="#00c73c"></path><path d="m757 203.2h-490.4c-70.4 0-127.5 57.1-127.5 127.5v303.5c0 70.7 57.3 127.9 127.9 127.9h173.8l58.7 101.6c5.4 9.3 18.9 9.3 24.2 0l58.7-101.6h174.2c70.6 0 128.5-57.8 128.5-128.5v-302.4c0-70.7-57.3-128-128.1-128z" fill="#fff"></path><g fill="#ff812c"><path d="m390.7 495.6c0 38.7-28 68.5-62.1 68.5-17.4 0-30.1-6-38.7-15.8v12.2h-38.9v-173.1h38.9v55.5c8.6-9.9 21.3-15.8 38.7-15.8 34 0 62.1 29.8 62.1 68.5zm-36.4 0c0-21.1-14-34.3-33.4-34.3s-33.4 13.2-33.4 34.3 14 34.3 33.4 34.3c19.3 0 33.4-13.2 33.4-34.3z"></path><path d="m477.6 495.6c0-38.7 30.6-68.5 68.8-68.5s68.8 29.9 68.8 68.5c0 38.7-30.6 68.5-68.8 68.5s-68.8-29.8-68.8-68.5zm101.1 0c0-19.9-14-33.2-32.3-33.2s-32.3 13.2-32.3 33.2c0 19.9 14 33.2 32.3 33.2 18.2 0 32.3-13.2 32.3-33.2z"></path><path d="m704.6 616.1c34.5 0 68.5-18.4 68.5-62.1v-123.3h-37.9v13.2c-8.6-10.6-21-16.9-37.9-16.9-36.9 0-63.9 30.1-63.9 66 0 35.8 27 65.9 63.9 65.9 16.9 0 29.3-6.2 37.9-16.9v12c0 18.4-11.2 27.8-29.3 27.8h-1.3zm-.7-90.5c-19.9 0-34-13.2-34-32.6s14-32.6 34-32.6c19.9 0 34 13.2 34 32.6s-14.1 32.6-34 32.6z"></path><path d="m394.3 382.7v35.1c13.4 2.6 21.3 11.8 21.3 27.4v115.3h38.9v-115.3c0-40.3-28.6-59.4-60.2-62.5z"></path></g></svg></a></li>
 					<li><a rel="noopener noreferrer" target="_blank" href="https://post.naver.com/airbnb_kr"><svg enable-background="new 0 0 1024 1024" viewBox="0 0 1024 1024" role="img" aria-label="네이버 포스트로 이동하기" focusable="false" style="height:18px;width:18px;display:block;fill:currentColor"><path d="m984 1024h-944c-22.1 0-40-17.9-40-40v-944c0-22.1 17.9-40 40-40h944c22.1 0 40 17.9 40 40v944c0 22.1-17.9 40-40 40z" fill="#fff"></path><g fill="#00c73c"><path d="m0 198h1024v7h-1024z"></path><path d="m0 405h1024v7h-1024z"></path><path d="m0 612h1024v7h-1024z"></path><path d="m0 819h1024v7h-1024z"></path></g><path d="m307 537 188.2 324.1c7.5 12.9 26.1 12.9 33.6 0l188.2-324.1z" fill="#f4e49d"></path><path d="m307 0h410v537h-410z" fill="#00e831"></path><path d="m392 0h240v537h-240z" fill="#00c73c"></path><path d="m392 148.5v240h240v-240zm188 182h-47.8l-41.2-62.8v62.8h-47v-124h45.8l42.2 62.4v-62.4h48z" fill="#fff"></path><path d="m632 0h85v537h-85z" fill="#00a32a"></path><path d="m528.8 861.1 188.2-324.1h-85l-119.5 333.7c6.3-.1 12.6-3.3 16.3-9.6z" fill="#e0c141"></path><path d="m448.8 781.2 46.4 79.9c7.5 12.9 26.1 12.9 33.6 0l46.4-79.9z" fill="#2d2d2d"></path></svg></a></li>
 				</ul>
-			</div>
+			</div> -->
 	</div>
-	
 	</footer>
 </body>
 </html>
