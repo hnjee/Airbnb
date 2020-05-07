@@ -11,6 +11,7 @@
 </head>
 <body>
 	<div id="contents">
+	
 		<div id="contents1">
 			<div id="c1_topBtm">
 				<div id="c1_content">
@@ -18,9 +19,53 @@
 				</div>
 			</div>
 		</div>
-		
+
 		<div id="contents2">
 			<div id="c2_content">
+				<ul>
+					<li>
+						<div class="c2">
+							<div class="c2img"> 
+								<img src="https://a0.muscache.com/pictures/923664c7-45f6-4ff0-8891-11cb6df25a66.jpg" data-original-uri="https://a0.muscache.com/pictures/923664c7-45f6-4ff0-8891-11cb6df25a66.jpg" srcset="https://a0.muscache.com/pictures/923664c7-45f6-4ff0-8891-11cb6df25a66.jpg 744w, https://a0.muscache.com/im/pictures/923664c7-45f6-4ff0-8891-11cb6df25a66.jpg?aki_policy=large 1128w, https://a0.muscache.com/im/pictures/923664c7-45f6-4ff0-8891-11cb6df25a66.jpg?aki_policy=x_large 1440w">
+							</div>
+							<div class="c2txt"> 
+								<div>
+									<span class="tit" >온라인 체험</span></div>
+								<div>
+									<span class="sub">세계 각지의 호스트가 진행하고 모두 함께하는 독특한 체험을 즐겨보세요.</span>
+								</div>
+							</div>
+						</div>
+					</li>
+				<li>
+						<div class="c2">
+							<div class="c2img"> 
+								<img src="https://a0.muscache.com/pictures/56e33ab9-d581-4333-be11-69286231cee5.jpg" data-original-uri="https://a0.muscache.com/pictures/56e33ab9-d581-4333-be11-69286231cee5.jpg" srcset="https://a0.muscache.com/pictures/56e33ab9-d581-4333-be11-69286231cee5.jpg 744w, https://a0.muscache.com/im/pictures/56e33ab9-d581-4333-be11-69286231cee5.jpg?aki_policy=large 1128w, https://a0.muscache.com/im/pictures/56e33ab9-d581-4333-be11-69286231cee5.jpg?aki_policy=x_large 1440w">
+							</div>
+							<div class="c2txt"> 
+								<div>
+									<span class="tit" >장기 숙박</span></div>
+								<div>
+									<span class="sub">한 달 이상 장기 숙박할 숙소를 에어비앤비에서 찾아보세요.</span>
+								</div>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="c2">
+							<div class="c2img"> 
+								<img src="https://a0.muscache.com/pictures/630fcb0e-4beb-4cc8-a5dd-a4b7488dc96c.jpg" data-original-uri="https://a0.muscache.com/pictures/630fcb0e-4beb-4cc8-a5dd-a4b7488dc96c.jpg" srcset="https://a0.muscache.com/pictures/630fcb0e-4beb-4cc8-a5dd-a4b7488dc96c.jpg 744w, https://a0.muscache.com/im/pictures/630fcb0e-4beb-4cc8-a5dd-a4b7488dc96c.jpg?aki_policy=large 1128w, https://a0.muscache.com/im/pictures/630fcb0e-4beb-4cc8-a5dd-a4b7488dc96c.jpg?aki_policy=x_large 1440w" >
+							</div>
+							<div class="c2txt"> 
+								<div>
+									<span class="tit" >구호 인력을 위한 숙소</span></div>
+								<div>
+									<span class="sub">코로나19 구호 인력을 위한 숙소를 찾거나 제공하세요.</span>
+								</div>
+							</div>
+						</div>
+					</li>
+				</ul>
 			</div>
 		</div>
 		
@@ -33,16 +78,28 @@
 		<div id="contents4">
 			<div id="c4_topBtm">
 				<div id="c4_content">
+					<div id="c4left">
+						<div id="c4lefttop">
+						   <h1 tabindex="-1">최전선에서 싸우는 구호 인력에게 숙소를 제공하는 에어비앤비의 <br>노력에 동참해주세요.</h1>
+						</div>
+						<div id="c4leftbtm">
+							동참하기
+						</div>
+					</div>
+					<div id="c4right">
+					</div>
 				</div>
 			</div>
 		</div>
 		
-		
+		<div id="c5Wrap">
 		<div id="contents5">
 			<div id="c5_topBtm">
 				<div id="c5_content">
+					<h2>최신 정보 확인하기</h2>
 				</div>
 			</div>
+		</div>
 		</div>
 	</div>
 	
@@ -122,7 +179,7 @@
 		</div>
 		<div id="footer2">
 			<div id="footer2_div1">
-					<span> © 2020 Airbnb, Inc. All rights reserved</span>
+					<span> ©2020 Airbnb, Inc. All rights reserved</span>
 					<span class="dot"> · </span>
 					<a href=""> 개인정보 처리방침 </a>
 					<span class="dot"> · </span>
