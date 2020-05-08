@@ -7,14 +7,8 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <c:import url="./template/boot.jsp"></c:import>
-
+<c:import url="./template/fullcalendarLoad.jsp"></c:import>
 <link rel="stylesheet" type="text/css" href="./resources/css/searchStyle.css">
-
-<link href='./resources/static/fullcalendar/packages/core/main.css' rel='stylesheet' />
-<link href='./resources/static/fullcalendar/packages/daygrid/main.css' rel='stylesheet' />
-<script src='./resources/static/fullcalendar/packages/core/main.js'></script>
-<script src='./resources/static/fullcalendar/packages/daygrid/main.js'></script>
-<script src='./resources/static/fullcalendar/packages/interaction/main.js'></script>
 
 <script src='./resources/js/fullcalendar.js'></script>
 
