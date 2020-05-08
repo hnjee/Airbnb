@@ -33,7 +33,7 @@ public class HomeController {
 		
 		model.addAttribute("serverTime", formattedDate );
 		
-		return "fullcalendar_test";
+		return "index";
 	}
 	
 }
