@@ -73,15 +73,16 @@
 }
 
 #c2_content li{
-	float: left
+	float: left;
 }
 .c2{
-	width: 521px;
+	width: 518px;
 	height: 421px;
-    margin-right: 12px;
+    margin-right: 15px;
     margin-top: 4px;
     margin-bottom: 8px;
-    transition: box-shadow 0.2s ease 0s, -ms-transform 0.1s ease 0s, -webkit-transform 0.1s ease 0s, transform 0.1s ease 0s;
+   	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	border-radius: 16px;
 }
 
 .c2img{
@@ -123,6 +124,7 @@
     padding-top: 12px;
     padding-right: 16px;
     padding-bottom: 16px; 
+    border-radius: 0 0 16px 16px;	
 }
 .c2txt .tit{
 	font-size: 18px;
@@ -138,7 +140,6 @@
 #c3txt{
 	height: 100px;
 	margin-bottom: 32px;
-	
 }
 
 #c3txt_1{
@@ -146,12 +147,16 @@
 	display: block;
 	float: left;
 }
-#c3txt_1 h1{
+#c3txt_1 h2{
 	font-size: 32px;
+	
+	word-spacing: -3px;
 	color: white;
 }
 #c3txt_1 div{
-	 font-size: 16px;	
+	 font-size: 16px;
+	 word-spacing: -2px;	
+	 line-height: 19px ;
 	 color: white;
 }
 
@@ -159,6 +164,37 @@
 	width: 119px;
 	display: block;
 	float: left;
+}
+#c3txt_2 a {
+	cursor: pointer !important;
+    display: inline-block !important;
+    position: relative !important;
+    text-align: center !important;
+    width: auto !important;
+    font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif !important;
+    font-size: 14px !important;
+    line-height: 18px !important;
+    font-weight: 600 !important;
+    padding-top: 7px !important;
+    padding-bottom: 7px !important;
+    padding-left: 14px !important;
+    padding-right: 14px !important;
+    color: rgb(255, 255, 255) !important;
+    margin: 0px !important;
+    text-decoration: none !important;
+    border-radius: 8px !important;
+    border-width: 1px !important;
+    border-style: solid !important;
+    outline: none !important;
+    transition: box-shadow 0.2s ease 0s, -ms-transform 0.1s ease 0s, -webkit-transform 0.1s ease 0s, transform 0.1s ease 0s !important;
+    border-color: rgb(255, 255, 255) !important;
+    background: transparent !important;
+}
+
+#c3txt_2 a:hover {
+    color: rgb(255, 255, 255) !important;
+    border-color: rgb(255, 255, 255) !important;
+    background: rgb(113, 113, 113) !important;
 }
 
 #c3txt_1 div{
