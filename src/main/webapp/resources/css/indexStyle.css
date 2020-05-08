@@ -76,9 +76,9 @@
 	float: left;
 }
 .c2{
-	width: 518px;
+	width: 520px;
 	height: 421px;
-    margin-right: 15px;
+    margin-right: 13px;
     margin-top: 4px;
     margin-bottom: 8px;
    	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -149,7 +149,6 @@
 }
 #c3txt_1 h2{
 	font-size: 32px;
-	
 	word-spacing: -3px;
 	color: white;
 }
@@ -289,9 +288,44 @@
 	height: 144px;
 	line-height: 35px;
 }
+
 #c4leftbtm{
 	height: 34px;
 	margin-top: 24px;
+}
+#c4leftbtm a:hover{
+	color: rgb(34, 34, 34) !important;
+    border-color: rgb(0, 0, 0) !important;
+    background: rgb(247, 247, 247) !important;
+}
+#c4leftbtm a{
+	cursor: pointer !important;
+    display: inline-block !important;
+    position: relative !important;
+    text-align: center !important;
+    width: auto !important;
+    font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif !important;
+    font-size: 14px !important;
+    line-height: 18px !important;
+    font-weight: 600 !important;
+    padding-top: 7px !important;
+    padding-bottom: 7px !important;
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+    margin: 0px !important;
+    text-decoration: none !important;
+    border-radius: 8px !important;
+    border-width: 1px !important;
+    border-style: solid !important;
+    outline: none !important;
+    transition: box-shadow 0.2s ease 0s, -ms-transform 0.1s ease 0s, -webkit-transform 0.1s ease 0s, transform 0.1s ease 0s !important;
+}
+
+#c4lefttop h1{
+	font-size: 32px;
+	word-spacing: -4px;
+	line-height: 37px;
+	font-weight: 600;
 }
 
 #c4right div{
@@ -299,7 +333,9 @@
 	height: 168px;
 	font-size: 18px;
 	line-height: 27px;
+	word-spacing: -2px;
 }
+
 
 #c5_content h1{
 	height: 26px;
