@@ -5,19 +5,16 @@
 
  document.addEventListener('DOMContentLoaded', function() {
       var calendarEl = document.getElementById('calendar');
-    
+      
+    //fullcalendar 생성
       var calendar = new FullCalendar.Calendar(calendarEl, {
         plugins: [ 'interaction', 'dayGrid', 'moment' ],
-        selectable: true,
-        
-        dateClick: function(info){       	
-        	console.log('date1 : '+info.dateStr);       	
-        }        
+        selectable: true,      
+        dateClick: function(selectInfo){       	
+        	console.log('start : '+selectInfo.start+' end:'+selectInfo.end);          	    
+        },       
+      	unselectAuto: true
       });
-      
-      calendar.on('dateClick', function(info2) {
-    	  console.log('date 2:  ' + info2.dateStr);
-    	});
       
       calendar.render();
     });

@@ -216,7 +216,6 @@
 	</div>
 	
 
-<div id="calendar" style="height: 550px; width: 600px;"></div>
 
 
 

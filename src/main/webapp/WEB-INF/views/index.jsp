@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>숙소, 체험, 장소를 모두 한 곳에서</title>
 
 <c:import url="./template/boot.jsp"></c:import>
 <c:import url="./template/fullcalendarLoad.jsp"></c:import>
@@ -30,20 +30,10 @@
 <c:import url="./jsp/header.jsp"></c:import>
 <c:import url="./jsp/searchBox.jsp"></c:import>
 
-<script type="text/javascript">
-	$('#add').click(function(){
-		alert("click");
-		
-	});
-	
 
 
-	$(".location").keyup(function(){
-		var inputLength = $(this).val().length;
-		console.log(inputLength);
-		});
 
-</script>
+
 
 
 </body>
