@@ -30,6 +30,7 @@
 
 <link rel="stylesheet" type="text/css" href="./resources/css/listHeaderStyle.css">
 <link rel="stylesheet" type="text/css" href="./resources/css/listMainStyle.css">
+ <link rel="stylesheet" type="text/css" href="./resources/css/listFooter.css">
 </head>
 <body>
 
@@ -363,9 +364,35 @@
 					<div aria-hidden="false" class="_10v3f8y9">
 					<aside aria-label="검색 기반 위치 핀이 표시되는 지도" class="_zdxht7" style="height: 100vh; padding-top: 80px; margin-top: -80px; position: sticky; top: 0px;">
 					<div data-veloute="map/GoogleMap" style="position: relative; width: 100%; height: 100%;">
-					
-					
-					
+						<div style="height: 100%; background-color: rgb(230, 227, 223); position: relative; overflow: hidden;">
+						<div style="height: 100%; width: 100%; position: absolute; top: 0px; left: 0px; background-color: rgb(229, 227, 223);">
+						<div class="gm-style" style="position: absolute; z-index: 0; left: 0px; top: 0px; height: 100%; width: 100%; padding: 0px; border-width: 0px; margin: 0px;">
+							
+							
+								<div id="map" style="z-index: -1;position: absolute;width: 100%;height: 100%;top: 0px;left: 0px;border: none;"></div>
+							    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=327fa35f2eae30fcd772f149b123ba65"></script>
+								<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=327fa35f2eae30fcd772f149b123ba65&libraries=services"></script>
+								<script>
+									
+									var loc ="강남구";	//검색어
+									var lat ="";		//위도
+									var lng="";			//경도
+									
+									var container = document.getElementById('map');
+									var options = {
+										center: new kakao.maps.LatLng(33.450701, 126.570667),
+										level: 3
+									};						
+									var map = new kakao.maps.Map(container, options);
+									
+									
+									
+								</script>
+							
+							
+						</div>
+						</div>
+						</div>
 					</div>
 					</aside>
 					</div>
@@ -377,7 +404,16 @@
 				
 				<!-- Main End -->
 				
+				
+				
+				
+				
 			</div>			
+		
+			<!-- Footer start -->
+			<c:import url="../jsp/footer.jsp"></c:import>
+			
+			<!-- Footer End -->
 		</div>
 		</div>	
 	</div>

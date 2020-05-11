@@ -106,7 +106,6 @@ h1 {
     height: 48px !important;
     background: rgb(255, 255, 255) !important;
     border-bottom: 0px !important;
-    padding: 0px 24px !important;
 }
 ._m9c03w {
     display: inline-block !important;
@@ -510,8 +509,34 @@ svg:not(:root) {
     border-bottom-color: #EBEBEB !important;
 }
 
-
-
+.gm-style > div[tabindex="0"]:focus > :last-child::after{
+  border: 0px solid rgb(34, 34, 34);
+  bottom: 0;
+  content: " ";
+  display: block;
+  left: 0;
+  pointer-events: none;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+._10v3f8y9 {
+    top: 0px !important;
+    display: block !important;
+    left: auto !important;
+    width: calc(100% - 840px) !important;
+    bottom: 0px !important;
+    position: absolute !important;
+    right: 0px !important;
+}
+._zdxht7 {
+    width: 100% !important;
+    display: block;
+}
+.gm-style {
+    font: 400 11px Roboto, Arial, sans-serif;
+    text-decoration: none;
+}
 
 
 

@@ -6,7 +6,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Insert title here</title>
-	<link rel="stylesheet" type="text/css" href="./resources/css/listHeaderStyle.css">
+	<link rel="stylesheet" type="text/css" href="./resources/css/selectHeaderStyle.css">
 	<link rel="stylesheet" type="text/css" href="./resources/css/selectPage.css">
 	<link rel="stylesheet" type="text/css"  href="./resources/css/listFooter.css"> 
 	<style type="text/css">
