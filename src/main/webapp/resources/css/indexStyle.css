@@ -1,12 +1,16 @@
 @charset "UTF-8";
 
+*{
+  margin:0px;
+  padding: 0px;
+}
+
 
 #c1_content{
 	width: 1600px;
 	height: 125px;
-	padding: 20px 80px 20px 80px; 
+	padding: 0 80px;
 	margin: 0 auto;
-	line-height: 50px;
 }
 
 #c1_topBtm{
@@ -21,28 +25,28 @@
 #c2_content{
 	width: 1600px;
 	height: 433px;
- 	padding: 0 80px; 
+	padding: 0 80px;
 	margin: 24px auto 0;
 }
 
 #contents3{
 	width: 100%;
 	height: 940px;
-	padding: 70px 0 80px;
+	padding: 64px 0 80px;
 	margin-top: 54px;
 	background-color: black;
 }
 #c3_content{
 	width: 1600px;
 	height: 948px;
-    padding: 0px 80px 0 80px; 
+	padding: 0px 80px 0 80px;
 	margin: 0 auto;
 }
 
 #c4_content{
 	width: 1600px;
 	height: 202px;
- 	padding: 0px 80px 0 80px; 
+	padding: 0px 80px 0 80px;
 	margin: 0 auto;
 }
 #c4_topBtm{
@@ -58,7 +62,7 @@
 #contents5{
 	width: 1600px;
 	height: 479px;
- 	padding: 0px 80px 0 80px; 
+	padding: 0px 80px 0 80px;
 	margin: 0 auto;
 }
 
@@ -147,15 +151,12 @@
 	font-size: 32px;
 	word-spacing: -3px;
 	color: white;
-	margin: 0px;
-	font-weight: 600;
 }
 #c3txt_1 div{
 	 font-size: 16px;
 	 word-spacing: -2px;	
-	 line-height: 20px !important;
+	 line-height: 19px ;
 	 color: white;
-	 margin: 4px 0 0;
 }
 
 #c3txt_2{
@@ -325,7 +326,6 @@
 	word-spacing: -4px;
 	line-height: 37px;
 	font-weight: 600;
-	margin: 0px;
 }
 
 #c4right div{
@@ -338,7 +338,6 @@
 
 
 #c5_content h1{
-	margin: 0px;
 	height: 26px;
 	font-size: 22px;
     line-height: 26px;
@@ -377,7 +376,7 @@
 	font-weight: 600;
 	line-height: 20px;
 	color: #222222 ; 
-	word-spacing: 1px;
+	word-spacing: -2px;
 	
 }
 .c5_sub{
@@ -387,3 +386,71 @@
 	color: #717171;
 	word-spacing: -2px;
 }
+
+
+footer{
+	width: 1600px;
+	height: 398px;
+	padding: 0px 80px;
+	margin: 0 auto;
+}
+
+#footer1{
+	width: 1624px;
+	height: 233px;
+	padding: 48px 0;
+	margin: 0 -12px;
+} 
+
+#footer2{
+	width: 1600px;
+	height: 20px;
+	padding: 24px 0px;
+	border-top: 1px solid #DDDDDD;
+}
+
+.footer1_sec{
+	float: left;
+	width: 382px;
+	height: 233px;
+	padding: 0 12px;
+}
+.footer1_sec li{
+	width: 382px;
+	height: 20px;
+	margin-top: 16px;
+	font-size: 14px;
+	word-spacing: -2px;
+}
+h4{
+	font-size: 12px;
+}
+a{
+	text-decoration: none;
+	color: black; 
+}
+ul{
+	list-style: none;
+}
+
+#footer2_div1{
+	width:1144px;
+	margin-right: 20px;
+	float: left;
+	font-size: 14px;
+}
+.dot{
+	display: inline-block;
+    text-align: center;
+    width: 7px;
+}
+
+#footer2_div2{
+	float: left;
+	width: 415px;	
+	font-size:14px;
+}
+
+#footer2_div2 li{
+	float: left;
+} 

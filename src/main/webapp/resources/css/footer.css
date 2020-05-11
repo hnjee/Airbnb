@@ -3,6 +3,7 @@
 *{
   margin:0px;
   padding: 0px;
+  box-sizing: content-box;
 }
 
 footer{
@@ -40,7 +41,9 @@ footer{
 	word-spacing: -2px;
 }
 h4{
+	margin: 0px;
 	font-size: 12px;
+	font-weight: 600;
 }
 a{
 	text-decoration: none;
