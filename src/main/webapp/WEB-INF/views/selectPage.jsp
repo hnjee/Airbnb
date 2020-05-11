@@ -6,24 +6,19 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Insert title here</title>
-	<link rel="stylesheet" type="text/css" href="./resources/css/listHeaderStyle.css"> 
+	<link rel="stylesheet" type="text/css" href="./resources/css/listHeaderStyle.css">
 	<link rel="stylesheet" type="text/css" href="./resources/css/selectPage.css">
-	<link rel="stylesheet" type="text/css"  href="./resources/css/footer.css"> 
+	<link rel="stylesheet" type="text/css"  href="./resources/css/listFooter.css"> 
 	<style type="text/css">
 		footer{
-			width:1280px;
-			height: 398px;
-			padding: 0 80px 80px 80px;
-			margin: 0 auto;
-		}
-		.footer1_sec {
-			width: 302px;
+			padding: 0px 80px 80px 80px;
 		}
 	</style>
 </head>
 <body>
 	<!-- Header start -->
 	<c:import url="./jsp/listHeader.jsp"></c:import>
+	<!-- <div id="header1"> </div> -->
 	<!-- Header End -->
 
 	<!-- Main Start -->
