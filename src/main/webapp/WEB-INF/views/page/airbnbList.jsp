@@ -362,7 +362,7 @@
 					
 					<!-- 지도 불러오기 -->
 					<div aria-hidden="false" class="_10v3f8y9">
-					<aside aria-label="검색 기반 위치 핀이 표시되는 지도" class="_zdxht7" style="height: 100%; padding-top: 80px; margin-top: -80px; position: sticky; top: 0px;">
+					<aside aria-label="검색 기반 위치 핀이 표시되는 지도" class="_zdxht7" style="height: 100vh; padding-top: 80px; margin-top: -80px; position: sticky; top: 0px;">
 					<div data-veloute="map/GoogleMap" style="position: relative; width: 100%; height: 100%;">
 						<div style="height: 100%; background-color: rgb(230, 227, 223); position: relative; overflow: hidden;">
 						<div style="height: 100%; width: 100%; position: absolute; top: 0px; left: 0px; background-color: rgb(229, 227, 223);">
