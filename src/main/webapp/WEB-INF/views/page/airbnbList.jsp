@@ -30,7 +30,7 @@
 
 <link rel="stylesheet" type="text/css" href="./resources/css/listHeaderStyle.css">
 <link rel="stylesheet" type="text/css" href="./resources/css/listMainStyle.css">
- <link rel="stylesheet" type="text/css" href="./resources/css/footer.css">
+ <link rel="stylesheet" type="text/css" href="./resources/css/listFooter.css">
 </head>
 <body>
 
