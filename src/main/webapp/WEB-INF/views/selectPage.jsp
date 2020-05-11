@@ -23,30 +23,54 @@
 
 	<!-- Main Start -->
 	<main id="selectPageContent">
+	
 		<div id="picWrap">
-			<div id="pic1">
-				<img  src="https://a0.muscache.com/im/pictures/e1295260-5ce4-496b-84f2-a90ae2612811.jpg?aki_policy=xx_large"height="712.5" width="951">
+			<div id="pics">
+				<div id="pic1">
+					<img  src="https://a0.muscache.com/im/pictures/e1295260-5ce4-496b-84f2-a90ae2612811.jpg?aki_policy=xx_large"height="712.5" width="951">
+				</div>
+				<div class="pic2">
+					<div class="pic">
+						<img src="https://a0.muscache.com/im/pictures/7436dc02-1515-44e8-80d4-64ab18d657c3.jpg?aki_policy=large" height="355.5" width="474">
+					</div>
+					<div class="pic">
+						<img  src="https://a0.muscache.com/im/pictures/e0085908-7090-41c6-80d5-9337740b8126.jpg?aki_policy=large" height="355.5" width="474">
+					</div>
+				</div>
+				<div class="pic2">
+					<div class="pic">
+						<img src="https://a0.muscache.com/im/pictures/47f57809-8ce1-47f6-800c-6a7ec5a75eaa.jpg?aki_policy=large" height="355.5" width="474">
+					</div>
+					<div class="pic">
+						<img src="https://a0.muscache.com/im/pictures/83a03dac-eda7-482a-a218-086f7a1270c6.jpg?aki_policy=large"  height="355.5" width="474">
+					</div>
+				</div>
 			</div>
-			<div class="pic2">
-				<div class="pic">
-					<img src="https://a0.muscache.com/im/pictures/7436dc02-1515-44e8-80d4-64ab18d657c3.jpg?aki_policy=large" height="355.5" width="474">
-				</div>
-				<div class="pic">
-					<img  src="https://a0.muscache.com/im/pictures/e0085908-7090-41c6-80d5-9337740b8126.jpg?aki_policy=large" height="355.5" width="474">
-				</div>
+			<div id="btnTop">
+				<button class="picBtn"> 공유하기 </button>
+				<button class="picBtn"> 저장 </button>
 			</div>
-			<div class="pic2">
-				<div class="pic">
-					<img src="https://a0.muscache.com/im/pictures/47f57809-8ce1-47f6-800c-6a7ec5a75eaa.jpg?aki_policy=large" height="355.5" width="474">
-				</div>
-				<div class="pic">
-					<img src="https://a0.muscache.com/im/pictures/83a03dac-eda7-482a-a218-086f7a1270c6.jpg?aki_policy=large"  height="355.5" width="474">
-				</div>
+			<div id="btnBtm">
+				<button class="picBtn"> 사진 보기 </button>
 			</div>
 		</div>
 			
 		<div id="descWrap">
-			
+			<div id="desc">
+				<div id="summary"></div>
+				<div id="detail"></div>
+				<div id="hostDesc"></div>
+				<div id="amenities"></div>
+				<div id="resChk"></div>
+				<div id="reviews"></div>
+				<div id="hostProfile"></div>
+				<div id="neighborhood"></div>
+				<div id="notice"></div>
+			</div>
+			<div id="resWrap">
+				<div id="res">
+				</div>
+			</div>
 		</div>
 	</main>
 	<!-- Main End -->

@@ -1,20 +1,26 @@
 @charset "UTF-8";
 
+#selectPageContent{
+	border-bottom: 1px solid #DDDDDD;
+}
+
 #picWrap{
+	position: relative;
+}
+
+#pics{
 	width: 100%;
 	height: 592px;
 	box-sizing: border-box;
 }
-
 #pic1 {
 	width: 50%;
 	height: 100%;
 	overflow: hidden; 
 	float: left;
-	border: 1px solid black;
+	border: 1px solid #484848;
 	box-sizing: border-box;
 }
-
 .pic2{
 	width: 25%;
 	height: 100%;
@@ -22,11 +28,88 @@
 	float: left;	
 	overflow: hidden; 
 }
-
 .pic {
 	width: 100%;
 	height: 50%;
 	overflow: hidden; 
-	border: 1px solid black;
+	border: 1px solid #484848;
 	box-sizing: border-box;
+}
+
+#btnTop{
+    position: absolute !important;
+    top: 24px !important;
+    right: 24px !important;
+    z-index: 1 !important;
+}
+#btnBtm{
+	box-shadow: rgba(0, 0, 0, 0.14) 0px 1px 1px 1px !important;
+    position: absolute !important;
+    left: auto !important;
+    right: 24px !important;
+    bottom: 24px !important;
+    transform: translateY(0px) !important;
+    z-index: 1 !important;
+}
+.picBtn{
+	font-size: var(--font-button-small-font-size, 14px) !important;
+    line-height: var(--font-button-small-line-height, 22px) !important;
+    letter-spacing: var(--font-button-small-letter-spacing, normal) !important;
+    font-family: var(--font-button-small-font-family, Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif) !important;
+    text-transform: var(--font-button-small-text-transform, undefined) !important;
+    padding-top: var(--spacing-button-small-vertical, 6px) !important;
+    padding-bottom: var(--spacing-button-small-vertical, 6px) !important;
+    font-weight: var(--font-book-font-weight, 600) !important;
+    padding-left: var(--spacing-button-small-horizontal, 15px) !important;
+    padding-right: var(--spacing-button-small-horizontal, 15px) !important;
+    box-shadow: var(--shadow-button-level0-box-shadow, none) !important;
+    color: #484848 !important;
+    display: inline-block !important;
+    position: relative !important;
+    text-align: center !important;
+    transition-property: background, border-color, color !important;
+    transition-duration: 0.2s !important;
+    transition-timing-function: ease-out !important;
+    width: auto !important;
+    cursor: pointer !important;
+  	margin-left: 13px;
+    text-decoration: none !important;
+    border-radius: 4px !important;
+    border-width: 1px !important;
+    border-style: solid !important;
+    background: rgb(255, 255, 255) !important;
+    border-color: transparent !important;
+}
+
+#descWrap{
+	width: 1080px;
+	height: 3000px;
+	padding: 0 24px;
+	margin: 0 auto;
+	box-sizing: border-box;
+	background-color: pink;
+}
+#desc{
+	width: 602px;
+	height: 3000px;
+	padding-right: 8px; 
+	background-color: green;
+	float: left;
+}
+
+#resWrap{
+	width:0px;
+	height: 100%;
+	padding-right: 8px;
+	float: left;
+}
+
+#res{
+	width: 376px;
+	height: 681px;
+	margin-left: 45px;
+	padding: 0 24px;
+	border: 1px solid #e4e4e4;  
+	box-sizing: border-box;
+	
 }
