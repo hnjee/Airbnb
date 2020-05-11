@@ -7,6 +7,8 @@
 <meta charset="UTF-8">
 <title>Airbnb List Page</title>
 <c:import url="../template/boot.jsp"></c:import>
+<c:import url="../template/fullcalendarLoad.jsp"></c:import>
+<script src='./resources/js/fullcalendar.js'></script>
 
 <style type="text/css">
 	*{
