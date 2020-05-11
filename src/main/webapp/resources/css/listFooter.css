@@ -1,12 +1,11 @@
 @charset "UTF-8";
-
 *{
   margin:0px;
   padding: 0px;
-  box-sizing: content-box;
 }
 
 footer{
+	box-sizing: content-box;
 	width: 1600px;
 	height: 398px;
 	padding: 0px 80px;
@@ -18,6 +17,7 @@ footer{
 	height: 233px;
 	padding: 48px 0;
 	margin: 0 -12px;
+	box-sizing: content-box;
 } 
 
 #footer2{
@@ -25,6 +25,7 @@ footer{
 	height: 20px;
 	padding: 24px 0px;
 	border-top: 1px solid #DDDDDD;
+	box-sizing: content-box;
 }
 
 .footer1_sec{
