@@ -4,8 +4,9 @@
 #c1_content{
 	width: 1600px;
 	height: 125px;
-	padding: 0 80px; 
+	padding: 20px 80px 20px 80px; 
 	margin: 0 auto;
+	line-height: 50px;
 }
 
 #c1_topBtm{
@@ -34,7 +35,7 @@
 #c3_content{
 	width: 1600px;
 	height: 948px;
- padding: 0px 80px 0 80px; 
+    padding: 0px 80px 0 80px; 
 	margin: 0 auto;
 }
 
@@ -146,12 +147,15 @@
 	font-size: 32px;
 	word-spacing: -3px;
 	color: white;
+	margin: 0px;
+	font-weight: 600;
 }
 #c3txt_1 div{
 	 font-size: 16px;
 	 word-spacing: -2px;	
-	 line-height: 19px ;
+	 line-height: 20px !important;
 	 color: white;
+	 margin: 4px 0 0;
 }
 
 #c3txt_2{
@@ -321,6 +325,7 @@
 	word-spacing: -4px;
 	line-height: 37px;
 	font-weight: 600;
+	margin: 0px;
 }
 
 #c4right div{
@@ -333,6 +338,7 @@
 
 
 #c5_content h1{
+	margin: 0px;
 	height: 26px;
 	font-size: 22px;
     line-height: 26px;
@@ -371,7 +377,7 @@
 	font-weight: 600;
 	line-height: 20px;
 	color: #222222 ; 
-	word-spacing: -2px;
+	word-spacing: 1px;
 	
 }
 .c5_sub{
