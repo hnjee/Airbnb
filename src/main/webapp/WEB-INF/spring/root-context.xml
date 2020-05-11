@@ -3,6 +3,27 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd">
 	
+	<bean class= "org.springframework.beans.factory.config.PropertyPlaceholderConfigurer" id="propertyPlaceholderConfigurer">
+		<property name="locations" value="classpath:DB/config/*.properties">
+		</property>
+	</bean>
+	
 	<!-- Root Context: defines shared resources visible to all other web components -->
+	<bean class="org.springframework.jdbc.datasource.DriverManagerDataSource" id="dataSource">
+		<property name="username" value="${oracle.user}"/>
+		<property name="password" value="${oracle.pw}"/>
+		<property name="url" value="${oracle.url}"/>
+		<property name="driverClassName" value="${oracle.driver}"/>
+	</bean>
 		
+	<bean class="org.mybatis.spring.SqlSessionFactoryBean" id="sqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSource"/>
+		<property name="mapperLocations" value="classpath:DB/mapper/*Mapper.xml"/>
+		<property name="configLocation" value="classpath:DB/config/mybatisConfig.xml"/>
+	</bean>
+	
+	<bean class="org.mybatis.spring.SqlSessionTemplate" id="sqlSession">
+		<constructor-arg name="sqlSessionFactory" ref="sqlSessionFactoryBean"/>
+	</bean>
+	
 </beans>
