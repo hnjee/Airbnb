@@ -92,9 +92,79 @@
 	width: 602px;
 	height: 3000px;
 	padding-right: 8px; 
-	background-color: green;
 	float: left;
 }
+
+#desc_title{
+	width: 100%;
+	height: 120px;
+	margin-top: 18px;
+	margin-bottom: 10px;
+	border-bottom: 1px solid #e4e4e4;
+}
+#titLeft{
+	width: 85%;
+	height: 100%;
+	float: left;
+}
+#titRight{
+	width: 15%;
+	height: 90px;
+	padding: 0 8px;
+	float: right;
+}
+
+#mainTit{
+	width: 100%;
+	height: 75%;
+	padding-right: 20px;
+	padding-bottom: 6px;
+	box-sizing: border-box;
+	overflow-wrap: break-word !important;
+    font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif !important;
+    font-size: 32px !important;
+    font-weight: 800 !important;
+    line-height: 1.125em !important;
+    color: rgb(72, 72, 72) !important;
+    padding-top: 6px !important;
+    padding-bottom: 6px !important;
+    margin: 0px !important;
+	
+}
+
+#subTit{
+	width: 100%;
+	height: 25%;
+	padding-bottom: 10px;
+	box-sizing: border-box;
+	overflow-wrap: break-word !important;
+    font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif !important;
+    font-size: 16px !important;
+    font-weight: 400 !important;
+    line-height: 1.375em !important;
+    color: rgb(72, 72, 72) !important;
+    margin: 0px !important;
+  
+}
+#hostPic{
+	vertical-align: middle !important;
+    display: block !important;
+    border-radius: 50% !important;
+    border-width: 2px !important;
+    border-style: solid !important;
+    border-color: rgb(255, 255, 255) !important;
+    overflow: hidden !important;
+}
+#hostName{
+	font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif !important;
+    font-size: 14px !important;
+    font-weight: 400 !important;
+    line-height: 1.28571em !important;
+    color: rgb(118, 118, 118) !important;
+    margin: 0px !important;
+    text-align: center
+}
+
 
 #resWrap{
 	width:0px;
@@ -113,6 +183,7 @@
 	box-sizing: border-box;
 	position: absolute;
     top: 24px;
+    
 }
 
 #res1{
