@@ -46,14 +46,13 @@
 										<path d="M1 1L4.5 4.5L8 1" stroke="currentcolor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
 										</path>
 										</svg>
-									</div>
-								
+									</div>								
 								</div>
 							</div>
 						</button>
 					
 						<div class="_hxlt5h" tabindex="-1" id="simple-header-locale-menu">
-							<a class="_1ncnxsuh" href="/account-settings/language" data-no-client-routing="">
+							<a class="_1ncnxsuh" href="/" data-no-client-routing="">
 								<div class="_3hmsj">
 									<div class="_2wzhk5">
 										<svg aria-hidden="true" role="presentation" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" style="display: block; height: 16px; width: 16px; fill: currentcolor;">
@@ -66,7 +65,7 @@
 								<div class="_ojs7nk">한국어 (KR)</div>
 							</a>
 							
-							<a class="_1ncnxsuh" href="/account-settings/currency" data-no-client-routing="">
+							<a class="_1ncnxsuh" href="/" data-no-client-routing="">
 								<div class="_3hmsj">
 								<div class="_2wzhk5">₩</div>
 								</div>
@@ -76,11 +75,11 @@
 						</div>
 					</div>
 				
-				<a class="_547li01" href="/host/homes">
+				<a class="_547li01" href="/">
 				<div class="_iglww7">숙소 호스트 되기</div>
 				</a>
 				
-				<a class="_547li01" href="/d/onlinehost">
+				<a class="_547li01" href="/">
 				<div class="_iglww7">체험 호스팅하기</div>
 				</a>
 				

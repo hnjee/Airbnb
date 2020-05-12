@@ -182,7 +182,7 @@
 											</button>
 										
 											<div class="_hxlt5h" tabindex="-1" id="simple-header-locale-menu">
-												<a class="_1ncnxsuh" href="/account-settings/language" data-no-client-routing="">
+												<a class="_1ncnxsuh" href="/" data-no-client-routing="">
 												<div class="_3hmsj">
 												<div class="_2wzhk5">
 												<svg aria-hidden="true" role="presentation" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" style="display: block; height: 16px; width: 16px; fill: currentcolor;">
@@ -193,7 +193,7 @@
 												<div class="_ojs7nk">한국어 (KR)</div>
 												</a>
 											
-												<a class="_1ncnxsuh" href="/account-settings/currency" data-no-client-routing="">
+												<a class="_1ncnxsuh" href="/" data-no-client-routing="">
 												<div class="_3hmsj">
 												<div class="_2wzhk5">₩</div>
 												</div>

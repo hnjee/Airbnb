@@ -52,7 +52,7 @@
 							<div class="_qiizeo">
 								<button class="_esmga25" aria-expanded="false" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
 									<div class="_9bj9d5">체크인/체크아웃</div>
-									<div class="_4poulv">날짜 추가</div>
+									<div class="_4poulv"><input type="text" class="datePick" value="날짜 추가" style="border: none;"></div>
 								</button>
 								
 								<div class="_1w7uj89a">
