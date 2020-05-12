@@ -29,6 +29,8 @@
 	<!-- <script type="text/javascript" src="./resources/js/fullcalendar.js"></script> -->
 	
 	<script type="text/javascript">
+	
+	//calendar 동작
 	 document.addEventListener('DOMContentLoaded', function() {
 	      var calendarEl = document.getElementById('calendar');
 	      
@@ -53,6 +55,67 @@
 	     
 	      calendar.render();
 	    });
+	
+	
+	
+	//searchBox 동작
+	var adultNum=0;
+	var childNum=0;
+	var infantNum=0;
+	
+
+	
+	$('.adult-min').click(function(){
+		if(adultNum>0){
+			adultNum --;
+		}
+		$('.guestBtn').click(function(){
+			var totalGuest = adultNum+childNum+infantNum;		
+				$('.totalGuest').prop('value','게스트 '+totalGuest+'명');
+				$('.totalGuest').prop('style',"border: none;font-weight: 600;color: black;");		
+		});
+		$('#adultNum').prop('value',adultNum);
+	});
+	
+	$('.adult-pl').click(function(){
+		adultNum ++;
+		$('.guestBtn').click(function(){
+			var totalGuest = adultNum+childNum+infantNum;		
+				$('.totalGuest').prop('value','게스트 '+totalGuest+'명');
+				$('.totalGuest').prop('style',"border: none;font-weight: 600;color: black;");
+		});
+		$('#adultNum').prop('value',adultNum);
+		
+	});
+
+	$('.child-min').click(function(){
+		if(childNum>0){
+			childNum --;
+		}
+		$('#childNum').prop('value',childNum);
+	});
+	
+	$('.child-pl').click(function(){
+		childNum ++;
+		$('#childNum').prop('value',childNum);
+	});
+
+	$('.infant-min').click(function(){
+		if(infantNum>0){
+			infantNum --;
+		}
+		$('#infantNum').prop('value',infantNum);
+	});
+	
+	$('.infant-pl').click(function(){
+		infantNum ++;
+		$('#infantNum').prop('value',infantNum);
+	});
+	
+	
+	
+	
+	
 
 	</script>
 </body>
