@@ -7,8 +7,7 @@
 <meta charset="UTF-8">
 <title>Airbnb List Page</title>
 <c:import url="../template/boot.jsp"></c:import>
-<c:import url="../template/fullcalendarLoad.jsp"></c:import>
-<script src='./resources/js/fullcalendar.js'></script>
+
 
 <style type="text/css">
 	*{
@@ -30,9 +29,9 @@
 	}
 </style>
 
-<link rel="stylesheet" type="text/css" href="./resources/css/listHeaderStyle.css">
-<link rel="stylesheet" type="text/css" href="./resources/css/listMainStyle.css">
- <link rel="stylesheet" type="text/css" href="./resources/css/listFooter.css">
+<link rel="stylesheet" type="text/css" href="../resources/css/listHeaderStyle.css">
+<link rel="stylesheet" type="text/css" href="../resources/css/listMainStyle.css">
+ <link rel="stylesheet" type="text/css" href="../resources/css/listFooter.css">
 </head>
 <body>
 
@@ -127,17 +126,20 @@
 											<div class="_dx669kc">				
 												<!-- 컨텐츠 안 사진 -->
 												<div class="_1nz9l7j">
+												<input id="house1" type="hidden" value="서울 마포구 월드컵북로 21">
 												<div class="_mcb8gr">
 												<div class="_e296pg">												
 													<div class="_13ky0r6y" style="padding-top: 66.6667%; background: rgb(216, 216, 216);">
 													<div class="_1szwzht">													
 														<span>
 														<div class="_ttw0d">
-														<a href="" target="listing_43081036" aria-hidden="true" tabindex="-1" aria-label="[OPEN] #아지트5.3# Healing camp &amp; Home cinema 신논현역 1분" class="_15tommw"></a>
+														<a href="" target="listing_43081036" aria-hidden="true" tabindex="-1" aria-label="[OPEN] #아지트5.3# Healing camp &amp; Home cinema 신논현역 1분" class="_15tommw house1"></a>
 															<div class="_yydl86">
 															<div class="_1na7kj9b">
 																<div class="_e296pg" role="img" aria-busy="false" aria-label="[OPEN] #아지트5.3# Healing camp &amp; Home cinema 신논현역 1분" style="width: 100%; height: 100%;">
 																<div class="_1i2fr3fi" style="width: 100%; height: 100%; background-image: url(&quot;https://a0.muscache.com/im/pictures/eeebcdf4-c294-4449-978d-68592f3481fb.jpg?aki_policy=large&quot;);">
+																
+																
 																</div>
 																</div>
 															</div>
@@ -150,6 +152,11 @@
 												</div>
 												</div>
 												<!-- 컨텐츠 안 사진 끝 -->
+												
+												
+												
+												
+												
 	
 												<!-- 컨텐츠 사진 옆 설명 글 -->
 												<div class="_6kiyebe">
@@ -599,55 +606,7 @@
 							
 							
 								<div id="map" style="z-index: -1;position: absolute;width: 100%;height: 100%;top: 0px;left: 0px;border: none;"></div>
-							    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=327fa35f2eae30fcd772f149b123ba65&libraries=services"></script>
-							    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=327fa35f2eae30fcd772f149b123ba65"></script>							
-								<!-- 지도 동작 script -->
-								<script>
-									
-									//역이름 이런걸로 검색 안되고, 직접 주소 입력해야함
-									var loc ="동작구 상도로 369";	//검색어									
-									
-									var container = document.getElementById('map');
-									var options = {
-										center: new kakao.maps.LatLng(33.450701, 126.570667),
-										level: 3
-									};						
-									var map = new kakao.maps.Map(container, options);
-									var geocoder = new kakao.maps.services.Geocoder();
-									geocoder.addressSearch(loc, function(result, status) {
-										
-										// 정상적으로 검색이 완료됐으면
-										if (status === kakao.maps.services.Status.OK) { 
-											var coords = new kakao.maps.LatLng(result[0].y, result[0].x); 
-											yy = result[0].x; 
-											xx = result[0].y; 
-											
-											// 결과값으로 받은 위치를 마커로 표시 
-											var marker = new kakao.maps.Marker({ map: map, position: coords }); 
-																						
-											// 인포윈도우로 장소에 대한 설명을 표시
-											//var iwContent ='<div style="margin:0 auto;">'+loc+'<br>';
-											//var infowindow = new kakao.maps.InfoWindow({
-											//	content : iwContent 
-											//	}); 
-											//infowindow.open(map, marker); 
-											
-											// 지도의 중심을 결과값으로 받은 위치로 이동 
-											map.setCenter(coords); 
-											
-											// ★ resize 마커 중심 
-											var markerPosition = marker.getPosition();
-											$(window).on('resize', function(){
-												map.relayout();
-												map.setCenter(markerPosition); 
-											}); 
-											
-											} else { console.log('에러'); }
-									});
-									
-									
-									
-								</script>
+							    
 							
 							
 						</div>
@@ -680,7 +639,10 @@
 </div>
 
 
-
+	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=327fa35f2eae30fcd772f149b123ba65&libraries=services"></script>
+	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=327fa35f2eae30fcd772f149b123ba65"></script>							
+	<!-- 지도 동작 script -->
+	<script type="text/javascript" src="../resources/js/houseListScript.js"></script>
 
 
 </body>

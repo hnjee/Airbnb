@@ -92,11 +92,21 @@
 		if(childNum>0){
 			childNum --;
 		}
+		$('.guestBtn').click(function(){
+			var totalGuest = adultNum+childNum+infantNum;		
+				$('.totalGuest').prop('value','게스트 '+totalGuest+'명');
+				$('.totalGuest').prop('style',"border: none;font-weight: 600;color: black;");		
+		});
 		$('#childNum').prop('value',childNum);
 	});
 	
 	$('.child-pl').click(function(){
 		childNum ++;
+		$('.guestBtn').click(function(){
+			var totalGuest = adultNum+childNum+infantNum;		
+				$('.totalGuest').prop('value','게스트 '+totalGuest+'명');
+				$('.totalGuest').prop('style',"border: none;font-weight: 600;color: black;");		
+		});
 		$('#childNum').prop('value',childNum);
 	});
 
@@ -104,11 +114,21 @@
 		if(infantNum>0){
 			infantNum --;
 		}
+		$('.guestBtn').click(function(){
+			var totalGuest = adultNum+childNum+infantNum;		
+				$('.totalGuest').prop('value','게스트 '+totalGuest+'명');
+				$('.totalGuest').prop('style',"border: none;font-weight: 600;color: black;");		
+		});
 		$('#infantNum').prop('value',infantNum);
 	});
 	
 	$('.infant-pl').click(function(){
 		infantNum ++;
+		$('.guestBtn').click(function(){
+			var totalGuest = adultNum+childNum+infantNum;		
+				$('.totalGuest').prop('value','게스트 '+totalGuest+'명');
+				$('.totalGuest').prop('style',"border: none;font-weight: 600;color: black;");		
+		});
 		$('#infantNum').prop('value',infantNum);
 	});
 	

@@ -36,7 +36,7 @@
 									<span class="_krjbj"></span>5월 12일 - 5월 15일
 									</button>
 									
-									
+									<!-- 
 									<div class="_1w7uj89a">
 										<div class="collapse" id="collapseCal">
 										<div class="_h0l3uxi">
@@ -47,6 +47,7 @@
 
 										</div>
 									</div>
+									-->
 									
 									<span class="_1u98t37y"></span>
 									<button class="_37g0dr4" data-index="2" aria-expanded="false" type="button" data-toggle="collapse" data-target="#collapseGuest" aria-controls="collapseExample">
