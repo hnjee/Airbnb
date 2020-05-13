@@ -34,8 +34,6 @@
 <body>
 	<!-- Header start -->
 	<c:import url="./jsp/selectHeader.jsp"></c:import>
-	<!-- <div id="header1"> </div> -->
-	<c:import url="./jsp/listHeader.jsp"></c:import>
 	<!-- Header End -->
 
 	<!-- Main Start -->
