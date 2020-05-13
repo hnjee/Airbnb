@@ -70,13 +70,14 @@
 			
 		<!-- 2. 아래쪽 설명/예약 -->
 		<div id="descWrap">
+		<div id="descWrap2">
 			<!-- 2-1. 왼쪽 설명 파트-->
 			<div id="desc">	
 			
 			  <div id="desc_title">
 			  	<div id="titLeft">
 			  		<div id="mainTit">
-			  			lalabomok / 라라보목 / 감성 / 프리미엄 숙소
+			  			lalabomok / 라라보목 / 보목동 / 프라이빗 / 감성 숙소
 			  		</div>
 					<div id="subTit">
 						<a href="">서귀포시, 제주특별자치도, 한국</a>
@@ -212,7 +213,7 @@
 							</div>
 							<div id="tot">
 								<div>총 합계</div>
-								<span>₩71,000</span>
+								<span>₩142,000</span>
 							</div>
 						</div>
 						<div id="res2_3">
@@ -226,6 +227,7 @@
 					<a href="">이 숙소 신고하기</a>
 					
 				</div>
+			</div>
 			</div>
 		</div>
 	</main>

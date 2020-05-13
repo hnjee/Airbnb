@@ -55,7 +55,6 @@
 	font-size: var(--font-button-small-font-size, 14px) !important;
     line-height: var(--font-button-small-line-height, 22px) !important;
     letter-spacing: var(--font-button-small-letter-spacing, normal) !important;
-    font-family: var(--font-button-small-font-family, Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif) !important;
     text-transform: var(--font-button-small-text-transform, undefined) !important;
     padding-top: var(--spacing-button-small-vertical, 6px) !important;
     padding-bottom: var(--spacing-button-small-vertical, 6px) !important;
@@ -83,15 +82,16 @@
 
 #descWrap{
 	width: 1080px;
-	height: 3000px;
+	height: 2000px;
 	padding: 0 24px;
 	margin: 0 auto;
 	box-sizing: border-box;
 }
+
+
 #desc{
 	width: 602px;
-	height: 3000px;
-	padding-right: 8px; 
+	padding-right: 8px;
 	float: left;
 }
 
@@ -123,7 +123,7 @@
 	overflow-wrap: break-word !important;
     font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif !important;
     font-size: 32px !important;
-    font-weight: 800 !important;
+    font-weight: 900 !important;
     line-height: 1.125em !important;
     color: rgb(72, 72, 72) !important;
     padding-top: 6px !important;
@@ -321,16 +321,22 @@ input{
     color: rgb(72, 72, 72) !important;
     float: left;
 }
+.res2_2_1 span, #tot span{
+	display: block;
+	text-align: right;
+}
 #tot{
+	width: 326px;
 	font-size: 14px !important;
     font-weight: 600 !important;
     line-height: 1.28571em !important;
     color: rgb(72, 72, 72) !important;
     float: left;
     margin-top: 8px;
+    
 }
 .res2_2_2, #tot div{
-	width: 268px;
+	width: 200px;
 	height: 100%;
 	float: left;
 }
