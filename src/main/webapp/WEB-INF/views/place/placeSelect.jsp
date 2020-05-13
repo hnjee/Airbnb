@@ -6,12 +6,11 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Insert title here</title>
-	<link rel="stylesheet" type="text/css" href="./resources/css/selectHeaderStyle.css">
-	<link rel="stylesheet" type="text/css" href="./resources/css/selectPage.css">
-	<c:import url="./template/fullcalendarLoad.jsp"></c:import>
-	<script src='./resources/js/fullcalendar.js'></script>
-	<link rel="stylesheet" type="text/css"  href="./resources/css/listFooter.css"> 
-	<link rel="stylesheet" type="text/css"  href="./resources/css/listFooter.css">
+	<link rel="stylesheet" type="text/css" href="../resources/css/selectHeaderStyle.css">
+	<link rel="stylesheet" type="text/css" href="../resources/css/placeSelect.css">
+	<c:import url="../template/fullcalendarLoad.jsp"></c:import>
+	<script src='../resources/js/fullcalendar.js'></script>
+	<link rel="stylesheet" type="text/css"  href="../resources/css/listFooter.css"> 
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
@@ -33,7 +32,7 @@
 </head>
 <body>
 	<!-- Header start -->
-	<c:import url="./jsp/selectHeader.jsp"></c:import>
+	<c:import url="../jsp/selectHeader.jsp"></c:import>
 	<!-- Header End -->
 
 	<!-- Main Start -->
@@ -79,10 +78,10 @@
 			  <div id="desc_title">
 			  	<div id="titLeft">
 			  		<div id="mainTit">
-			  			lalabomok / 라라보목 / 보목동 / 프라이빗 / 감성 숙소
+			  			${vo.placeName}
 			  		</div>
 					<div id="subTit">
-						<a href="">서귀포시, 제주특별자치도, 한국</a>
+						<a href="">${vo.placeLocation}</a>
 					</div>
 			  	</div>
 				<div id="titRight">
@@ -90,7 +89,7 @@
 						<img src="https://a0.muscache.com/im/pictures/user/f6a34c94-247e-4cd0-a31d-688b8acfc9f7.jpg?aki_policy=profile_x_medium" height="64" width="64">
 					</div>
 					<div id="hostName">
-						Jihyeon
+						${vo.hostNum}
 					</div>
 				</div>
 			  </div>
@@ -99,13 +98,13 @@
 			    <h4><strong>The space</strong></h4>
 			    <div class="w3-row w3-large">
 			      <div class="w3-col s6">
-			        <p><i class="fa fa-fw fa-male"></i> Max people: 4</p>
-			        <p><i class="fa fa-fw fa-bath"></i> Bathrooms: 2</p>
-			        <p><i class="fa fa-fw fa-bed"></i> Bedrooms: 1</p>
+			        <p><i class="fa fa-fw fa-male"></i> Max people: ${vo.placeMaxGuest}</p>
+			        <p><i class="fa fa-fw fa-bath"></i> Bathrooms: ${vo.bathroom}</p>
+			        <p><i class="fa fa-fw fa-bed"></i> Bed: ${vo.bed}</p>
 			      </div>
 			      <div class="w3-col s6">
-			        <p><i class="fa fa-fw fa-clock-o"></i> Check In: After 3PM</p>
-			        <p><i class="fa fa-fw fa-clock-o"></i> Check Out: 12PM</p>
+			        <p><i class="fa fa-fw fa-clock-o"></i> Check In: After ${vo.checkIn}:00</p>
+			        <p><i class="fa fa-fw fa-clock-o"></i> Check Out: ${vo.checkOut}:00</p>
 			      </div>
 			    </div>
 			    <hr>
@@ -126,20 +125,19 @@
 			    <hr>
 			    
 			    <h4><strong>Extra Info</strong></h4>
-			    <p>Our apartment is really clean and we like to keep it that way. Enjoy the lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+			    <p>${vo.placeDesc}</p>
 			    <p>We accept: <i class="fa fa-credit-card w3-large"></i> <i class="fa fa-cc-mastercard w3-large"></i> <i class="fa fa-cc-amex w3-large"></i> <i class="fa fa-cc-cc-visa w3-large"></i><i class="fa fa-cc-paypal w3-large"></i></p>
 			    <hr>
 			    
 			    <h4><strong>Rules</strong></h4>
-			    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-			    <p>Subscribe to receive updates on available dates and special offers.</p>
-			    <p><button class="w3-button w3-green w3-third" onclick="document.getElementById('subscribe').style.display='block'">Subscribe</button></p>
+			    <p>${vo.placeRule}</p>
+			    <!-- <p><button class="w3-button w3-green w3-third" onclick="document.getElementById('subscribe').style.display='block'">Subscribe</button></p> -->
 			  </div>
 			  <hr>
 			  
 			  <!-- Contact -->
 			  <div class="w3-container" id="contact">
-			    <h2>Contact</h2>
+			   <h4><strong>Contact</strong></h4>
 			    <i class="fa fa-map-marker" style="width:30px"></i> Chicago, US<br>
 			    <i class="fa fa-phone" style="width:30px"></i> Phone: +00 151515<br>
 			    <i class="fa fa-envelope" style="width:30px"> </i> Email: mail@mail.com<br>
@@ -159,7 +157,7 @@
 					<div id="res1">
 						<div id="res1_1">
 							<span id="beforeCost">₩79,000</span>
-							<span id="afterCost">₩71,000</span>
+							<span id="afterCost">${vo.placePrice}</span>
 							<span id="day">/박</span>
 						</div>
 						<div id="res1_2">
@@ -237,7 +235,7 @@
 	<!-- Main End -->
 
 	<!-- Footer Start -->
-	<c:import url="./jsp/footer.jsp"></c:import>
+	<c:import url="../jsp/footer.jsp"></c:import>
 	<!-- Footer End -->
 </body>
 </html>

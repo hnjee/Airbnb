@@ -9,4 +9,7 @@ public class PlaceService {
 	@Autowired
 	private PlaceDAO placeDAO;
 	
+	public PlaceVO placeSelect(String num) throws Exception{
+		return placeDAO.placeSelect(num);
+	}
 }

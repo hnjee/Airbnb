@@ -9,5 +9,10 @@ public class PlaceDAO {
 	
 	@Autowired
 	private SqlSession sqlSession;
-	private final String NAMESPACE = "com.airbnb.s1.place.placeDAO.";
+	private final String NAMESPACE = "com.airbnb.s1.place.PlaceDAO.";
+	
+	public PlaceVO placeSelect(String num) throws Exception {
+		System.out.println(num);
+		return sqlSession.selectOne(NAMESPACE+"placeSelect", num);
+	}
 }

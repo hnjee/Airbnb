@@ -47,6 +47,7 @@
 				
 				<!-- Main Start -->
 				<main id="site-content" tabindex="-1">
+				<h1><a href="./placeSelect?num=p8"> Select GO</a> </h1>
 				<div class="content-container">
 				<div data-container="ExploreLayoutController" id="ExploreLayoutController" class="_1nkqnd0">	
 				<div class="_e296pg" style="min-height: calc(100vh - 80px);">
@@ -138,7 +139,7 @@
 																<div class="_e296pg" role="img" aria-busy="false" aria-label="[OPEN] #아지트5.3# Healing camp &amp; Home cinema 신논현역 1분" style="width: 100%; height: 100%;">
 																<div class="_1i2fr3fi" style="width: 100%; height: 100%; background-image: url(&quot;https://a0.muscache.com/im/pictures/eeebcdf4-c294-4449-978d-68592f3481fb.jpg?aki_policy=large&quot;);">
 																
-																
+													
 																</div>
 																</div>
 															</div>
