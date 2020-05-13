@@ -8,6 +8,8 @@
 	<title>Insert title here</title>
 	<link rel="stylesheet" type="text/css" href="./resources/css/selectHeaderStyle.css">
 	<link rel="stylesheet" type="text/css" href="./resources/css/selectPage.css">
+	<c:import url="./template/fullcalendarLoad.jsp"></c:import>
+	<script src='./resources/js/fullcalendar.js'></script>
 	<link rel="stylesheet" type="text/css"  href="./resources/css/listFooter.css"> 
 	<style type="text/css">
 		footer{
@@ -17,7 +19,7 @@
 </head>
 <body>
 	<!-- Header start -->
-	<c:import url="./jsp/listHeader.jsp"></c:import>
+	<c:import url="./jsp/selectHeader.jsp"></c:import>
 	<!-- <div id="header1"> </div> -->
 	<!-- Header End -->
 
