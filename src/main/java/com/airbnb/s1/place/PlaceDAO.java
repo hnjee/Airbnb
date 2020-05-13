@@ -10,5 +10,4 @@ public class PlaceDAO {
 	@Autowired
 	private SqlSession sqlSession;
 	private final String NAMESPACE = "com.airbnb.s1.place.placeDAO.";
-	
 }
