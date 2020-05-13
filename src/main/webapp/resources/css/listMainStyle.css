@@ -7,6 +7,19 @@ div {
 element.style {
     display: inline-block;
 }
+ul {
+    display: block;
+    list-style-type: disc;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 40px;
+}
+li {
+    display: list-item;
+    text-align: -webkit-match-parent;
+}
 h1 {
     display: block;
     font-size: 2em;
@@ -537,17 +550,102 @@ svg:not(:root) {
     font: 400 11px Roboto, Arial, sans-serif;
     text-decoration: none;
 }
-
-
-
-
-
-
-
-
-
-
-
+._1px14rv {
+    text-align: center !important;
+    margin: 32px !important;
+}
+._1ou8uzt {
+    margin-bottom: 32px !important;
+}
+._w9uwpe {
+    font-size: 16px !important;
+    line-height: 20px !important;
+    font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif !important;
+    font-weight: 600 !important;
+    color: rgb(34, 34, 34) !important;
+}
+._1g76b5q {
+    -webkit-box-pack: center !important;
+    -webkit-box-align: center !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    list-style: none !important;
+    margin: 0px !important;
+    padding: 0px !important;
+}
+._ycd2pg {
+    margin-left: 8px !important;
+    margin-right: 8px !important;
+}
+._115zncnj {
+    -webkit-box-pack: center !important;
+    -webkit-box-align: center !important;
+    font-weight: 600 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    height: 32px !important;
+    width: 32px !important;
+    color: rgb(255, 255, 255) !important;
+    border-radius: 50% !important;
+    background: rgb(34, 34, 34) !important;
+}
+._13n1po3b {
+    -webkit-box-pack: center !important;
+    -webkit-box-align: center !important;
+    font-weight: 600 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    height: 32px !important;
+    width: 32px !important;
+    color: rgb(34, 34, 34) !important;
+    border-radius: 50% !important;
+}
+._1w9115hv {
+    margin-left: 8px !important;
+    margin-right: 8px !important;
+    transform: translateY(-0.25em) !important;
+}
+._i66xk8d {
+    margin-left: 8px !important;
+    margin-right: 0px !important;
+}
+._1li8g8e {
+    -webkit-box-pack: center !important;
+    -webkit-box-align: center !important;
+    -webkit-appearance: none !important;
+    display: inline-flex !important;
+    color: rgb(34, 34, 34) !important;
+    background-color: rgba(255, 255, 255, 0.9) !important;
+    cursor: pointer !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background-clip: padding-box !important;
+    box-shadow: transparent 0px 0px 0px 1px, transparent 0px 0px 0px 4px, rgba(0, 0, 0, 0.18) 0px 2px 4px !important;
+    width: 32px !important;
+    height: 32px !important;
+    border-radius: 50% !important;
+    border-image: initial !important;
+    outline: 0px !important;
+    margin: 0px !important;
+    padding: 0px !important;
+    border-style: solid !important;
+    border-width: 1px !important;
+    border-color: rgba(0, 0, 0, 0.08) !important;
+    transition: box-shadow 0.2s ease 0s, -ms-transform 0.25s ease 0s, -webkit-transform 0.25s ease 0s, transform 0.25s ease 0s !important;
+}
+._p03egf {
+    margin-bottom: 16px !important;
+}
+._vzrndj {
+    font-size: 12px !important;
+    line-height: 16px !important;
+    font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif !important;
+    font-weight: 400 !important;
+    color: rgb(113, 113, 113) !important;
+}
 
 
 

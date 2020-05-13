@@ -8,13 +8,15 @@
 	<title>Insert title here</title>
 	<link rel="stylesheet" type="text/css" href="./resources/css/selectHeaderStyle.css">
 	<link rel="stylesheet" type="text/css" href="./resources/css/selectPage.css">
+	<c:import url="./template/fullcalendarLoad.jsp"></c:import>
+	<script src='./resources/js/fullcalendar.js'></script>
+	<link rel="stylesheet" type="text/css"  href="./resources/css/listFooter.css"> 
 	<link rel="stylesheet" type="text/css"  href="./resources/css/listFooter.css">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-	
 	<style type="text/css">
 		footer{
 			padding: 0px 80px 80px 80px;
@@ -31,7 +33,7 @@
 </head>
 <body>
 	<!-- Header start -->
-	<c:import url="./jsp/listHeader.jsp"></c:import>
+	<c:import url="./jsp/selectHeader.jsp"></c:import>
 	<!-- Header End -->
 
 	<!-- Main Start -->
@@ -167,6 +169,7 @@
 						</div>
 						<div class="line"></div>
 					</div>
+					
 					<form id="res2">
 						<div id="res2_1">
 							<div>

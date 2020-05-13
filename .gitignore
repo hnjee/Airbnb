@@ -2,6 +2,7 @@
 # Edit at https://www.gitignore.io/?templates=web,java,windows,eclipse
 
 pom.properties
+*.properties
 
 ### Eclipse ###
 .metadata
@@ -127,3 +128,5 @@ $RECYCLE.BIN/
 *.lnk
 
 # End of https://www.gitignore.io/api/web,java,windows,eclipse
+target/m2e-wtp/web-resources/META-INF/maven/com.airbnb/s1/pom.properties
+
