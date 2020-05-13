@@ -8,7 +8,7 @@
 				<div data-nosnippet="true">
 					<div class="_1lveqk8">
 					<div>
-						<form action="./house/houseList" method="get" role="search">
+						<form action="./place/placeList?location=0&date=0&guest=0" method="get" role="search">
 						<fieldset class="_pofr66">
 							<legend class="_3hmsj">
 							<span class="_krjbj">무엇을 찾고 계신가요?</span>
