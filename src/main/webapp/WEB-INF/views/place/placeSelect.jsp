@@ -124,32 +124,47 @@
 			    </div>
 			    <hr>
 			    
-			    <h4><strong>Extra Info</strong></h4>
+			    <h4><strong>호스트의 숙소 소개</strong></h4>
 			    <p>${vo.placeDesc}</p>
 			    <p>We accept: <i class="fa fa-credit-card w3-large"></i> <i class="fa fa-cc-mastercard w3-large"></i> <i class="fa fa-cc-amex w3-large"></i> <i class="fa fa-cc-cc-visa w3-large"></i><i class="fa fa-cc-paypal w3-large"></i></p>
-			    <hr>
-			    
-			    <h4><strong>Rules</strong></h4>
-			    <p>${vo.placeRule}</p>
-			    <!-- <p><button class="w3-button w3-green w3-third" onclick="document.getElementById('subscribe').style.display='block'">Subscribe</button></p> -->
+			  
 			  </div>
 			  <hr>
 			  
-			  <!-- Contact -->
-			  <div class="w3-container" id="contact">
-			   <h4><strong>Contact</strong></h4>
+			  <!-- Review -->
+			  <h4><strong>후기</strong></h4>
+			    <p>너무 좋아요! 최고의 숙소~~</p>
+			    <hr>
+			  
+			  <!-- Map API -->
+			  <h4><strong>${vo.placeLocation}</strong></h4>
+			  <p>여기에 지도 들어옴</p>
+			  <p>정확한 위치 정보는 예약이 확정된 후 알려드립니다.</p>
+			  <hr>
+			  
+			  <!-- Host 정보 -->
+			  <div class="w3-container">
+			   <h4><strong>Host: ${vo.hostNum}님 </strong></h4>
 			    <i class="fa fa-map-marker" style="width:30px"></i> Chicago, US<br>
 			    <i class="fa fa-phone" style="width:30px"></i> Phone: +00 151515<br>
 			    <i class="fa fa-envelope" style="width:30px"> </i> Email: mail@mail.com<br>
-			    <p>Questions? Go ahead, ask them:</p>
-			    <form action="/action_page.php" target="_blank">
+			    <a>호스트에게 연락하기</a> <!-- 클릭하면 카카오톡 메세지 전송 -->
+			    <!-- <form action="/action_page.php" target="_blank">
 			      <p><input class="w3-input w3-border" type="text" placeholder="Name" required name="Name"></p>
 			      <p><input class="w3-input w3-border" type="text" placeholder="Email" required name="Email"></p>
 			      <p><input class="w3-input w3-border" type="text" placeholder="Message" required name="Message"></p>
-			    <button type="submit" class="w3-button w3-green w3-third">Send a Message</button>
-			    </form>
+			    <button type="submit" class="w3-button w3-green w3-third">Send a Message</button> 
+			    </form>-->
+			    
+			     <hr>
+			    
+			    <h4><strong>숙소 이용규칙</strong></h4>
+			    <p>${vo.placeRule}</p>
+			    <!-- <p><button class="w3-button w3-green w3-third" onclick="document.getElementById('subscribe').style.display='block'">Subscribe</button></p> -->
 			  </div>
 			</div>
+			
+			
 			
 			<!-- 2-2. 오른쪽 예약 파트-->
 			<div id="resWrap">
