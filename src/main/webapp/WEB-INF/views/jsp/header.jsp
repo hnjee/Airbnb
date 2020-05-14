@@ -83,6 +83,8 @@
 				<div class="_iglww7">체험 호스팅하기</div>
 				</a>
 				
+				<c:if test="${empty member}">
+				
 				<a class="_547li01" href="/help" data-no-client-routing="" id="field-guide-toggle">
 				<div class="_iglww7">도움말</div>
 				</a>
@@ -91,9 +93,29 @@
 				<div class="_iglww7">로그인</div>
 				</a>
 				
+				</c:if>
+				
 				</div>
 					<div>
+				<c:if test="${empty member}">
 					<input type="button" class="_sxo1l2o" value="회원 가입" id="memberJoin">	
+				</c:if>
+				
+				<c:if test="${not empty member}">
+					<div class="btn-group">
+				      <button type="button" class="_sxo1l2o dropdown-toggle" data-toggle="dropdown" id="idClick">
+				      ${member.name} </button>
+				      <ul class="dropdown-menu" role="menu">
+				        <li><a href="#"><b>메시지</b></a></li>
+				        <li><a href="#"><b>알림</b></a></li>
+				        <li><a href="#"><b>여행</b></a></li>
+				        <li><a href="#"><b>저장목록</b></a></li>
+				        <li role="presentation" class="divider"></li>
+				        <li><a href="#">계정</a></li>
+				        <li><a href="./member/memberLogout" id="logOut">로그아웃</a></li>
+				      </ul>
+				    </div>
+				</c:if>
 					</div>
 			</nav>
 		</div>	

@@ -21,13 +21,18 @@
 				function(result) {
 					if(result>0){
 						$('.close').click();
-						$('#setPicAdd').click();
+// 						$('#setPicAdd').click();
+						location.reload();
 					}
 				});
 		});
 		
-		$('#googleBtn').on('click', function() {
-			$('.close').click();
-		})
+		$('#logOut').on('click', function() {
+			gauth.signOut().then(function() {
+				console.log('gauth.signOut()');
+				checkLoginStatus();
+				location.reload();
+			});
+		});
 		
 	</script>

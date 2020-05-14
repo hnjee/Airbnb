@@ -15,13 +15,23 @@
 			console.log('logined');
 			loginBtn.value = 'Logout';
 			var profile = gauth.currentUser.get().getBasicProfile();
+			console.log(profile.getEmail());
 			console.log(profile.getGivenName());
 			console.log(profile.getFamilyName());
 			console.log(profile.getImageUrl());
-			console.log(profile.getEmail());
+			
+			$.get("./member/googleLogin", 
+					{email : profile.getEmail(), name: profile.getGivenName(), fname:profile.getFamilyName()} ,
+					function(result) {
+					});
+				$('.close').click();
 		}else{
+			$.get("./member/memberLogout",
+					function(result) {
+					});
 			console.log('logouted');
 			loginBtn.value = '구글 아이디로 회원가입';
+			$('.close').click();
 		}
 	}
 	function init() {
@@ -39,6 +49,7 @@
 			});
 		});
 	}
+	
 </script>
 </head>
 <body>
@@ -60,11 +71,13 @@
 						gauth.signIn().then(function() {
 							console.log('gauth.signIn()');
 							checkLoginStatus();
+							location.reload();
 						});
 					}else{
 						gauth.signOut().then(function() {
 							console.log('gauth.signOut()');
 							checkLoginStatus();
+							location.reload();
 						});
 					}
 					">
