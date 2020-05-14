@@ -8,24 +8,24 @@
 				<div data-nosnippet="true">
 					<div class="_1lveqk8">
 					<div>
-						<form action="./place/placeList?location=0&date=0&guest=0" method="get" role="search">
+						<form action="./place/placeList" method="get" role="search">
 						<fieldset class="_pofr66">
 							<legend class="_3hmsj">
 							<span class="_krjbj">무엇을 찾고 계신가요?</span>
 							</legend>
 							
 							<label for="search-block-tab-true-STAYS" class="_1pv9c53">
-							<input class="_1xbe1p9" type="radio" id="search-block-tab-true-STAYS" name="refinement_paths[]" value="/homes" checked="">
+							<input class="_1xbe1p9" type="radio" id="search-block-tab-true-STAYS" value="/homes" checked="">
 							<span class="_t8o8dg" data-text="true">숙소</span>
 							</label>
 							
 							<label for="search-block-tab-true-LONG_TERM_STAYS" class="_1pv9c53">
-							<input class="_1xbe1p9" type="radio" id="search-block-tab-true-LONG_TERM_STAYS" name="refinement_paths[]" value="/homes/lts">
+							<input class="_1xbe1p9" type="radio" id="search-block-tab-true-LONG_TERM_STAYS" value="/homes/lts">
 							<span class="_t8o8dg" data-text="true">장기 숙박</span>
 							</label>
 			
 							<label for="search-block-tab-true-EXPERIENCES" class="_1pv9c53">
-							<input class="_1xbe1p9" type="radio" id="search-block-tab-true-EXPERIENCES" name="refinement_paths[]" value="/experiences">
+							<input class="_1xbe1p9" type="radio" id="search-block-tab-true-EXPERIENCES" value="/experiences">
 							<span class="_t8o8dg" data-text="true">체험</span>
 							</label>
 						</fieldset> 
@@ -39,7 +39,7 @@
 									<div class="_qiizeo">
 									<label class="_1c8hz5t" for="bigsearch-query-attached-query">
 										<div class="_9bj9d5">위치</div>
-										<input class="_1spzot3 location" aria-autocomplete="list" aria-expanded="false" autocomplete="off" autocorrect="off" spellcheck="false" id="bigsearch-query-attached-query" role="combobox" name="query" placeholder="어디로 여행가세요?" value="">
+										<input class="_1spzot3 location" aria-autocomplete="list" aria-expanded="false" autocomplete="off" autocorrect="off" spellcheck="false" id="bigsearch-query-attached-query" role="combobox" name="location" placeholder="어디로 여행가세요?" value="">
 									</label>
 									</div>
 									</div>
@@ -53,7 +53,7 @@
 							<div class="_qiizeo">
 								<button class="_esmga25" aria-expanded="false" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
 									<div class="_9bj9d5">체크인/체크아웃</div>
-									<div class="_4poulv"><input type="text" class="datePick" value="날짜 추가" style="border: none;"></div>
+									<div class="_4poulv"><input type="text" class="datePick" value="날짜 추가" name="date" style="border: none;"></div>
 								</button>
 								
 								<div class="_1w7uj89a">
@@ -79,7 +79,7 @@
 								<button class="_esmga25" aria-expanded="false" type="button" data-toggle="collapse" data-target="#collapseGuest" aria-expanded="false" aria-controls="collapseExample">
 									<div class="_9bj9d5">인원</div>
 									<div class="_4poulv">
-										<input type="text" class="totalGuest" value="게스트 추가" style="border: none;">
+										<input type="text" class="totalGuest" value="게스트 추가" name="guest" style="border: none;">
 									</div>
 								</button>
 								

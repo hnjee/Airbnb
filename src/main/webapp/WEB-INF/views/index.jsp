@@ -20,7 +20,7 @@
 	<c:import url="./template/boot.jsp"></c:import> 
 	<c:import url="./template/fullcalendarLoad.jsp"></c:import>
 	<c:import url="./modal/setModal.jsp"></c:import>   
-	<script src='./resources/js/fullcalendar.js'></script>
+	
 
 	<link rel="stylesheet" type="text/css" href="./resources/css/searchBoxStyle.css">
 	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
@@ -43,12 +43,11 @@
 
 	
 	
-	<!-- <script type="text/javascript" src="./resources/js/fullcalendar.js"></script> -->
+	
 	
 	<script type="text/javascript">
 	
-	//calendar 동작
-	 document.addEventListener('DOMContentLoaded', function() {
+
 	      var calendarEl = document.getElementById('calendar');
 	      
 	    //fullcalendar 생성
@@ -71,7 +70,7 @@
 	      });
 	     
 	      calendar.render();
-	    });
+	  
 	
 	
 	
