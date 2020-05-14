@@ -1,9 +1,5 @@
-/**
- * 
- */
-
 									//역이름 이런걸로 검색 안되고, 직접 주소 입력해야함
-									var loc ="동작구 상도로 369";	//검색어
+									var loc ="제주 서귀포시 법환로 27-1";	//검색어
 									map1();
 			
 										$('.house1').hover(function(){
@@ -15,7 +11,7 @@
 								
 									function map1(){
 										
-										var container = document.getElementById('map');
+										var container = document.getElementById('map2');
 										var options = {
 											center: new kakao.maps.LatLng(33.450701, 126.570667),
 											level: 3

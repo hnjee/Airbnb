@@ -82,10 +82,10 @@
 
 #descWrap{
 	width: 1080px;
-	height: 2000px;
+	height: 4000px;
 	padding: 0 24px;
 	margin: 0 auto;
-	box-sizing: border-box;
+	box-sizing: border-box;	
 }
 
 
@@ -97,18 +97,16 @@
 
 #desc_title{
 	width: 100%;
-	height: 120px;
 	margin-top: 18px;
 	margin-bottom: 10px;
-	border-bottom: 1px solid #e4e4e4;
 }
 #titLeft{
-	width: 85%;
+	width: 86%;
 	height: 100%;
 	float: left;
 }
 #titRight{
-	width: 15%;
+	width: 14%;
 	height: 90px;
 	padding: 0 8px;
 	float: right;
@@ -118,7 +116,7 @@
 	width: 100%;
 	height: 75%;
 	padding-right: 20px;
-	padding-bottom: 6px;
+	padding-bottom: 8px;
 	box-sizing: border-box;
 	overflow-wrap: break-word !important;
     font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif !important;
@@ -126,8 +124,7 @@
     font-weight: 900 !important;
     line-height: 1.125em !important;
     color: rgb(72, 72, 72) !important;
-    padding-top: 6px !important;
-    padding-bottom: 6px !important;
+    padding-top: 4px !important;
     margin: 0px !important;
 	
 }
@@ -146,10 +143,10 @@
     margin: 0px !important;
   
 }
-#hostPic{
+#hostPic, #hostInfoPic{
 	vertical-align: middle !important;
     display: block !important;
-    border-radius: 50% !important;
+    border-radius: 50%;
     border-width: 2px !important;
     border-style: solid !important;
     border-color: rgb(255, 255, 255) !important;
@@ -403,3 +400,82 @@ input{
 	position: absolute;
 	top: 518px;
 }
+
+#hostInfo{
+	width:100%;
+	margin-bottom: 8px;
+}
+
+#hostInfo1{
+	width:100%;
+	height: 64px;
+	margin-bottom: 8px;
+}
+
+
+#hostInfo1 div{
+	float: left;
+}
+#hostInfoPic{
+	width: 64px;
+	height: 64px;
+	border-color: red;
+}
+#hostInfoDesc{
+	width: 530px;
+	height: 64px;
+}
+
+#hostInfo3{
+	width: 100%;
+	height: 36px;
+	margin-top: 16px;
+    margin-bottom: 14px;
+}
+
+#hostInfo3 button{
+	border-radius: var(--border-button-small-border-radius, 4px) !important;
+    font-size: var(--font-button-small-font-size, 14px) !important;
+    line-height: var(--font-button-small-line-height, 22px) !important;
+    letter-spacing: var(--font-button-small-letter-spacing, normal) !important;
+    font-family: var(--font-button-small-font-family, Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif) !important;
+    text-transform: var(--font-button-small-text-transform, undefined) !important;
+    padding-top: var(--spacing-button-small-vertical, 6px) !important;
+    padding-bottom: var(--spacing-button-small-vertical, 6px) !important;
+    font-weight: var(--font-book-font-weight, 600) !important;
+    border-width: var(--border-button-small-border-width, 1px) !important;
+    padding-left: var(--spacing-button-small-horizontal, 15px) !important;
+    padding-right: var(--spacing-button-small-horizontal, 15px) !important;
+    box-shadow: var(--shadow-button-level0-box-shadow, none) !important;
+    background: var(--color-buttons-secondary-color, transparent) !important;
+    border-color: var(--color-buttons-secondary-border, #008489) !important;
+    color: var(--color-buttons-secondary-text, #008489) !important;
+    display: inline-block !important;
+    margin: 0px !important;
+    position: relative !important;
+    text-align: center !important;
+    text-decoration: none !important;
+    transition-property: background, border-color, color !important;
+    -webkit-appearance: button;
+    -webkit-writing-mode: horizontal-tb !important;
+    text-rendering: auto;
+    color: buttontext;
+    letter-spacing: normal;
+    word-spacing: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    display: inline-block;
+    text-align: center;
+    align-items: flex-start;
+    cursor: default;
+    background-color: buttonface;
+    box-sizing: border-box;
+    margin: 0em;
+    font: 400 13.3333px Arial;
+    padding: 1px 6px;
+    border-width: 2px;
+    border-style: outset;
+    border-color: buttonface;
+    border-image: initial;
+} 

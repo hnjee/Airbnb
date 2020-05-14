@@ -15,7 +15,7 @@
 	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
+	
 	<style type="text/css">
 		footer{
 			padding: 0px 80px 80px 80px;
@@ -84,9 +84,10 @@
 						<a href="">${vo.placeLocation}</a>
 					</div>
 			  	</div>
+			  	
 				<div id="titRight">
 					<div id="hostPic">
-						<img src="https://a0.muscache.com/im/pictures/user/f6a34c94-247e-4cd0-a31d-688b8acfc9f7.jpg?aki_policy=profile_x_medium" height="64" width="64">
+						<img src="https://a0.muscache.com/im/pictures/user/c7afacd0-a5ef-469d-bf31-87e4f81e3940.jpg?aki_policy=profile_x_medium" height="64" width="64">
 					</div>
 					<div id="hostName">
 						${vo.hostNum}
@@ -94,7 +95,10 @@
 				</div>
 			  </div>
 			  
+			  
+			   
 			  <div class="w3-container">
+			    <hr>
 			    <h4><strong>The space</strong></h4>
 			    <div class="w3-row w3-large">
 			      <div class="w3-col s6">
@@ -131,6 +135,12 @@
 			  </div>
 			  <hr>
 			  
+			  <!-- 예약 가능 여부 -->
+			   <h4><strong>예약 가능 여부</strong></h4>
+			    <p>달력</p>
+			    <hr>
+			  
+			  
 			  <!-- Review -->
 			  <h4><strong>후기</strong></h4>
 			    <p>너무 좋아요! 최고의 숙소~~</p>
@@ -138,29 +148,59 @@
 			  
 			  <!-- Map API -->
 			  <h4><strong>${vo.placeLocation}</strong></h4>
-			  <p>여기에 지도 들어옴</p>
-			  <p>정확한 위치 정보는 예약이 확정된 후 알려드립니다.</p>
-			  <hr>
-			  
-			  <!-- Host 정보 -->
-			  <div class="w3-container">
-			   <h4><strong>Host: ${vo.hostNum}님 </strong></h4>
-			    <i class="fa fa-map-marker" style="width:30px"></i> Chicago, US<br>
-			    <i class="fa fa-phone" style="width:30px"></i> Phone: +00 151515<br>
-			    <i class="fa fa-envelope" style="width:30px"> </i> Email: mail@mail.com<br>
-			    <a>호스트에게 연락하기</a> <!-- 클릭하면 카카오톡 메세지 전송 -->
-			    <!-- <form action="/action_page.php" target="_blank">
-			      <p><input class="w3-input w3-border" type="text" placeholder="Name" required name="Name"></p>
-			      <p><input class="w3-input w3-border" type="text" placeholder="Email" required name="Email"></p>
-			      <p><input class="w3-input w3-border" type="text" placeholder="Message" required name="Message"></p>
-			    <button type="submit" class="w3-button w3-green w3-third">Send a Message</button> 
-			    </form>-->
-			    
-			     <hr>
-			    
+			  	<!-- 지도 불러오기 -->
+				<div aria-hidden="false" class="_10v3f8y9">
+					<aside aria-label="검색 기반 위치 핀이 표시되는 지도" class="_zdxht7" style="height: 50vh; padding-top: 80px; margin-top: -80px; position: sticky; top: 0px;">
+						<div data-veloute="map/GoogleMap" style="position: relative; width: 100%; height: 100%;">
+							<div style="height: 100%; background-color: rgb(230, 227, 223); position: relative; overflow: hidden;">
+								<div style="height: 100%; width: 100%; position: absolute; top: 0px; left: 0px; background-color: rgb(229, 227, 223);">
+									<div class="gm-style" style="position: absolute; z-index: 0; left: 0px; top: 0px; height: 100%; width: 100%; padding: 0px; border-width: 0px; margin: 0px;">
+										<div id="map2" style="z-index: -1;position: absolute;width: 100%;height: 100%;top: 0px;left: 0px;border: none;"></div>
+			
+									</div>
+								</div>
+							</div>
+						</div>
+					</aside>
+				</div>
+				<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=327fa35f2eae30fcd772f149b123ba65&libraries=services"></script>
+				<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=327fa35f2eae30fcd772f149b123ba65"></script>							
+				<script type="text/javascript" src="../resources/js/houseSelectScript.js"></script>
+				<!-- 지도 불러오기 끝 -->
+			 	<p style="margin-top:10px;">정확한 위치 정보는 예약이 확정된 후 알려드립니다.</p>
+			  	<hr>
+			 
+			 
+			 <!-- Host 소개 -->
+			<%--  <h4><strong>Host: ${vo.hostNum}님 </strong></h4> --%>
+			    <div id="hostInfo">
+			    	<div id="hostInfo1">
+			    		<div id="hostInfoDesc">
+			    			<h4 style="margin: 0 0 8px 0;"><strong>Host: ${vo.hostNum}님 </strong></h4>
+			    			South Korea, 한국 · 회원 가입: 2016년 5월
+			    		</div>
+			    		<div id="hostInfoPic">
+			    			<img src="https://a0.muscache.com/im/pictures/user/c7afacd0-a5ef-469d-bf31-87e4f81e3940.jpg?aki_policy=profile_x_medium" height="64" width="64">
+			    		</div>
+			    	</div>
+			    	<div id="hostInfo2"> ★ 후기 197개 </div>
+			    	<div id="hostInfo4" style="margin-top: 15px;">
+			    		블로그(스테이 고찌글라)도 운영 중이에요. 함덕바다에서 걸어서 2분 거리에 있습니다. 숙소는 조용한 주택가에 자리잡고 있지만 버스정류장 및 편의시설이 걸어서 도보거리에 위치해 있어 렌트카 없이도 편리하게 머무를 수 있습니다. 옛날 주택을 리모델링 하였기 때문에 벌레나 곤충이 숙소안에 들어 울 수 있으니 예민하신 분은 예약 하실 때 신중해 주세요. 저희는 방범을 위해 cctv가 야외에 출입문을 향해서 설치되어 있어요. 내부및 야외욕조 안쪽은 보이지 않습니다. 저희는 한달살이를 받지 않습니다. 자세한 사항은 꼭 문의를 해주세요 ^^	
+			    	</div>
+			    	
+			    	<div id="hostInfo3">
+			    		<button>호스트에게 연락하기</button>
+			    	</div>
+			    	 <!-- 클릭하면 카카오톡 메세지 전송 -->
+			    	 
+			    	  <hr>
+			    </div>
+			   	
+			     <!-- 숙소 이용 규칙 -->
 			    <h4><strong>숙소 이용규칙</strong></h4>
 			    <p>${vo.placeRule}</p>
-			    <!-- <p><button class="w3-button w3-green w3-third" onclick="document.getElementById('subscribe').style.display='block'">Subscribe</button></p> -->
+			    
+			  
 			  </div>
 			</div>
 			
@@ -245,9 +285,10 @@
 				</div>
 			</div>
 			</div>
-		</div>
 	</main>
 	<!-- Main End -->
+	
+	
 
 	<!-- Footer Start -->
 	<c:import url="../jsp/footer.jsp"></c:import>
