@@ -57,7 +57,7 @@
 						<div class="_uhpzdny">
 						<div class="_rrw786">
 							<section>
-								<div class="_1snxcqc">300개 이상의 숙소 · ${date} · ${guest}</div>
+								<div class="_1snxcqc">300개의 숙소 · ${date} · ${guest}</div>
 								<div class="_1lbq8dg">
 								<h1 tabindex="-1" class="_14i3z6h">${location}의 숙소</h1>
 								</div>
@@ -263,7 +263,7 @@
 										<div class="_115zncnj" aria-label="현재 페이지">${i}</div>
 									</c:if>
 									<c:if test="${pager.curPage ne i}">
-										<a class="_13n1po3b" href="./placeList?curPage=${i}" aria-label="현재 페이지가 아님" >${i}</a>
+										<a class="_13n1po3b" href="./placeList?location=${location}&&curPage=${i}" aria-label="현재 페이지가 아님" >${i}</a>
 									</c:if>
 									
 									</li>

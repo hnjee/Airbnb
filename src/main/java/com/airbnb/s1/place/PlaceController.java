@@ -29,6 +29,7 @@ public class PlaceController {
 		mv.addObject("location",location);
 		mv.addObject("guest",guest);
 		mv.addObject("date",date);
+		
 
 		mv.setViewName("place/placeList");
 		return mv;
