@@ -152,6 +152,7 @@
     border-color: rgb(255, 255, 255) !important;
     overflow: hidden !important;
 }
+
 #hostName{
 	font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif !important;
     font-size: 14px !important;
@@ -479,3 +480,4 @@ input{
     border-color: buttonface;
     border-image: initial;
 } 
+

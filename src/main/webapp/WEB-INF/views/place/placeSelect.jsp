@@ -94,8 +94,6 @@
 					</div>
 				</div>
 			  </div>
-			  
-			  
 			   
 			  <div class="w3-container">
 			    <hr>
@@ -142,9 +140,29 @@
 			  
 			  
 			  <!-- Review -->
-			  <h4><strong>후기</strong></h4>
-			    <p>너무 좋아요! 최고의 숙소~~</p>
-			    <hr>
+				<h4><strong>후기</strong></h4>	
+			    <div class="review">	    
+			    	<div class="review_rating">
+			    		<div> 
+			    			<span></span>
+			    			<div>4.9</div>
+			    		</div>
+			    		<div>후기 4개 </div>
+			   		</div>
+			    	<div class="review_user">
+			    		<div class="review_user_pic">
+			    			<img src="https://a0.muscache.com/im/pictures/user/42d3a3e4-f462-4d8f-85cb-1a444865ecb2.jpg?aki_policy=profile_x_medium" height="48" width="48" alt="Jina님의 사용자 프로필" title="Jina님의 사용자 프로필">
+			    		</div>
+			    		<div class="review_user_info">
+			    			<div>Jina</div>
+			    			<div>2020년 4월</div>
+			    		</div>
+			    	</div>
+			    	<div class="review_content">
+			    		잠시나마 제주도민이 되어서 여유롭게 즐길수 있는 숙소였어요 근처에 편의점 카페 술집 도보로 이동가능해서 좋았구요. 마당바라보며 테이블에서 책읽는 시간도 좋았답니다 이번엔 혼자였지만 다음번에 둘이되어 놀러가고싶어요
+			    	</div>
+			    	<hr>
+			    </div>
 			  
 			  <!-- Map API -->
 			  <h4><strong>${vo.placeLocation}</strong></h4>
@@ -203,9 +221,7 @@
 			  
 			  </div>
 			</div>
-			
-			
-			
+	
 			<!-- 2-2. 오른쪽 예약 파트-->
 			<div id="resWrap">
 				<div id="res">
