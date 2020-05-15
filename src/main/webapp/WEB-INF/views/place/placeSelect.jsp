@@ -12,16 +12,20 @@
 	<script src='../resources/js/fullcalendar.js'></script>
 	<link rel="stylesheet" type="text/css"  href="../resources/css/listFooter.css"> 
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-	
+	 
+ 	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+ 	 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+ 	 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>	
+
 	<style type="text/css">
 		footer{
 			padding: 0px 80px 80px 80px;
 		}
 		body,h1,h2,h3,h4,h5,h6 {
-			font-family: "Raleway", Arial, Helvetica, sans-serif
+			font-family: "Raleway", Arial, Helvetica, sans-serif;
+			color: rgb(72, 72, 72);
 		}
 		.mySlides {display: none}
 		.w3-container{
@@ -78,7 +82,7 @@
 			  <div id="desc_title">
 			  	<div id="titLeft">
 			  		<div id="mainTit">
-			  			${vo.placeName}
+			  			세컨드제주, 애월읍의 조용한 마을에 있는 작은 민박집
 			  		</div>
 					<div id="subTit">
 						<a href="">${vo.placeLocation}</a>
@@ -101,6 +105,7 @@
 			    <div class="w3-row w3-large">
 			      <div class="w3-col s6">
 			        <p><i class="fa fa-fw fa-male"></i> Max people: ${vo.placeMaxGuest}</p>
+			        
 			        <p><i class="fa fa-fw fa-bath"></i> Bathrooms: ${vo.bathroom}</p>
 			        <p><i class="fa fa-fw fa-bed"></i> Bed: ${vo.bed}</p>
 			      </div>
@@ -128,7 +133,7 @@
 			    
 			    <h4><strong>호스트의 숙소 소개</strong></h4>
 			    <p>${vo.placeDesc}</p>
-			    <p>We accept: <i class="fa fa-credit-card w3-large"></i> <i class="fa fa-cc-mastercard w3-large"></i> <i class="fa fa-cc-amex w3-large"></i> <i class="fa fa-cc-cc-visa w3-large"></i><i class="fa fa-cc-paypal w3-large"></i></p>
+			    <p style="margin-top:10px;">We accept: <i class="fa fa-credit-card w3-large"></i> <i class="fa fa-cc-mastercard w3-large"></i> <i class="fa fa-cc-amex w3-large"></i> <i class="fa fa-cc-cc-visa w3-large"></i><i class="fa fa-cc-paypal w3-large"></i></p>
 			  
 			  </div>
 			  <hr>
@@ -143,25 +148,70 @@
 				<h4><strong>후기</strong></h4>	
 			    <div class="review">	    
 			    	<div class="review_rating">
-			    		<div> 
-			    			<span></span>
-			    			<div>4.9</div>
+			    		<div class="review_rating_1"> 
+			    			<div style="width:18px; height:25px; line-height:20px;">
+			    			<img style="width:15px; height:12px; vertical-align: middle;"src="data:image/svg+xml,%3Csvg viewBox='0 0 1000 1000' xmlns='http://www.w3.org/2000/svg' fill='%23008489'%3E%3Cpath d='M972 380c9 28 2 50-20 67L725 619l87 280c11 39-18 75-54 75-12 0-23-4-33-12L499 790 273 962a58 58 0 0 1-78-12 50 50 0 0 1-8-51l86-278L46 447c-21-17-28-39-19-67 8-24 29-40 52-40h280l87-279c7-23 28-39 52-39 25 0 47 17 54 41l87 277h280c24 0 45 16 53 40z'/%3E%3C/svg%3E"/>
+			    			</div>
+			    			<div style="padding-right: 15px;  text-align: center;">4.9</div>
 			    		</div>
-			    		<div>후기 4개 </div>
+			    		<div class="review_rating_1" style="height: 12px !important; border-right: 1px solid rgb(235, 235, 235) !important; position:relative; top:8px; "></div>
+			    		<div class="review_rating_1" style="padding-left:13px;"> 4 <span style="font-weight:normal;">후기</span></div>
+			    		
+			    		<div class="review_search">
+			    			<div style="width:154px; height:34px; padding: 6px 7px; box-sizing: border-box; overflow: hidden;">
+			    				<input type="text" placeholder="후기 검색" style=" outline-style: none;">
+			    			</div>
+			    			<div style="width:31px; height: 34px; padding: 6px 0;">
+			    				<button type="button" style="background: none; border: none;padding-left: 5px; padding-right: 5px;">
+			    					<svg viewBox="0 0 24 24" role="presentation" aria-hidden="true" focusable="false" style="height: 1em; width: 1em; display: block; fill: currentcolor;"><path d="m10.4 18.2c-4.2-.6-7.2-4.5-6.6-8.8.6-4.2 4.5-7.2 8.8-6.6 4.2.6 7.2 4.5 6.6 8.8-.6 4.2-4.6 7.2-8.8 6.6m12.6 3.8-5-5c1.4-1.4 2.3-3.1 2.6-5.2.7-5.1-2.8-9.7-7.8-10.5-5-.7-9.7 2.8-10.5 7.9-.7 5.1 2.8 9.7 7.8 10.5 2.5.4 4.9-.3 6.7-1.7v.1l5 5c .3.3.8.3 1.1 0s .4-.8.1-1.1" fill-rule="evenodd"></path></svg>
+			    				</button>
+			    			</div>
+			    		</div>
 			   		</div>
-			    	<div class="review_user">
-			    		<div class="review_user_pic">
-			    			<img src="https://a0.muscache.com/im/pictures/user/42d3a3e4-f462-4d8f-85cb-1a444865ecb2.jpg?aki_policy=profile_x_medium" height="48" width="48" alt="Jina님의 사용자 프로필" title="Jina님의 사용자 프로필">
-			    		</div>
-			    		<div class="review_user_info">
-			    			<div>Jina</div>
-			    			<div>2020년 4월</div>
-			    		</div>
+			   		<div class="review_one" style="margin-top:20px;">
+				    	<div class="review_user">
+				    		<div class="review_user_pic">
+				    			<img src="https://a0.muscache.com/im/pictures/user/42d3a3e4-f462-4d8f-85cb-1a444865ecb2.jpg?aki_policy=profile_x_medium" height="48" width="48" alt="Jina님의 사용자 프로필" title="Jina님의 사용자 프로필">
+				    		</div>
+				    		<div class="review_user_info" style="margin-left:16px;   font-family: Circular">
+				    			<div style="font-weight: bold;">Jina</div>
+				    			<div>2020년 4월</div>
+				    		</div>
+				    	</div>
+				    	<div class="review_content">
+				    		잠시나마 제주도민이 되어서 여유롭게 즐길수 있는 숙소였어요 근처에 편의점 카페 술집 도보로 이동가능해서 좋았구요. 마당바라보며 테이블에서 책읽는 시간도 좋았답니다 이번엔 혼자였지만 다음번에 둘이되어 놀러가고싶어요
+				    	</div>
+				    	<hr>
 			    	</div>
-			    	<div class="review_content">
-			    		잠시나마 제주도민이 되어서 여유롭게 즐길수 있는 숙소였어요 근처에 편의점 카페 술집 도보로 이동가능해서 좋았구요. 마당바라보며 테이블에서 책읽는 시간도 좋았답니다 이번엔 혼자였지만 다음번에 둘이되어 놀러가고싶어요
+			    	
+			    	<div class="review_one" style="margin-top:20px;">
+				    	<div class="review_user">
+				    		<div class="review_user_pic">
+				    			<img src="https://a0.muscache.com/im/pictures/user/3077fee8-4082-4b23-b69f-f6ba57441dcc.jpg?aki_policy=profile_x_medium" height="48" width="48" alt="Jina님의 사용자 프로필" title="Jina님의 사용자 프로필">
+				    		</div>
+				    		<div class="review_user_info" style="margin-left:16px;   font-family: Circular">
+				    			<div style="font-weight: bold;">혜림</div>
+				    			<div>2020년 3월</div>
+				    		</div>
+				    	</div>
+				    	<div class="review_content">
+				    		진짜.. 이보다 완벽했던 숙소가 없어요 가격대비 만족도 100% 입니다. 해변도 가깝고 편의점도 가깝고 진짜 좋았어요 ㅠㅠ 너무 친절하시고 공간도 깔끔하고 이불도 폭신하고 침대도 크고 주방에도 없는게 없고 제주도 또 가게되면 여기서 묵을려고 합니다 정말 좋은 숙소였어요 !!
+				    	</div>
+				    	<hr>
 			    	</div>
-			    	<hr>
+			    	
+			    	<div style="margin-bottom: 30px;">
+						<div class="pagination">
+						  <a href="#"><</a>
+						  <a href="#">1</a>
+						  <a href="#" class="active">2</a>
+						  <a href="#">3</a>
+						  <a href="#">4</a>
+						  <a href="#">5</a>
+						  <a href="#">6</a>
+						  <a href="#">></a>
+						</div>
+					</div>
 			    </div>
 			  
 			  <!-- Map API -->
@@ -190,7 +240,6 @@
 			 
 			 
 			 <!-- Host 소개 -->
-			<%--  <h4><strong>Host: ${vo.hostNum}님 </strong></h4> --%>
 			    <div id="hostInfo">
 			    	<div id="hostInfo1">
 			    		<div id="hostInfoDesc">
@@ -227,8 +276,7 @@
 				<div id="res">
 					<div id="res1">
 						<div id="res1_1">
-							<span id="beforeCost">₩79,000</span>
-							<span id="afterCost">${vo.placePrice}</span>
+							<span id="afterCost">₩${vo.placePrice}</span>
 							<span id="day">/박</span>
 						</div>
 						<div id="res1_2">

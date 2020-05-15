@@ -1,5 +1,5 @@
 									//역이름 이런걸로 검색 안되고, 직접 주소 입력해야함
-									var loc ="제주 서귀포시 법환로 27-1";	//검색어
+									var loc = "${vo.placeLocation}";	//검색어
 									map1();
 			
 										$('.house1').hover(function(){

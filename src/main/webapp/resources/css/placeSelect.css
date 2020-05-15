@@ -1,5 +1,8 @@
 @charset "UTF-8";
 
+hr{
+	margin: 25px 0 !important;
+}
 #selectPageContent{
 	border-bottom: 1px solid #DDDDDD;
 }
@@ -115,7 +118,7 @@
 #mainTit{
 	width: 100%;
 	height: 75%;
-	padding-right: 20px;
+	padding-right: 70px;
 	padding-bottom: 8px;
 	box-sizing: border-box;
 	overflow-wrap: break-word !important;
@@ -181,7 +184,7 @@
 	box-sizing: border-box;
 	position: absolute;
     top: 24px;
-    
+    font-family: Circular;
 }
 
 #res1{
@@ -481,3 +484,83 @@ input{
     border-image: initial;
 } 
 
+.pagination {
+  display: inline-block;
+}
+
+.pagination a {
+  color: rgb(0, 132, 137);
+  float: left;
+  padding: 8px 16px;
+  text-decoration: none;
+}
+
+.pagination a.active {
+  background-color: rgb(0, 132, 137);
+  color: white;
+  border-radius: 50%;
+}
+
+.pagination a:hover:not(.active) {
+  background-color: #ddd;
+  border-radius: 50%;
+}
+
+.review_rating{
+	width: 100%;
+	height: 44px;
+	border-bottom: 1px solid #eee;
+}
+.review_rating div{
+	float: left;
+}
+.review_rating_1{
+	font-size: 17px !important;
+    font-weight: 700 !important;
+    line-height: 1.44444em;
+    font-family: Circular
+}
+.review_user {
+	width: 100%;
+	height: 48px;
+	margin-bottom: 16px;
+}
+.review_user>div, .review_search div{
+	float:left;
+}
+.review_search{
+	width: 187px;
+	height: 36px;
+	background-color: yellow;
+	float: right !important;
+	background-color: #ffffff !important;
+    margin-bottom: var(--unit, 8px) !important;
+    font-size: var(--font-form-element-small-font-size, 14px) !important;
+    line-height: var(--font-form-element-small-line-height, 22px) !important;
+    letter-spacing: var(--font-form-element-small-letter-spacing, normal) !important;
+    font-family: var(--font-form-element-small-font-family, Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif) !important;
+    text-transform: var(--font-form-element-small-text-transform, undefined) !important;
+    color: #484848 !important;
+    padding-top: var(--font-form-element-small-padding-top, undefined) !important;
+    padding-bottom: var(--font-form-element-small-padding-bottom, undefined) !important;
+	display: block !important;
+    border-width: 1px !important;
+    border-style: solid !important;
+    border-color: rgb(235, 235, 235) !important;
+    border-radius: 4px !important;
+}
+
+
+.review_user_pic{
+	width: 48px;
+	height: 48px;
+}
+.review_user_pic img{
+	vertical-align: middle !important;
+    display: block !important;
+    border-radius: 50% !important;
+    border-width: 2px !important;
+    border-style: solid !important;
+    border-color: rgb(255, 255, 255) !important;
+    overflow: hidden !important;
+}
