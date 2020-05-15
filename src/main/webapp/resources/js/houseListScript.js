@@ -6,7 +6,7 @@
 									var loc ="동작구 상도로 369";	//검색어
 									map1();
 			
-										$('.house1').hover(function(){
+									$('.house1').hover(function(){
 										var house1_loc = $('#house1').attr('value');
 										console.log(house1_loc);
 										loc = house1_loc;

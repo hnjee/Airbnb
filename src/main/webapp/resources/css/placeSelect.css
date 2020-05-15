@@ -3,7 +3,8 @@
 hr{
 	margin: 25px 0 !important;
 }
-#selectPageContent{
+
+#mainWrap{
 	border-bottom: 1px solid #DDDDDD;
 }
 
@@ -85,10 +86,10 @@ hr{
 
 #descWrap{
 	width: 1080px;
-	height: 4000px;
+	overflow:auto; 
 	padding: 0 24px;
 	margin: 0 auto;
-	box-sizing: border-box;	
+	box-sizing: border-box;	 
 }
 
 
@@ -96,6 +97,7 @@ hr{
 	width: 602px;
 	padding-right: 8px;
 	float: left;
+	margin-bottom: 60px;
 }
 
 #desc_title{
@@ -563,4 +565,19 @@ input{
     border-style: solid !important;
     border-color: rgb(255, 255, 255) !important;
     overflow: hidden !important;
+}
+
+#calendar, #calendar h2{
+	font-family: Circular !important;
+}
+
+#calendar h2{	
+	font-size: 22px;
+	font-weight: 550;
+	position: relative;
+	left: 50px;  
+}
+
+.fc-left{
+	margin: 0 auto;
 }

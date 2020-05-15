@@ -5,20 +5,21 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>Insert title here</title>
+	<title>${vo.placeName}</title>
+	
+	<!-- 화면 css -->
 	<link rel="stylesheet" type="text/css" href="../resources/css/selectHeaderStyle.css">
 	<link rel="stylesheet" type="text/css" href="../resources/css/placeSelect.css">
-	<c:import url="../template/fullcalendarLoad.jsp"></c:import>
-	<script src='../resources/js/fullcalendar.js'></script>
 	<link rel="stylesheet" type="text/css"  href="../resources/css/listFooter.css"> 
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- contents부분 template-->
+	<meta name="viewport" content="width=device-width, initial-scale=1">	
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-	 
  	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
- 	 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
- 	 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>	
-
+ 	<!-- fullcalendar css-->
+ 	<link rel="stylesheet" type="text/css" href='../resources/static/fullcalendar/packages/core/main.css' />
+	<link rel="stylesheet" type="text/css" href='../resources/static/fullcalendar/packages/daygrid/main.css' />
+	
 	<style type="text/css">
 		footer{
 			padding: 0px 80px 80px 80px;
@@ -27,12 +28,13 @@
 			font-family: "Raleway", Arial, Helvetica, sans-serif;
 			color: rgb(72, 72, 72);
 		}
-		.mySlides {display: none}
+		.mySlides {
+			display: none
+		}
 		.w3-container{
 			padding: 0;
 		}
 	</style>
-
 </head>
 <body>
 	<!-- Header start -->
@@ -40,7 +42,7 @@
 	<!-- Header End -->
 
 	<!-- Main Start -->
-	<main id="selectPageContent">
+	<main id="mainWrap">
 		<!-- 1. 위쪽 사진 -->
 		<div id="picWrap">
 			<div id="pics">
@@ -72,17 +74,14 @@
 				<button class="picBtn"> 사진 보기 </button>
 			</div>
 		</div>
-			
 		<!-- 2. 아래쪽 설명/예약 -->
 		<div id="descWrap">
-		<div id="descWrap2">
 			<!-- 2-1. 왼쪽 설명 파트-->
 			<div id="desc">	
-			
-			  <div id="desc_title">
+					  <div id="desc_title">
 			  	<div id="titLeft">
 			  		<div id="mainTit">
-			  			세컨드제주, 애월읍의 조용한 마을에 있는 작은 민박집
+			  			${vo.placeName}
 			  		</div>
 					<div id="subTit">
 						<a href="">${vo.placeLocation}</a>
@@ -140,7 +139,7 @@
 			  
 			  <!-- 예약 가능 여부 -->
 			   <h4><strong>예약 가능 여부</strong></h4>
-			    <p>달력</p>
+			    <div id="calendar"><!-- 달력 --></div>
 			    <hr>
 			  
 			  
@@ -231,9 +230,6 @@
 						</div>
 					</aside>
 				</div>
-				<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=327fa35f2eae30fcd772f149b123ba65&libraries=services"></script>
-				<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=327fa35f2eae30fcd772f149b123ba65"></script>							
-				<script type="text/javascript" src="../resources/js/houseSelectScript.js"></script>
 				<!-- 지도 불러오기 끝 -->
 			 	<p style="margin-top:10px;">정확한 위치 정보는 예약이 확정된 후 알려드립니다.</p>
 			  	<hr>
@@ -266,14 +262,11 @@
 			     <!-- 숙소 이용 규칙 -->
 			    <h4><strong>숙소 이용규칙</strong></h4>
 			    <p>${vo.placeRule}</p>
-			    
-			  
-			  </div>
 			</div>
 	
 			<!-- 2-2. 오른쪽 예약 파트-->
 			<div id="resWrap">
-				<div id="res">
+					<div id="res">
 					<div id="res1">
 						<div id="res1_1">
 							<span id="afterCost">₩${vo.placePrice}</span>
@@ -345,18 +338,28 @@
 				
 				<div id="report">
 					<a href="">이 숙소 신고하기</a>
-					
 				</div>
 			</div>
-			</div>
+		</div>
 	</main>
 	<!-- Main End -->
 	
 	
-
 	<!-- Footer Start -->
 	<c:import url="../jsp/footer.jsp"></c:import>
 	<!-- Footer End -->
+	
+	<!-- Java Script 파일 삽입-->
+	<!-- Kakao API -->
+	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=327fa35f2eae30fcd772f149b123ba65&libraries=services"></script>
+	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=327fa35f2eae30fcd772f149b123ba65"></script>							
+	<script type="text/javascript" src="../resources/js/houseSelectScript.js"></script>
+	<!-- fullcalendar -->
+	<script src='../resources/static/fullcalendar/packages/core/main.js'></script>
+	<script src='../resources/static/fullcalendar/packages/daygrid/main.js'></script>
+	<script src='../resources/static/fullcalendar/packages/interaction/main.js'></script>
+	<script src='../resources/static/fullcalendar/packages/moment/moment.js'></script>
+	<script src="../resources/js/fullcalendar.js"></script>
 </body>
 </html>
 
