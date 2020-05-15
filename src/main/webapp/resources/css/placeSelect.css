@@ -4,6 +4,9 @@ hr{
 	margin: 25px 0 !important;
 }
 
+a{
+	  text-decoration: none !important;
+}
 #mainWrap{
 	border-bottom: 1px solid #DDDDDD;
 }
