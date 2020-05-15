@@ -93,8 +93,15 @@ public class Pager {
 			this.totalPage++;
 			
 			//페이징 처리하는 한 블럭에 나타낼 갯수
-			long perBlock=3L;
+			//1,2,3,4,5		| 6,7,8,9,10
+			long perBlock=5L;
 			this.totalBlock = this.totalPage/perBlock;
+			if(totalPage%perBlock!=0) {
+				this.totalBlock++;
+			}
+			
+			this.curBlock = this.curPage/perBlock;
+			
 			if(this.curPage%perBlock!=0) {
 				this.curBlock++;
 			}

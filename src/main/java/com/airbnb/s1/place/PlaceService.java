@@ -21,9 +21,12 @@ public class PlaceService {
 		long totalCount = placeDAO.placeCount(placeVO);
 		pager.makePage(totalCount);
 		map.put("placeVO", placeVO);
-		map.put("pager", pager);
-		
+		map.put("pager", pager);	
 		return placeDAO.placeList(map);
+	}
+	
+	public long placeCount(PlaceVO placeVO) throws Exception{
+		return placeDAO.placeCount(placeVO);		
 	}
 	
 }

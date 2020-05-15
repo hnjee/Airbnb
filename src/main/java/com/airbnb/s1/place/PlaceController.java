@@ -23,13 +23,14 @@ public class PlaceController {
 		placeVO.setPlaceNum("search");
 		placeVO.setPlaceLocation(location);
 		List<PlaceVO> ar = placeService.placeList(placeVO,pager);
+		long totalCount = placeService.placeCount(placeVO);
 		
 		mv.addObject("list", ar);
+		mv.addObject("totalCount", totalCount);
 		mv.addObject("pager", pager);
 		mv.addObject("location",location);
 		mv.addObject("guest",guest);
 		mv.addObject("date",date);
-		
 
 		mv.setViewName("place/placeList");
 		return mv;

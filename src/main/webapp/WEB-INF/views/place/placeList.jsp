@@ -57,7 +57,7 @@
 						<div class="_uhpzdny">
 						<div class="_rrw786">
 							<section>
-								<div class="_1snxcqc">300개의 숙소 · ${date} · ${guest}</div>
+								<div class="_1snxcqc">${totalCount}개의 숙소 · ${date} · ${guest}</div>
 								<div class="_1lbq8dg">
 								<h1 tabindex="-1" class="_14i3z6h">${location}의 숙소</h1>
 								</div>
@@ -257,34 +257,51 @@
 									아닐 때는    -->
 								
 								
-								<c:forEach begin="${pager.startNum}" end="${pager.lastNum}" var="i">
+								
+									
+									<!-- 이전으로 돌아가기 -->
+									<c:if test="${pager.curBlock gt 1}">
+										<li class="_foinusc">
+										<a aria-label="이전" href="./placeList?location=${location}&guest=${guest}&date=${date}&curPage=${pager.startNum-1}" class="_1li8g8e">
+											<span class="_3hmsj">
+											<svg aria-hidden="true" role="presentation" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" style="display: block; fill: none; height: 16px; width: 16px; stroke: currentcolor; stroke-width: 4; overflow: visible;">
+												<g fill="none">
+													<path d="m20 28-11.29289322-11.2928932c-.39052429-.3905243-.39052429-1.0236893 0-1.4142136l11.29289322-11.2928932"></path>
+												</g>
+											</svg>
+											</span>
+										</a>
+										</li>
+									</c:if>
+									
+									
+									<!-- 페이지 선택 -->			
+									<c:forEach begin="${pager.startNum}" end="${pager.lastNum}" var="i">			
 									<li class="_ycd2pg" data-id="page-2">
 									<c:if test="${pager.curPage eq i}">
 										<div class="_115zncnj" aria-label="현재 페이지">${i}</div>
 									</c:if>
 									<c:if test="${pager.curPage ne i}">
-										<a class="_13n1po3b" href="./placeList?location=${location}&&curPage=${i}" aria-label="현재 페이지가 아님" >${i}</a>
+										<a class="_13n1po3b" href="./placeList?location=${location}&guest=${guest}&date=${date}&curPage=${i}" aria-label="현재 페이지가 아님" >${i}</a>
 									</c:if>
-									
 									</li>
-								</c:forEach>
-								
-								
-								
-								
-								<!-- 다음 페이지로 이동  -->
-								<li class="_i66xk8d">
-								<a aria-label="다음"  class="_1li8g8e">
-									<span class="_3hmsj">
-									<svg aria-hidden="true" role="presentation" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" style="display: block; fill: none; height: 16px; width: 16px; stroke: currentcolor; stroke-width: 4; overflow: visible;">
-										<g fill="none">
-										<path d="m12 4 11.2928932 11.2928932c.3905243.3905243.3905243 1.0236893 0 1.4142136l-11.2928932 11.2928932"></path>
-										</g>
-									</svg>
-									</span>
-								</a>
-								</li>
-								
+									</c:forEach>
+									
+									<!-- 다음 페이지로-->
+									<c:if test="${pager.curBlock lt pager.totalBlock}">
+										<li class="_i66xk8d">
+											<a aria-label="다음" href="./placeList?curPage=${pager.lastNum+1}&location=${location}&guest=${guest}&date=${date}" class="_1li8g8e">
+												<span class="_3hmsj">
+												<svg aria-hidden="true" role="presentation" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" style="display: block; fill: none; height: 16px; width: 16px; stroke: currentcolor; stroke-width: 4; overflow: visible;">
+													<g fill="none">
+													<path d="m12 4 11.2928932 11.2928932c.3905243.3905243.3905243 1.0236893 0 1.4142136l-11.2928932 11.2928932"></path>
+													</g>
+												</svg>
+												</span>
+											</a>
+										</li>
+									</c:if>
+							
 							</ul>
 							</nav>						
 						</div>

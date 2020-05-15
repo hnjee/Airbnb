@@ -647,7 +647,10 @@ svg:not(:root) {
     color: rgb(113, 113, 113) !important;
 }
 
-
+._foinusc {
+    margin-right: 8px !important;
+    margin-left: 0px !important;
+}
 
 
 
