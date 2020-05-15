@@ -15,8 +15,10 @@ public class PlaceVO {
 	private String placeRule;
 	private Long bed;
 	private Long bathroom;
-	private Date checkInTime;
-	private Date checkOutTime;
+	private Long checkInTime;
+	private Long checkOutTime;
+	
+	
 	public String getPlaceNum() {
 		return placeNum;
 	}
@@ -89,16 +91,16 @@ public class PlaceVO {
 	public void setBathroom(Long bathroom) {
 		this.bathroom = bathroom;
 	}
-	public Date getCheckInTime() {
+	public Long getCheckInTime() {
 		return checkInTime;
 	}
-	public void setCheckInTime(Date checkInTime) {
+	public void setCheckInTime(Long checkInTime) {
 		this.checkInTime = checkInTime;
 	}
-	public Date getCheckOutTime() {
+	public Long getCheckOutTime() {
 		return checkOutTime;
 	}
-	public void setCheckOutTime(Date checkOutTime) {
+	public void setCheckOutTime(Long checkOutTime) {
 		this.checkOutTime = checkOutTime;
 	}
 

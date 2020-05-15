@@ -20,11 +20,11 @@ public class PlaceController {
 	private PlaceService placeService;
 	
 	@GetMapping("placeList")
-	public ModelAndView placeList(Pager pager,String location, long guest, String date, String startDate,String endDate, ModelAndView mv) throws Exception{
+	public ModelAndView placeList(Pager pager,String location,String guest, long guestData, String date, String startDate,String endDate, ModelAndView mv) throws Exception{
 		PlaceVO placeVO = new PlaceVO();
 		placeVO.setPlaceNum("search");
 		placeVO.setPlaceLocation(location);
-		placeVO.setPlaceMaxGuest(guest);
+		placeVO.setPlaceMaxGuest(guestData);
 
 		long totalCount = placeService.placeCount(placeVO);
 		
@@ -34,6 +34,8 @@ public class PlaceController {
 		//Date 형식으로 변환 String -> Date
 		Date startData = Date.valueOf(startDate);
 		Date endData = Date.valueOf(endDate);
+
+		
 		bookingVO.setCheckInDate(startData);
 		bookingVO.setCheckOutDate(endData);
 
@@ -45,7 +47,9 @@ public class PlaceController {
 		mv.addObject("location",location);
 		mv.addObject("guest",guest);
 		mv.addObject("date",date);
-
+		mv.addObject("startDate",startDate);
+		mv.addObject("endDate",endDate);
+		mv.addObject("guestData", guestData);
 		mv.setViewName("place/placeList");
 		return mv;
 	}

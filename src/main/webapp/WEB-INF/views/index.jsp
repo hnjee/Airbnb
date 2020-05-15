@@ -128,6 +128,7 @@
 		$('.guestBtn').click(function(){
 			var totalGuest = adultNum+childNum+infantNum;		
 				$('.totalGuest').prop('value','게스트 '+totalGuest+'명');
+				$('.guestData').prop('value',totalGuest);
 				$('.totalGuest').prop('style',"border: none;font-weight: 600;color: black;");		
 		});
 		$('#adultNum').prop('value',adultNum);
@@ -138,6 +139,7 @@
 		$('.guestBtn').click(function(){
 			var totalGuest = adultNum+childNum+infantNum;		
 				$('.totalGuest').prop('value','게스트 '+totalGuest+'명');
+				$('.guestData').prop('value',totalGuest);
 				$('.totalGuest').prop('style',"border: none;font-weight: 600;color: black;");
 		});
 		$('#adultNum').prop('value',adultNum);
@@ -151,6 +153,7 @@
 		$('.guestBtn').click(function(){
 			var totalGuest = adultNum+childNum+infantNum;		
 				$('.totalGuest').prop('value','게스트 '+totalGuest+'명');
+				$('.guestData').prop('value',totalGuest);
 				$('.totalGuest').prop('style',"border: none;font-weight: 600;color: black;");		
 		});
 		$('#childNum').prop('value',childNum);
@@ -161,6 +164,7 @@
 		$('.guestBtn').click(function(){
 			var totalGuest = adultNum+childNum+infantNum;		
 				$('.totalGuest').prop('value','게스트 '+totalGuest+'명');
+				$('.guestData').prop('value',totalGuest);
 				$('.totalGuest').prop('style',"border: none;font-weight: 600;color: black;");		
 		});
 		$('#childNum').prop('value',childNum);
@@ -173,6 +177,7 @@
 		$('.guestBtn').click(function(){
 			var totalGuest = adultNum+childNum+infantNum;		
 				$('.totalGuest').prop('value','게스트 '+totalGuest+'명');
+				$('.guestData').prop('value',totalGuest);
 				$('.totalGuest').prop('style',"border: none;font-weight: 600;color: black;");		
 		});
 		$('#infantNum').prop('value',infantNum);
@@ -183,6 +188,7 @@
 		$('.guestBtn').click(function(){
 			var totalGuest = adultNum+childNum+infantNum;		
 				$('.totalGuest').prop('value','게스트 '+totalGuest+'명');
+				$('.guestData').prop('value',totalGuest);
 				$('.totalGuest').prop('style',"border: none;font-weight: 600;color: black;");		
 		});
 		$('#infantNum').prop('value',infantNum);

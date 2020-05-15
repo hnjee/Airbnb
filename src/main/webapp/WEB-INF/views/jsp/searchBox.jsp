@@ -82,6 +82,7 @@
 									<div class="_9bj9d5">인원</div>
 									<div class="_4poulv">
 										<input type="text" class="totalGuest" value="게스트 추가" name="guest" style="border: none;">
+										<input type="hidden" class="guestData" name="guestData" value="">
 									</div>
 								</button>
 								
