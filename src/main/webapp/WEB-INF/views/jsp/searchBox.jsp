@@ -9,6 +9,8 @@
 					<div class="_1lveqk8">
 					<div>
 						<form action="./place/placeList" method="get" role="search">
+						<input type="hidden" id="startDate" name="startDate" value="">
+						<input type="hidden" id="endDate" name="endDate" value="">
 						<fieldset class="_pofr66">
 							<legend class="_3hmsj">
 							<span class="_krjbj">무엇을 찾고 계신가요?</span>

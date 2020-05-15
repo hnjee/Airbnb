@@ -4,33 +4,30 @@ import java.sql.Date;
 
 public class PlaceVO {
 	private String placeNum;
-	private String hostNum;
+	private String memberNum;
 	private String placeName;
 	private String placeLocation;
 	private Long placePrice;
 	private String placeImage;
 	private Long placeType;
-	private Long placeGuest;
-	private Date placeDate;
+	private Long placeMaxGuest;
+	private String placeDesc;
+	private String placeRule;
 	private Long bed;
 	private Long bathroom;
-	private Date checkIn;
-	private Date checkOut;
-	private String description;
-	private String rule;
-	
-	
+	private Date checkInTime;
+	private Date checkOutTime;
 	public String getPlaceNum() {
 		return placeNum;
 	}
 	public void setPlaceNum(String placeNum) {
 		this.placeNum = placeNum;
 	}
-	public String getHostNum() {
-		return hostNum;
+	public String getMemberNum() {
+		return memberNum;
 	}
-	public void setHostNum(String hostNum) {
-		this.hostNum = hostNum;
+	public void setMemberNum(String memberNum) {
+		this.memberNum = memberNum;
 	}
 	public String getPlaceName() {
 		return placeName;
@@ -62,17 +59,23 @@ public class PlaceVO {
 	public void setPlaceType(Long placeType) {
 		this.placeType = placeType;
 	}
-	public Long getPlaceGuest() {
-		return placeGuest;
+	public Long getPlaceMaxGuest() {
+		return placeMaxGuest;
 	}
-	public void setPlaceGuest(Long placeGuest) {
-		this.placeGuest = placeGuest;
+	public void setPlaceMaxGuest(Long placeMaxGuest) {
+		this.placeMaxGuest = placeMaxGuest;
 	}
-	public Date getPlaceDate() {
-		return placeDate;
+	public String getPlaceDesc() {
+		return placeDesc;
 	}
-	public void setPlaceDate(Date placeDate) {
-		this.placeDate = placeDate;
+	public void setPlaceDesc(String placeDesc) {
+		this.placeDesc = placeDesc;
+	}
+	public String getPlaceRule() {
+		return placeRule;
+	}
+	public void setPlaceRule(String placeRule) {
+		this.placeRule = placeRule;
 	}
 	public Long getBed() {
 		return bed;
@@ -86,31 +89,19 @@ public class PlaceVO {
 	public void setBathroom(Long bathroom) {
 		this.bathroom = bathroom;
 	}
-	public Date getCheckIn() {
-		return checkIn;
+	public Date getCheckInTime() {
+		return checkInTime;
 	}
-	public void setCheckIn(Date checkIn) {
-		this.checkIn = checkIn;
+	public void setCheckInTime(Date checkInTime) {
+		this.checkInTime = checkInTime;
 	}
-	public Date getCheckOut() {
-		return checkOut;
+	public Date getCheckOutTime() {
+		return checkOutTime;
 	}
-	public void setCheckOut(Date checkOut) {
-		this.checkOut = checkOut;
+	public void setCheckOutTime(Date checkOutTime) {
+		this.checkOutTime = checkOutTime;
 	}
-	public String getDescription() {
-		return description;
-	}
-	public void setDescription(String description) {
-		this.description = description;
-	}
-	public String getRule() {
-		return rule;
-	}
-	public void setRule(String rule) {
-		this.rule = rule;
-	}
-	
+
 	
 	
 	
