@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="com.airbnb.s1.member.MemberDAO">
+
+	<insert id="memberJoin" parameterType="MemberVO">
+		insert into member values
+		(#{email},#{name},#{fname},#{pw},1)
+	</insert>
+ 
+	<select id="memberLogin" parameterType="MemberVO" resultType="int">
+		SELECT * FROM MEMBER WHERE id=#{id} and pw = #{pw}
+	</select>
+	
+	 
+</mapper>
