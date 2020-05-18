@@ -3,6 +3,8 @@ package com.airbnb.s1.place;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.airbnb.s1.review.ReviewDAO;
+
 @Service
 public class PlaceService {
 
@@ -12,4 +14,5 @@ public class PlaceService {
 	public PlaceVO placeSelect(String num) throws Exception{
 		return placeDAO.placeSelect(num);
 	}
+
 }

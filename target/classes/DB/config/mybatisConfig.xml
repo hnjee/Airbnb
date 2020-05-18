@@ -8,8 +8,11 @@
 		<typeAlias type="java.lang.Long" alias="Long"/>
 		<typeAlias type="java.lang.Integer" alias="Int"/>
 		<typeAlias type="java.util.List" alias="List"/>
+		<typeAlias type="java.lang.Float" alias="Float"/>
 		
 		<typeAlias type="com.airbnb.s1.member.MemberVO" alias="MemberVO"/>
 		<typeAlias type="com.airbnb.s1.place.PlaceVO" alias="PlaceVO"/>
+		<typeAlias type="com.airbnb.s1.review.ReviewVO" alias="ReviewVO"/>
+		<typeAlias type="com.airbnb.s1.util.Pager" alias="Pager"/>
 	</typeAliases>
 </configuration>

@@ -1,6 +1,8 @@
 package com.airbnb.s1.util;
 
 public class Pager {
+	private String placeNum;
+
 	private long totalPage;			//전체 페이지의 수 
 	private long totalBlock;		//전체 페이지 블럭의 수 
 	
@@ -17,6 +19,15 @@ public class Pager {
 	
 	private String kind;								
 	private String search;
+
+	
+	public String getPlaceNum() {
+		return placeNum;
+	}
+
+	public void setPlaceNum(String placeNum) {
+		this.placeNum = placeNum;
+	}
 
 	public long getTotalPage() {
 		return totalPage;
@@ -119,7 +130,7 @@ public class Pager {
 		}
 		return search;
 	}
-
+	
 	public void setSearch(String search) {
 		this.search = search;
 	}
@@ -141,7 +152,8 @@ public class Pager {
 		}
 	
 		//3. 전체 페이지 블럭 수 계산
-		this.totalBlock = this.totalPage/this.perBlock;
+
+		this.totalBlock = this.totalPage/this.getPerBlock();
 		if(this.totalPage % this.perBlock!=0) {
 			this.totalBlock++;
 		}

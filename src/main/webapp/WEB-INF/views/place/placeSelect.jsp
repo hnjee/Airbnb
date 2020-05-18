@@ -5,6 +5,10 @@
 <html>
 <head>
 	<meta charset="UTF-8">
+
+
+	
+	
 	<title>${vo.placeName}</title>
 	
 	<!-- 화면 css -->
@@ -19,6 +23,7 @@
  	<!-- fullcalendar css-->
  	<link rel="stylesheet" type="text/css" href='../resources/static/fullcalendar/packages/core/main.css' />
 	<link rel="stylesheet" type="text/css" href='../resources/static/fullcalendar/packages/daygrid/main.css' />
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	
 	<style type="text/css">
 		footer{
@@ -151,14 +156,14 @@
 			    			<div style="width:18px; height:25px; line-height:20px;">
 			    			<img style="width:15px; height:12px; vertical-align: middle;"src="data:image/svg+xml,%3Csvg viewBox='0 0 1000 1000' xmlns='http://www.w3.org/2000/svg' fill='%23008489'%3E%3Cpath d='M972 380c9 28 2 50-20 67L725 619l87 280c11 39-18 75-54 75-12 0-23-4-33-12L499 790 273 962a58 58 0 0 1-78-12 50 50 0 0 1-8-51l86-278L46 447c-21-17-28-39-19-67 8-24 29-40 52-40h280l87-279c7-23 28-39 52-39 25 0 47 17 54 41l87 277h280c24 0 45 16 53 40z'/%3E%3C/svg%3E"/>
 			    			</div>
-			    			<div style="padding-right: 15px;  text-align: center;">4.9</div>
+			    			<div style="padding-right: 15px;  text-align: center;">${rateAvg}</div>
 			    		</div>
 			    		<div class="review_rating_1" style="height: 12px !important; border-right: 1px solid rgb(235, 235, 235) !important; position:relative; top:8px; "></div>
-			    		<div class="review_rating_1" style="padding-left:13px;"> 4 <span style="font-weight:normal;">후기</span></div>
+			    		<div class="review_rating_1" style="padding-left:13px;">${reviewCnt} <span style="font-weight:normal;">후기</span></div>
 			    		
 			    		<div class="review_search">
 			    			<div style="width:154px; height:34px; padding: 6px 7px; box-sizing: border-box; overflow: hidden;">
-			    				<input type="text" placeholder="후기 검색" style=" outline-style: none;">
+			    				<input type="text" name="search" placeholder="후기 검색" style=" outline-style: none;">
 			    			</div>
 			    			<div style="width:31px; height: 34px; padding: 6px 0;">
 			    				<button type="button" style="background: none; border: none;padding-left: 5px; padding-right: 5px;">
@@ -167,51 +172,64 @@
 			    			</div>
 			    		</div>
 			   		</div>
-			   		<div class="review_one" style="margin-top:20px;">
-				    	<div class="review_user">
-				    		<div class="review_user_pic">
-				    			<img src="https://a0.muscache.com/im/pictures/user/42d3a3e4-f462-4d8f-85cb-1a444865ecb2.jpg?aki_policy=profile_x_medium" height="48" width="48" alt="Jina님의 사용자 프로필" title="Jina님의 사용자 프로필">
-				    		</div>
-				    		<div class="review_user_info" style="margin-left:16px;   font-family: Circular">
-				    			<div style="font-weight: bold;">Jina</div>
-				    			<div>2020년 4월</div>
-				    		</div>
-				    	</div>
-				    	<div class="review_content">
-				    		잠시나마 제주도민이 되어서 여유롭게 즐길수 있는 숙소였어요 근처에 편의점 카페 술집 도보로 이동가능해서 좋았구요. 마당바라보며 테이블에서 책읽는 시간도 좋았답니다 이번엔 혼자였지만 다음번에 둘이되어 놀러가고싶어요
-				    	</div>
-				    	<hr>
-			    	</div>
-			    	
-			    	<div class="review_one" style="margin-top:20px;">
-				    	<div class="review_user">
-				    		<div class="review_user_pic">
-				    			<img src="https://a0.muscache.com/im/pictures/user/3077fee8-4082-4b23-b69f-f6ba57441dcc.jpg?aki_policy=profile_x_medium" height="48" width="48" alt="Jina님의 사용자 프로필" title="Jina님의 사용자 프로필">
-				    		</div>
-				    		<div class="review_user_info" style="margin-left:16px;   font-family: Circular">
-				    			<div style="font-weight: bold;">혜림</div>
-				    			<div>2020년 3월</div>
-				    		</div>
-				    	</div>
-				    	<div class="review_content">
-				    		진짜.. 이보다 완벽했던 숙소가 없어요 가격대비 만족도 100% 입니다. 해변도 가깝고 편의점도 가깝고 진짜 좋았어요 ㅠㅠ 너무 친절하시고 공간도 깔끔하고 이불도 폭신하고 침대도 크고 주방에도 없는게 없고 제주도 또 가게되면 여기서 묵을려고 합니다 정말 좋은 숙소였어요 !!
-				    	</div>
-				    	<hr>
-			    	</div>
-			    	
-			    	<div style="margin-bottom: 30px;">
-						<div class="pagination">
-						  <a href="#"><</a>
-						  <a href="#">1</a>
-						  <a href="#" class="active">2</a>
-						  <a href="#">3</a>
-						  <a href="#">4</a>
-						  <a href="#">5</a>
-						  <a href="#">6</a>
-						  <a href="#">></a>
+			   		
+			   		<div id="reviews">
+				   		<c:forEach items="${reviewList}" var="review">
+							<div class="review_one" style="margin-top:20px;">
+						    	<div class="review_user">
+						    		<div class="review_user_pic">
+						    			<img src="https://a0.muscache.com/im/pictures/user/42d3a3e4-f462-4d8f-85cb-1a444865ecb2.jpg?aki_policy=profile_x_medium" height="48" width="48" alt="Jina님의 사용자 프로필" title="Jina님의 사용자 프로필">
+						    		</div>
+						    		<div class="review_user_info" style="margin-left:16px;  font-family: Circular">
+						    			<div style="font-weight: bold;">${review.memberNum}</div>
+						    			<div>${review.reviewDate}</div>
+						    		</div>
+						    	</div>
+						    	<div class="review_content">
+						    		${review.reviewDesc}
+						    	</div>
+						    	<hr>
+						  		</div>					
+						</c:forEach>
+						
+						<div style="margin-bottom: 30px;">
+							<div class="pagination">
+								<c:if test="${pager.curBlock gt 1}">
+									 <button class="front"> < </button> 					
+								</c:if>
+			
+								<c:forEach begin="${pager.startNum}" end="${pager.lastNum}" var="i">
+									<button title="${i}" class="pages"> ${i}</button>
+								</c:forEach>
+								
+								<c:if test="${pager.curBlock lt pager.totalBlock}">
+									<button class="back"> > </button> 
+								</c:if>
+							</div>
 						</div>
 					</div>
 			    </div>
+			    
+			    <!-- review ajax -->
+				<script type="text/javascript">	
+					$("#reviews").on("click", ".pages",function(){
+						curPage = $(this).attr("title");
+						$(this).addClass("active");
+						$.get("getReview?placeNum=${vo.placeNum}&curPage="+curPage, function(result){
+							$("#reviews").html(result);
+						});
+					});
+					$("#reviews").on("click",".front",function(){
+						$.get("getReview?placeNum=${vo.placeNum}&curPage=${pager.startNum-1}", function(result){
+							$("#reviews").html(result);
+						});
+					});
+					$("#reviews").on("click", ".back",function(){
+						$.get("getReview?placeNum=${vo.placeNum}&curPage=${pager.lastNum+1}", function(result){
+							$("#reviews").html(result);
+						});
+					});
+				</script>
 			  
 			  <!-- Map API -->
 			  <h4><strong>${vo.placeLocation}</strong></h4>
@@ -246,7 +264,7 @@
 			    			<img src="https://a0.muscache.com/im/pictures/user/c7afacd0-a5ef-469d-bf31-87e4f81e3940.jpg?aki_policy=profile_x_medium" height="64" width="64">
 			    		</div>
 			    	</div>
-			    	<div id="hostInfo2"> ★ 후기 197개 </div>
+			    	<div id="hostInfo2"> ★ 후기 ${reviewCnt}개 </div>
 			    	<div id="hostInfo4" style="margin-top: 15px;">
 			    		블로그(스테이 고찌글라)도 운영 중이에요. 함덕바다에서 걸어서 2분 거리에 있습니다. 숙소는 조용한 주택가에 자리잡고 있지만 버스정류장 및 편의시설이 걸어서 도보거리에 위치해 있어 렌트카 없이도 편리하게 머무를 수 있습니다. 옛날 주택을 리모델링 하였기 때문에 벌레나 곤충이 숙소안에 들어 울 수 있으니 예민하신 분은 예약 하실 때 신중해 주세요. 저희는 방범을 위해 cctv가 야외에 출입문을 향해서 설치되어 있어요. 내부및 야외욕조 안쪽은 보이지 않습니다. 저희는 한달살이를 받지 않습니다. 자세한 사항은 꼭 문의를 해주세요 ^^	
 			    	</div>
@@ -360,6 +378,8 @@
 	<script src='../resources/static/fullcalendar/packages/interaction/main.js'></script>
 	<script src='../resources/static/fullcalendar/packages/moment/moment.js'></script>
 	<script src="../resources/js/fullcalendar.js"></script>
+	
+		
 </body>
 </html>
 
