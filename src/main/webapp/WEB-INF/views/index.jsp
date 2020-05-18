@@ -48,8 +48,7 @@
 	<script type="text/javascript">
 	
 
-	      var calendarEl = document.getElementById('calendar');
-	      
+	      var calendarEl = document.getElementById('calendar');	      
 	    //fullcalendar 생성
 	      var calendar = new FullCalendar.Calendar(calendarEl, {
 	        plugins: [ 'interaction', 'dayGrid', 'moment'],
@@ -97,9 +96,6 @@
 	        	//값 보낼 input의 속성에 넣어주기
 	        	$('#startDate').prop('value',startData);
 	        	$('#endDate').prop('value',endData);
-	        	
-	        	
-	        	
 	        },   
 	        
 	      	unselectAuto: true
@@ -113,6 +109,8 @@
 	    	}
 	
 	
+	      
+	      
 	
 	//searchBox 동작
 	var adultNum=0;
