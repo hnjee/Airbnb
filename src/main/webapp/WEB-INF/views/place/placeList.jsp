@@ -122,24 +122,24 @@
 										<div class="_gig1e7">
 										<!-- 여기서 c:foreach 써서 숙소 데이터 가져오기(사진, 숙소이름, 가격) -->
 										<!-- 반복문으로 해당 내용 가져오기 -->
-										<c:forEach items="${list}" var="placeVO">
+										<c:forEach items="${list}" var="placeVO" varStatus="status">
 										
 										<div itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
 											<div>
 											<div class="_dx669kc">				
 												<!-- 컨텐츠 안 사진 -->
 												<div class="_1nz9l7j">
-												<input id="house1" type="hidden" value="${placeVO.placeLocation}">
+												<input id="house${status.count}" type="hidden" value="${placeVO.placeLocation}">
 												<div class="_mcb8gr">
 												<div class="_e296pg">												
 													<div class="_13ky0r6y" style="padding-top: 66.6667%; background: rgb(216, 216, 216);">
 													<div class="_1szwzht">													
 														<span>
 														<div class="_ttw0d">
-														<a href="" target="listing_43081036" aria-hidden="true" tabindex="-1" aria-label="[OPEN] #아지트5.3# Healing camp &amp; Home cinema 신논현역 1분" class="_15tommw house1"></a>
+														<a href="" target="listing_43081036" aria-hidden="true" tabindex="-1" class="_15tommw house${status.count}"></a>
 															<div class="_yydl86">
 															<div class="_1na7kj9b">
-																<div class="_e296pg" role="img" aria-busy="false" aria-label="[OPEN] #아지트5.3# Healing camp &amp; Home cinema 신논현역 1분" style="width: 100%; height: 100%;">
+																<div class="_e296pg" role="img" aria-busy="false" style="width: 100%; height: 100%;">
 																<div class="_1i2fr3fi" style="width: 100%; height: 100%; background-image: url(&quot;https://a0.muscache.com/im/pictures/eeebcdf4-c294-4449-978d-68592f3481fb.jpg?aki_policy=large&quot;);">
 																
 																
@@ -164,7 +164,7 @@
 												<!-- 컨텐츠 사진 옆 설명 글 -->
 												<div class="_6kiyebe">
 													<div class="_4ntfzh" style="margin-bottom: 8px;">
-													<div class="_13qbppeg">아파트 전체</div>
+													<div class="_13qbppeg">${placeVO.placeType} 전체</div>
 													</div>
 													
 												<div class="_1jbo9b6h" style="line-height: 24px; max-height: 24px; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 1; -webkit-box-orient: vertical;">
@@ -193,7 +193,8 @@
 													
 													<div class="_vsjqit" style="margin-top: 2px;">
 														<span class="_krjbj">가격:</span>
-														<span class="_1llb8an">총 요금: ₩${placeVO.placePrice}</span>
+														<input type="hidden" id="perPrice${status.count}" value="${placeVO.placePrice}">
+														<span class="_1llb8an" id="totalPrice${status.count}"></span>
 														<span class="_1ici1i3">
 														<div class="_17y0hv9" role="presentation">
 															<div role="button" tabindex="-1" aria-expanded="false">
@@ -220,10 +221,7 @@
 											<div style="margin-top: 0px; margin-bottom: 0px;">
 												<div class="_7qp4lh"></div>
 											</div>
-											
-											
-											</div>
-										
+											</div>										
 										</div>
 										</c:forEach>
 										</div>
@@ -347,8 +345,8 @@
 				
 				
 				
-			</div>			
-		
+			</div>	
+					
 			<!-- Footer start -->
 			<c:import url="../jsp/footer.jsp"></c:import>
 			
@@ -366,22 +364,39 @@
 	-->
 	
 	<script type="text/javascript">
+	
+	
+	
+	
+	//총 숙박비 계산
+	var start = parseInt(${startDate});
+	var end = parseInt(${endDate});
+	var dayCnt = start-end;
+	console.log(dayCnt);
+	//var total = parseInt($('#perPrice'+i).attr('value'))*dayCnt;
+	//document.getElementById("totalPrice").innerHTML = "총 요금: ₩"+total; 
+	
+	const counts = [1,2,3,4,5];
+	for (let i of counts) {
+		$('.house'+i).hover(function(){
+			var house_loc = $('#house'+i).attr('value');
+			console.log("house : "+house_loc);
+			loc = house_loc;
+			getMap();
+		});
+		var total = 0;
+		total = parseInt($('#perPrice'+i).attr('value'))*dayCnt;
+		$("#totalPrice"+i).append("총 요금: ₩"+total);
+		
+		
+	}
+	
 	//역이름 이런걸로 검색 안되고, 직접 주소 입력해야함
 	var loc ="${location}";	//검색어
-	map1();
+	//맨 처음 지도 불러오기
+	getMap();
 
-	
-	/*$('.house1').hover(function(){
-		var house1_loc = $('#house1').attr('value');
-		console.log(house1_loc);
-		loc = house1_loc;
-		map1();
-	});*/
-
-	
-	
-	function map1(){
-		
+	function getMap(){
 		var container = document.getElementById('map');
 		var options = {
 			center: new kakao.maps.LatLng(33.450701, 126.570667),
@@ -399,14 +414,7 @@
 				
 				// 결과값으로 받은 위치를 마커로 표시 
 				var marker = new kakao.maps.Marker({ map: map, position: coords }); 
-															
-				// 인포윈도우로 장소에 대한 설명을 표시
-				//var iwContent ='<div style="margin:0 auto;">'+loc+'<br>';
-				//var infowindow = new kakao.maps.InfoWindow({
-				//	content : iwContent 
-				//	}); 
-				//infowindow.open(map, marker); 
-				
+
 				// 지도의 중심을 결과값으로 받은 위치로 이동 
 				map.setCenter(coords); 
 				
@@ -419,10 +427,13 @@
 				
 				} else { 
 					console.log(loc);
-					console.log('에러'); }
+					console.log('map error'); }
 		});
 	
 	};
+	
+	
+	
 	
 	</script>
 	

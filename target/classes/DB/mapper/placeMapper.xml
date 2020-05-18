@@ -20,7 +20,7 @@
  	<select id="placeList" resultType="PlaceVO" parameterType="Map">
 		SELECT * FROM 
 			(SELECT P.*, ROWNUM R FROM
-				(SELECT * FROM place where placeLocation LIKE '%'||#{placeVO.placeLocation}||'%' and <![CDATA[placeMaxGuest >=1 ]]>
+				(SELECT * FROM place where placeLocation LIKE '%'||#{placeVO.placeLocation}||'%' and <![CDATA[placeMaxGuest >=#{guestData} ]]>
 							and placeNum NOT IN (SELECT placeNum FROM booking 
 									WHERE<![CDATA[(checkInDate >= #{bookingVO.checkInDate} and checkInDate<#{bookingVO.checkOutDate})
 										or (checkInDate<#{bookingVO.checkInDate} and checkOutDate>#{bookingVO.checkOutDate})]]>

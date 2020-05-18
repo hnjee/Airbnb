@@ -68,6 +68,9 @@ public class Pager {
 		this.curBlock = curBlock;
 	}
 	public long getStartNum() {
+		if(this.startNum==0L) {
+			this.startNum=1L;
+		}
 		return startNum;
 	}
 	public void setStartNum(long startNum) {

@@ -22,6 +22,7 @@ public class PlaceController {
 	@GetMapping("placeList")
 	public ModelAndView placeList(Pager pager,String location,String guest, long guestData, String date, String startDate,String endDate, ModelAndView mv) throws Exception{
 		PlaceVO placeVO = new PlaceVO();
+		//기본키 null방지
 		placeVO.setPlaceNum("search");
 		placeVO.setPlaceLocation(location);
 		placeVO.setPlaceMaxGuest(guestData);
@@ -40,7 +41,8 @@ public class PlaceController {
 		bookingVO.setCheckOutDate(endData);
 
 		
-		List<PlaceVO> ar = placeService.placeList(placeVO,pager,bookingVO);
+		List<PlaceVO> ar = placeService.placeList(placeVO,pager,bookingVO,guestData);
+		
 		mv.addObject("list", ar);
 		mv.addObject("totalCount", totalCount);
 		mv.addObject("pager", pager);
