@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="com.airbnb.s1.place.PlaceDAO">
+
+
+	<!-- 리스트 뽑아오기 - 페이징 처리와 위치 등 조건 필터링 -->
+	<!-- 
+	<select id="placeList" resultType="PlaceVO" parameterType="Map">
+		SELECT * FROM 
+			(SELECT P.*, ROWNUM R FROM
+				(SELECT * FROM PLACE WHERE placeLocation LIKE '%'||#{placeVO.placeLocation}||'%' ORDER BY placeNum) P
+			)
+		WHERE R BETWEEN #{pager.startRow} and #{pager.lastRow}		
+	</select>
+ 	 -->
+ 	
+ 	<select id="placeList" resultType="PlaceVO" parameterType="Map">
+		SELECT * FROM 
+			(SELECT P.*, ROWNUM R FROM
+				(SELECT * FROM place where placeLocation LIKE '%'||#{placeVO.placeLocation}||'%' and <![CDATA[placeMaxGuest >=#{guestData} ]]>
+							and placeNum NOT IN (SELECT placeNum FROM booking 
+									WHERE<![CDATA[(checkInDate >= #{bookingVO.checkInDate} and checkInDate<#{bookingVO.checkOutDate})
+										or (checkInDate<#{bookingVO.checkInDate} and checkOutDate>#{bookingVO.checkOutDate})]]>
+				) ORDER BY placeNum) P)		
+		WHERE R BETWEEN #{pager.startRow} and #{pager.lastRow}		
+	</select>
+
+
+ 	<!-- totalCount 계산 위한 sql문 -->
+ 	<select id="placeCount" parameterType="PlaceVO" resultType="Long">
+ 		SELECT COUNT(placeNum) FROM PLACE WHERE placeLocation LIKE '%'||#{placeLocation}||'%'
+ 	</select>
+ 	
+	
+	 
+</mapper>

@@ -57,9 +57,9 @@
 						<div class="_uhpzdny">
 						<div class="_rrw786">
 							<section>
-								<div class="_1snxcqc">300개 이상의 숙소 · 5월 13일 - 5월 14일 · 게스트 1명</div>
+								<div class="_1snxcqc">${totalCount}개의 숙소 · ${date} · ${guest}</div>
 								<div class="_1lbq8dg">
-								<h1 tabindex="-1" class="_14i3z6h">강남구의 숙소</h1>
+								<h1 tabindex="-1" class="_14i3z6h">${location}의 숙소</h1>
 								</div>
 							</section>
 						</div>
@@ -121,22 +121,25 @@
 									<div class="_8ssblpx">
 										<div class="_gig1e7">
 										<!-- 여기서 c:foreach 써서 숙소 데이터 가져오기(사진, 숙소이름, 가격) -->
+										<!-- 반복문으로 해당 내용 가져오기 -->
+										<c:forEach items="${list}" var="placeVO" varStatus="status">
+										
 										<div itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
 											<div>
 											<div class="_dx669kc">				
 												<!-- 컨텐츠 안 사진 -->
 												<div class="_1nz9l7j">
-												<input id="house1" type="hidden" value="서울 마포구 월드컵북로 21">
+												<input id="house${status.count}" type="hidden" value="${placeVO.placeLocation}">
 												<div class="_mcb8gr">
 												<div class="_e296pg">												
 													<div class="_13ky0r6y" style="padding-top: 66.6667%; background: rgb(216, 216, 216);">
 													<div class="_1szwzht">													
 														<span>
 														<div class="_ttw0d">
-														<a href="" target="listing_43081036" aria-hidden="true" tabindex="-1" aria-label="[OPEN] #아지트5.3# Healing camp &amp; Home cinema 신논현역 1분" class="_15tommw house1"></a>
+														<a href="" target="listing_43081036" aria-hidden="true" tabindex="-1" class="_15tommw house${status.count}"></a>
 															<div class="_yydl86">
 															<div class="_1na7kj9b">
-																<div class="_e296pg" role="img" aria-busy="false" aria-label="[OPEN] #아지트5.3# Healing camp &amp; Home cinema 신논현역 1분" style="width: 100%; height: 100%;">
+																<div class="_e296pg" role="img" aria-busy="false" style="width: 100%; height: 100%;">
 																<div class="_1i2fr3fi" style="width: 100%; height: 100%; background-image: url(&quot;https://a0.muscache.com/im/pictures/eeebcdf4-c294-4449-978d-68592f3481fb.jpg?aki_policy=large&quot;);">
 																
 																
@@ -161,11 +164,11 @@
 												<!-- 컨텐츠 사진 옆 설명 글 -->
 												<div class="_6kiyebe">
 													<div class="_4ntfzh" style="margin-bottom: 8px;">
-													<div class="_13qbppeg">아파트 전체</div>
+													<div class="_13qbppeg">${placeVO.placeType} 전체</div>
 													</div>
 													
 												<div class="_1jbo9b6h" style="line-height: 24px; max-height: 24px; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 1; -webkit-box-orient: vertical;">
-													[OPEN] #아지트5.3# Healing camp &amp; Home cinema 신논현역 1분</div>
+													${placeVO.placeName}</div>
 													
 												<!-- 	
 												<div class="_1ulsev2" style="margin-top: 12px;">인원 2명<span aria-hidden="true"> · </span>
@@ -184,13 +187,14 @@
 														<span>
 														<span class="_1p7iugi">
 														<span class="_krjbj">가격:</span>
-														₩56,610</span>/1박
+														₩${placeVO.placePrice}</span>/1박
 														</span>
 													</div>
 													
 													<div class="_vsjqit" style="margin-top: 2px;">
 														<span class="_krjbj">가격:</span>
-														<span class="_1llb8an">총 요금: ₩56,610</span>
+														<input type="hidden" id="perPrice${status.count}" value="${placeVO.placePrice}">
+														<span class="_1llb8an" id="totalPrice${status.count}"></span>
 														<span class="_1ici1i3">
 														<div class="_17y0hv9" role="presentation">
 															<div role="button" tabindex="-1" aria-expanded="false">
@@ -217,322 +221,13 @@
 											<div style="margin-top: 0px; margin-bottom: 0px;">
 												<div class="_7qp4lh"></div>
 											</div>
-											
-											
-											</div>
-										
+											</div>										
 										</div>
+										</c:forEach>
 										</div>
 									</div>
 									
-							
-									
-									<div class="_8ssblpx">
-										<div class="_gig1e7">
-										<!-- 여기서 c:foreach 써서 숙소 데이터 가져오기(사진, 숙소이름, 가격) -->
-										<div itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
-											<div>
-											<div class="_dx669kc">				
-												<!-- 컨텐츠 안 사진 -->
-												<div class="_1nz9l7j">
-												<div class="_mcb8gr">
-												<div class="_e296pg">												
-													<div class="_13ky0r6y" style="padding-top: 66.6667%; background: rgb(216, 216, 216);">
-													<div class="_1szwzht">													
-														<span>
-														<div class="_ttw0d">
-														<a href="" target="listing_43081036" aria-hidden="true" tabindex="-1" aria-label="[OPEN] #아지트5.3# Healing camp &amp; Home cinema 신논현역 1분" class="_15tommw"></a>
-															<div class="_yydl86">
-															<div class="_1na7kj9b">
-																<div class="_e296pg" role="img" aria-busy="false" aria-label="[OPEN] #아지트5.3# Healing camp &amp; Home cinema 신논현역 1분" style="width: 100%; height: 100%;">
-																<div class="_1i2fr3fi" style="width: 100%; height: 100%; background-image: url(&quot;https://a0.muscache.com/im/pictures/eeebcdf4-c294-4449-978d-68592f3481fb.jpg?aki_policy=large&quot;);">
-																</div>
-																</div>
-															</div>
-															</div>
-														</div>
-														</span>													
-													</div>
-													</div>													
-												</div>
-												</div>
-												</div>
-												<!-- 컨텐츠 안 사진 끝 -->
-	
-												<!-- 컨텐츠 사진 옆 설명 글 -->
-												<div class="_6kiyebe">
-													<div class="_4ntfzh" style="margin-bottom: 8px;">
-													<div class="_13qbppeg">아파트 전체</div>
-													</div>
-													
-												<div class="_1jbo9b6h" style="line-height: 24px; max-height: 24px; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 1; -webkit-box-orient: vertical;">
-													[OPEN] #아지트5.3# Healing camp &amp; Home cinema 신논현역 1분</div>
-													
-												<!-- 	
-												<div class="_1ulsev2" style="margin-top: 12px;">인원 2명<span aria-hidden="true"> · </span>
-												침실 1개<span aria-hidden="true"> · </span>침대 1개<span aria-hidden="true"> · </span>욕실 1개
-												</div>
-												
-												<div class="_1ulsev2" style="margin-top: 4px;">주방<span aria-hidden="true"> · </span>
-												무선 인터넷<span aria-hidden="true"> · </span>난방</div>
-												-->
-												
-													<div class="_viapsj">
-													<div></div>
-													<div class="_l2ulkt8">
-													
-													<div class="_zkkcbwd">
-														<span>
-														<span class="_1p7iugi">
-														<span class="_krjbj">가격:</span>
-														₩56,610</span>/1박
-														</span>
-													</div>
-													
-													<div class="_vsjqit" style="margin-top: 2px;">
-														<span class="_krjbj">가격:</span>
-														<span class="_1llb8an">총 요금: ₩56,610</span>
-														<span class="_1ici1i3">
-														<div class="_17y0hv9" role="presentation">
-															<div role="button" tabindex="-1" aria-expanded="false">
-															<div class="_ab0zex">
-																<button aria-expanded="false" aria-label="요금 내역과 숙소 요금 도움말" type="button" class="_axhm01">
-																<span class="_3hmsj">
-																	<svg viewBox="0 0 24 24" role="presentation" aria-hidden="true" focusable="false" style="height: 12px; width: 12px; display: block; fill: rgb(34, 34, 34);">
-																	<path d="m12 0c-6.63 0-12 5.37-12 12s5.37 12 12 12 12-5.37 12-12-5.37-12-12-12zm0 23c-6.07 0-11-4.92-11-11s4.93-11 11-11 11 4.93 11 11-4.93 11-11 11zm4.75-14c0 1.8-.82 2.93-2.35 3.89-.23.14-1 .59-1.14.67-.4.25-.51.38-.51.44v2a .75.75 0 0 1 -1.5 0v-2c0-.74.42-1.22 1.22-1.72.17-.11.94-.55 1.14-.67 1.13-.71 1.64-1.41 1.64-2.61a3.25 3.25 0 0 0 -6.5 0 .75.75 0 0 1 -1.5 0 4.75 4.75 0 0 1 9.5 0zm-3.75 10a1 1 0 1 1 -2 0 1 1 0 0 1 2 0z" fill-rule="evenodd">
-																	</path>
-																	</svg>
-																</span>
-																</button> 
-															</div>
-															</div>
-														</div>
-														</span>
-													</div>
-													</div>
-													</div>
-												</div>
-												<!-- 사진 옆 설명 글 끝 -->												
-											</div>
-											
-											<div style="margin-top: 0px; margin-bottom: 0px;">
-												<div class="_7qp4lh"></div>
-											</div>
-											
-											
-											</div>
-										
-										</div>
-										</div>
-									</div>
-									
-									
-							
-									
-									<div class="_8ssblpx">
-										<div class="_gig1e7">
-										<!-- 여기서 c:foreach 써서 숙소 데이터 가져오기(사진, 숙소이름, 가격) -->
-										<div itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
-											<div>
-											<div class="_dx669kc">				
-												<!-- 컨텐츠 안 사진 -->
-												<div class="_1nz9l7j">
-												<div class="_mcb8gr">
-												<div class="_e296pg">												
-													<div class="_13ky0r6y" style="padding-top: 66.6667%; background: rgb(216, 216, 216);">
-													<div class="_1szwzht">													
-														<span>
-														<div class="_ttw0d">
-														<a href="" target="listing_43081036" aria-hidden="true" tabindex="-1" aria-label="[OPEN] #아지트5.3# Healing camp &amp; Home cinema 신논현역 1분" class="_15tommw"></a>
-															<div class="_yydl86">
-															<div class="_1na7kj9b">
-																<div class="_e296pg" role="img" aria-busy="false" aria-label="[OPEN] #아지트5.3# Healing camp &amp; Home cinema 신논현역 1분" style="width: 100%; height: 100%;">
-																<div class="_1i2fr3fi" style="width: 100%; height: 100%; background-image: url(&quot;https://a0.muscache.com/im/pictures/eeebcdf4-c294-4449-978d-68592f3481fb.jpg?aki_policy=large&quot;);">
-																</div>
-																</div>
-															</div>
-															</div>
-														</div>
-														</span>													
-													</div>
-													</div>													
-												</div>
-												</div>
-												</div>
-												<!-- 컨텐츠 안 사진 끝 -->
-	
-												<!-- 컨텐츠 사진 옆 설명 글 -->
-												<div class="_6kiyebe">
-													<div class="_4ntfzh" style="margin-bottom: 8px;">
-													<div class="_13qbppeg">아파트 전체</div>
-													</div>
-													
-												<div class="_1jbo9b6h" style="line-height: 24px; max-height: 24px; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 1; -webkit-box-orient: vertical;">
-													[OPEN] #아지트5.3# Healing camp &amp; Home cinema 신논현역 1분</div>
-													
-												<!-- 	
-												<div class="_1ulsev2" style="margin-top: 12px;">인원 2명<span aria-hidden="true"> · </span>
-												침실 1개<span aria-hidden="true"> · </span>침대 1개<span aria-hidden="true"> · </span>욕실 1개
-												</div>
-												
-												<div class="_1ulsev2" style="margin-top: 4px;">주방<span aria-hidden="true"> · </span>
-												무선 인터넷<span aria-hidden="true"> · </span>난방</div>
-												-->
-												
-													<div class="_viapsj">
-													<div></div>
-													<div class="_l2ulkt8">
-													
-													<div class="_zkkcbwd">
-														<span>
-														<span class="_1p7iugi">
-														<span class="_krjbj">가격:</span>
-														₩56,610</span>/1박
-														</span>
-													</div>
-													
-													<div class="_vsjqit" style="margin-top: 2px;">
-														<span class="_krjbj">가격:</span>
-														<span class="_1llb8an">총 요금: ₩56,610</span>
-														<span class="_1ici1i3">
-														<div class="_17y0hv9" role="presentation">
-															<div role="button" tabindex="-1" aria-expanded="false">
-															<div class="_ab0zex">
-																<button aria-expanded="false" aria-label="요금 내역과 숙소 요금 도움말" type="button" class="_axhm01">
-																<span class="_3hmsj">
-																	<svg viewBox="0 0 24 24" role="presentation" aria-hidden="true" focusable="false" style="height: 12px; width: 12px; display: block; fill: rgb(34, 34, 34);">
-																	<path d="m12 0c-6.63 0-12 5.37-12 12s5.37 12 12 12 12-5.37 12-12-5.37-12-12-12zm0 23c-6.07 0-11-4.92-11-11s4.93-11 11-11 11 4.93 11 11-4.93 11-11 11zm4.75-14c0 1.8-.82 2.93-2.35 3.89-.23.14-1 .59-1.14.67-.4.25-.51.38-.51.44v2a .75.75 0 0 1 -1.5 0v-2c0-.74.42-1.22 1.22-1.72.17-.11.94-.55 1.14-.67 1.13-.71 1.64-1.41 1.64-2.61a3.25 3.25 0 0 0 -6.5 0 .75.75 0 0 1 -1.5 0 4.75 4.75 0 0 1 9.5 0zm-3.75 10a1 1 0 1 1 -2 0 1 1 0 0 1 2 0z" fill-rule="evenodd">
-																	</path>
-																	</svg>
-																</span>
-																</button> 
-															</div>
-															</div>
-														</div>
-														</span>
-													</div>
-													</div>
-													</div>
-												</div>
-												<!-- 사진 옆 설명 글 끝 -->												
-											</div>
-											
-											<div style="margin-top: 0px; margin-bottom: 0px;">
-												<div class="_7qp4lh"></div>
-											</div>
-											
-											
-											</div>
-										
-										</div>
-										</div>
-									</div>
-									
-									
-								
-									
-									
-									<div class="_8ssblpx">
-										<div class="_gig1e7">
-										<!-- 여기서 c:foreach 써서 숙소 데이터 가져오기(사진, 숙소이름, 가격) -->
-										<div itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
-											<div>
-											<div class="_dx669kc">				
-												<!-- 컨텐츠 안 사진 -->
-												<div class="_1nz9l7j">
-												<div class="_mcb8gr">
-												<div class="_e296pg">												
-													<div class="_13ky0r6y" style="padding-top: 66.6667%; background: rgb(216, 216, 216);">
-													<div class="_1szwzht">													
-														<span>
-														<div class="_ttw0d">
-														<a href="" target="listing_43081036" aria-hidden="true" tabindex="-1" aria-label="[OPEN] #아지트5.3# Healing camp &amp; Home cinema 신논현역 1분" class="_15tommw"></a>
-															<div class="_yydl86">
-															<div class="_1na7kj9b">
-																<div class="_e296pg" role="img" aria-busy="false" aria-label="[OPEN] #아지트5.3# Healing camp &amp; Home cinema 신논현역 1분" style="width: 100%; height: 100%;">
-																<div class="_1i2fr3fi" style="width: 100%; height: 100%; background-image: url(&quot;https://a0.muscache.com/im/pictures/eeebcdf4-c294-4449-978d-68592f3481fb.jpg?aki_policy=large&quot;);">
-																</div>
-																</div>
-															</div>
-															</div>
-														</div>
-														</span>													
-													</div>
-													</div>													
-												</div>
-												</div>
-												</div>
-												<!-- 컨텐츠 안 사진 끝 -->
-	
-												<!-- 컨텐츠 사진 옆 설명 글 -->
-												<div class="_6kiyebe">
-													<div class="_4ntfzh" style="margin-bottom: 8px;">
-													<div class="_13qbppeg">아파트 전체</div>
-													</div>
-													
-												<div class="_1jbo9b6h" style="line-height: 24px; max-height: 24px; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 1; -webkit-box-orient: vertical;">
-													[OPEN] #아지트5.3# Healing camp &amp; Home cinema 신논현역 1분</div>
-													
-												<!-- 	
-												<div class="_1ulsev2" style="margin-top: 12px;">인원 2명<span aria-hidden="true"> · </span>
-												침실 1개<span aria-hidden="true"> · </span>침대 1개<span aria-hidden="true"> · </span>욕실 1개
-												</div>
-												
-												<div class="_1ulsev2" style="margin-top: 4px;">주방<span aria-hidden="true"> · </span>
-												무선 인터넷<span aria-hidden="true"> · </span>난방</div>
-												-->
-												
-													<div class="_viapsj">
-													<div></div>
-													<div class="_l2ulkt8">
-													
-													<div class="_zkkcbwd">
-														<span>
-														<span class="_1p7iugi">
-														<span class="_krjbj">가격:</span>
-														₩56,610</span>/1박
-														</span>
-													</div>
-													
-													<div class="_vsjqit" style="margin-top: 2px;">
-														<span class="_krjbj">가격:</span>
-														<span class="_1llb8an">총 요금: ₩56,610</span>
-														<span class="_1ici1i3">
-														<div class="_17y0hv9" role="presentation">
-															<div role="button" tabindex="-1" aria-expanded="false">
-															<div class="_ab0zex">
-																<button aria-expanded="false" aria-label="요금 내역과 숙소 요금 도움말" type="button" class="_axhm01">
-																<span class="_3hmsj">
-																	<svg viewBox="0 0 24 24" role="presentation" aria-hidden="true" focusable="false" style="height: 12px; width: 12px; display: block; fill: rgb(34, 34, 34);">
-																	<path d="m12 0c-6.63 0-12 5.37-12 12s5.37 12 12 12 12-5.37 12-12-5.37-12-12-12zm0 23c-6.07 0-11-4.92-11-11s4.93-11 11-11 11 4.93 11 11-4.93 11-11 11zm4.75-14c0 1.8-.82 2.93-2.35 3.89-.23.14-1 .59-1.14.67-.4.25-.51.38-.51.44v2a .75.75 0 0 1 -1.5 0v-2c0-.74.42-1.22 1.22-1.72.17-.11.94-.55 1.14-.67 1.13-.71 1.64-1.41 1.64-2.61a3.25 3.25 0 0 0 -6.5 0 .75.75 0 0 1 -1.5 0 4.75 4.75 0 0 1 9.5 0zm-3.75 10a1 1 0 1 1 -2 0 1 1 0 0 1 2 0z" fill-rule="evenodd">
-																	</path>
-																	</svg>
-																</span>
-																</button> 
-															</div>
-															</div>
-														</div>
-														</span>
-													</div>
-													</div>
-													</div>
-												</div>
-												<!-- 사진 옆 설명 글 끝 -->												
-											</div>
-											
-											<div style="margin-top: 0px; margin-bottom: 0px;">
-												<div class="_7qp4lh"></div>
-											</div>
-											
-											
-											</div>
-										
-										</div>
-										</div>
-									</div>
-									
-								
-								
+																											
 								
 								</div>
 								</div></div></div></div>
@@ -554,38 +249,61 @@
 						<div class="_1ou8uzt">
 							<nav class="_w9uwpe" data-id="SearchResultsPagination" aria-label="검색 결과 페이지 이동">
 							<ul class="_1g76b5q" data-id="SearchResultsPagination">
+								
+								<!-- 페이징 시작 -->
+								<!-- 현재 페이지 일때 div의 클래스 : class="_115zncnj"  
+									아닐 때는    -->
+								
+								
+								
+									
+									<!-- 이전으로 돌아가기 -->
+									<c:if test="${pager.curBlock gt 1}">
+										<li class="_foinusc">
+										<a aria-label="이전" href="./placeList?location=${location}&guest=${guest}&date=${date}&startDate=${startDate}&endDate=${endDate}&guestData=${guestData}&curPage=${pager.startNum-1}" class="_1li8g8e">
+											<span class="_3hmsj">
+											<svg aria-hidden="true" role="presentation" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" style="display: block; fill: none; height: 16px; width: 16px; stroke: currentcolor; stroke-width: 4; overflow: visible;">
+												<g fill="none">
+													<path d="m20 28-11.29289322-11.2928932c-.39052429-.3905243-.39052429-1.0236893 0-1.4142136l11.29289322-11.2928932"></path>
+												</g>
+											</svg>
+											</span>
+										</a>
+										</li>
+									</c:if>
+									
+									
+									<!-- 페이지 선택 -->			
+									<c:forEach begin="${pager.startNum}" end="${pager.lastNum}" var="i">			
+									<li class="_ycd2pg" data-id="page-2">
+									<c:if test="${pager.curPage eq i}">
+										<div class="_115zncnj" aria-label="현재 페이지">${i}</div>
+									</c:if>
+									<c:if test="${pager.curPage ne i}">
+										<a class="_13n1po3b" href="./placeList?location=${location}&guest=${guest}&date=${date}&curPage=${i}&startDate=${startDate}&endDate=${endDate}&guestData=${guestData}" aria-label="현재 페이지가 아님" >${i}</a>
+									</c:if>
+									</li>
+									</c:forEach>
+									
+									<!-- 다음 페이지로-->
+									<c:if test="${pager.curBlock lt pager.totalBlock}">
+										<li class="_i66xk8d">
+											<a aria-label="다음" href="./placeList?curPage=${pager.lastNum+1}&location=${location}&guest=${guest}&date=${date}&startDate=${startDate}&endDate=${endDate}&guestData=${guestData}" class="_1li8g8e">
+												<span class="_3hmsj">
+												<svg aria-hidden="true" role="presentation" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" style="display: block; fill: none; height: 16px; width: 16px; stroke: currentcolor; stroke-width: 4; overflow: visible;">
+													<g fill="none">
+													<path d="m12 4 11.2928932 11.2928932c.3905243.3905243.3905243 1.0236893 0 1.4142136l-11.2928932 11.2928932"></path>
+													</g>
+												</svg>
+												</span>
+											</a>
+										</li>
+									</c:if>
 							
-								<li class="_ycd2pg" data-id="page-1">
-								<div class="_115zncnj" aria-label="1페이지, 현재 페이지">1</div>
-								</li>
-								
-								<li class="_ycd2pg" data-id="page-2">
-								<a class="_13n1po3b" aria-label="2페이지" href="/s/서울/homes?tab_id=home_tab&amp;refinement_paths%5B%5D=%2Fhomes&amp;source=structured_search_input_header&amp;search_type=pagination&amp;federated_search_session_id=6e4f29d6-f4c7-40c5-a63f-92c186c4f64c&amp;query=%EC%A2%85%EB%A1%9C%EA%B5%AC%2C%20%EC%A2%85%EB%A1%9C%EA%B5%AC%2C%20%ED%95%9C%EA%B5%AD&amp;checkin=2020-05-15&amp;checkout=2020-05-20&amp;adults=1&amp;place_id=ChIJS5wn3S-9fDUR5ly4ei6px1A&amp;section_offset=4&amp;items_offset=20">2</a>
-								</li>
-								<li class="_ycd2pg" data-id="page-3">
-								<a class="_13n1po3b" aria-label="3페이지" href="/s/서울/homes?tab_id=home_tab&amp;refinement_paths%5B%5D=%2Fhomes&amp;source=structured_search_input_header&amp;search_type=pagination&amp;federated_search_session_id=6e4f29d6-f4c7-40c5-a63f-92c186c4f64c&amp;query=%EC%A2%85%EB%A1%9C%EA%B5%AC%2C%20%EC%A2%85%EB%A1%9C%EA%B5%AC%2C%20%ED%95%9C%EA%B5%AD&amp;checkin=2020-05-15&amp;checkout=2020-05-20&amp;adults=1&amp;place_id=ChIJS5wn3S-9fDUR5ly4ei6px1A&amp;section_offset=4&amp;items_offset=40">3</a>
-								</li>
-								
-								<li class="_1w9115hv">…</li>
-								
-								<li class="_ycd2pg" data-id="page-15">
-								<a class="_13n1po3b" aria-label="15페이지" href="/s/서울/homes?tab_id=home_tab&amp;refinement_paths%5B%5D=%2Fhomes&amp;source=structured_search_input_header&amp;search_type=pagination&amp;federated_search_session_id=6e4f29d6-f4c7-40c5-a63f-92c186c4f64c&amp;query=%EC%A2%85%EB%A1%9C%EA%B5%AC%2C%20%EC%A2%85%EB%A1%9C%EA%B5%AC%2C%20%ED%95%9C%EA%B5%AD&amp;checkin=2020-05-15&amp;checkout=2020-05-20&amp;adults=1&amp;place_id=ChIJS5wn3S-9fDUR5ly4ei6px1A&amp;section_offset=4&amp;items_offset=280">15</a>
-								</li>
-							
-								<li class="_i66xk8d">
-								<a aria-label="다음" href="/s/서울/homes?tab_id=home_tab&amp;refinement_paths%5B%5D=%2Fhomes&amp;source=structured_search_input_header&amp;search_type=pagination&amp;federated_search_session_id=6e4f29d6-f4c7-40c5-a63f-92c186c4f64c&amp;query=%EC%A2%85%EB%A1%9C%EA%B5%AC%2C%20%EC%A2%85%EB%A1%9C%EA%B5%AC%2C%20%ED%95%9C%EA%B5%AD&amp;checkin=2020-05-15&amp;checkout=2020-05-20&amp;adults=1&amp;place_id=ChIJS5wn3S-9fDUR5ly4ei6px1A&amp;section_offset=4&amp;items_offset=20" class="_1li8g8e">
-									<span class="_3hmsj">
-									<svg aria-hidden="true" role="presentation" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" style="display: block; fill: none; height: 16px; width: 16px; stroke: currentcolor; stroke-width: 4; overflow: visible;">
-										<g fill="none">
-										<path d="m12 4 11.2928932 11.2928932c.3905243.3905243.3905243 1.0236893 0 1.4142136l-11.2928932 11.2928932"></path>
-										</g>
-									</svg>
-									</span>
-								</a>
-								</li>
 							</ul>
 							</nav>						
 						</div>
+						
 						<div class="_p03egf">
 						<div class="_vzrndj">추가 수수료가 부과됩니다. 세금도 부과될 수 있습니다.</div>
 						</div>
@@ -627,8 +345,8 @@
 				
 				
 				
-			</div>			
-		
+			</div>	
+					
 			<!-- Footer start -->
 			<c:import url="../jsp/footer.jsp"></c:import>
 			
@@ -637,13 +355,89 @@
 		</div>	
 	</div>
 </div>
-
+	
 
 	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=327fa35f2eae30fcd772f149b123ba65&libraries=services"></script>
 	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=327fa35f2eae30fcd772f149b123ba65"></script>							
-	<!-- 지도 동작 script -->
+	<!-- 지도 동작 script 
 	<script type="text/javascript" src="../resources/js/houseListScript.js"></script>
+	-->
+	
+	<script type="text/javascript">
+	
+	
+	
+	
+	//총 숙박비 계산
+	var start = parseInt(${startDate});
+	var end = parseInt(${endDate});
+	var dayCnt = start-end;
+	console.log(dayCnt);
+	//var total = parseInt($('#perPrice'+i).attr('value'))*dayCnt;
+	//document.getElementById("totalPrice").innerHTML = "총 요금: ₩"+total; 
+	
+	const counts = [1,2,3,4,5];
+	for (let i of counts) {
+		$('.house'+i).hover(function(){
+			var house_loc = $('#house'+i).attr('value');
+			console.log("house : "+house_loc);
+			loc = house_loc;
+			getMap();
+		});
+		var total = 0;
+		total = parseInt($('#perPrice'+i).attr('value'))*dayCnt;
+		$("#totalPrice"+i).append("총 요금: ₩"+total);
+		
+		
+	}
+	
+	//역이름 이런걸로 검색 안되고, 직접 주소 입력해야함
+	var loc ="${location}";	//검색어
+	//맨 처음 지도 불러오기
+	getMap();
 
+	function getMap(){
+		var container = document.getElementById('map');
+		var options = {
+			center: new kakao.maps.LatLng(33.450701, 126.570667),
+			level: 3
+		};						
+		var map = new kakao.maps.Map(container, options);
+		var geocoder = new kakao.maps.services.Geocoder();
+		geocoder.addressSearch(loc, function(result, status) {
+			
+			// 정상적으로 검색이 완료됐으면
+			if (status === kakao.maps.services.Status.OK) { 
+				var coords = new kakao.maps.LatLng(result[0].y, result[0].x); 
+				yy = result[0].x; 
+				xx = result[0].y; 
+				
+				// 결과값으로 받은 위치를 마커로 표시 
+				var marker = new kakao.maps.Marker({ map: map, position: coords }); 
+
+				// 지도의 중심을 결과값으로 받은 위치로 이동 
+				map.setCenter(coords); 
+				
+				// ★ resize 마커 중심 
+				var markerPosition = marker.getPosition();
+				$(window).on('resize', function(){
+					map.relayout();
+					map.setCenter(markerPosition); 
+				}); 
+				
+				} else { 
+					console.log(loc);
+					console.log('map error'); }
+		});
+	
+	};
+	
+	
+	
+	
+	</script>
+	
+	
 
 </body>
 </html>

@@ -7,7 +7,11 @@
 	<typeAliases>
 		<typeAlias type="java.lang.Long" alias="Long"/>
 		<typeAlias type="java.lang.Integer" alias="int"/>
+		<typeAlias type="java.util.Map" alias="Map"/>
 
 		<typeAlias type="com.airbnb.s1.member.MemberVO" alias="MemberVO"/>
+		<typeAlias type="com.airbnb.s1.place.PlaceVO" alias="PlaceVO"/>
+		<typeAlias type="com.airbnb.s1.util.Pager" alias="Pager"/>
+		
 	</typeAliases>
 </configuration>
