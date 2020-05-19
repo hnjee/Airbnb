@@ -39,11 +39,6 @@
 
 	<c:import url="./modal/modalScript.jsp"></c:import>
 	<script src="https://apis.google.com/js/platform.js?onload=init" async defer></script>	
-
-
-	
-	
-	
 	<script type="text/javascript">
 	
 
@@ -192,11 +187,6 @@
 		});
 		$('#infantNum').prop('value',infantNum);
 	});
-	
-	
-	
-	
-	
 
 	</script>
 

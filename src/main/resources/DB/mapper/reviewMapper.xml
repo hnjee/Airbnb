@@ -13,10 +13,8 @@
 	
 	<!-- 해당 숙소의 리뷰 총 개수 -->
 	<select id="reviewCount" parameterType="ReviewPager" resultType="Long">
-		select count(reviewNum) from review where placeNum=#{placeNum}
-		<where>
-			<if test="search!='null'"> and reviewDesc like '%'||#{search}||'%' </if>
-		</where>
+		select count(reviewNum) from review where placeNum=#{placeNum} 
+		<if test="search != null">and reviewDesc like '%'||#{search}||'%'</if>
 	</select>
 	
 	<!-- 해당 숙소의 리뷰 점수 -->

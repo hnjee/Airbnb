@@ -9,7 +9,6 @@ import org.springframework.stereotype.Repository;
 import com.airbnb.s1.util.Pager;
 import com.airbnb.s1.util.ReviewPager;
 
-
 @Repository
 public class ReviewDAO {
 	@Autowired
@@ -20,8 +19,8 @@ public class ReviewDAO {
 		return sqlSession.selectList(NAMESPACE+"reviewSelect", pager);
 	}
 	
-	public Long reviewCount(String placeNum) throws Exception{
-		return sqlSession.selectOne(NAMESPACE+"reviewCount", placeNum);
+	public Long reviewCount(ReviewPager pager) throws Exception{
+		return sqlSession.selectOne(NAMESPACE+"reviewCount", pager);
 	}
 	
 	public Float ratingSum(String placeNum) throws Exception{

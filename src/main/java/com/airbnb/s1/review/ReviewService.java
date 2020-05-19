@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 import com.airbnb.s1.util.Pager;
 import com.airbnb.s1.util.ReviewPager;
 
-
 @Service
 public class ReviewService {
 	@Autowired
@@ -16,13 +15,13 @@ public class ReviewService {
 	
 	public List<ReviewVO> reviewSelect(ReviewPager pager) throws Exception{
 		pager.makeRow();
-		long totalCount = reviewDAO.reviewCount(pager.getPlaceNum()); //전체글의 개수 가져오기 
+		long totalCount = reviewDAO.reviewCount(pager); //전체글의 개수 가져오기 
+		System.out.println("totalCount: "+totalCount);
 		pager.makePage(totalCount);
-		
 		return reviewDAO.reviewSelect(pager);
 	}
-	public Long reviewCount(String placeNum) throws Exception{
-		return reviewDAO.reviewCount(placeNum);
+	public Long reviewCount(ReviewPager pager) throws Exception{
+		return reviewDAO.reviewCount(pager);
 	}
 	public Float ratingSum(String placeNum) throws Exception{
 		return reviewDAO.ratingSum(placeNum);
