@@ -9,15 +9,12 @@
 
 <script type="text/javascript">
 	function checkLoginStatus() {
-
 		var loginBtn = document.querySelector('#googleBtn');
-		var loginBtn = document.querySelector('#loginBtn');
 		var nameTxt = document.querySelector('#name');
 		if(gauth.isSignedIn.get()){
 			console.log('logined');
 			loginBtn.value = 'Logout';
 			var profile = gauth.currentUser.get().getBasicProfile();
-
 			console.log(profile.getEmail());
 			console.log(profile.getGivenName());
 			console.log(profile.getFamilyName());
@@ -35,12 +32,6 @@
 			console.log('logouted');
 			loginBtn.value = '구글 아이디로 회원가입';
 			$('.close').click();
-			console.log(profile.getName());
-			nameTxt.innerHTML = 'Welcome <strong>'+profile.getName()+'</strong>';
-		}else{
-			console.log('logouted');
-			loginBtn.value = 'Login';
-			nameTxt.innerHTML = '';
 		}
 	}
 	function init() {
@@ -58,8 +49,7 @@
 			});
 		});
 	}
-
-
+	
 </script>
 </head>
 <body>
@@ -75,7 +65,6 @@
 				
 				<div class="form-group">
 					<div class="col-sm-5">
-
 					<%-- <input type="button" id="loginBtn" value="checking..." onclick=" --%>
 						<input class = "btn btn-success btn-block"type="button" id="googleBtn" value="checking..." onclick="
 					if(this.value =='구글 아이디로 회원가입'){
@@ -83,21 +72,12 @@
 							console.log('gauth.signIn()');
 							checkLoginStatus();
 							location.reload();
-						">
-					<span id="name"></span> <input type="button" id="loginBtn" value="checking..." onclick="
-					if(this.value =='Login'){
-						gauth.signIn().then(function() {
-							console.log('gauth.signIn()');
-							checkLoginStatus();
-
 						});
 					}else{
 						gauth.signOut().then(function() {
 							console.log('gauth.signOut()');
 							checkLoginStatus();
-
 							location.reload();
-
 						});
 					}
 					">
