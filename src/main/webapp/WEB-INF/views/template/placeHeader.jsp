@@ -1,0 +1,111 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+
+<link type="text/css" rel="stylesheet"
+	href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Google+Sans:400,500,700">
+<link
+	href="https://a0.muscache.com/airbnb/static/packages/dls/common_o2.1_cereal-4e0adc51966c85fefe84f5454591ffe2.css"
+	rel="stylesheet" type="text/css" media="all">
+<link
+	href="https://a0.muscache.com/airbnb/static/rooms/list_your_space-c8a358bc6f29cecc5b6ce213939c652e.css"
+	rel="stylesheet" type="text/css" media="all">
+<link rel="stylesheet" type="text/css"
+	href="./resources/css/hostPlace.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta id="csrf-param-meta-tag" name="csrf-param"
+	content="authenticity_token">
+<meta id="csrf-token-meta-tag" name="csrf-token"
+	content="V4$.airbnb.co.kr$68ByIqpjVsM$k1tMyT2hY7dYyZFl9ByVf-19qQTw1W5GZIO1oh7oQn8=">
+
+
+    <div id="smart-banner"></div>
+	<div id="flash-container" class="flash-container"></div>
+	<div id="education-overlay-root"></div>
+	<div data-application="true">
+		<div dir="ltr">
+			<div>
+				<div>
+					<div data-testid="lys-progress-bar"
+						class="list-your-space__progress list-your-space__completed">
+						<div class="_1g0fgis">
+							<div class="_x5vjow">
+								<div class="_sjotrb">
+									<div class="_zyx167">
+										<button type="button" class="_1d4wefjx" aria-busy="false">
+											<div class="_16ibbln">
+												<svg viewBox="0 0 1000 1000" role="img" aria-label="숙소"
+													focusable="false"
+													style="height: 32px; width: 32px; display: block; fill: currentcolor;">
+													<path
+														d="m499.3 736.7c-51-64-81-120.1-91-168.1-10-39-6-70 11-93 18-27 45-40 80-40s62 13 80 40c17 23 21 54 11 93-11 49-41 105-91 168.1zm362.2 43c-7 47-39 86-83 105-85 37-169.1-22-241.1-102 119.1-149.1 141.1-265.1 90-340.2-30-43-73-64-128.1-64-111 0-172.1 94-148.1 203.1 14 59 51 126.1 110 201.1-37 41-72 70-103 88-24 13-47 21-69 23-101 15-180.1-83-144.1-184.1 5-13 15-37 32-74l1-2c55-120.1 122.1-256.1 199.1-407.2l2-5 22-42c17-31 24-45 51-62 13-8 29-12 47-12 36 0 64 21 76 38 6 9 13 21 22 36l21 41 3 6c77 151.1 144.1 287.1 199.1 407.2l1 1 20 46 12 29c9.2 23.1 11.2 46.1 8.2 70.1zm46-90.1c-7-22-19-48-34-79v-1c-71-151.1-137.1-287.1-200.1-409.2l-4-6c-45-92-77-147.1-170.1-147.1-92 0-131.1 64-171.1 147.1l-3 6c-63 122.1-129.1 258.1-200.1 409.2v2l-21 46c-8 19-12 29-13 32-51 140.1 54 263.1 181.1 263.1 1 0 5 0 10-1h14c66-8 134.1-50 203.1-125.1 69 75 137.1 117.1 203.1 125.1h14c5 1 9 1 10 1 127.1.1 232.1-123 181.1-263.1z"></path></svg>
+											</div>
+										</button>
+									</div>
+									<div>
+										<div class="_zyx167">
+											<div class="_yiwrzs">
+												<section>
+													<h1 tabindex="-1" class="_fecoyn4">
+														<span class="_h6avcp2">1단계:&nbsp;기본 사항을 입력하세요</span>
+													</h1>
+												</section>
+											</div>
+										</div>
+									</div>
+									<div class="_iclxcl">
+										<div class="_36rlri">
+											<div class="_1sfzzld">
+												<button type="button" class="_uhll0py" aria-busy="false">
+													<span class="_ftj2sg4">저장 후 나가기</span>
+												</button>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<div>
+								<div class="_e296pg">
+									<a href="./place/hostPlaceTest.jsp" class="_j1qvyg"
+										aria-busy="false"><div class="_16j95sv9" title="숙소 유형"
+											style="width: 16.6667%; left: 0%; max-width: 100%;">
+											<div class="_121z06r2">숙소 유형</div>
+										</div></a><a href="/become-a-host/43444948/bedrooms" class="_j1qvyg"
+										aria-busy="false"><div class="_1ut2fl4" title="침실"
+											style="width: 16.6667%; left: 16.6667%; max-width: 83.3333%;">
+											<div class="_121z06r2">침실</div>
+										</div></a><a href="/become-a-host/43444948/bathrooms" class="_j1qvyg"
+										aria-busy="false"><div class="_1ut2fl4" title="욕실"
+											style="width: 16.6667%; left: 33.3333%; max-width: 66.6667%;">
+											<div class="_121z06r2">욕실</div>
+										</div></a><a href="/become-a-host/43444948/location" class="_j1qvyg"
+										aria-busy="false"><div class="_1ut2fl4" title="위치"
+											style="width: 16.6667%; left: 50%; max-width: 50%;">
+											<div class="_121z06r2">위치</div>
+										</div></a><a href="/become-a-host/43444948/amenities" class="_j1qvyg"
+										aria-busy="false"><div class="_1ut2fl4" title="편의시설"
+											style="width: 16.6667%; left: 66.6667%; max-width: 33.3333%;">
+											<div class="_121z06r2">편의시설</div>
+										</div></a><a href="/become-a-host/43444948/spaces" class="_j1qvyg"
+										aria-busy="false"><div class="_1ut2fl4"
+											title="기타 사용 가능 공간"
+											style="width: 16.6667%; left: 83.3333%; max-width: 16.6667%;">
+											<div class="_121z06r2">기타 사용 가능 공간</div>
+										</div></a>
+								</div>
+							</div>
+							<div class="_1mie2qk8">
+								<div class="_13dmhdhf"
+									style="width: 16.6667%; left: 0%; max-width: 100%;"></div>
+								<div class="_13dmhdhf"
+									style="width: 16.6667%; left: 16.6667%; max-width: 83.3333%;"></div>
+								<div class="_13dmhdhf"
+									style="width: 16.6667%; left: 33.3333%; max-width: 66.6667%;"></div>
+								<div class="_13dmhdhf"
+									style="width: 16.6667%; left: 50%; max-width: 50%;"></div>
+								<div class="_13dmhdhf"
+									style="width: 16.6667%; left: 66.6667%; max-width: 33.3333%;"></div>
+								<div class="_13dmhdhf"
+									style="width: 16.6667%; left: 83.3333%; max-width: 16.6667%;"></div>
+							</div>
+						</div>

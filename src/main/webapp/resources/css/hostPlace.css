@@ -1,6 +1,7 @@
 @charset "UTF-8";
 
 
+
 <style>
 .gm-ui-hover-effect {
 	opacity: .6
@@ -8,6 +9,38 @@
 
 .gm-ui-hover-effect:hover {
 	opacity: 1
+}
+</style>
+
+<style>
+#fb_xdm_frame_https {
+	visibility: hidden
+}
+</style>
+
+<style>
+.gm-control-active>img {
+	box-sizing: content-box;
+	display: none;
+	left: 50%;
+	pointer-events: none;
+	position: absolute;
+	top: 50%;
+	transform: translate(-50%, -50%)
+}
+
+.gm-control-active>img:nth-child(1) {
+	display: block
+}
+
+.gm-control-active:hover>img:nth-child(1), .gm-control-active:active>img:nth-child(1)
+	{
+	display: none
+}
+
+.gm-control-active:hover>img:nth-child(2), .gm-control-active:active>img:nth-child(3)
+	{
+	display: block
 }
 </style>
 <style>
