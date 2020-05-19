@@ -36,4 +36,10 @@ public class PlaceService {
 	public PlaceVO placeSelect(String placeNum) throws Exception{
 		return placeDAO.placeSelect(placeNum);
 	}
+	
+	public List<BookingVO> checkDateSelect(String placeNum) throws Exception{
+		return placeDAO.checkDateSelect(placeNum);
+	}
+	
+	
 }

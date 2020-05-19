@@ -29,6 +29,16 @@ h1 {
     margin-inline-end: 0px;
     font-weight: bold;
 }
+a{
+	color:black;
+}
+a:hover { 
+ 	color: black; 
+ 	text-decoration: none;	
+ }
+	
+	
+
 ._1nkqnd0 {
     padding-bottom: 0px !important;
     top: 105px !important;

@@ -7,6 +7,8 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.airbnb.s1.booking.BookingVO;
+
 
 @Repository
 public class PlaceDAO {
@@ -25,5 +27,15 @@ public class PlaceDAO {
 	
 	public PlaceVO placeSelect(String placeNum) throws Exception {
 		return sqlSession.selectOne(NAMESPACE+"placeSelect", placeNum);
+	}
+	
+	public List<BookingVO> checkDateSelect(String placeNum) throws Exception{
+		List<BookingVO> ar = null;
+		if(sqlSession.selectList(NAMESPACE+"checkDateSelect", placeNum) != null) {
+			return sqlSession.selectList(NAMESPACE+"checkDateSelect", placeNum);
+		}
+		else {
+			return ar;
+		}
 	}
 }

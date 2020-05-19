@@ -36,5 +36,9 @@
 	<select id="placeSelect" parameterType="String" resultType="PlaceVO">
 		select * from place where placeNum=#{placeNum}
 	</select>
+	
+	<select id="checkDateSelect" parameterType="String" resultType="BookingVO">
+		SELECT * FROM booking where placeNum=#{placeNum}
+	</select>
 
 </mapper>
