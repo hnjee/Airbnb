@@ -23,5 +23,7 @@ public class PlaceDAO {
 		return sqlSession.selectOne(NAMESPACE+"placeCount",placeVO);
 	}
 	
-	
+	public PlaceVO placeSelect(String placeNum) throws Exception {
+		return sqlSession.selectOne(NAMESPACE+"placeSelect", placeNum);
+	}
 }

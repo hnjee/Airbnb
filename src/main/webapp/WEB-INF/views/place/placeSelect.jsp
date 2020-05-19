@@ -143,8 +143,7 @@
 			   <h4><strong>예약 가능 여부</strong></h4>
 			    <div id="calendar"><!-- 달력 --></div>
 			    <hr>
-			  
-			  
+
 			  <!-- Review -->
 				<h4><strong>후기</strong></h4>	
 			    <div class="review">	    
@@ -188,7 +187,7 @@
 						    	<hr>
 						  		</div>					
 						</c:forEach>
-						
+		
 						<div style="margin-bottom: 30px;">
 							<div class="pagination">
 								<c:if test="${pager.curBlock gt 1}">
@@ -201,6 +200,30 @@
 								
 								<c:if test="${pager.curBlock lt pager.totalBlock}">
 									<button class="back"> > </button> 
+
+		
+						<div style="margin-bottom: 30px;">
+							<div class="pagination">
+								<c:if test="${reviewCnt eq 0}">
+									<div style="margin-top:10px;"></div>
+								</c:if>
+								
+								<c:if test="${reviewCnt ne 0}">
+									<c:if test="${pager.curBlock gt 1}">
+										 <span class="front"> <a> < </a> </span> 					
+									</c:if>
+									<c:forEach begin="${pager.startNum}" end="${pager.lastNum}" var="i">
+										<c:if test="${pager.curPage eq i}">
+											<span title="${i}" class="pages"> <a class="active">${i}</a></span>
+										</c:if>
+										<c:if test="${pager.curPage ne i}">
+											<span title="${i}" class="pages"> <a>${i}</a></span>
+										</c:if>
+									</c:forEach>
+									<c:if test="${pager.curBlock lt pager.totalBlock}">
+										<span class="back"> <a> > </a> </span> 
+									</c:if>
+
 								</c:if>
 							</div>
 						</div>
@@ -277,7 +300,7 @@
 			    		<button>호스트에게 연락하기</button>
 			    	</div>
 			    	 <!-- 클릭하면 카카오톡 메세지 전송 -->
-			    	 
+
 			    	  <hr>
 			    </div>
 			   	
@@ -366,7 +389,7 @@
 	</main>
 	<!-- Main End -->
 	
-	
+
 	<!-- Footer Start -->
 	<c:import url="../jsp/footer.jsp"></c:import>
 	<!-- Footer End -->
@@ -386,7 +409,3 @@
 		
 </body>
 </html>
-
-
-
-

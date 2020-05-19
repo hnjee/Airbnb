@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import com.airbnb.s1.booking.BookingVO;
 import com.airbnb.s1.util.Pager;
+import com.airbnb.s1.review.ReviewDAO;
 
 @Service
 public class PlaceService {
@@ -32,4 +33,7 @@ public class PlaceService {
 		return placeDAO.placeCount(placeVO);		
 	}
 	
+	public PlaceVO placeSelect(String placeNum) throws Exception{
+		return placeDAO.placeSelect(placeNum);
+	}
 }

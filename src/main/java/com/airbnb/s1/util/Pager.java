@@ -1,7 +1,6 @@
 package com.airbnb.s1.util;
 
 public class Pager {
-	
 	private Long curPage;
 	private Integer perPage;
 	
@@ -122,13 +121,6 @@ public class Pager {
 		
 		
 	}
-	
-	
-	
-	
-	
-	
-	
 	
 	
 }
