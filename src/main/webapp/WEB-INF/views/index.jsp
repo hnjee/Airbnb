@@ -16,11 +16,10 @@
 			box-sizing: content-box;
 			}
 	</style> 
-
+	
 	<c:import url="./template/boot.jsp"></c:import> 
 	<c:import url="./template/fullcalendarLoad.jsp"></c:import>
-	<c:import url="./modal/setModal.jsp"></c:import>   
-
+	<%--<c:import url="./modal/setModal.jsp"></c:import>--%> 
 
 	<link rel="stylesheet" type="text/css" href="./resources/css/searchBoxStyle.css">
 	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
@@ -40,10 +39,7 @@
 	<c:import url="./modal/modalScript.jsp"></c:import>
 	<script src="https://apis.google.com/js/platform.js?onload=init" async defer></script>	
 	<script type="text/javascript">
-	
-
-	      var calendarEl = document.getElementById('calendar');
-	      
+	      var calendarEl = document.getElementById('calendar');  
 	    //fullcalendar 생성
 	      var calendar = new FullCalendar.Calendar(calendarEl, {
 	        plugins: [ 'interaction', 'dayGrid', 'moment'],
@@ -91,9 +87,6 @@
 	        	//값 보낼 input의 속성에 넣어주기
 	        	$('#startDate').prop('value',startData);
 	        	$('#endDate').prop('value',endData);
-	        	
-	        	
-	        	
 	        },   
 	        
 	      	unselectAuto: true
@@ -106,9 +99,7 @@
 	    	  return n.length >= width ? n : new Array(width - n.length + 1).join('0') + n;
 	    	}
 	
-	
-	
-	//searchBox 동작
+  //searchBox 동작
 	var adultNum=0;
 	var childNum=0;
 	var infantNum=0;
@@ -188,7 +179,6 @@
 		$('#infantNum').prop('value',infantNum);
 	});
 
-	</script>
-
+	</script> 
 </body>
 </html>
