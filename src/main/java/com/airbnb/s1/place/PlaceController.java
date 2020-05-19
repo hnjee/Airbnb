@@ -13,6 +13,7 @@ import com.airbnb.s1.booking.BookingVO;
 import com.airbnb.s1.review.ReviewService;
 import com.airbnb.s1.review.ReviewVO;
 import com.airbnb.s1.util.Pager;
+import com.airbnb.s1.util.ReviewPager;
 
 @Controller
 @RequestMapping("/place/**")
@@ -60,7 +61,7 @@ public class PlaceController {
 	}
 
 	@GetMapping("placeSelect")
-	public ModelAndView placeSelect(ModelAndView mv, Pager pager) throws Exception{
+	public ModelAndView placeSelect(ModelAndView mv, ReviewPager pager) throws Exception{
 		System.out.println("Pager.getPlaceNum: "+pager.getPlaceNum());
 		PlaceVO placeVO = placeService.placeSelect(pager.getPlaceNum());
 		List<ReviewVO> reviewVOs  = reviewService.reviewSelect(pager);
@@ -82,7 +83,7 @@ public class PlaceController {
 	}
 	
 	@GetMapping("getReview")
-	public ModelAndView getReview(Pager pager, ModelAndView mv) throws Exception{
+	public ModelAndView getReview(ReviewPager pager, ModelAndView mv) throws Exception{
 		System.out.println("PlaceNum: "+pager.getPlaceNum()+", CurPage: "+pager.getCurPage());
 		System.out.println("pagerSearch: "+pager.getSearch());
 		List<ReviewVO> reviews = reviewService.reviewSelect(pager);

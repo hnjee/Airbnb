@@ -4,7 +4,7 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
 <mapper namespace="com.airbnb.s1.review.ReviewDAO">
-	<select id="reviewSelect" parameterType="Pager" resultType="ReviewVO">
+	<select id="reviewSelect" parameterType="ReviewPager" resultType="ReviewVO">
 		select * from
 		(select RV.*, rownum R from 
 		(select * from review where placeNum=#{placeNum} and reviewDesc like '%'||#{search}||'%') RV)
@@ -12,7 +12,7 @@
 	</select>
 	
 	<!-- 해당 숙소의 리뷰 총 개수 -->
-	<select id="reviewCount" parameterType="Pager" resultType="Long">
+	<select id="reviewCount" parameterType="ReviewPager" resultType="Long">
 		select count(reviewNum) from review where placeNum=#{placeNum}
 		<where>
 			<if test="search!='null'"> and reviewDesc like '%'||#{search}||'%' </if>

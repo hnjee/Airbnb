@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.airbnb.s1.util.Pager;
+import com.airbnb.s1.util.ReviewPager;
 
 
 @Service
@@ -13,7 +14,7 @@ public class ReviewService {
 	@Autowired
 	private ReviewDAO reviewDAO;
 	
-	public List<ReviewVO> reviewSelect(Pager pager) throws Exception{
+	public List<ReviewVO> reviewSelect(ReviewPager pager) throws Exception{
 		pager.makeRow();
 		long totalCount = reviewDAO.reviewCount(pager.getPlaceNum()); //전체글의 개수 가져오기 
 		pager.makePage(totalCount);
