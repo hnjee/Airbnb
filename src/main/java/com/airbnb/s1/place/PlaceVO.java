@@ -17,8 +17,7 @@ public class PlaceVO {
 	private Long bathroom;
 	private Long checkInTime;
 	private Long checkOutTime;
-	
-	
+
 	public String getPlaceNum() {
 		return placeNum;
 	}
@@ -103,11 +102,4 @@ public class PlaceVO {
 	public void setCheckOutTime(Long checkOutTime) {
 		this.checkOutTime = checkOutTime;
 	}
-
-	
-	
-	
-	
-	
-
 }

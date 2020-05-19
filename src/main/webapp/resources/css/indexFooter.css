@@ -39,16 +39,16 @@ footer{
 	font-size: 14px;
 	word-spacing: -2px;
 }
-h4{
+footer h4{
 	margin: 0px;
 	font-size: 12px;
 	font-weight: 600;
 }
-a{
+footer a{
 	text-decoration: none;
 	color: black; 
 }
-ul{
+footer ul{
 	list-style: none;
 }
 

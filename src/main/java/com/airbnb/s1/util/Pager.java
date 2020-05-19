@@ -1,7 +1,6 @@
 package com.airbnb.s1.util;
 
 public class Pager {
-	
 	private Long curPage;
 	private Integer perPage;
 	
@@ -12,7 +11,6 @@ public class Pager {
 	private long curBlock;
 	private long startNum;
 	private long lastNum;
-	
 	
 	
 	public Long getCurPage() {
@@ -115,20 +113,6 @@ public class Pager {
 			if(this.curBlock == this.totalBlock) {
 				this.lastNum=this.totalPage;
 			}
-			
-			
-			
 		}
-		
-		
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
 }
