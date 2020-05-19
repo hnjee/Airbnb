@@ -1,5 +1,7 @@
 package com.airbnb.s1.member;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,12 +17,15 @@ public class MemberController {
 	private MemberService memberService;
 	
 	@GetMapping("memberJoin")
-	public ModelAndView memberJoin(ModelAndView mv, MemberVO memberVO) throws Exception{
+	public ModelAndView memberJoin(ModelAndView mv, MemberVO memberVO, HttpSession session) throws Exception{
 		System.out.println("memberJoin enter");
 		System.out.println(memberVO.getEmail());
 		System.out.println(memberVO.getName());
 		System.out.println(memberVO.getFname());
 		System.out.println(memberVO.getPw());
+		
+		session.setAttribute("member", memberVO);
+		
 		int result = memberService.memberJoin(memberVO);
 		if(result >0) {
 			System.out.println("DB생성 성공");
@@ -33,10 +38,27 @@ public class MemberController {
 		return mv;
 	}
 	
+	@GetMapping("googleLogin")
+	public ModelAndView googleLogin(MemberVO memberVO, HttpSession session, ModelAndView mv) throws Exception{
+		System.out.println(memberVO.getEmail());
+		System.out.println(memberVO.getName());
+		System.out.println(memberVO.getFname());
+		session.setAttribute("member", memberVO);
+		mv.setViewName("./");
+		return mv;
+	}
+	
+	
 //	@PostMapping("memberJoin")
 //	public void memberJoin() throws Exception{
 //		System.out.println("memberJoin enter");
 //	}
+	
+	@GetMapping("memberLogout")
+	public void memberLogout(HttpSession session) throws Exception{
+		session.invalidate();
+	}
+	
 	
 	@GetMapping("memberLogin")
 	public void memberLogin() throws Exception{
