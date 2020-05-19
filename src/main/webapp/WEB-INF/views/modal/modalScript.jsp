@@ -39,9 +39,4 @@
 		});
 		
 
-						$('#setAgree').click();
-					}
-				});
-		});
-
 	</script>
