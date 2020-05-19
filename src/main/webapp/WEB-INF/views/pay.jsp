@@ -286,6 +286,9 @@
 	
 	
 </style>
+
+
+
 </head>
 <body>
 
@@ -402,10 +405,13 @@
 </div>
 </body>
 
+
 <script>
 $(document).ready(function(){
     $('[data-toggle="popover"]').popover();   
 });
-
+$(".btn-primary").click(function() {
+	$(location).attr('href', 'payment');
+})
 </script>
 </html>

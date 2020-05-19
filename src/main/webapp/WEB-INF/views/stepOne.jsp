@@ -279,5 +279,9 @@
 $(document).ready(function(){
     $('[data-toggle="popover"]').popover();   
 });
+
+$(".btn-primary").click(function() {
+	$(location).attr('href', 'stepTwo');
+})
 </script>
 </html>
