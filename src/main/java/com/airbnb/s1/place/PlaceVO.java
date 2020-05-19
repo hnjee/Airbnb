@@ -9,7 +9,7 @@ public class PlaceVO {
 	private String placeLocation;
 	private Long placePrice;
 	private String placeImage;
-	private Long placeType;
+	private String placeType;
 	private Long placeMaxGuest;
 	private String placeDesc;
 	private String placeRule;
@@ -54,10 +54,10 @@ public class PlaceVO {
 	public void setPlaceImage(String placeImage) {
 		this.placeImage = placeImage;
 	}
-	public Long getPlaceType() {
+	public String getPlaceType() {
 		return placeType;
 	}
-	public void setPlaceType(Long placeType) {
+	public void setPlaceType(String placeType) {
 		this.placeType = placeType;
 	}
 	public Long getPlaceMaxGuest() {

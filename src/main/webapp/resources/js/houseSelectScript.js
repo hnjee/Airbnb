@@ -46,7 +46,10 @@
 													map.setCenter(markerPosition); 
 												}); 
 												
-												} else { console.log('에러'); }
+												} else { 
+													console.log('${vo.placeLocation}');
+													console.log('에러'); 
+													}
 										});
 									
 									};
