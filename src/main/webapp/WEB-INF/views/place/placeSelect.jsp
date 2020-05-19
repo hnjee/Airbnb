@@ -200,7 +200,7 @@
 								
 								<c:if test="${pager.curBlock lt pager.totalBlock}">
 									<button class="back"> > </button> 
-
+								</c:if>
 		
 						<div style="margin-bottom: 30px;">
 							<div class="pagination">

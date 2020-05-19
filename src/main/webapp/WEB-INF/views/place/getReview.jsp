@@ -33,7 +33,7 @@
 		
 		<c:if test="${pager.curBlock lt pager.totalBlock}">
 			<button class="back"> > </button> 
-
+		</c:if>
 		<c:if test="${reviewCnt eq 0}">
 			<div style="margin-top:10px;"></div>
 		</c:if>
