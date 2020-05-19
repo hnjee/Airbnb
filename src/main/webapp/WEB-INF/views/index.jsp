@@ -34,7 +34,6 @@
 	<c:import url="./jsp/searchBox.jsp"></c:import> 
 	<c:import url="./jsp/index_contents.jsp"></c:import>
 	<c:import url="./jsp/footer.jsp"></c:import>
-	<c:import url="./modal/setModal.jsp"></c:import>
 
 	<c:import url="./modal/modalScript.jsp"></c:import>
 	<script src="https://apis.google.com/js/platform.js?onload=init" async defer></script>	
