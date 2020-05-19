@@ -1,14 +1,17 @@
-/**
- * 
- */
-
 									//역이름 이런걸로 검색 안되고, 직접 주소 입력해야함
-									var loc ="${location}";	//검색어
+									var loc = "${vo.placeLocation}";	//검색어
 									map1();
-									
+			
+										$('.house1').hover(function(){
+										var house1_loc = $('#house1').attr('value');
+										console.log(house1_loc);
+										loc = house1_loc;
+										map1();
+									});
+								
 									function map1(){
 										
-										var container = document.getElementById('map');
+										var container = document.getElementById('map2');
 										var options = {
 											center: new kakao.maps.LatLng(33.450701, 126.570667),
 											level: 3
@@ -43,9 +46,7 @@
 													map.setCenter(markerPosition); 
 												}); 
 												
-												} else { 
-													console.log(loc);
-													console.log('에러'); }
+												} else { console.log('에러'); }
 										});
 									
 									};
