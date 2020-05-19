@@ -11,8 +11,7 @@ public class PlaceDAO {
 	private SqlSession sqlSession;
 	private final String NAMESPACE = "com.airbnb.s1.place.PlaceDAO.";
 	
-	public PlaceVO placeSelect(String num) throws Exception {
-		System.out.println(num);
-		return sqlSession.selectOne(NAMESPACE+"placeSelect", num);
+	public PlaceVO placeSelect(String placeNum) throws Exception {
+		return sqlSession.selectOne(NAMESPACE+"placeSelect", placeNum);
 	}
 }

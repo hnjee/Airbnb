@@ -19,11 +19,11 @@ public class ReviewDAO {
 		return sqlSession.selectList(NAMESPACE+"reviewSelect", pager);
 	}
 	
-	public Long reviewCount(String num) throws Exception{
-		return sqlSession.selectOne(NAMESPACE+"reviewCount", num);
+	public Long reviewCount(String placeNum) throws Exception{
+		return sqlSession.selectOne(NAMESPACE+"reviewCount", placeNum);
 	}
 	
-	public Float ratingSum(String num) throws Exception{
-		return sqlSession.selectOne(NAMESPACE+"ratingSum", num);
+	public Float ratingSum(String placeNum) throws Exception{
+		return sqlSession.selectOne(NAMESPACE+"ratingSum", placeNum);
 	}
 }

@@ -5,10 +5,6 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-
-
-	
-	
 	<title>${vo.placeName}</title>
 	
 	<!-- 화면 css -->
@@ -23,6 +19,7 @@
  	<!-- fullcalendar css-->
  	<link rel="stylesheet" type="text/css" href='../resources/static/fullcalendar/packages/core/main.css' />
 	<link rel="stylesheet" type="text/css" href='../resources/static/fullcalendar/packages/daygrid/main.css' />
+	<!-- jquery -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	
 	<style type="text/css">
@@ -163,10 +160,10 @@
 			    		
 			    		<div class="review_search">
 			    			<div style="width:154px; height:34px; padding: 6px 7px; box-sizing: border-box; overflow: hidden;">
-			    				<input type="text" name="search" placeholder="후기 검색" style=" outline-style: none;">
+			    				<input type="text" id="search" placeholder="후기 검색" style=" outline-style: none;">
 			    			</div>
-			    			<div style="width:31px; height: 34px; padding: 6px 0;">
-			    				<button type="button" style="background: none; border: none;padding-left: 5px; padding-right: 5px;">
+			    			<div id="searchBtn" style="width:31px; height: 34px; padding: 6px 0;">
+			    				<button id="goSearch" type="button" style="background: none; border: none; padding-left: 5px; padding-right: 5px;">
 			    					<svg viewBox="0 0 24 24" role="presentation" aria-hidden="true" focusable="false" style="height: 1em; width: 1em; display: block; fill: currentcolor;"><path d="m10.4 18.2c-4.2-.6-7.2-4.5-6.6-8.8.6-4.2 4.5-7.2 8.8-6.6 4.2.6 7.2 4.5 6.6 8.8-.6 4.2-4.6 7.2-8.8 6.6m12.6 3.8-5-5c1.4-1.4 2.3-3.1 2.6-5.2.7-5.1-2.8-9.7-7.8-10.5-5-.7-9.7 2.8-10.5 7.9-.7 5.1 2.8 9.7 7.8 10.5 2.5.4 4.9-.3 6.7-1.7v.1l5 5c .3.3.8.3 1.1 0s .4-.8.1-1.1" fill-rule="evenodd"></path></svg>
 			    				</button>
 			    			</div>
@@ -175,9 +172,9 @@
 			   		
 			   		<div id="reviews">
 				   		<c:forEach items="${reviewList}" var="review">
-							<div class="review_one" style="margin-top:20px;">
+						<div class="review_one" style="margin-top:20px;">
 						    	<div class="review_user">
-						    		<div class="review_user_pic">
+						  	  		<div class="review_user_pic">
 						    			<img src="https://a0.muscache.com/im/pictures/user/42d3a3e4-f462-4d8f-85cb-1a444865ecb2.jpg?aki_policy=profile_x_medium" height="48" width="48" alt="Jina님의 사용자 프로필" title="Jina님의 사용자 프로필">
 						    		</div>
 						    		<div class="review_user_info" style="margin-left:16px;  font-family: Circular">
@@ -215,17 +212,24 @@
 					$("#reviews").on("click", ".pages",function(){
 						curPage = $(this).attr("title");
 						$(this).addClass("active");
-						$.get("getReview?placeNum=${vo.placeNum}&curPage="+curPage, function(result){
+						$.get("getReview?placeNum=${vo.placeNum}&search=${pager.search}&curPage="+curPage, function(result){
 							$("#reviews").html(result);
 						});
 					});
 					$("#reviews").on("click",".front",function(){
-						$.get("getReview?placeNum=${vo.placeNum}&curPage=${pager.startNum-1}", function(result){
+						$.get("getReview?placeNum=${vo.placeNum}&search=${pager.search}&curPage=${pager.startNum-1}", function(result){
 							$("#reviews").html(result);
 						});
 					});
 					$("#reviews").on("click", ".back",function(){
-						$.get("getReview?placeNum=${vo.placeNum}&curPage=${pager.lastNum+1}", function(result){
+						$.get("getReview?placeNum=${vo.placeNum}&search=${pager.search}&curPage=${pager.lastNum+1}", function(result){
+							$("#reviews").html(result);
+						});
+					});
+					
+					$("#searchBtn").on("click", "#goSearch", function(){
+						var search = $("#search").val();
+						$.get("getReview?placeNum=${vo.placeNum}&search="+search, function(result){
 							$("#reviews").html(result);
 						});
 					});

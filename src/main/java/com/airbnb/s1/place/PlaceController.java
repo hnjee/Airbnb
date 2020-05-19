@@ -28,16 +28,15 @@ public class PlaceController {
 	}
 
 	@GetMapping("placeSelect")
-	public ModelAndView placeSelect(String num, ModelAndView mv, Pager pager) throws Exception{
-		PlaceVO placeVO = placeService.placeSelect(num);
-		
-		pager.setPlaceNum(num);
+	public ModelAndView placeSelect(ModelAndView mv, Pager pager) throws Exception{
+		System.out.println("Pager.getPlaceNum: "+pager.getPlaceNum());
+		PlaceVO placeVO = placeService.placeSelect(pager.getPlaceNum());
 		List<ReviewVO> reviewVOs  = reviewService.reviewSelect(pager);
 		
 		//리뷰 전체 개수 
-		long reviewCnt = reviewService.reviewCount(num);
+		long reviewCnt = reviewService.reviewCount(pager.getPlaceNum());
 		//평균 계산 
-		float ratingSum = reviewService.ratingSum(num);
+		float ratingSum = reviewService.ratingSum(pager.getPlaceNum());
 		float ratingAvg = ratingSum/reviewCnt;
 		
 		mv.addObject("vo", placeVO);
@@ -53,7 +52,9 @@ public class PlaceController {
 	@GetMapping("getReview")
 	public ModelAndView getReview(Pager pager, ModelAndView mv) throws Exception{
 		System.out.println("PlaceNum: "+pager.getPlaceNum()+", CurPage: "+pager.getCurPage());
+		System.out.println("pagerSearch: "+pager.getSearch());
 		List<ReviewVO> reviews = reviewService.reviewSelect(pager);
+		mv.addObject("pager2", pager);
 		mv.addObject("reviewList", reviews);
 		return mv;
 	}

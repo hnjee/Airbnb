@@ -16,8 +16,7 @@ public class Pager {
 	private long curBlock;			//현재 페이지블럭 
 	private long startNum;			//현재 페이지블럭의 처음 페이지 번호   
 	private long lastNum;			//현재 페이지블럭의 마지막 페이지 번호
-	
-	private String kind;								
+									
 	private String search;
 
 	
@@ -116,14 +115,6 @@ public class Pager {
 		this.lastNum = lastNum;
 	}
 
-	public String getKind() {
-		return kind;
-	}
-
-	public void setKind(String kind) {
-		this.kind = kind;
-	}
-
 	public String getSearch() {
 		if(this.search==null) {
 			this.search="";
@@ -179,6 +170,7 @@ public class Pager {
 			this.startNum=1;
 			this.lastNum=1;
 		}
+		System.out.println("Search: "+this.search+" 끝");
 	}
 
 }

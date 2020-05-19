@@ -47,7 +47,7 @@
 				
 				<!-- Main Start -->
 				<main id="site-content" tabindex="-1">
-				<h1><a href="./placeSelect?num=p8"> Select GO</a> </h1>
+				<h1><a href="./placeSelect?placeNum=p8"> Select GO</a> </h1>
 				<div class="content-container">
 				<div data-container="ExploreLayoutController" id="ExploreLayoutController" class="_1nkqnd0">	
 				<div class="_e296pg" style="min-height: calc(100vh - 80px);">

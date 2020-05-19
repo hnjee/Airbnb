@@ -20,10 +20,10 @@ public class ReviewService {
 		
 		return reviewDAO.reviewSelect(pager);
 	}
-	public Long reviewCount(String num) throws Exception{
-		return reviewDAO.reviewCount(num);
+	public Long reviewCount(String placeNum) throws Exception{
+		return reviewDAO.reviewCount(placeNum);
 	}
-	public Float ratingSum(String num) throws Exception{
-		return reviewDAO.ratingSum(num);
+	public Float ratingSum(String placeNum) throws Exception{
+		return reviewDAO.ratingSum(placeNum);
 	}
 }
