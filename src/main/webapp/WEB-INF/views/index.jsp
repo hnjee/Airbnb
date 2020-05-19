@@ -19,7 +19,6 @@
 
 	<c:import url="./template/boot.jsp"></c:import> 
 	<c:import url="./template/fullcalendarLoad.jsp"></c:import>
-	<c:import url="./modal/setModal.jsp"></c:import>   
 
 
 	<link rel="stylesheet" type="text/css" href="./resources/css/searchBoxStyle.css">
