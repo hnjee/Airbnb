@@ -1,6 +1,6 @@
 package com.airbnb.s1.util;
 
-public class Pager {
+public class ReviewPager {
 	private String placeNum;
 
 	private long totalPage;			//전체 페이지의 수 

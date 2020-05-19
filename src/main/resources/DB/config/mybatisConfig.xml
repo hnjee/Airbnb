@@ -13,6 +13,6 @@
 		<typeAlias type="com.airbnb.s1.member.MemberVO" alias="MemberVO"/>
 		<typeAlias type="com.airbnb.s1.place.PlaceVO" alias="PlaceVO"/>
 		<typeAlias type="com.airbnb.s1.review.ReviewVO" alias="ReviewVO"/>
-		<typeAlias type="com.airbnb.s1.util.Pager" alias="Pager"/>
+		<typeAlias type="com.airbnb.s1.util.ReviewPager" alias="ReviewPager"/>
 	</typeAliases>
 </configuration>
