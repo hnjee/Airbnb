@@ -83,7 +83,7 @@
 							console.log('gauth.signIn()');
 							checkLoginStatus();
 							location.reload();
-
+						">
 					<span id="name"></span> <input type="button" id="loginBtn" value="checking..." onclick="
 					if(this.value =='Login'){
 						gauth.signIn().then(function() {
