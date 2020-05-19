@@ -1,13 +1,13 @@
-									//역이름 이런걸로 검색 안되고, 직접 주소 입력해야함
-									var loc = "${vo.placeLocation}";	//검색어
-									map1();
-			
-										$('.house1').hover(function(){
-										var house1_loc = $('#house1').attr('value');
-										console.log(house1_loc);
-										loc = house1_loc;
+									function map0(loc){
 										map1();
-									});
+				
+											$('.house1').hover(function(){
+											var house1_loc = $('#house1').attr('value');
+											console.log(house1_loc);
+											loc = house1_loc;
+											map1();
+										});
+									};
 								
 									function map1(){
 										
