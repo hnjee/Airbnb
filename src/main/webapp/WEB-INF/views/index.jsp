@@ -47,186 +47,82 @@
 	
 	<script type="text/javascript">
 	
-		/*
-	      var calendarEl = document.getElementById('calendar');	      
-	    //fullcalendar 생성
-	      var calendar = new FullCalendar.Calendar(calendarEl, {
-	        plugins: [ 'interaction', 'dayGrid', 'moment'],
-	        allDay:false,
-	        defaultTime: '07:00',
-	        selectable: true,      
-	        select: function(selectInfo){
-	        	
-	        	//////////화면 출력 용/////////////////////////////////
-	        	var dt_start = selectInfo.start;
-	        	var dt_end = selectInfo.end;
-				
-	        	//end의 DD만 subString으로 받아오기        	
-	        	var endDay = pad(parseInt((new Date(dt_end)).toISOString().slice(8, 10)),2);	
-
-	        	//startStr, endStr 	: YYYY-MM-DD 형태, DATE형 형식이랑 같음
-	        	
-	        	dt_start = moment(dt_start).format('MM월 DD일');
-	        	dt_end = moment(dt_end).format('MM월');
-	        	
-	        	//dt_start = (new Date(dt_start)).toISOString().slice(0, 10);
-	        	//dt_end = (new Date(dt_start)).toISOString().slice(0, 10);	   
-	        	
-	        	//확인용 콘솔
-	        	console.log('start : '+dt_start+' end:'+dt_end); 
-	        	//jsp 화면에 출력
-	        	$('.datePick').prop('value',dt_start+' - '+dt_end+' '+endDay+'일');
-	        	$('.datePick').prop('style',"border: none;font-weight: 600;color: black;");
-	        	///////////////////////////////////////////////////
-	        	
-	        	//////////controller로 보낼 날짜 데이터///////////////////
-	        	var startData = selectInfo.startStr;
-	        	// 날짜 값 가져오기 
-	        	var endData = selectInfo.endStr;	        	
-	       		//var monthData = (new Date(endData)).toISOString().slice(5, 7);
-	       		var dayData = pad(String(parseInt((new Date(selectInfo.endStr)).toISOString().slice(8, 11))-1),2);
-	       		
-	       		// 합치기,,,ㅡㅡ
-	       		//endData = (new Date(endData)).toISOString().slice(0, 2);
-	        	//var endDataFix = String(parseInt((new Date(selectInfo.endStr)).toISOString().slice(8, 10))-1);
-	        	//endData = endData +'/'+ monthData+'/'+dayData;
-	        	endData = ((new Date(endData)).toISOString().slice(0, 8))+dayData;
-	        	console.log("날짜 데이터 : "+endData);
-	        	
-	        	//값 보낼 input의 속성에 넣어주기
-	        	$('#startDate').prop('value',startData);
-	        	$('#endDate').prop('value',endData);
-	        },   
-	        
-	      	unselectAuto: true
-	      });     
-	      calendar.render();
-	      
-	      //잘라온 날짜 0으로 padding하기 위한 함수
-	      function pad(n, width) {
-	    	  n = n + '';
-	    	  return n.length >= width ? n : new Array(width - n.length + 1).join('0') + n;
-	    	}
-	
-	      */
-	      
-	      
-	      
+		
 	      var calendarEl = document.getElementById('calendar');	
-	      var disabled = ['2020-05-02','2020-05-09','2020-05-12','2020-05-14'];
+	      var disabled = [];
 	      
 		    //fullcalendar 생성
 		      var calendar = new FullCalendar.Calendar(calendarEl, {
 		        plugins: [ 'interaction', 'dayGrid', 'moment'],
 		        allDay:false,
-		        selectable: true,      
+		        selectable: true,    
+		        selectAllow:function(selectInfo){
+		        	//해당 날짜만 선택 불가
+		        	return checkNotAble(selectInfo.start, disabled);
+		        },
 		        select: function(selectInfo){
-		        
-		        	
-		        	//////////화면 출력 용/////////////////////////////////
+		        	/////////////////////화면 출력 용//////////////////////
 		        	var dt_start = selectInfo.start;
-		        	var dt_end = selectInfo.end;
-					
+		        	var dt_end = selectInfo.end;					
 		        	//end의 DD만 subString으로 받아오기        	
 		        	var endDay = pad(parseInt((new Date(dt_end)).toISOString().slice(8, 10)),2);	
-
 		        	//startStr, endStr 	: YYYY-MM-DD 형태, DATE형 형식이랑 같음		        	
 		        	dt_start = moment(dt_start).format('MM월 DD일');
 		        	dt_end = moment(dt_end).format('MM월');		        	
-		        	//dt_start = (new Date(dt_start)).toISOString().slice(0, 10);
-		        	//dt_end = (new Date(dt_start)).toISOString().slice(0, 10);	   
-		        	
-		        	//확인용 콘솔
-		        	console.log('start : '+dt_start+' end:'+dt_end); 
 		        	//jsp 화면에 출력
 		        	$('.datePick').prop('value',dt_start+' - '+dt_end+' '+endDay+'일');
 		        	$('.datePick').prop('style',"border: none;font-weight: 600;color: black;");
-		        	
-		        	
-		        	///////////////////////////////////////////////////
-		        	//////////controller로 보낼 날짜 데이터///////////////////
-		        	var startData = selectInfo.startStr;
-		        	// 날짜 값 가져오기 
-		        	var endData = selectInfo.endStr;	        	
-		       		//var monthData = (new Date(endData)).toISOString().slice(5, 7);
-		       		var dayData = pad(String(parseInt((new Date(selectInfo.endStr)).toISOString().slice(8, 11))-1),2);
-		       		
-		        	endData = ((new Date(endData)).toISOString().slice(0, 8))+dayData;
-		        	console.log("날짜 데이터 : "+endData);
-		        	
-		        	//값 보낼 input의 속성에 넣어주기
-		        	$('#startDate').prop('value',startData);
-		        	$('#endDate').prop('value',endData);
-		        	
-		        	
-		        	////////////////////////////////////////////////////////////
-		        	var start = to_date(startData);
-		        	var end = to_date(endData);
-		        	
-                    	
-                    
 
-		        },
-		       
+		        	///////////////controller로 보낼 날짜 데이터//////////////
+		        	var startData = selectInfo.startStr;
+		        	var endData = selectInfo.endStr;	        	
+		       		var dayData = pad(String(parseInt((new Date(selectInfo.endStr)).toISOString().slice(8, 11))-1),2);		       		
+		        	endData = ((new Date(endData)).toISOString().slice(0, 8))+dayData;
+		        	console.log("날짜 데이터 : "+endData);		        	
+		        	//parameter로 보낼 input의 속성에 넣어주기
+		        	$('#startDate').prop('value',startData);
+		        	$('#endDate').prop('value',endData);		        	
+		        },		       
                 dayRender: function (dayRenderInfo) {
                     if (!checkNotAble(dayRenderInfo.date, disabled)) {
-                    	dayRenderInfo.el.style.backgroundColor= "rgb(204, 204, 204)";
+                    	dayRenderInfo.el.style.backgroundColor= "rgb(204, 204, 204)";                    	
                     }
                     else{
                     	dayRenderInfo.el.style.backgroundColor= "rgb(255, 255, 255)";
                     }
-                }
-		   
+                }	   
 		      });     
 		      calendar.render();
 		      
-		      //String->Date 함수
+		      
+		      //	String->Date 함수 to_date()
 		      function to_date(date_str)
 		      {
 		          var yyyyMMdd = String(date_str);
 		          var sYear = yyyyMMdd.substring(0,4);
 		          var sMonth = yyyyMMdd.substring(5,7);
 		          var sDate = yyyyMMdd.substring(8,10);
-
-		          //alert("sYear :"+sYear +"   sMonth :"+sMonth + "   sDate :"+sDate);
 		          return new Date(Number(sYear), Number(sMonth)-1, Number(sDate));
 		      }
+		      
 		      
 		      //disabled은 예약된 체크인, 체크아웃 날짜 받아오는 배열 
 		      //리턴 값 true면 예약 가능, false면 예약 불가
 		      function checkNotAble(date, disabled)
 		        {
-		    		var disabled = ['2020-05-02','2020-05-09','2020-05-12','2020-05-14'];
-		            var allow = true;
-		            
-		            for (var i = 0; i < disabled.length/2; i++) {
-			            if(date-to_date(disabled[i*2])>=0 && to_date(disabled[i*2+1])-date>0){
-			            	console.log(date-to_date(disabled[i*2])>=0 && to_date(disabled[i*2+1])-date>0);
-			            	/*
-			            	console.log(typeof date);
-			            	console.log("index0: "+to_date(disabled[0]));
-			            	console.log("check: "+date);
-			            	console.log("index1: "+to_date(disabled[1]));
-			            	console.log(Date.parse(disabled[0]) - date < 0);
-			            	console.log("*********************");*/
-			            	allow = false;
-			            }
-		            }
-		            
-		            /*
-		            for (var i = 0; i < disabled.length/2; i++) {
-		               if(startDate<=disabled[i*2]<endDate){
-		            	   allow=false;
-		               }   	   
-		               else if(startDate>disabled[i*2] && startDate<disabled[i*2+1]){
-		            	   allow=false;
-		               }   	   
-		            }*/
+		    	  var allow = true; 
+		    	  if(disabled != null){
+		    		  for (var i = 0; i < disabled.length/2; i++) {
+				            if(date-to_date(disabled[i*2])>=0 && to_date(disabled[i*2+1])-date>0){
+				            	console.log(date-to_date(disabled[i*2])>=0 && to_date(disabled[i*2+1])-date>0);
+				            	allow = false;
+				            }
+			            }	
+		    	  }    
 		            return allow;
 		        }
 		      
-		      
-		      //잘라온 날짜 0으로 padding하기 위한 함수
+		      //잘라온 날짜 0으로 padding하기 위한 함수 pad()
 		      function pad(n, width) {
 		    	  n = n + '';
 		    	  return n.length >= width ? n : new Array(width - n.length + 1).join('0') + n;
