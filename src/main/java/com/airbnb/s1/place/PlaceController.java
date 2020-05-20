@@ -64,7 +64,6 @@ public class PlaceController {
 	public ModelAndView placeSelect(ModelAndView mv, String placeNum, ReviewPager pager) throws Exception{
 		PlaceVO placeVO = placeService.placeSelect(pager.getPlaceNum());
 		List<ReviewVO> reviewVOs = reviewService.reviewSelect(pager);
-
 		//리뷰 전체 개수 
 		long reviewCnt = reviewService.reviewCount(pager);
 		//리뷰 평균 계산 
@@ -75,13 +74,10 @@ public class PlaceController {
 		
 		mv.addObject("vo", placeVO);
 		mv.addObject("bookingList", bookingVOs);
-		
-		mv.addObject("vo", placeVO);
 		mv.addObject("reviewList", reviewVOs);
 		mv.addObject("rateAvg", Math.round(ratingAvg*100)/100.0);
 		mv.addObject("reviewCnt", reviewCnt);
 		mv.addObject("pager", pager);
-		
 		mv.setViewName("place/placeSelect");
 		return mv;
 	}

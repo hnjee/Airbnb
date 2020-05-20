@@ -39,10 +39,11 @@
 	</style>
 </head>
 <body>
+	
 	<!-- Header start -->
 	<c:import url="../jsp/selectHeader.jsp"></c:import>
-	<!-- Header End -->
-
+	<!-- Header End --> 
+	
 	<!-- Main Start -->
 	<main id="mainWrap">
 		<!-- 1. 위쪽 사진 -->
@@ -95,7 +96,7 @@
 						<img src="https://a0.muscache.com/im/pictures/user/c7afacd0-a5ef-469d-bf31-87e4f81e3940.jpg?aki_policy=profile_x_medium" height="64" width="64">
 					</div>
 					<div id="hostName">
-						${vo.hostNum}
+						${vo.memberNum}
 					</div>
 				</div>
 			  </div>
@@ -111,8 +112,8 @@
 			        <p><i class="fa fa-fw fa-bed"></i> Bed: ${vo.bed}</p>
 			      </div>
 			      <div class="w3-col s6">
-			        <p><i class="fa fa-fw fa-clock-o"></i> Check In: After ${vo.checkIn}:00</p>
-			        <p><i class="fa fa-fw fa-clock-o"></i> Check Out: ${vo.checkOut}:00</p>
+			        <p><i class="fa fa-fw fa-clock-o"></i> Check In: After ${vo.checkInTime}:00</p>
+			        <p><i class="fa fa-fw fa-clock-o"></i> Check Out: ${vo.checkOutTime}:00</p>
 			      </div>
 			    </div>
 			    <hr>
@@ -141,7 +142,7 @@
 			  
 			  <!-- 예약 가능 여부 -->
 			   <h4><strong>예약 가능 여부</strong></h4>
-			    <div id="calendar"><!-- 달력 --></div>
+			    <div id="selectCalendar"><!-- 달력 --></div>
 			    <hr>
 
 			  <!-- Review -->
@@ -190,6 +191,20 @@
 		
 						<div style="margin-bottom: 30px;">
 							<div class="pagination">
+								<c:if test="${pager.curBlock gt 1}">
+									 <button class="front"> < </button> 					
+								</c:if>
+			
+								<c:forEach begin="${pager.startNum}" end="${pager.lastNum}" var="i">
+									<button title="${i}" class="pages"> ${i}</button>
+								</c:forEach>
+								
+								<c:if test="${pager.curBlock lt pager.totalBlock}">
+									<button class="back"> > </button> 
+								</c:if>
+		
+						<div style="margin-bottom: 30px;">
+							<div class="pagination">
 								<c:if test="${reviewCnt eq 0}">
 									<div style="margin-top:10px;"></div>
 								</c:if>
@@ -209,6 +224,7 @@
 									<c:if test="${pager.curBlock lt pager.totalBlock}">
 										<span class="back"> <a> > </a> </span> 
 									</c:if>
+
 								</c:if>
 							</div>
 						</div>
@@ -269,7 +285,7 @@
 			    <div id="hostInfo">
 			    	<div id="hostInfo1">
 			    		<div id="hostInfoDesc">
-			    			<h4 style="margin: 0 0 8px 0;"><strong>Host: ${vo.hostNum}님 </strong></h4>
+			    			<h4 style="margin: 0 0 8px 0;"><strong>Host: ${vo.memberNum}님 </strong></h4>
 			    			South Korea, 한국 · 회원 가입: 2016년 5월
 			    		</div>
 			    		<div id="hostInfoPic">
@@ -285,6 +301,7 @@
 			    		<button>호스트에게 연락하기</button>
 			    	</div>
 			    	 <!-- 클릭하면 카카오톡 메세지 전송 -->
+
 			    	  <hr>
 			    </div>
 			   	
@@ -373,6 +390,7 @@
 	</main>
 	<!-- Main End -->
 	
+
 	<!-- Footer Start -->
 	<c:import url="../jsp/footer.jsp"></c:import>
 	<!-- Footer End -->
@@ -381,23 +399,156 @@
 	<!-- Kakao API -->
 	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=327fa35f2eae30fcd772f149b123ba65&libraries=services"></script>
 	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=327fa35f2eae30fcd772f149b123ba65"></script>							
-	<script type="text/javascript" src="../resources/js/houseSelectScript.js"></script>
+	<!-- <script type="text/javascript" src="../resources/js/houseSelectScript.js"></script> -->
+	<script type="text/javascript">
+		//역이름 이런걸로 검색 안되고, 직접 주소 입력해야함
+		var loc = "${vo.placeLocation}";	//검색어
+		map1();
+	
+			$('.house1').hover(function(){
+			var house1_loc = $('#house1').attr('value');
+			console.log(house1_loc);
+			loc = house1_loc;
+			map1();
+		});
+	
+		function map1(){
+			
+			var container = document.getElementById('map2');
+			var options = {
+				center: new kakao.maps.LatLng(33.450701, 126.570667),
+				level: 3
+			};						
+			var map = new kakao.maps.Map(container, options);
+			var geocoder = new kakao.maps.services.Geocoder();
+			geocoder.addressSearch(loc, function(result, status) {
+				
+				// 정상적으로 검색이 완료됐으면
+				if (status === kakao.maps.services.Status.OK) { 
+					var coords = new kakao.maps.LatLng(result[0].y, result[0].x); 
+					yy = result[0].x; 
+					xx = result[0].y; 
+					
+					// 결과값으로 받은 위치를 마커로 표시 
+					var marker = new kakao.maps.Marker({ map: map, position: coords }); 
+																
+					// 인포윈도우로 장소에 대한 설명을 표시
+					//var iwContent ='<div style="margin:0 auto;">'+loc+'<br>';
+					//var infowindow = new kakao.maps.InfoWindow({
+					//	content : iwContent 
+					//	}); 
+					//infowindow.open(map, marker); 
+					
+					// 지도의 중심을 결과값으로 받은 위치로 이동 
+					map.setCenter(coords); 
+					
+					// ★ resize 마커 중심 
+					var markerPosition = marker.getPosition();
+					$(window).on('resize', function(){
+						map.relayout();
+						map.setCenter(markerPosition); 
+					}); 
+					
+					} else { 
+						console.log('에러'); 
+						}
+			});
+		};
+	</script>
+	
 	<!-- fullcalendar -->
 	<script src='../resources/static/fullcalendar/packages/core/main.js'></script>
 	<script src='../resources/static/fullcalendar/packages/daygrid/main.js'></script>
 	<script src='../resources/static/fullcalendar/packages/interaction/main.js'></script>
 	<script src='../resources/static/fullcalendar/packages/moment/moment.js'></script>
-	<script src="../resources/js/fullcalendar.js"></script>
+	<!-- <script src="../resources/js/selectCalendar.js"></script> -->
+	<script type="text/javascript">
+	var calendarEl = document.getElementById('selectCalendar');	
 	
+	var disabled = [];
+	<c:forEach items="${bookingList}" var="days">
+		disabled.push("${days.checkInDate}");
+		disabled.push("${days.checkOutDate}");
+	</c:forEach>
+	
+	    //fullcalendar 생성
+	      var calendar = new FullCalendar.Calendar(calendarEl, {
+	        plugins: [ 'interaction', 'dayGrid', 'moment'],
+	        allDay:false,
+	        selectable: true,    
+	        selectAllow:function(selectInfo){
+	        	//예약된 날짜만 선택 불가
+	        	return checkNotAble(selectInfo.start, disabled);
+	        },
+	        select: function(selectInfo){
+	        	/////////////////////화면 출력 용//////////////////////
+	        	var dt_start = selectInfo.start;
+	        	var dt_end = selectInfo.end;					
+	        	//end의 DD만 subString으로 받아오기        	
+	        	var endDay = pad(parseInt((new Date(dt_end)).toISOString().slice(8, 10)),2);	
+	        	//startStr, endStr 	: YYYY-MM-DD 형태, DATE형 형식이랑 같음		        	
+	        	dt_start = moment(dt_start).format('MM월 DD일');
+	        	dt_end = moment(dt_end).format('MM월');		        	
+	        	//jsp 화면에 출력
+	        	$('.datePick').prop('value',dt_start+' - '+dt_end+' '+endDay+'일');
+	        	$('.datePick').prop('style',"border: none;font-weight: 600;color: black;");
+
+	        	///////////////controller로 보낼 날짜 데이터//////////////
+	        	var startData = selectInfo.startStr;
+	        	var endData = selectInfo.endStr;	        	
+	       		var dayData = pad(String(parseInt((new Date(selectInfo.endStr)).toISOString().slice(8, 11))-1),2);		       		
+	        	endData = ((new Date(endData)).toISOString().slice(0, 8))+dayData;
+	        	console.log("날짜 데이터 : "+endData);		        	
+	        	//parameter로 보낼 input의 속성에 넣어주기
+	        	$('#startDate').prop('value',startData);
+	        	$('#endDate').prop('value',endData);		        	
+	        },		       
+            dayRender: function (dayRenderInfo) {
+                if (!checkNotAble(dayRenderInfo.date, disabled)) {
+                	dayRenderInfo.el.style.backgroundColor= "rgb(204, 204, 204)";                    	
+                }
+                else{
+                	dayRenderInfo.el.style.backgroundColor= "rgb(255, 255, 255)";
+                }
+            }	   
+	      });     
+	      calendar.render();
+	      
+	      
+	      //	String->Date 함수 to_date()
+	      function to_date(date_str)
+	      {
+	          var yyyyMMdd = String(date_str);
+	          var sYear = yyyyMMdd.substring(0,4);
+	          var sMonth = yyyyMMdd.substring(5,7);
+	          var sDate = yyyyMMdd.substring(8,10);
+	          return new Date(Number(sYear), Number(sMonth)-1, Number(sDate));
+	      }
+	      
+	      
+	      //disabled은 예약된 체크인, 체크아웃 날짜 받아오는 배열 
+	      //리턴 값 true면 예약 가능, false면 예약 불가
+	      function checkNotAble(date, disabled)
+	        {
+	    	  var allow = true; 
+	    	  if(disabled != null){
+	    		  for (var i = 0; i < disabled.length/2; i++) {
+			            if(date-to_date(disabled[i*2])>=0 && to_date(disabled[i*2+1])-date>0){
+			            	console.log(date-to_date(disabled[i*2])>=0 && to_date(disabled[i*2+1])-date>0);
+			            	allow = false;
+			            }
+		            }	
+	    	  }    
+	            return allow;
+	        }
+			
+	      //잘라온 날짜 0으로 padding하기 위한 함수
+	      function pad(n, width) {
+	    	  n = n + '';
+	    	  return n.length >= width ? n : new Array(width - n.length + 1).join('0') + n;
+	    	}
+	
+	</script>
 		
 </body>
 </html>
-
-
-
-
-
-﻿
-
-
-﻿

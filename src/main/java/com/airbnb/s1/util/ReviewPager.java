@@ -46,7 +46,7 @@ public class ReviewPager {
 
 	public Integer getPerPage() { //한 페이지 당 글의 수  	*초기화 필요*
 		if(this.perPage==null||this.perPage==0) {
-			this.perPage=7; //한 페이지에 리뷰 7개
+			this.perPage=6; //한 페이지에 리뷰  6개
 		}
 		return perPage;
 	}

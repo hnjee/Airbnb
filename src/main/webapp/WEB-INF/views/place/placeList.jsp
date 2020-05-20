@@ -29,11 +29,13 @@
 	}
 	a{
 	color:black;
-}
-a:hover { 
- 	color: black; 
- 	text-decoration: none;	
- }
+
+	}
+	a:hover { 
+		color: black; 
+		text-decoration: none;	
+	 }
+
 </style>
 
 <link rel="stylesheet" type="text/css" href="../resources/css/listHeaderStyle.css">
@@ -402,7 +404,6 @@ a:hover {
 	var loc ="${location}";	//검색어
 	//맨 처음 지도 불러오기
 	getMap();
-
 	function getMap(){
 		var container = document.getElementById('map');
 		var options = {
@@ -421,7 +422,6 @@ a:hover {
 				
 				// 결과값으로 받은 위치를 마커로 표시 
 				var marker = new kakao.maps.Marker({ map: map, position: coords }); 
-
 				// 지도의 중심을 결과값으로 받은 위치로 이동 
 				map.setCenter(coords); 
 				
