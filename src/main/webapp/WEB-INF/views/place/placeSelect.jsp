@@ -70,10 +70,10 @@
 				</div>
 			</div>
 			<div id="btnTop">
-				<button class="picBtn"> 공유하기 </button>
+				<button class="picBtn"> 링크복사 </button>
 			</div>
 			<div id="btnBtm">
-				<button class="picBtn"> 사진 보기 </button>
+				<button class="picBtn"> 사진 모두 보기 </button>
 			</div>
 		</div>
 		<!-- 2. 아래쪽 설명/예약 -->
@@ -195,7 +195,7 @@
 								
 								<c:if test="${reviewCnt ne 0}">
 									<c:if test="${pager.curBlock gt 1}">
-										 <span class="front"> <a href="#target"> < </a> </span> 					
+										 <span class="front" title="${pager.startNum}"> <a href="#target"> < </a> </span> 					
 									</c:if>
 									<c:forEach begin="${pager.startNum}" end="${pager.lastNum}" var="i">
 										<c:if test="${pager.curPage eq i}">
@@ -206,7 +206,7 @@
 										</c:if>
 									</c:forEach>
 									<c:if test="${pager.curBlock lt pager.totalBlock}">
-										<span class="back"> <a href="#target"> > </a> </span> 
+										<span class="back" title="${pager.lastNum}"> <a href="#target"> > </a> </span> 
 									</c:if>
 								</c:if>
 							</div>
@@ -214,28 +214,35 @@
 					</div>
 				</div>
 			    
+			    
 			     <!-- review ajax -->
 				 <script type="text/javascript">	
+				 	var search="";
 					$("#reviews").on("click", ".pages",function(){
-						curPage = $(this).attr("title");
+						var curPage = $(this).attr("title");
 						$(this).addClass("active");
-						$.get("getReview?placeNum=${vo.placeNum}&search=${pager.search}&curPage="+curPage, function(result){
+						$.get("getReview?placeNum=${vo.placeNum}&search="+search+"&curPage="+curPage, function(result){
 							$("#reviews").html(result);
 						});
 					});
 					$("#reviews").on("click",".front",function(){
-						$.get("getReview?placeNum=${vo.placeNum}&search=${pager.search}&curPage=${pager.startNum-1}", function(result){
+						var startNum = parseInt($(this).attr("title"))-1;
+						console.log(startNum);
+						$.get("getReview?placeNum=${vo.placeNum}&search="+search+"&curPage="+startNum, function(result){
+							
 							$("#reviews").html(result);
 						});
 					});
 					$("#reviews").on("click", ".back",function(){
-						$.get("getReview?placeNum=${vo.placeNum}&search=${pager.search}&curPage=${pager.lastNum+1}", function(result){
+						var lastNum = parseInt($(this).attr("title"))+1;
+						console.log(lastNum);
+						$.get("getReview?placeNum=${vo.placeNum}&search="+search+"&curPage="+lastNum, function(result){
 							$("#reviews").html(result);
 						});
 					});
 					
 					$("#searchBtn").on("click", "#goSearch", function(){
-						var search = $("#search").val();
+						search = $("#search").val();
 						$.get("getReview?placeNum=${vo.placeNum}&search="+search, function(result){
 							$("#reviews").html(result);
 						});
@@ -295,6 +302,7 @@
 		
 			<!-- 2-2. 오른쪽 예약 파트-->
 			<div id="resWrap">
+				<div id="topFixer">
 					<div id="res">
 					<div id="res1">
 						<div id="res1_1">
@@ -368,6 +376,7 @@
 				<div id="report">
 					<a href="">이 숙소 신고하기</a>
 				</div>
+			</div>
 			</div>
 		</div>
 	</main>

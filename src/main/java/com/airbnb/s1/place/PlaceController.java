@@ -89,7 +89,11 @@ public class PlaceController {
 	@GetMapping("getReview")
 	public ModelAndView getReview(ReviewPager pager, ModelAndView mv) throws Exception{
 		List<ReviewVO> reviews = reviewService.reviewSelect(pager);
+		
 		long reviewCnt = reviewService.reviewCount(pager);
+		System.out.println("curPage: "+pager.getCurPage());
+		System.out.println("startNum: "+pager.getStartNum());
+		System.out.println("lastNum: "+pager.getLastNum());
 		
 		mv.addObject("reviewCnt", reviewCnt);
 		mv.addObject("pager", pager);

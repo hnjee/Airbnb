@@ -173,7 +173,7 @@ a{
 
 
 #resWrap{
-	width:0px;
+	width: 0px;
 	height: 100%;
 	padding-right: 8px;
 	float: left;
@@ -584,3 +584,4 @@ input{
 .fc-left{
 	margin: 0 auto;
 }
+

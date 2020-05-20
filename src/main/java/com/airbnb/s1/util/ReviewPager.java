@@ -170,7 +170,6 @@ public class ReviewPager {
 			this.startNum=1;
 			this.lastNum=1;
 		}
-		System.out.println("Search: "+this.search+" 끝");
 	}
 
 }

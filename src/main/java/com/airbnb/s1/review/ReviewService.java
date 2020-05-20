@@ -16,7 +16,6 @@ public class ReviewService {
 	public List<ReviewVO> reviewSelect(ReviewPager pager) throws Exception{
 		pager.makeRow();
 		long totalCount = reviewDAO.reviewCount(pager); //전체글의 개수 가져오기 
-		System.out.println("totalCount: "+totalCount);
 		pager.makePage(totalCount);
 		return reviewDAO.reviewSelect(pager);
 	}
