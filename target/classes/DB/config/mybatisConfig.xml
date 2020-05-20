@@ -8,9 +8,9 @@
 		<typeAlias type="java.lang.Long" alias="Long"/>
 		<typeAlias type="java.lang.Integer" alias="Int"/>
 		<typeAlias type="java.lang.Float" alias="Float"/>
-		<typeAlias type="java.util.List" alias="List"/>
 		<typeAlias type="java.util.Map" alias="Map"/>
-		
+		<typeAlias type="java.util.List" alias="List"/>
+
 		<typeAlias type="com.airbnb.s1.member.MemberVO" alias="MemberVO"/>
 		<typeAlias type="com.airbnb.s1.place.PlaceVO" alias="PlaceVO"/>
 		<typeAlias type="com.airbnb.s1.review.ReviewVO" alias="ReviewVO"/>
