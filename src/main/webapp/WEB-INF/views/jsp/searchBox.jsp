@@ -205,7 +205,7 @@
 							
 							
 							<div class="_h6px0p">
-								<button type="submit" class="_jpp2dbp">
+								<button type="submit" class="_jpp2dbp goList">
 								
 									<span class="_163rr5i">
 									<span class="_m9v25n" style="background-position: calc((100 - var(--mouse-x, 0)) * 1%) calc((100 - var(--mouse-y, 0)) * 1%);"></span>

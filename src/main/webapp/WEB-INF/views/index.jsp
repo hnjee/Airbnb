@@ -39,22 +39,17 @@
 	<script src="https://apis.google.com/js/platform.js?onload=init" async defer></script>	
 	<script type="text/javascript">
 
-
-			
-			
 			
 			//searchBox 동작
 			var adultNum=0;
 			var childNum=0;
 			var infantNum=0;
-			
-			
 			$('.adult-min').click(function(){
 				if(adultNum>0){
 					adultNum --;
 				}
 				$('.guestBtn').click(function(){
-					var totalGuest = adultNum+childNum+infantNum;		
+					var totalGuest = adultNum+childNum+infantNum;	
 						$('.totalGuest').prop('value','게스트 '+totalGuest+'명');
 						$('.guestData').prop('value',totalGuest);
 						$('.totalGuest').prop('style',"border: none;font-weight: 600;color: black;");		
@@ -66,6 +61,7 @@
 				adultNum ++;
 				$('.guestBtn').click(function(){
 					var totalGuest = adultNum+childNum+infantNum;		
+				    //fullcalendar 생성
 						$('.totalGuest').prop('value','게스트 '+totalGuest+'명');
 						$('.guestData').prop('value',totalGuest);
 						$('.totalGuest').prop('style',"border: none;font-weight: 600;color: black;");
@@ -119,11 +115,10 @@
 				});
 				$('#infantNum').prop('value',infantNum);
 			});    
-				      
-				
-	//searchBox 동작
+
+			
+		 //fullcalendar 생성
 	      var calendarEl = document.getElementById('calendar');  
-	    //fullcalendar 생성
 	      var calendar = new FullCalendar.Calendar(calendarEl, {
 	        plugins: [ 'interaction', 'dayGrid', 'moment'],
 	        allDay:false,
@@ -170,8 +165,7 @@
 	        	//값 보낼 input의 속성에 넣어주기
 	        	$('#startDate').prop('value',startData);
 	        	$('#endDate').prop('value',endData);
-	        },   
-	        
+	        },   	        
 	      	unselectAuto: true
 	      });     
 	      calendar.render();
@@ -181,7 +175,23 @@
 	    	  n = n + '';
 	    	  return n.length >= width ? n : new Array(width - n.length + 1).join('0') + n;
 	    	}
-	
+		
+	      
+	      //선택 하지 않았을 때 다음 페이지로 이동 불가	      
+	      $('.goList').click(function(e){
+	    	  if(!$('.location').prop('value')){    
+	    		  e.preventDefault();
+	    	  } else if(!$('.guestData').prop('value')){
+	    		  e.preventDefault();
+	    	  } else if(!$('#startDate').prop('value')){
+	    		  e.preventDefault();
+	    	  } else if(!$('#endDate').prop('value')){
+	    		  e.preventDefault();
+	    	  }
+
+	      });
+	      
+	      
   
 	</script> 
 </body>
