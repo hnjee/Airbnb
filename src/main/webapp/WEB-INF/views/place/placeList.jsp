@@ -284,11 +284,13 @@
 									<!-- 페이지 선택 -->			
 									<c:forEach begin="${pager.startNum}" end="${pager.lastNum}" var="i">			
 									<li class="_ycd2pg" data-id="page-2">
+									
 									<c:if test="${pager.curPage eq i}">
 										<div class="_115zncnj" aria-label="현재 페이지">${i}</div>
 									</c:if>
+									
 									<c:if test="${pager.curPage ne i}">
-										<a class="_13n1po3b" href="./placeList?location=${location}&guest=${guest}&date=${date}&curPage=${i}&startDate=${startDate}&endDate=${endDate}&guestData=${guestData}" aria-label="현재 페이지가 아님" >${i}</a>
+										<a class="_13n1po3b" href="./placeList?location=${location}&guest=${guest}&date=${date}&curPage=${i}&startDate=${startDate}&endDate=${endDate}&guestData=${guestData}" aria-label="현재 페이지가 아님">${i}</a>
 									</c:if>
 									</li>
 									</c:forEach>
@@ -438,9 +440,12 @@
 	
 	};
 	
-	
-	
-	
+	console.log('totalCount: '+"${totalCount}");
+	console.log('totalPage: '+"${pager.totalPage}");
+	console.log('totalBlock: '+"${pager.totalBlock}");
+	console.log('startNum: '+"${pager.startNum}");
+	console.log('lastNum: '+"${pager.lastNum}");
+	console.log('curBlock: '+"${pager.curBlock}");
 	</script>
 	
 	

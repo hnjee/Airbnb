@@ -67,9 +67,6 @@ public class Pager {
 		this.curBlock = curBlock;
 	}
 	public long getStartNum() {
-		if(this.startNum==0L) {
-			this.startNum=1L;
-		}
 		return startNum;
 	}
 	public void setStartNum(long startNum) {
@@ -93,7 +90,7 @@ public class Pager {
 		//나머지로 떨어지지 않는 나머지 데이터들 처리
 		if(totalCount%this.perPage!=0) {
 			this.totalPage++;
-			
+		}
 			//페이징 처리하는 한 블럭에 나타낼 갯수
 			//1,2,3,4,5		| 6,7,8,9,10
 			long perBlock=5L;
@@ -107,9 +104,11 @@ public class Pager {
 			if(this.curPage%perBlock!=0) {
 				this.curBlock++;
 			}
-			
+		
 			this.lastNum=this.curBlock*perBlock;
 			this.startNum=(this.curBlock-1)*perBlock+1;
+			
+			
 			
 			if(this.curBlock == this.totalBlock) {
 				this.lastNum=this.totalPage;
@@ -120,7 +119,7 @@ public class Pager {
 		}
 		
 		
-	}
-	
-	
 }
+	
+	
+
