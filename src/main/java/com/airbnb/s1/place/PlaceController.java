@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -22,6 +23,7 @@ public class PlaceController {
 	private PlaceService placeService;
 	@Autowired
 	private ReviewService reviewService;
+	
 	
 	@GetMapping("placeList")
 	public ModelAndView placeList(Pager pager,String location,String guest, long guestData, String date, String startDate,String endDate, ModelAndView mv) throws Exception{
@@ -88,6 +90,34 @@ public class PlaceController {
 		mv.addObject("reviewCnt", reviewCnt);
 		mv.addObject("pager", pager);
 		mv.addObject("reviewList", reviews);
+		return mv;
+	}
+	
+	@GetMapping("hostPlaceAdd")
+	public void hostPlaceAdd() throws Exception{
+		
+	}
+	
+	@PostMapping("addPlace")
+	public ModelAndView addPlace(PlaceVO placeVO, ModelAndView mv, Pager pager) throws Exception{
+		if(pager.getCurPage() == 1) {
+			
+		System.out.println("enter Controller");
+		System.out.println(placeVO.getPlaceName());
+		System.out.println(placeVO.getPlaceType());
+		System.out.println(placeVO.getPlaceMaxGuest());
+		System.out.println(placeVO.getBed());
+		System.out.println(placeVO.getBathroom());
+		
+		mv.addObject("placeVO", placeVO);
+		mv.addObject("result", "/s1/ajaxAddPlace/addPlace2");
+		
+		}else if(pager.getCurPage() ==2) {
+			System.out.println(pager.getCurPage());
+			mv.setViewName("../ajaxAddPlace/addPlace3");
+		}else {
+			System.out.println(pager.getCurPage());
+		}
 		return mv;
 	}
 }
