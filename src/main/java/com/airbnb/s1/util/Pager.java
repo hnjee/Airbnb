@@ -93,7 +93,7 @@ public class Pager {
 		//나머지로 떨어지지 않는 나머지 데이터들 처리
 		if(totalCount%this.perPage!=0) {
 			this.totalPage++;
-			
+		}
 			//페이징 처리하는 한 블럭에 나타낼 갯수
 			//1,2,3,4,5		| 6,7,8,9,10
 			long perBlock=5L;
@@ -120,7 +120,7 @@ public class Pager {
 		}
 		
 		
-	}
-	
-	
 }
+	
+	
+
