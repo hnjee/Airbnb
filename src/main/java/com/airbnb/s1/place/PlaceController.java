@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -22,6 +23,7 @@ public class PlaceController {
 	private PlaceService placeService;
 	@Autowired
 	private ReviewService reviewService;
+	
 	
 	@GetMapping("placeList")
 	public ModelAndView placeList(Pager pager,String location,String guest, long guestData, String date, String startDate,String endDate, ModelAndView mv) throws Exception{
@@ -96,4 +98,37 @@ public class PlaceController {
 		mv.addObject("reviewList", reviews);
 		return mv;
 	}
+	
+	@GetMapping("hostPlaceAdd")
+	public void hostPlaceAdd() throws Exception{
+		
+	}
+	
+//	@PostMapping("addPlace")
+//	public ModelAndView addPlace(Pager pager, ModelAndView mv) throws Exception{
+//		if(pager.getCurPage() == 1) {
+//			
+//		System.out.println("enter Controller");
+//		mv.setViewName("./addPlace2");
+//		
+//		}else if(pager.getCurPage() ==2) {
+//			System.out.println(pager.getCurPage());
+//		}else {
+//			System.out.println(pager.getCurPage());
+//		}
+//		return mv;
+//	}
+	
+	@GetMapping("addPlace1")
+	public void addPlace1() throws Exception{
+	}
+	
+	@GetMapping("addPlace2")
+	public void addPlace2() throws Exception{
+	}
+	
+	@GetMapping("addPlace3")
+	public void addPlace3() throws Exception{
+	}
+	
 }
