@@ -23,6 +23,17 @@
 
 <div style="margin-bottom: 30px;">
 	<div class="pagination">
+		<c:if test="${pager.curBlock gt 1}">
+			 <button class="front"> < </button> 					
+		</c:if>
+
+		<c:forEach begin="${pager.startNum}" end="${pager.lastNum}" var="i">
+			<button title="${i}" class="pages"> ${i}</button>
+		</c:forEach>
+		
+		<c:if test="${pager.curBlock lt pager.totalBlock}">
+			<button class="back"> > </button> 
+		</c:if>
 		<c:if test="${reviewCnt eq 0}">
 			<div style="margin-top:10px;"></div>
 		</c:if>
