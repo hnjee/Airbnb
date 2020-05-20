@@ -61,7 +61,8 @@ public class PlaceController {
 	}
 
 	@GetMapping("placeSelect")
-	public ModelAndView placeSelect(ModelAndView mv, String placeNum, ReviewPager pager) throws Exception{
+
+	public ModelAndView placeSelect(ModelAndView mv, ReviewPager pager,long guestData, String startDate,String endDate) throws Exception{
 		PlaceVO placeVO = placeService.placeSelect(pager.getPlaceNum());
 		List<ReviewVO> reviewVOs = reviewService.reviewSelect(pager);
 		//리뷰 전체 개수 
@@ -69,9 +70,12 @@ public class PlaceController {
 		//리뷰 평균 계산 
 		float ratingSum = reviewService.ratingSum(pager.getPlaceNum());
 		float ratingAvg = ratingSum/reviewCnt;
-	
-		List<BookingVO> bookingVOs =  placeService.checkDateSelect(placeNum);
+
+		List<BookingVO> bookingVOs =  placeService.checkDateSelect(pager.getPlaceNum());
 		
+		mv.addObject("startDate",startDate);
+		mv.addObject("endDate",endDate);
+		mv.addObject("guestData", guestData);
 		mv.addObject("vo", placeVO);
 		mv.addObject("bookingList", bookingVOs);
 		mv.addObject("reviewList", reviewVOs);

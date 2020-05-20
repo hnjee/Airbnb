@@ -28,14 +28,12 @@
 		display: block;
 	}
 	a{
-	color:black;
-
+		color:black;
 	}
 	a:hover { 
 		color: black; 
 		text-decoration: none;	
-	 }
-
+	}
 </style>
 
 <link rel="stylesheet" type="text/css" href="../resources/css/listHeaderStyle.css">
@@ -177,8 +175,9 @@
 													</div>
 													
 												<div class="_1jbo9b6h" style="line-height: 24px; max-height: 24px; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 1; -webkit-box-orient: vertical;">
-													<a href="./placeSelect?placeNum=${placeVO.placeNum}">${placeVO.placeName}</a></div>
-													
+
+													<a href="./placeSelect?placeNum=${placeVO.placeNum}&startDate=${startDate}&endDate=${endDate}&guestData=${guestData}">${placeVO.placeName}</a></div>
+					
 												<!-- 	
 												<div class="_1ulsev2" style="margin-top: 12px;">인원 2명<span aria-hidden="true"> · </span>
 												침실 1개<span aria-hidden="true"> · </span>침대 1개<span aria-hidden="true"> · </span>욕실 1개

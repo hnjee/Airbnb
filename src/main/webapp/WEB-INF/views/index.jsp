@@ -19,6 +19,7 @@
 	
 	<c:import url="./template/boot.jsp"></c:import> 
 	<c:import url="./template/fullcalendarLoad.jsp"></c:import>
+	<c:import url="./modal/setModal.jsp"></c:import>   
 
 	<link rel="stylesheet" type="text/css" href="./resources/css/searchBoxStyle.css">
 	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
@@ -34,6 +35,7 @@
 	<c:import url="./jsp/searchBox.jsp"></c:import> 
 	<c:import url="./jsp/index_contents.jsp"></c:import>
 	<c:import url="./jsp/footer.jsp"></c:import>
+	<c:import url="./modal/setModal.jsp"></c:import>
 
 	<c:import url="./modal/modalScript.jsp"></c:import>
 	<script src="https://apis.google.com/js/platform.js?onload=init" async defer></script>	
