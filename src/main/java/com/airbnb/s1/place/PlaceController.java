@@ -113,16 +113,16 @@ public class PlaceController {
 //		return mv;
 //	}
 	
+	@GetMapping("addPlace1")
+	public void addPlace1() throws Exception{
+	}
+	
 	@GetMapping("addPlace2")
-	public ModelAndView addPlace2(ModelAndView mv) throws Exception{
-		System.out.println("enter Controller2");
-		return mv;
+	public void addPlace2() throws Exception{
 	}
 	
 	@GetMapping("addPlace3")
-	public ModelAndView addPlace3(ModelAndView mv) throws Exception{
-		System.out.println("enter Controller3");
-		return mv;
+	public void addPlace3() throws Exception{
 	}
 	
 }

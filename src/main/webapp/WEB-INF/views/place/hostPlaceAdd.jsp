@@ -159,42 +159,35 @@
 					$('#previous').on('click', function() {
 
 						if (curPage == 2) {
+							$.get("addPlace1", function(result) {
+								result = result.trim();
+								$('#ajaxContents').html(result);
+							});
 							curPage--;
-							alert("curPage2일떄 previous");
-							$('#ajaxContents').empty();
 						} else if (curPage == 3) {
-							alert("curPage3일떄 previous");
+							$.get("addPlace2", function(result) {
+								result = result.trim();
+								$('#ajaxContents').html(result);
+							});
 							curPage--;
-							$('#ajaxContents').empty();
 						}
 
 					});
 
 					$('#nextPage').on('click', function() {
 						if (curPage == 1) {
-							alert("curPage1일떄 nextPage");
-
-							$.get("addPlace",{curPage : curPage}, 
-							function(result) {
+							$.get("addPlace2", function(result) {
 								result = result.trim();
 								$('#ajaxContents').html(result);
 							});
 							curPage++;
 
 						} else if (curPage == 2) {
-							alert("curPage2일떄 nextPage");
-							$.post("addPlace", {
-								curPage : curPage
-							}, function() {
-								$('#ajaxContents').empty();
-								$('#ajaxContents').append(result);
+							$.get("addPlace3", function(result) {
+								result = result.trim();
+								$('#ajaxContents').html(result);
 							});
-							curPage++;
-						} else if (curPage == 3){
-							$.post("addPlace", {curPage : curPage}, function() {
-								$('#ajaxContents').empty();
-								$('#ajaxContents').append(result);
-							});
+								curPage++;
 						}
 					});
 				</script>
