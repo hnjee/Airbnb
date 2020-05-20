@@ -11,6 +11,7 @@ public class Pager {
 	private long curBlock;
 	private long startNum;
 	private long lastNum;
+	private long totalCount;
 	
 	
 	
@@ -78,6 +79,12 @@ public class Pager {
 	public void setLastNum(long lastNum) {
 		this.lastNum = lastNum;
 	}
+	public long getTotalCount() {
+		return totalCount;
+	}
+	public void setTotalCount(long totalCount) {
+		this.totalCount = totalCount;
+	}
 	
 	
 	public void makeRow() {
@@ -86,6 +93,7 @@ public class Pager {
 	}
 	
 	public void makePage(long totalCount) {
+		this.setTotalCount(totalCount);
 		this.totalPage = totalCount/this.getPerPage();
 		//나머지로 떨어지지 않는 나머지 데이터들 처리
 		if(totalCount%this.perPage!=0) {

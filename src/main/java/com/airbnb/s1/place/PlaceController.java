@@ -2,6 +2,7 @@ package com.airbnb.s1.place;
 
 import java.sql.Date;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -30,8 +31,6 @@ public class PlaceController {
 		placeVO.setPlaceNum("search");
 		placeVO.setPlaceLocation(location);
 		placeVO.setPlaceMaxGuest(guestData);
-
-		long totalCount = placeService.placeCount(placeVO);
 		
 		BookingVO bookingVO = new BookingVO();
 		//기본키 null 방지하기 위해 임시로 값 넣어줌
@@ -44,8 +43,10 @@ public class PlaceController {
 		bookingVO.setCheckInDate(startData);
 		bookingVO.setCheckOutDate(endData);
 
+		Map<String, Object> map = placeService.placeList(placeVO,pager,bookingVO,guestData);
 		
-		List<PlaceVO> ar = placeService.placeList(placeVO,pager,bookingVO,guestData);
+		List<PlaceVO> ar = (List<PlaceVO>)map.get("placeList");
+		long totalCount = (long)map.get("totalCount");
 		
 		mv.addObject("list", ar);
 		mv.addObject("totalCount", totalCount);

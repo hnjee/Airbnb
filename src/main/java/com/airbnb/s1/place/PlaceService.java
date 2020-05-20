@@ -17,21 +17,25 @@ public class PlaceService {
 	@Autowired
 	private PlaceDAO placeDAO;
 	
-	public List<PlaceVO> placeList(PlaceVO placeVO, Pager pager,BookingVO bookingVO,long guestData) throws Exception {
+	public Map placeList(PlaceVO placeVO, Pager pager,BookingVO bookingVO,long guestData) throws Exception {
 		pager.makeRow();
 		Map<String, Object> map  = new HashMap<String, Object>();
-		long totalCount = placeDAO.placeCount(placeVO);
-		
-		pager.makePage(totalCount);		
 		map.put("placeVO", placeVO);
 		map.put("bookingVO",bookingVO);
 		map.put("pager", pager);
 		map.put("guestData", guestData);
-		return placeDAO.placeList(map);
+		long totalCount = placeDAO.placeCount(map);
+
+		pager.makePage(totalCount);	
+		Map<String, Object> map2 = new HashMap<String, Object>();
+		
+		map2.put("placeList", placeDAO.placeList(map));
+		map2.put("totalCount", totalCount);
+		return map2;
 	}
 	
-	public long placeCount(PlaceVO placeVO) throws Exception{
-		return placeDAO.placeCount(placeVO);		
+	public long placeCount(Map map) throws Exception{
+		return placeDAO.placeCount(map);		
 	}
 	
 	public PlaceVO placeSelect(String placeNum) throws Exception{

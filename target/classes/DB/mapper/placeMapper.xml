@@ -29,8 +29,12 @@
 
 
  	<!-- totalCount 계산 위한 sql문 -->
- 	<select id="placeCount" parameterType="PlaceVO" resultType="Long">
- 		SELECT COUNT(placeNum) FROM PLACE WHERE placeLocation LIKE '%'||#{placeLocation}||'%'
+ 	<select id="placeCount" parameterType="Map" resultType="Long"> 		
+ 		SELECT COUNT(placeNum) FROM place WHERE placeLocation LIKE '%'||#{placeVO.placeLocation}||'%' and <![CDATA[placeMaxGuest >=#{guestData} ]]>
+							and placeNum NOT IN (SELECT placeNum FROM booking 
+									WHERE<![CDATA[(checkInDate >= #{bookingVO.checkInDate} and checkInDate<#{bookingVO.checkOutDate})
+										or (checkInDate<#{bookingVO.checkInDate} and checkOutDate>#{bookingVO.checkOutDate})]]>
+				)	
  	</select>
 
 	<select id="placeSelect" parameterType="String" resultType="PlaceVO">
