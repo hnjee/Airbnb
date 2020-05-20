@@ -585,3 +585,16 @@ input{
 	margin: 0 auto;
 }
 
+.modalBtn{
+	width: 46px;
+	height: 46px;
+	border-radius: 50% !important;
+    background: rgb(255, 255, 255) !important;
+    border-width: 1px !important;
+    border-style: solid !important;
+    border-color: rgb(176, 176, 176) !important;
+
+}
+#con button, #con img{
+	float: left;
+}

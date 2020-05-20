@@ -11,6 +11,7 @@
 	<link rel="stylesheet" type="text/css" href="../resources/css/selectHeaderStyle.css">
 	<link rel="stylesheet" type="text/css" href="../resources/css/placeSelect.css">
 	<link rel="stylesheet" type="text/css"  href="../resources/css/listFooter.css"> 
+
 	<!-- contents부분 template-->
 	<meta name="viewport" content="width=device-width, initial-scale=1">	
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
@@ -73,7 +74,7 @@
 				<button class="picBtn"> 링크복사 </button>
 			</div>
 			<div id="btnBtm">
-				<button class="picBtn"> 사진 모두 보기 </button>
+				<button class="picBtn" onclick="document.getElementById('id01').style.display='block'"> 사진 모두 보기 </button>
 			</div>
 		</div>
 		<!-- 2. 아래쪽 설명/예약 -->
@@ -227,7 +228,6 @@
 					});
 					$("#reviews").on("click",".front",function(){
 						var startNum = parseInt($(this).attr("title"))-1;
-						console.log(startNum);
 						$.get("getReview?placeNum=${vo.placeNum}&search="+search+"&curPage="+startNum, function(result){
 							
 							$("#reviews").html(result);
@@ -235,7 +235,6 @@
 					});
 					$("#reviews").on("click", ".back",function(){
 						var lastNum = parseInt($(this).attr("title"))+1;
-						console.log(lastNum);
 						$.get("getReview?placeNum=${vo.placeNum}&search="+search+"&curPage="+lastNum, function(result){
 							$("#reviews").html(result);
 						});
@@ -386,6 +385,36 @@
 	<!-- Footer Start -->
 	<c:import url="../jsp/footer.jsp"></c:import>
 	<!-- Footer End -->
+	
+	<!-- Picture Modal -->
+	<div id="id01" class="w3-modal">
+		<div class="w3-modal-content w3-animate-opacity">
+	    <div class="w3-modal-content">
+	      <div class="w3-container">
+	
+	      		<p>Some text. Some text. Some text.</p>
+      	  		<p>Some text. Some text. Some text.</p>
+      	  		<div id="con">
+	     		<button class="w3-button w3-xlarge w3-circle modalBtn"> <svg aria-hidden="true" role="presentation" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" style="display: block; fill: none; height: 12px; width: 12px; stroke: currentcolor; stroke-width: 5.33333; overflow: visible;"><g fill="none"><path d="m20 28-11.29289322-11.2928932c-.39052429-.3905243-.39052429-1.0236893 0-1.4142136l11.29289322-11.2928932"></path></g></svg> </button>
+				<img  src="https://a0.muscache.com/im/pictures/e0085908-7090-41c6-80d5-9337740b8126.jpg?aki_policy=large" height="355.5" width="474">
+	     		<button class="w3-button w3-xlarge w3-circle modalBtn"> <svg aria-hidden="true" role="presentation" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" style="display: block; fill: none; height: 12px; width: 12px; stroke: currentcolor; stroke-width: 5.33333; overflow: visible;"><g fill="none"><path d="m12 4 11.2928932 11.2928932c.3905243.3905243.3905243 1.0236893 0 1.4142136l-11.2928932 11.2928932"></path></g></svg> </button>
+	     		</div>
+	      </div>
+	    </div>
+	    </div>
+	</div>
+		
+	<script>
+	// Get the modal
+	var modal = document.getElementById('id01');
+	
+	// When the user clicks anywhere outside of the modal, close it
+	window.onclick = function(event) {
+	  if (event.target == modal) {
+	    modal.style.display = "none";
+	  }
+	}
+	</script>
 	
 	<!-- Java Script 파일 삽입-->
 	<!-- Kakao API -->
