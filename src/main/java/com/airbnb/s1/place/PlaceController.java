@@ -61,7 +61,7 @@ public class PlaceController {
 	}
 
 	@GetMapping("placeSelect")
-	public ModelAndView placeSelect(ModelAndView mv, ReviewPager pager) throws Exception{
+	public ModelAndView placeSelect(ModelAndView mv, ReviewPager pager,long guestData, String startDate,String endDate) throws Exception{
 		PlaceVO placeVO = placeService.placeSelect(pager.getPlaceNum());
 		List<ReviewVO> reviewVOs = reviewService.reviewSelect(pager);
 		System.out.println(placeVO.getPlaceName());
@@ -71,6 +71,10 @@ public class PlaceController {
 		float ratingSum = reviewService.ratingSum(pager.getPlaceNum());
 		float ratingAvg = ratingSum/reviewCnt;
 	
+		mv.addObject("startDate",startDate);
+		mv.addObject("endDate",endDate);
+		mv.addObject("guestData", guestData);
+		
 		mv.addObject("vo", placeVO);
 		mv.addObject("reviewList", reviewVOs);
 		mv.addObject("rateAvg", Math.round(ratingAvg*100)/100.0);

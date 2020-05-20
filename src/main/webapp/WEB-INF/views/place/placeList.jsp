@@ -27,6 +27,13 @@
 	div{
 		display: block;
 	}
+	a{
+	color:black;
+	}
+	a:hover { 
+		color: black; 
+		text-decoration: none;	
+	 }
 </style>
 
 <link rel="stylesheet" type="text/css" href="../resources/css/listHeaderStyle.css">
@@ -47,7 +54,7 @@
 				
 				<!-- Main Start -->
 				<main id="site-content" tabindex="-1">
-				<h1><a href="./placeSelect?placeNum=p8"> Select GO</a> </h1>
+				
 				<div class="content-container">
 				<div data-container="ExploreLayoutController" id="ExploreLayoutController" class="_1nkqnd0">	
 				<div class="_e296pg" style="min-height: calc(100vh - 80px);">
@@ -168,7 +175,7 @@
 													</div>
 													
 												<div class="_1jbo9b6h" style="line-height: 24px; max-height: 24px; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 1; -webkit-box-orient: vertical;">
-													${placeVO.placeName}</div>
+													<a href="./placeSelect?placeNum=${placeVO.placeNum}&startDate=${startDate}&endDate=${endDate}&guestData=${guestData}">${placeVO.placeName}</a></div>
 													
 												<!-- 	
 												<div class="_1ulsev2" style="margin-top: 12px;">인원 2명<span aria-hidden="true"> · </span>
@@ -372,7 +379,7 @@
 	var start = parseInt(${startDate});
 	var end = parseInt(${endDate});
 	var dayCnt = start-end;
-	console.log(dayCnt);
+	console.log(typeof "${startDate}");
 	//var total = parseInt($('#perPrice'+i).attr('value'))*dayCnt;
 	//document.getElementById("totalPrice").innerHTML = "총 요금: ₩"+total; 
 	
@@ -395,7 +402,6 @@
 	var loc ="${location}";	//검색어
 	//맨 처음 지도 불러오기
 	getMap();
-
 	function getMap(){
 		var container = document.getElementById('map');
 		var options = {
@@ -414,7 +420,6 @@
 				
 				// 결과값으로 받은 위치를 마커로 표시 
 				var marker = new kakao.maps.Marker({ map: map, position: coords }); 
-
 				// 지도의 중심을 결과값으로 받은 위치로 이동 
 				map.setCenter(coords); 
 				
