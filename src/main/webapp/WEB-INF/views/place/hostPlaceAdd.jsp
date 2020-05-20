@@ -158,10 +158,6 @@
 					$('#placeName').val();
 					$('#previous').on('click', function() {
 
-						alert(typeof MaxGuestSelected);
-						alert(typeof bedSelected);
-						alert(typeof bathroomSelected);
-
 						if (curPage == 2) {
 							curPage--;
 							alert("curPage2일떄 previous");
@@ -178,17 +174,10 @@
 						if (curPage == 1) {
 							alert("curPage1일떄 nextPage");
 
-							$.post("addPlace", {
-								placeName : $('#placeName').val(),
-								placeType : typeSelected,
-								placeMaxGuest : MaxGuestSelected,
-								bed : bedSelected,
-								bathroom : bathroomSelected,
-								curPage : curPage
-							},
+							$.get("addPlace",{curPage : curPage}, 
 							function(result) {
-								$('#ajaxContents').empty();
-								$('#ajaxContents').append(result);
+								result = result.trim();
+								$('#ajaxContents').html(result);
 							});
 							curPage++;
 

@@ -98,26 +98,31 @@ public class PlaceController {
 		
 	}
 	
-	@PostMapping("addPlace")
-	public ModelAndView addPlace(PlaceVO placeVO, ModelAndView mv, Pager pager) throws Exception{
-		if(pager.getCurPage() == 1) {
-			
-		System.out.println("enter Controller");
-		System.out.println(placeVO.getPlaceName());
-		System.out.println(placeVO.getPlaceType());
-		System.out.println(placeVO.getPlaceMaxGuest());
-		System.out.println(placeVO.getBed());
-		System.out.println(placeVO.getBathroom());
-		
-		mv.addObject("placeVO", placeVO);
-		mv.addObject("result", "/s1/ajaxAddPlace/addPlace2");
-		
-		}else if(pager.getCurPage() ==2) {
-			System.out.println(pager.getCurPage());
-			mv.setViewName("../ajaxAddPlace/addPlace3");
-		}else {
-			System.out.println(pager.getCurPage());
-		}
+//	@PostMapping("addPlace")
+//	public ModelAndView addPlace(Pager pager, ModelAndView mv) throws Exception{
+//		if(pager.getCurPage() == 1) {
+//			
+//		System.out.println("enter Controller");
+//		mv.setViewName("./addPlace2");
+//		
+//		}else if(pager.getCurPage() ==2) {
+//			System.out.println(pager.getCurPage());
+//		}else {
+//			System.out.println(pager.getCurPage());
+//		}
+//		return mv;
+//	}
+	
+	@GetMapping("addPlace2")
+	public ModelAndView addPlace2(ModelAndView mv) throws Exception{
+		System.out.println("enter Controller2");
 		return mv;
 	}
+	
+	@GetMapping("addPlace3")
+	public ModelAndView addPlace3(ModelAndView mv) throws Exception{
+		System.out.println("enter Controller3");
+		return mv;
+	}
+	
 }
