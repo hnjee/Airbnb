@@ -381,7 +381,7 @@
 	var start = parseInt(${startDate});
 	var end = parseInt(${endDate});
 	var dayCnt = start-end;
-	console.log(dayCnt);
+	console.log(typeof "${startDate}");
 	//var total = parseInt($('#perPrice'+i).attr('value'))*dayCnt;
 	//document.getElementById("totalPrice").innerHTML = "총 요금: ₩"+total; 
 	

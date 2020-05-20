@@ -188,7 +188,6 @@
 	    	  } else if(!$('#endDate').prop('value')){
 	    		  e.preventDefault();
 	    	  }
-
 	      });
 	      
 	      
