@@ -445,7 +445,7 @@
 	console.log('totalBlock: '+"${pager.totalBlock}");
 	console.log('startNum: '+"${pager.startNum}");
 	console.log('lastNum: '+"${pager.lastNum}");
-	
+	console.log('curBlock: '+"${pager.curBlock}");
 	</script>
 	
 	
