@@ -8,7 +8,7 @@
 <input type="hidden" data-toggle="modal" id="setEmailJoin" data-target="#emailJoin">
 <input type="hidden" data-toggle="modal" id="setPicAdd" data-traget="#mPicAdd">
 
-<!-- 회원 가입 -->
+<!-- 회원 가입 --> 
 <div id="mMemberJoin" class="modal" role="dialog">
  	<c:import url="./modal/modal.jsp">
  	<c:param name="modal" value="memberJoin"></c:param>

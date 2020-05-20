@@ -12,8 +12,10 @@
 	<div class="_s1tlw0m">숙소에 대한 정보를 적어주세요.</div>
 </div>
 
-<textarea class="input-block" id="placeDesc" placeholder="예) 홍대역에서 5분 거리의 깨끗한 숙소입니다."
+<textarea class="input-block" id="placeDesc" placeholder="예) 홍대역에서 5분 거리의 깨끗한 숙소입니다." 
 						style="height : 200px;" ></textarea>
+						
+
 						
 <div class="_1mbllh6j">
 	<div class="_s1tlw0m">숙소의 주의사항을 적어주세요.</div>

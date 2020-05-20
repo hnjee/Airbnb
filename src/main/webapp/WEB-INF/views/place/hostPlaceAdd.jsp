@@ -4,11 +4,13 @@
 <html data-is-hyperloop="true" lang="ko" dir="ltr"
 	xmlns:fb="http://ogp.me/ns/fb#" class="js-focus-visible">
 <head>
-
 </head>
 <body class="with-new-header">
 	<c:import url="../template/boot.jsp"></c:import>
 	<c:import url="../template/placeHeader.jsp"></c:import>
+    <script type="text/javascript" src="../resources/js/houseSelectScript.js"></script>
+	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=327fa35f2eae30fcd772f149b123ba65&libraries=services"></script>
+	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=327fa35f2eae30fcd772f149b123ba65"></script>	
 
 	<div class="_13x7hnca">
 		<div class="_1v3ttpa">
@@ -141,21 +143,28 @@
 				</div>
 
 				<script type="text/javascript">
-					var typeSelect = document.getElementById("placeType");
-					var typeSelected = typeSelect.options[typeSelect.selectedIndex].text;
+					var placeNameTxt = "";
+				
+					var typeSelect = "";
+					var typeSelected = "";
 
-					var MaxGuestSelect = document
-							.getElementById("placeMaxGuest");
-					var MaxGuestSelected = Number(MaxGuestSelect.options[MaxGuestSelect.selectedIndex].text);
+					var MaxGuestSelect = "";
+					var MaxGuestSelected = "";
 
-					var bedSelect = document.getElementById("bed");
-					var bedSelected = Number(bedSelect.options[bedSelect.selectedIndex].text);
+					var bedSelect = "";
+					var bedSelected = "";
 
-					var bathroomSelect = document.getElementById("bathroom");
-					var bathroomSelected = Number(bathroomSelect.options[bathroomSelect.selectedIndex].text);
-
+					var bathroomSelect = "";
+					var bathroomSelected = "";
+					
+// 					var placePriceTxt = "";
+// 					var placeDescTxt = "";
+// 					var placeRuleTxt = "";
+// 					var checkInTimeTxt = "";
+// 					var checkOutTimeTxt = "";
+					
 					var curPage = 1;
-					$('#placeName').val();
+					
 					$('#previous').on('click', function() {
 
 						if (curPage == 2) {
@@ -176,6 +185,22 @@
 
 					$('#nextPage').on('click', function() {
 						if (curPage == 1) {
+							
+							var placeNameTxt = $('#placeName').val();
+							
+							var typeSelect = document.getElementById("placeType");
+							var typeSelected = typeSelect.options[typeSelect.selectedIndex].text;
+
+							var MaxGuestSelect = document
+									.getElementById("placeMaxGuest");
+							var MaxGuestSelected = Number(MaxGuestSelect.options[MaxGuestSelect.selectedIndex].text);
+
+							var bedSelect = document.getElementById("bed");
+							var bedSelected = Number(bedSelect.options[bedSelect.selectedIndex].text);
+
+							var bathroomSelect = document.getElementById("bathroom");
+							var bathroomSelected = Number(bathroomSelect.options[bathroomSelect.selectedIndex].text);
+							
 							$.get("addPlace2", function(result) {
 								result = result.trim();
 								$('#ajaxContents').html(result);
@@ -183,6 +208,24 @@
 							curPage++;
 
 						} else if (curPage == 2) {
+							
+							var placePriceTxt = $('#placePrice').val();
+							var placeDescTxt = document.getElementById("placeDesc").value;
+							var placeRuleTxt = document.getElementById("placeRule").value;
+							var checkInTimeTxt = $('#checkInTime').val();
+							var checkOutTimeTxt = $('#checkOutTime').val();
+							
+// 							alert(placeNameTxt);
+// 							alert(typeSelected);
+// 							alert(MaxGuestSelected);
+// 							alert(bedSelected);
+// 							alert(bathroomSelected);
+// 							alert(placePriceTxt);
+// 							alert(placeDescTxt);
+// 							alert(placeRuleTxt);
+// 							alert(checkInTimeTxt);
+// 							alert(checkOutTimeTxt);
+							
 							$.get("addPlace3", function(result) {
 								result = result.trim();
 								$('#ajaxContents').html(result);
@@ -190,6 +233,10 @@
 								curPage++;
 						}
 					});
+					
+					var loc = "${vo.placeLocation}";	//검색어
+					map0(loc);
+					
 				</script>
 </body>
 </html>
