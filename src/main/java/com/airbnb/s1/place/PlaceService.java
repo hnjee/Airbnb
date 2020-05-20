@@ -27,8 +27,7 @@ public class PlaceService {
 		long totalCount = placeDAO.placeCount(map);
 
 		pager.makePage(totalCount);	
-		Map<String, Object> map2 = new HashMap<String, Object>();
-		
+		Map<String, Object> map2 = new HashMap<String, Object>();		
 		map2.put("placeList", placeDAO.placeList(map));
 		map2.put("totalCount", totalCount);
 		return map2;
