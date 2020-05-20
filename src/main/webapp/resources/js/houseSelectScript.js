@@ -1,7 +1,7 @@
 									function map0(loc){
 										map1();
 				
-											$('.house1').hover(function(){
+										$('.house1').hover(function(){
 											var house1_loc = $('#house1').attr('value');
 											console.log(house1_loc);
 											loc = house1_loc;

@@ -40,18 +40,18 @@
 		
 		<c:if test="${reviewCnt ne 0}">
 			<c:if test="${pager.curBlock gt 1}">
-				 <span class="front"> <a> < </a> </span> 					
+				 <span class="front"> <a href="#target"> < </a> </span> 					
 			</c:if>
 			<c:forEach begin="${pager.startNum}" end="${pager.lastNum}" var="i">
 				<c:if test="${pager.curPage eq i}">
-					<span title="${i}" class="pages"> <a class="active">${i}</a></span>
+					<span title="${i}" class="pages"> <a class="active" href="#target">${i}</a></span>
 				</c:if>
 				<c:if test="${pager.curPage ne i}">
-					<span title="${i}" class="pages"> <a>${i}</a></span>
+					<span title="${i}" class="pages"> <a href="#target">${i}</a></span>
 				</c:if>
 			</c:forEach>
 			<c:if test="${pager.curBlock lt pager.totalBlock}">
-				<span class="back"> <a> > </a> </span> 
+				<span class="back"> <a href="#target"> > </a> </span> 
 			</c:if>
 		</c:if>
 	</div>

@@ -71,7 +71,7 @@ public class PlaceController {
 		float ratingSum = reviewService.ratingSum(pager.getPlaceNum());
 		float ratingAvg = ratingSum/reviewCnt;
 
-		List<BookingVO> bookingVOs =  placeService.checkDateSelect(placeNum);
+		List<BookingVO> bookingVOs =  placeService.checkDateSelect(pager.getPlaceNum());
 		
 		mv.addObject("startDate",startDate);
 		mv.addObject("endDate",endDate);
