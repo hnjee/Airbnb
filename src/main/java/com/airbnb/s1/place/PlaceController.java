@@ -129,6 +129,7 @@ public class PlaceController {
 	
 	@PostMapping("addPlace2")
 	public ModelAndView addPlace2(PlaceVO placeVO,ModelAndView mv) throws Exception{
+		
 		mv.addObject("pVo", placeVO);
 		mv.setViewName("place/addPlace2");
 		
@@ -137,7 +138,6 @@ public class PlaceController {
 	
 	@PostMapping("addPlace3")
 	public ModelAndView addPlace3(PlaceVO placeVO, ModelAndView mv) throws Exception{
-		
 		mv.addObject("pVo", placeVO);
 		mv.setViewName("place/addPlace3");
 		
