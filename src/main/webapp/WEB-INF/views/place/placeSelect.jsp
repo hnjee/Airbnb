@@ -71,7 +71,20 @@
 				</div>
 			</div>
 			<div id="btnTop">
-				<button class="picBtn"> 링크복사 </button>
+				<button class="picBtn" onclick="myFunction()"> 링크복사 </button>
+				<script>
+				function myFunction() {
+				  $("#myInput").attr("type", "text");
+				  var copyText = document.getElementById("myInput");
+				  copyText.setAttribute("value", window.location.href);
+				  console.log(copyText);
+				  copyText.select();
+				  copyText.setSelectionRange(0, 99999);
+				  document.execCommand("copy");
+				  $("#myInput").attr("type", "hidden");
+				  alert("링크 복사가 완료되었습니다");
+				}
+			</script>
 			</div>
 			<div id="btnBtm">
 				<button class="picBtn" onclick="document.getElementById('id01').style.display='block'"> 사진 모두 보기 </button>
@@ -375,6 +388,7 @@
 				<div id="report">
 					<a href="">이 숙소 신고하기</a>
 				</div>
+				<input style="color: white" type="text" id="myInput"> 
 			</div>
 			</div>
 		</div>

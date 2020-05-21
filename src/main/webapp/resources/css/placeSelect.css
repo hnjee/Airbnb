@@ -618,3 +618,6 @@ input{
     height: 90% !important;
     
 }
+
+
+.btn-clipboard {display:inline-block;color: #fff;font-size: 11px;border: 1px solid #007dc1;border-radius: 3px;margin: -4px 0 0 3px;padding: 2px 10px 3px 10px;background: #006db2;text-decoration:none}
