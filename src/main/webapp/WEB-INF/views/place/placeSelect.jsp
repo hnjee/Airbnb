@@ -24,6 +24,7 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	
 	<style type="text/css">
+		
 		footer{
 			padding: 0px 80px 80px 80px;
 		}
@@ -314,7 +315,7 @@
 		
 			<!-- 2-2. 오른쪽 예약 파트-->
 			<div id="resWrap">
-				<div id="topFixer">
+				<div id="banner">
 					<div id="res">
 					<div id="res1">
 						<div id="res1_1">
@@ -384,14 +385,38 @@
 						</div>
 					</form>
 				</div>
-				
 				<div id="report">
 					<a href="">이 숙소 신고하기</a>
 				</div>
-				<input style="color: white" type="text" id="myInput"> 
-			</div>
-			</div>
-		</div>
+			</div> <!-- topFixer -->
+			</div> <!-- resWrap -->
+			<script type="text/javascript">
+				
+			    $(window).scroll(  
+					    function(){  
+					    	var scroll = $(window).scrollTop();
+					    	var val = $(document).height() - 1052 - 135;
+				 			if ($(window).scrollTop()<585){
+				 				$('#banner').removeClass("banner_fix");  
+					        	$('#banner').addClass("banner_abs");
+					        	$('.banner_abs').css('top', '32px');
+				 			} 
+				 			else if(($(window).scrollTop()>=580) && ($(window).scrollTop()<val)){
+					        	$('#banner').removeClass("banner_abs");  
+					        	$('#banner').addClass("banner_fix");
+					        	$('.banner_fix').css('top', '114px');
+					        }
+					        else{  
+					            $('#banner').removeClass("banner_fix");  
+					        	$('#banner').addClass("banner_abs"); 
+					            $('.banner_abs').css('top', val-560);
+					        }   
+					    }  
+					);  
+			</script>
+			
+			<input style="color: white" type="text" id="myInput"> 
+		</div> <!-- descWrap-->
 	</main>
 	<!-- Main End -->
 	
