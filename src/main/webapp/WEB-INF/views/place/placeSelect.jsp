@@ -38,6 +38,9 @@
 		.w3-container{
 			padding: 0;
 		}
+		._37g0dr4{
+			font-family: Circular !important;
+		}
 	</style>
 </head>
 <body>
@@ -303,8 +306,7 @@
 			    	<div id="hostInfo3">
 			    		<button>호스트에게 연락하기</button>
 			    	</div>
-			    	 <!-- 클릭하면 카카오톡 메세지 전송 -->
-
+			    	 <!-- 클릭하면 이메일 전송 -->
 			    	  <hr>
 			    </div>
 			   	
@@ -390,8 +392,11 @@
 				</div>
 			</div> <!-- topFixer -->
 			</div> <!-- resWrap -->
+			
+			<!-- banner fixed  -->
 			<script type="text/javascript">
-				
+			$('#banner').addClass("banner_abs");
+        	$('.banner_abs').css('top', '32px');
 			    $(window).scroll(  
 					    function(){  
 					    	var scroll = $(window).scrollTop();
@@ -414,7 +419,6 @@
 					    }  
 					);  
 			</script>
-			
 			<input style="color: white" type="text" id="myInput"> 
 		</div> <!-- descWrap-->
 	</main>
@@ -464,6 +468,7 @@
 		var loc = "${vo.placeLocation}";	//검색어
 		map0(loc);
 	</script>
+	
 	<!-- fullcalendar -->
 	<script src='../resources/static/fullcalendar/packages/core/main.js'></script>
 	<script src='../resources/static/fullcalendar/packages/daygrid/main.js'></script>

@@ -29,7 +29,7 @@ public class PlaceController {
 	public ModelAndView placeList(Pager pager,String location,String guest, long guestData, String date, String startDate,String endDate, ModelAndView mv) throws Exception{
 		PlaceVO placeVO = new PlaceVO();
 		//기본키 null방지
-		placeVO.setPlaceNum("search");
+		placeVO.setPlaceNum("search"); 
 		placeVO.setPlaceLocation(location);
 		placeVO.setPlaceMaxGuest(guestData);
 
@@ -64,7 +64,7 @@ public class PlaceController {
 
 	@GetMapping("placeSelect")
 
-	public ModelAndView placeSelect(ModelAndView mv, ReviewPager pager,long guestData, String startDate,String endDate) throws Exception{
+	public ModelAndView placeSelect(ModelAndView mv, ReviewPager pager,long guestData, String startDate,String endDate, String location, String date) throws Exception{
 		PlaceVO placeVO = placeService.placeSelect(pager.getPlaceNum());
 		List<ReviewVO> reviewVOs = reviewService.reviewSelect(pager);
 		//리뷰 전체 개수 
@@ -75,6 +75,8 @@ public class PlaceController {
 
 		List<BookingVO> bookingVOs =  placeService.checkDateSelect(pager.getPlaceNum());
 		
+		mv.addObject("date",date);
+		mv.addObject("location",location);
 		mv.addObject("startDate",startDate);
 		mv.addObject("endDate",endDate);
 		mv.addObject("guestData", guestData);
