@@ -14,6 +14,25 @@
 		$('#signIn').on('click', function() {
 
 			var chk_agree = document.getElementsByName('agree');
+			var email = $('#email').val();
+			var name = $('#name').val();
+			var fname = $('#fname').val();
+			var pw = $('#pw').val();
+			
+			if (email == ''){
+				alert('이메일을 입력해주세요');
+				return false;
+			} else if(name == ''){
+				alert('이름을 입력해주세요');
+				return false;
+			}else if(fname == ''){
+				alert('성을 입력해주세요');
+				return false;
+			}else if(pw == ''){
+				alert('비밀번호를 입력해주세요');
+				return false;
+			} 
+			
 			if (chk_agree[0].checked == false){
 				alert ('개인정보수집에 동의해주세요' );	
 				return false; 
