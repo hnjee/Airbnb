@@ -593,8 +593,28 @@ input{
     border-width: 1px !important;
     border-style: solid !important;
     border-color: rgb(176, 176, 176) !important;
+    margin: 10px;
 
 }
-#con button, #con img{
-	float: left;
+
+#madal_con{
+	overflow: auto;
+}
+#modal_top{
+	padding: 20px 20px  !important;
+	font-size: 16px;
+	text-align: center;
+}
+#modal_img{
+	object-fit: cover; 
+	border-radius: 16px; 
+	max-height: 70vh !important;
+	max-width: 85% !important; 
+	margin: 0 auto !important; 
+	display: block;
+}
+.w3-modal-content {
+    width: 70% !important;
+    height: 90% !important;
+    
 }

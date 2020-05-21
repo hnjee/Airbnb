@@ -389,16 +389,14 @@
 	<!-- Picture Modal -->
 	<div id="id01" class="w3-modal">
 		<div class="w3-modal-content w3-animate-opacity">
-	    <div class="w3-modal-content">
+	    <div>
 	      <div class="w3-container">
-	
-	      		<p>Some text. Some text. Some text.</p>
-      	  		<p>Some text. Some text. Some text.</p>
-      	  		<div id="con">
-	     		<button class="w3-button w3-xlarge w3-circle modalBtn"> <svg aria-hidden="true" role="presentation" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" style="display: block; fill: none; height: 12px; width: 12px; stroke: currentcolor; stroke-width: 5.33333; overflow: visible;"><g fill="none"><path d="m20 28-11.29289322-11.2928932c-.39052429-.3905243-.39052429-1.0236893 0-1.4142136l11.29289322-11.2928932"></path></g></svg> </button>
-				<img  src="https://a0.muscache.com/im/pictures/e0085908-7090-41c6-80d5-9337740b8126.jpg?aki_policy=large" height="355.5" width="474">
-	     		<button class="w3-button w3-xlarge w3-circle modalBtn"> <svg aria-hidden="true" role="presentation" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" style="display: block; fill: none; height: 12px; width: 12px; stroke: currentcolor; stroke-width: 5.33333; overflow: visible;"><g fill="none"><path d="m12 4 11.2928932 11.2928932c.3905243.3905243.3905243 1.0236893 0 1.4142136l-11.2928932 11.2928932"></path></g></svg> </button>
-	     		</div>
+    		<div id="modal_top">1/21</div>
+   	  		<div id="madal_con">
+	     		<button id="modal_leftBtn"style="position: absolute; top: 316px; left: 15px"class="w3-button w3-xlarge w3-circle modalBtn"> <svg aria-hidden="true" role="presentation" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" style="display: block; fill: none; height: 12px; width: 12px; stroke: currentcolor; stroke-width: 5.33333; overflow: visible;"><g fill="none"><path d="m20 28-11.29289322-11.2928932c-.39052429-.3905243-.39052429-1.0236893 0-1.4142136l11.29289322-11.2928932"></path></g></svg> </button>
+				<img id="modal_img" src="https://a0.muscache.com/im/pictures/e1295260-5ce4-496b-84f2-a90ae2612811.jpg?aki_policy=xx_large" >
+	     		<button id="modal_leftBtn" style="position: absolute; top: 316px; left:1252px;"class="w3-button w3-xlarge w3-circle modalBtn"> <svg aria-hidden="true" role="presentation" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" style="display: block; fill: none; height: 12px; width: 12px; stroke: currentcolor; stroke-width: 5.33333; overflow: visible;"><g fill="none"><path d="m12 4 11.2928932 11.2928932c.3905243.3905243.3905243 1.0236893 0 1.4142136l-11.2928932 11.2928932"></path></g></svg> </button>
+     		</div>
 	      </div>
 	    </div>
 	    </div>
@@ -414,6 +412,7 @@
 	    modal.style.display = "none";
 	  }
 	}
+	
 	</script>
 	
 	<!-- Java Script 파일 삽입-->
