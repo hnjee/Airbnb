@@ -119,16 +119,30 @@ public class PlaceController {
 //		return mv;
 //	}
 	
-	@GetMapping("addPlace1")
+	@PostMapping("addPlace1")
 	public void addPlace1() throws Exception{
 	}
 	
-	@GetMapping("addPlace2")
-	public void addPlace2() throws Exception{
+	@PostMapping("addPlace2")
+	public ModelAndView addPlace2(PlaceVO placeVO,ModelAndView mv) throws Exception{
+		mv.addObject("pVo", placeVO);
+		mv.setViewName("place/addPlace2");
+		
+		return mv;
 	}
 	
-	@GetMapping("addPlace3")
-	public void addPlace3() throws Exception{
+	@PostMapping("addPlace3")
+	public ModelAndView addPlace3(PlaceVO placeVO, ModelAndView mv) throws Exception{
+		
+		mv.addObject("pVo", placeVO);
+		mv.setViewName("place/addPlace3");
+		
+		return mv;
+	}
+	
+	@PostMapping("addPlaceDone")
+	public String addPlaceDone(PlaceVO placeVO, ModelAndView mv) throws Exception{
+		return "redirect:../";
 	}
 	
 }

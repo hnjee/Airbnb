@@ -1,25 +1,27 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    
-			  	 <!-- 지도 불러오기 -->
-				 <div aria-hidden="false" class="_10v3f8y9">
-					<aside aria-label="검색 기반 위치 핀이 표시되는 지도" class="_zdxht7" style="height: 50vh; padding-top: 80px; margin-top: -80px; position: sticky; top: 0px;">
-						<div data-veloute="map/GoogleMap" style="position: relative; width: 100%; height: 100%;">
-							<div style="height: 100%; background-color: rgb(230, 227, 223); position: relative; overflow: hidden;">
-								<div style="height: 100%; width: 100%; position: absolute; top: 0px; left: 0px; background-color: rgb(229, 227, 223);">
-									<div class="gm-style" style="position: absolute; z-index: 0; left: 0px; top: 0px; height: 100%; width: 100%; padding: 0px; border-width: 0px; margin: 0px;">
-										<div id="map2" style="z-index: -1;position: absolute;width: 100%;height: 100%;top: 0px;left: 0px;border: none;"></div>
-			
-									</div>
-								</div>
-							</div>
-						</div>
-					</aside>
-				</div>
 
-				
-				<script type="text/javascript">
-				//역이름 이런걸로 검색 안되고, 직접 주소 입력해야함
-				var loc = "서울시 마포구 서교동";	//검색어
-				map0(loc);
-			</script>
+<input type="hidden"  id="pName" value="${pVo.placeName}">
+<input type="hidden"  id="pType" value="${pVo.placeType}">
+<input type="hidden"  id="pMaxGuest" value="${pVo.placeMaxGuest}">
+<input type="hidden"  id="pBed" value="${pVo.bed}">
+<input type="hidden"  id="pBathroom" value="${pVo.bathroom}">
+
+<input type="hidden"  id="pPrice" value="${pVo.placePrice}">
+<input type="hidden"  id="pDesc" value="${pVo.placeDesc}">
+<input type="hidden"  id="pRule" value="${pVo.placeRule}">
+<input type="hidden"  id="pCheckInTime" value="${pVo.checkInTime}">
+<input type="hidden"  id="pCheckOutTime" value="${pVo.checkOutTime}">
+
+
+				<div class="_1mbllh6j">
+	<div class="_s1tlw0m">숙소 주소를 적어주세요.</div>
+</div>
+
+<textarea class="input-block" id="placeLocation" placeholder="예) 서울시 마포구 서교동" 
+						style="height : 50px;"  ></textarea>
+						
+<div class="_1mbllh6j">
+	<div class="_s1tlw0m">숙소 이미지를 저장해주세요.</div>
+</div>
+
