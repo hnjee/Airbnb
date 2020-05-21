@@ -7,7 +7,23 @@
 <mapper	namespace="com.airbnb.s1.booking.BookingDAO">
 
 	<insert id="booking" parameterType="BookingVO">
-		insert into booking values(#{bookingNum},#{placeNum},#{memberNum}, 1,#{checkInDate},#{checkOutDate},#{payType},#{payInfo},#{payTotal},sysdate)
+		insert into booking (bookingNum, placenum, membernum, bookingstat, checkindate, checkoutdate) values('b'||BOOKING_SEQ.nextval,#{placeNum},#{memberNum}, 0,#{checkInDate},#{checkOutDate})
 	</insert>
+	
+	<update id="payment" parameterType="BookingVO">
+		update booking set bookingstat=1,
+		paytype = #{payType},
+		payinfo= #{payInfo},
+		paytotal= #{payTotal},
+		paydate=sysdate
+		where bookingnum=#{bookingNum}
+	</update>
+	
+	<update id="outRoom" parameterType="BookingVO">
+		<![CDATA[
+		update booking set bookingstat=2
+		where checkoutDate <=sysdate
+		]]>
+	</update>
 
 </mapper>

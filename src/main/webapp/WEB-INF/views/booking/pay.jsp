@@ -294,7 +294,7 @@
 
 <div class="header">
 	<div class="logo">
-		<img alt="" src="resources/w3images/logo1.png">
+		<img alt="" src="../resources/w3images/logo1.png">
 	</div>
 	<ul class="header1">
 		<li><span><b>1. 숙소 이용규칙 확인 > </b></span>
@@ -307,12 +307,12 @@
 		<div class="info">
 			<div><h2><b>확인 및 결제</b></h2></div>
 			<div class="ex">
-				<div class="logo1"><img alt="" src="resources/w3images/logo.png"></div>
+				<div class="logo1"><img alt="" src="../resources/w3images/logo.png"></div>
 				<b>흔치 않은 기회입니다.</b> {__}님의 숙소는 보통 예약이 가득 차 있습니다.
 			</div>
 			<div>
 				<div class="card">
-					<img alt="" src="resources/w3images/cards.png">
+					<img alt="" src="../resources/w3images/cards.png">
 				</div>
 				<div>
 					<h6><b>결제 수단</b></h6>
@@ -383,8 +383,8 @@
 				</div>
 				
 				<hr>
-				<div><img alt="" src="resources/w3images/p.png"> 게스트 {__}명</div><br>
-				<div><img alt="" src="resources/w3images/c.png"> {___}년 {__}월{__}일  → {___}년 {__}월{__}일</div><hr><br>
+				<div><img alt="" src="../resources/w3images/p.png"> 게스트 {__}명</div><br>
+				<div><img alt="" src="../resources/w3images/c.png"> {___}년 {__}월{__}일  → {___}년 {__}월{__}일</div><hr><br>
 				<div>€35.06 x 3박	<div class="sum">€105.18</div></div><br>
 				<div>청소비 	 <a href="#" data-toggle="popover" data-content="호스트가 청구하는 일회성 숙소 청소 비용입니다." style="color: gray">(?)</a>	<div class="sum">€27.68</div></div><br>
 				<div>서비스 수수료 	<a href="#" data-toggle="popover" style="color: gray" data-content="수수료는 에어비앤비 플랫폼을 운영하고 연중무휴 고객 지원과 같은 다양한 서비스를 제공하는데 사용됩니다.">(?)</a>	<div class="sum">€18.76</div></div><br>
@@ -396,7 +396,7 @@
 		
 		
 		<br><br><br><br><hr>
-		<div class="footer"><img alt="" src="resources/w3images/logo5.png"> ⓒAirbnb, Inc.</div>
+		<div class="footer"><img alt="" src="../resources/w3images/logo5.png"> ⓒAirbnb, Inc.</div>
 		<button type="button" class="btn btn-default foot">EUR-€</button>
 		<button type="button" class="btn btn-default foot">한국어(KR)</button>
 		
@@ -411,7 +411,7 @@ $(document).ready(function(){
     $('[data-toggle="popover"]').popover();   
 });
 $(".btn-primary").click(function() {
-	$(location).attr('href', 'payment');
+	window.open("http://localhost:8080/s1/booking/payment?bookingNum=${vo.placeNum}", "PopupWin", "top=200, left=400, width=850,height=600")
 })
 </script>
 </html>

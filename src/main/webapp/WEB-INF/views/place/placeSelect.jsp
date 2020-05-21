@@ -36,6 +36,8 @@
 		.w3-container{
 			padding: 0;
 		}
+		
+		
 	</style>
 </head>
 <body>
@@ -377,7 +379,8 @@
 							</div>
 						</div>
 						<div id="res2_3">
-							<button>예약하기</button>
+						<a href="../booking/stepOne?placeNum=${vo.placeNum}">
+							예약하기 </a>
 							<div>예약 확정 전에는 요금이 청구되지 않습니다. <br> 일부 예약에는 보증금이 있을 수 있습니다.</div>
 						</div>
 					</form>
@@ -549,7 +552,8 @@
 	    	  n = n + '';
 	    	  return n.length >= width ? n : new Array(width - n.length + 1).join('0') + n;
 	    	}
-	
+	     
+	      
 	</script>
 		
 </body>
