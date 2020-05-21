@@ -11,6 +11,7 @@
 	<link rel="stylesheet" type="text/css" href="../resources/css/selectHeaderStyle.css">
 	<link rel="stylesheet" type="text/css" href="../resources/css/placeSelect.css">
 	<link rel="stylesheet" type="text/css"  href="../resources/css/listFooter.css"> 
+
 	<!-- contents부분 template-->
 	<meta name="viewport" content="width=device-width, initial-scale=1">	
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
@@ -23,6 +24,7 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	
 	<style type="text/css">
+		
 		footer{
 			padding: 0px 80px 80px 80px;
 		}
@@ -70,10 +72,23 @@
 				</div>
 			</div>
 			<div id="btnTop">
-				<button class="picBtn"> 링크복사 </button>
+				<button class="picBtn" onclick="myFunction()"> 링크복사 </button>
+				<script>
+				function myFunction() {
+				  $("#myInput").attr("type", "text");
+				  var copyText = document.getElementById("myInput");
+				  copyText.setAttribute("value", window.location.href);
+				  console.log(copyText);
+				  copyText.select();
+				  copyText.setSelectionRange(0, 99999);
+				  document.execCommand("copy");
+				  $("#myInput").attr("type", "hidden");
+				  alert("링크 복사가 완료되었습니다");
+				}
+			</script>
 			</div>
 			<div id="btnBtm">
-				<button class="picBtn"> 사진 모두 보기 </button>
+				<button class="picBtn" onclick="document.getElementById('id01').style.display='block'"> 사진 모두 보기 </button>
 			</div>
 		</div>
 		<!-- 2. 아래쪽 설명/예약 -->
@@ -227,7 +242,6 @@
 					});
 					$("#reviews").on("click",".front",function(){
 						var startNum = parseInt($(this).attr("title"))-1;
-						console.log(startNum);
 						$.get("getReview?placeNum=${vo.placeNum}&search="+search+"&curPage="+startNum, function(result){
 							
 							$("#reviews").html(result);
@@ -235,7 +249,6 @@
 					});
 					$("#reviews").on("click", ".back",function(){
 						var lastNum = parseInt($(this).attr("title"))+1;
-						console.log(lastNum);
 						$.get("getReview?placeNum=${vo.placeNum}&search="+search+"&curPage="+lastNum, function(result){
 							$("#reviews").html(result);
 						});
@@ -302,7 +315,7 @@
 		
 			<!-- 2-2. 오른쪽 예약 파트-->
 			<div id="resWrap">
-				<div id="topFixer">
+				<div id="banner">
 					<div id="res">
 					<div id="res1">
 						<div id="res1_1">
@@ -372,13 +385,38 @@
 						</div>
 					</form>
 				</div>
-				
 				<div id="report">
 					<a href="">이 숙소 신고하기</a>
 				</div>
-			</div>
-			</div>
-		</div>
+			</div> <!-- topFixer -->
+			</div> <!-- resWrap -->
+			<script type="text/javascript">
+				
+			    $(window).scroll(  
+					    function(){  
+					    	var scroll = $(window).scrollTop();
+					    	var val = $(document).height() - 1052 - 135;
+				 			if ($(window).scrollTop()<585){
+				 				$('#banner').removeClass("banner_fix");  
+					        	$('#banner').addClass("banner_abs");
+					        	$('.banner_abs').css('top', '32px');
+				 			} 
+				 			else if(($(window).scrollTop()>=580) && ($(window).scrollTop()<val)){
+					        	$('#banner').removeClass("banner_abs");  
+					        	$('#banner').addClass("banner_fix");
+					        	$('.banner_fix').css('top', '114px');
+					        }
+					        else{  
+					            $('#banner').removeClass("banner_fix");  
+					        	$('#banner').addClass("banner_abs"); 
+					            $('.banner_abs').css('top', val-560);
+					        }   
+					    }  
+					);  
+			</script>
+			
+			<input style="color: white" type="text" id="myInput"> 
+		</div> <!-- descWrap-->
 	</main>
 	<!-- Main End -->
 	
@@ -386,6 +424,35 @@
 	<!-- Footer Start -->
 	<c:import url="../jsp/footer.jsp"></c:import>
 	<!-- Footer End -->
+	
+	<!-- Picture Modal -->
+	<div id="id01" class="w3-modal">
+		<div class="w3-modal-content w3-animate-opacity">
+	    <div>
+	      <div class="w3-container">
+    		<div id="modal_top">1/21</div>
+   	  		<div id="madal_con">
+	     		<button id="modal_leftBtn"style="position: absolute; top: 316px; left: 15px"class="w3-button w3-xlarge w3-circle modalBtn"> <svg aria-hidden="true" role="presentation" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" style="display: block; fill: none; height: 12px; width: 12px; stroke: currentcolor; stroke-width: 5.33333; overflow: visible;"><g fill="none"><path d="m20 28-11.29289322-11.2928932c-.39052429-.3905243-.39052429-1.0236893 0-1.4142136l11.29289322-11.2928932"></path></g></svg> </button>
+				<img id="modal_img" src="https://a0.muscache.com/im/pictures/e1295260-5ce4-496b-84f2-a90ae2612811.jpg?aki_policy=xx_large" >
+	     		<button id="modal_leftBtn" style="position: absolute; top: 316px; left:1252px;"class="w3-button w3-xlarge w3-circle modalBtn"> <svg aria-hidden="true" role="presentation" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" style="display: block; fill: none; height: 12px; width: 12px; stroke: currentcolor; stroke-width: 5.33333; overflow: visible;"><g fill="none"><path d="m12 4 11.2928932 11.2928932c.3905243.3905243.3905243 1.0236893 0 1.4142136l-11.2928932 11.2928932"></path></g></svg> </button>
+     		</div>
+	      </div>
+	    </div>
+	    </div>
+	</div>
+		
+	<script>
+	// Get the modal
+	var modal = document.getElementById('id01');
+	
+	// When the user clicks anywhere outside of the modal, close it
+	window.onclick = function(event) {
+	  if (event.target == modal) {
+	    modal.style.display = "none";
+	  }
+	}
+	
+	</script>
 	
 	<!-- Java Script 파일 삽입-->
 	<!-- Kakao API -->
