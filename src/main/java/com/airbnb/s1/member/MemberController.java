@@ -57,11 +57,14 @@ public class MemberController {
 	
 	
 	@PostMapping("memberLogin")
-	public ModelAndView memberEnter(MemberVO memberVO, ModelAndView mv, HttpSession session) throws Exception{
+	public String memberEnter(MemberVO memberVO, ModelAndView mv, HttpSession session) throws Exception{
 		memberVO = memberService.memberLogin(memberVO);
-		session.setAttribute("member", memberVO);
-		mv.setViewName("redirect:../");
-		return mv;
+
+		if(memberVO.getMemberNum() != null) {
+			session.setAttribute("member", memberVO);
+		}
+		
+		return "redirect:../";
 	}
 
 }

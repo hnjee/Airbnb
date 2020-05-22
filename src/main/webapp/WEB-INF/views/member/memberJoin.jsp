@@ -77,7 +77,7 @@
 				</div>
 				
 				<div>
-					이미 에어비앤비 계정이 있나요? <a>로그인</a>
+					이미 에어비앤비 계정이 있나요? <input type="button" class="_547li01" value="로그인" id="memberLogin2" >	
 				</div>
 				<br><br>
 				

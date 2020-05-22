@@ -7,10 +7,21 @@
 			$('#setMemberJoin').click();
 		});
 		
+		$('#memberJoin2').on('click', function() {
+			$('.close').click();
+			$('#setMemberJoin').click();
+		});
+		
 		$('#memberLogin').on('click', function() {
 			$('#setMemberLogin').click();
 		});
 
+		$('#memberLogin2').on('click', function() {
+			$('.close').click();
+			$('#setMemberLogin').click();
+		});
+
+		
 // 		$('#loginBtn').on('click', function() {
 // 			var email = $('#email').val();
 // 			var pw = $('#pw').val();
