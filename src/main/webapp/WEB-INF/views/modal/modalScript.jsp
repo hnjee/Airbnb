@@ -2,8 +2,18 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
 <script type="text/javascript">
+
 		$('#memberJoin').on('click', function() {
 			$('#setMemberJoin').click();
+		});
+		
+		$('#memberJoin2').on('click', function() {
+			$('.close').click();
+			$('#setMemberJoin').click();
+		});
+		
+		$('#memberLogin').on('click', function() {
+			$('#setMemberLogin').click();
 		});
 		
 		$('#JoinByEmail').on('click', function() {
@@ -44,7 +54,6 @@
 					if(result>0){
 						$('.close').click();
 
-// 						$('#setPicAdd').click();
 						location.reload();
 					}
 				});

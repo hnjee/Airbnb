@@ -66,17 +66,14 @@
 				<div class="form-group">
 					<div class="col-sm-5">
 					<%-- <input type="button" id="loginBtn" value="checking..." onclick=" --%>
-					<input class = "btn btn-success btn-block"type="button" id="googleBtn" value="checking..." onclick="
+					<input class = "btn btn-success btn-block"type="button" id="googleBtn" value="구글 아이디로 회원가입" onclick="
 					if(this.value =='구글 아이디로 회원가입'){
 						gauth.signIn().then(function() {
-							console.log('gauth.signIn()');
 							checkLoginStatus();
 							location.reload();
 						});
 					}else{
 						gauth.signOut().then(function() {
-							console.log('gauth.signOut()');
-							checkLoginStatus();
 							location.reload();
 						});
 					}

@@ -6,7 +6,52 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<c:import url="../template/boot.jsp"></c:import>
+
+<script type="text/javascript">
+	function checkLoginStatus() {
+		var loginBtn = document.querySelector('#googleBtn2');
+		var nameTxt = document.querySelector('#name');
+		if(gauth.isSignedIn.get()){
+			console.log('logined');
+			loginBtn.value = 'Logout';
+			var profile = gauth.currentUser.get().getBasicProfile();
+			console.log(profile.getEmail());
+			console.log(profile.getGivenName());
+			console.log(profile.getFamilyName());
+			console.log(profile.getImageUrl());
+			
+			$.get("./member/googleLogin", 
+					{email : profile.getEmail(), name: profile.getGivenName(), fname:profile.getFamilyName()} ,
+					function(result) {
+					});
+				$('.close').click();
+		}else{
+			$.get("./member/memberLogout",
+					function(result) {
+					});
+			console.log('logouted');
+			loginBtn.value = '구글 아이디로 회원가입';
+			$('.close').click();
+		}
+	}
+	function init() {
+	console.log('init');
+		gapi.load('auth2', function() {
+		console.log('auth2');	 
+		gauth = gapi.auth2.init({
+			client_id:'302238433723-r1r5tde3ngh2cgtnpijo0fb2fe2ur5tj.apps.googleusercontent.com'
+		});
+		gauth.then(function() {
+			console.log('googleAuth success');
+			checkLoginStatus();
+		}, function() {
+			console.log('googleAuth fail');
+			});
+		});
+	}
+	
+</script>
+
 </head>
 <body>
 	<div class="container">
@@ -14,14 +59,25 @@
 			<form class="form-horizontal">
 				
 				<div class="form-group" >
-					<div class="col-sm-6">
+					<div class="col-sm-5">
 						<button type="button" class="btn btn-primary btn-block"> 페이스 계정으로 로그인</button>
 					</div>
 				</div>
 				
 				<div class="form-group" >
-					<div class="col-sm-6">
-						<button type="button" class="btn btn-default btn-block"> 구글 계정으로 로그인</button>
+					<div class="col-sm-5">
+						<input class = "btn btn-success btn-block"type="button" id="googleBtn2" value="구글 아이디로 회원가입" onclick="
+					if(this.value =='구글 아이디로 회원가입'){
+						gauth.signIn().then(function() {
+							checkLoginStatus();
+							location.reload();
+						});
+					}else{
+						gauth.signOut().then(function() {
+							location.reload();
+						});
+					}
+					">
 					</div>
 				</div>
 				
@@ -30,13 +86,13 @@
 				</div>
 				
 				<div class="form-group" >
-					<div class="col-sm-6">
+					<div class="col-sm-5">
 						<input type="text" class="form-control" id="id" placeholder="이메일 주소" name="id">
 					</div>
 				</div>
 				
 				<div class="form-group">
-					<div class="col-sm-6">
+					<div class="col-sm-5">
 						<input type="text" class="form-control" id="pw" placeholder="비밀번호" name="pw">
 					</div>
 				</div>
@@ -48,9 +104,7 @@
 						</div>
 					</div>
 				</div>
-				
-				<a>전화번호로 로그인</a>
-				
+								
 				<div class="form-group">
 					<div class="col-sm-10">
 						<button type="submit" class="btn btn-danger">로그인</button>
@@ -62,12 +116,12 @@
 				</div>
 				
 				<div>
-				에어비앤비 계정이 없으세요? <a>회원 가입</a>
+				에어비앤비 계정이 없으세요?<input type="button" class="_547li01" value="회원 가입" id="memberJoin2" onclick="close">	
 				</div>
 				
 			</form>
 		</div>
 	</div>
-
+<script src="https://apis.google.com/js/platform.js?onload=init" async defer></script>
 </body>
 </html>
