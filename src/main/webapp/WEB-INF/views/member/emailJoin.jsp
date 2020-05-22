@@ -14,17 +14,12 @@
 </head>
 <body>
 	<div class="container">
-		<div>
-			<a>페이스북</a> 또는 <a>구글</a>로 회원 가입하세요.
-		</div>
-		<div>---------------------------------------------------------
-			또는 ---------------------------------------------------------</div>
 		<div class="row">
 			<form class="form-horizontal">
 
 				<div class="form-group">
 					<div class="col-sm-5">
-						<input type="email" class="form-control" id="email"
+						<input type="email" class="form-control" id="emailTxt"
 							placeholder="이메일 주소" name="email" onblur="">
 					</div>
 				</div>
@@ -38,15 +33,22 @@
 
 				<div class="form-group">
 					<div class="col-sm-5">
-						<input type="text" class="form-control" id="fname"
+						<input type="text" class="form-control" id="familyName"
 							placeholder="성(예: 홍)" name="fname">
 					</div>
 				</div>
 
 				<div class="form-group">
 					<div class="col-sm-5">
-						<input type="password" class="form-control" id="pw"
+						<input type="password" class="form-control" id="pwTxt"
 							placeholder="비밀번호 설정하기" name="pw">
+					</div>
+				</div>
+
+				<div class="form-group">
+					<div class="col-sm-5">
+						<input type="text" class="form-control" id="phoneNum"
+							placeholder="예)010-1234-5678" name="phoneNum">
 					</div>
 				</div>
 
@@ -78,7 +80,9 @@
 					<option value="9">9월</option>
 					<option value="10">10월</option>
 					<option value="11">11월</option>
-					<option value="12">12월</option></select> <select id="bDay"
+					<option value="12">12월</option></select> 
+					
+					<select id="bDay"
 					style="width: 140px; height: 30px; margin-right: 10px"><option
 						disabled="" value="">일</option>
 					<option value="1">1</option>
@@ -111,7 +115,9 @@
 					<option value="28">28</option>
 					<option value="29">29</option>
 					<option value="30">30</option>
-					<option value="31">31</option></select> <select id="bYear"
+					<option value="31">31</option></select>
+					
+					 <select id="bYear"
 					style="width: 140px; height: 30px; margin-right: 10px"><option
 						disabled="" value="">년</option>
 					<option value="2020">2020</option>
