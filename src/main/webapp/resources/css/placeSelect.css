@@ -359,6 +359,11 @@ input{
 	height: 100%;
 	float: left;
 }
+#res_pay p {
+	display: block;
+	float: left
+}
+
 .res2_2_2 div{
 	float: left;
 }
