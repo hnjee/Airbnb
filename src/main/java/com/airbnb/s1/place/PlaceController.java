@@ -44,13 +44,12 @@ public class PlaceController {
 	}
 	
 	@GetMapping("fileView")
-	public void fileView(ModelAndView mv,String placeNum) throws Exception{		
+	public ModelAndView fileView(ModelAndView mv,String placeNum) throws Exception{		
 		PlaceVO placeVO = new PlaceVO();
 		placeVO.setPlaceNum(placeNum);
 		List<PlaceFileVO> placeFileList = placeService.fileList(placeVO);
-		System.out.println(placeFileList.get(0).getOriName());
 		mv.addObject("fileList", placeFileList);
-		
+		return mv;
 	}
 	
 	

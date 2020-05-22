@@ -35,8 +35,10 @@ public class PlaceService {
 	
 	public int fileInsert(String placeNum,MultipartFile[] files) throws Exception{
 		//실제로 저장되는 경로 path
+		
 		String path = servletContext.getRealPath("/resources/uploadPlace");
 		System.out.println("실제 경로: "+path);
+		System.out.println(".getResourceAsStream :"+servletContext.getResourceAsStream("/WEB-INF/place"));
 		int res = 0;
 		
 		//들어온 files를 반복문으로 하나씩 삽입

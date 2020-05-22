@@ -12,21 +12,17 @@
 <h1>Images View Page</h1>
 
 
-
+${file.fileName}
 <c:catch>
 	<c:forEach items="${fileList}" var="file">	
 		<%--	링크 누르면 사진 다운로드
 		<div>
 			<a href="../placeFile/fileDown?fileNum=${file.placeFileNum}">${file.oriName}</a>		
 		</div> --%>
-		<img alt="" src="../resources/images/place/${file.fileName}">${file.fileName}
+		<img alt="" src="${pageContext.request.contextPath}/resources/images/place/${file.oriName}">
 	</c:forEach>
 </c:catch>
 
-<script type="text/javascript">
-	alert(${pageContext.request.contextPath});
-
-</script>
 
 </body>
 </html>
