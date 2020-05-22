@@ -137,6 +137,7 @@
 												<!-- 컨텐츠 안 사진 -->
 												<div class="_1nz9l7j">
 												<input id="house${status.count}" type="hidden" value="${placeVO.placeLocation}">
+												<input id="price${status.count}" type="hidden" value="${placeVO.placePrice}">
 												<div class="_mcb8gr">
 												<div class="_e296pg">												
 													<div class="_13ky0r6y" style="padding-top: 66.6667%; background: rgb(216, 216, 216);">
@@ -394,12 +395,15 @@
 	//숙소 당 정보 세팅
 	const counts = [1,2,3,4,5];
 	for (let i of counts) {
-		$('.house'+i).click(function(){
+		//이벤트 발생 시
+		$('.house'+i).mouseover(function(){
 			var house_loc = $('#house'+i).attr('value');
-			console.log("house : "+house_loc);
+			var price_loc = $('#price'+i).attr('value');
 			loc = house_loc;
-			selectMap(loc);
+			selectMap(loc, price_loc);
 		});
+		
+		//총 요금 계산
 		var total = 0;
 		total = parseInt($('#perPrice'+i).attr('value'))*dayCnt;
 		$("#totalPrice"+i).append("총 요금: ₩"+total);
@@ -407,6 +411,7 @@
 
 	
 	//지도 표시
+	//getMap() 시작
 	function getMap(){
 		var container = document.getElementById('map');
 		var options = {
@@ -422,69 +427,34 @@
 				map.setCenter(locCode);
 			}
 		});
-		
-		////////////////////////////////////////////////////////////////////////
 		//돌아가는 것
-		var count =0;
-		locations.forEach(function(element){
-			console.log('element: '+element);
+		locations.forEach(function(element,index){			
 			geocoder.addressSearch(element,function(result,status){
-				if (status === kakao.maps.services.Status.OK) { 
-						//console.log('count: '+ count);
-						var price = prices[count-5];
-						//console.log('no.'+(count-5)+': '+price);
-					
-						console.log((count-5)+':'+result[0].y+','+result[0].x);						
+				if (status === kakao.maps.services.Status.OK) {
+						var indexNum = index;
+						var price = prices[indexNum];					
 					var code = new kakao.maps.LatLng(result[0].y, result[0].x); 
+					console.log('check :'+element+':'+result[0].y+', '+result[0].x);
 					var content = '<div class="customoverlay">' +
-				    '    <span class="title" style="display:block;border-radius:15px;text-align:center;background:#fff;margin-right:35px;padding:10px 15px;font-size:15px;font-weight:bold;"> &#8361 '+price+' </span>' +
+				    '    <span class="title" style="display:block;border-radius:15px;text-align:center;background:#fff;margin-right:35px;padding:10px 15px;font-size:15px;font-weight:bold;"> &#8361 '+'숙소'+indexNum+': '+price+' </span>' +
 				    '</div>';
 					var customOverlay = new kakao.maps.CustomOverlay({
 					    map:map,
 						position : code, 
 					    content : content 
 					});
-					count++;
 				}
 			});
-			count++;
 		});
-		///////////////////////////////////////////////////////////////////////
 		
-	/* 	var geocoder = new kakao.maps.services.Geocoder();
-		geocoder.addressSearch(loc, function(result, status) {
-			// 정상적으로 검색이 완료됐으면
-			if (status === kakao.maps.services.Status.OK) { 
-				var coords = new kakao.maps.LatLng(result[0].y, result[0].x); 
-				yy = result[0].x; 
-				xx = result[0].y; 
-				console.log('yy: '+yy);
-				console.log('xx: '+xx);
-				
-				// 결과값으로 받은 위치를 마커로 표시 
-				var marker = new kakao.maps.Marker({ map: map, position: coords }); 
-				// 지도의 중심을 결과값으로 받은 위치로 이동 
-				map.setCenter(coords); 
-				
-				// ★ resize 마커 중심 
-				var markerPosition = marker.getPosition();
-				$(window).on('resize', function(){
-					map.relayout();
-					map.setCenter(markerPosition); 
-				}); 
-				
-				} else { 
-					console.log(loc);
-					console.log('map error'); }
-		}); */
-	
-	}; 
+	}; //getMap() 끝
 	
 	
 	
 	
 	//마커를 표시하는 지도
-	function selectMap(locationInfo){
+	//selectMap 시작
+	function selectMap(locationInfo,selectPrice){
 		//hover 이벤트 시 들어오는 주소 값
 		var local = locationInfo;
 		//지도 만들 준비
@@ -505,23 +475,9 @@
 			}
 		});
 		
-		//hover된 객체 이벤트 적용
-		geocoder.addressSearch(local,function(result,status){
-				if (status === kakao.maps.services.Status.OK) { 
-					var code = new kakao.maps.LatLng(result[0].y, result[0].x); 					
-					var iwContent = '<div style="background-color:black;color:white;padding-left:40px;font-size:15px;font-weight:bold;"> &#8361 50,000 </div>';
-					var infowindow = new kakao.maps.InfoWindow({
-					    position : code, 
-					    content : iwContent 
-					});
-					infowindow.open(map);
-				}
-		});
-		
-		
 		//반복으로 하나씩 윈도우 찍기
 		//돌아가는 것
-		locations.forEach(function(element){
+		/* locations.forEach(function(element){
 			console.log('element: '+element);
 			geocoder.addressSearch(element,function(result,status){
 				if (status === kakao.maps.services.Status.OK) { 
@@ -534,11 +490,29 @@
 					infowindow.open(map);
 				}
 			});
-		});
-		
+		}); */
 		
 
+		locations.forEach(function(element,index){			
+			geocoder.addressSearch(element,function(result,status){
+				if (status === kakao.maps.services.Status.OK) {
+						var indexNum = index;
+						var price = prices[indexNum];					
+					var code = new kakao.maps.LatLng(result[0].y, result[0].x); 
+					var content = '<div class="customoverlay">' +
+				    '    <span class="title" style="display:block;border-radius:15px;text-align:center;background:#fff;margin-right:35px;padding:10px 15px;font-size:15px;font-weight:bold;"> &#8361 '+'숙소'+indexNum+': '+price+' </span>' +
+				    '</div>';
+					var customOverlay = new kakao.maps.CustomOverlay({
+					    map:map,
+						position : code, 
+					    content : content 
+					});
+				}
+			});
+			
+		});
 	}; 
+	//selectMap 끝 
 
 
 	</script>
