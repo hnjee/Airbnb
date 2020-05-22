@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -23,11 +24,12 @@ public class PlaceController {
 	@Autowired
 	private ReviewService reviewService;
 	
+	
 	@GetMapping("placeList")
 	public ModelAndView placeList(Pager pager,String location,String guest, long guestData, String date, String startDate,String endDate, ModelAndView mv) throws Exception{
 		PlaceVO placeVO = new PlaceVO();
 		//기본키 null방지
-		placeVO.setPlaceNum("search");
+		placeVO.setPlaceNum("search"); 
 		placeVO.setPlaceLocation(location);
 		placeVO.setPlaceMaxGuest(guestData);
 
@@ -61,7 +63,8 @@ public class PlaceController {
 	}
 
 	@GetMapping("placeSelect")
-	public ModelAndView placeSelect(ModelAndView mv, String placeNum, ReviewPager pager) throws Exception{
+
+	public ModelAndView placeSelect(ModelAndView mv, ReviewPager pager,long guestData, String startDate,String endDate, String location, String date) throws Exception{
 		PlaceVO placeVO = placeService.placeSelect(pager.getPlaceNum());
 		List<ReviewVO> reviewVOs = reviewService.reviewSelect(pager);
 		//리뷰 전체 개수 
@@ -69,9 +72,14 @@ public class PlaceController {
 		//리뷰 평균 계산 
 		float ratingSum = reviewService.ratingSum(pager.getPlaceNum());
 		float ratingAvg = ratingSum/reviewCnt;
-	
-		List<BookingVO> bookingVOs =  placeService.checkDateSelect(placeNum);
+
+		List<BookingVO> bookingVOs =  placeService.checkDateSelect(pager.getPlaceNum());
 		
+		mv.addObject("date",date);
+		mv.addObject("location",location);
+		mv.addObject("startDate",startDate);
+		mv.addObject("endDate",endDate);
+		mv.addObject("guestData", guestData);
 		mv.addObject("vo", placeVO);
 		mv.addObject("bookingList", bookingVOs);
 		mv.addObject("reviewList", reviewVOs);
@@ -85,11 +93,62 @@ public class PlaceController {
 	@GetMapping("getReview")
 	public ModelAndView getReview(ReviewPager pager, ModelAndView mv) throws Exception{
 		List<ReviewVO> reviews = reviewService.reviewSelect(pager);
+		
 		long reviewCnt = reviewService.reviewCount(pager);
+		System.out.println("curPage: "+pager.getCurPage());
+		System.out.println("startNum: "+pager.getStartNum());
+		System.out.println("lastNum: "+pager.getLastNum());
 		
 		mv.addObject("reviewCnt", reviewCnt);
 		mv.addObject("pager", pager);
 		mv.addObject("reviewList", reviews);
 		return mv;
 	}
+	
+	@GetMapping("hostPlaceAdd")
+	public void hostPlaceAdd() throws Exception{
+		
+	}
+	
+//	@PostMapping("addPlace")
+//	public ModelAndView addPlace(Pager pager, ModelAndView mv) throws Exception{
+//		if(pager.getCurPage() == 1) {
+//			
+//		System.out.println("enter Controller");
+//		mv.setViewName("./addPlace2");
+//		
+//		}else if(pager.getCurPage() ==2) {
+//			System.out.println(pager.getCurPage());
+//		}else {
+//			System.out.println(pager.getCurPage());
+//		}
+//		return mv;
+//	}
+	
+	@PostMapping("addPlace1")
+	public void addPlace1() throws Exception{
+	}
+	
+	@PostMapping("addPlace2")
+	public ModelAndView addPlace2(PlaceVO placeVO,ModelAndView mv) throws Exception{
+		mv.addObject("pVo", placeVO);
+		mv.setViewName("place/addPlace2");
+		
+		return mv;
+	}
+	
+	@PostMapping("addPlace3")
+	public ModelAndView addPlace3(PlaceVO placeVO, ModelAndView mv) throws Exception{
+		
+		mv.addObject("pVo", placeVO);
+		mv.setViewName("place/addPlace3");
+		
+		return mv;
+	}
+	
+	@PostMapping("addPlaceDone")
+	public String addPlaceDone(PlaceVO placeVO, ModelAndView mv) throws Exception{
+		return "redirect:../";
+	}
+	
 }

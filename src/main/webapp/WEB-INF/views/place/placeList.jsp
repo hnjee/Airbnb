@@ -28,14 +28,12 @@
 		display: block;
 	}
 	a{
-	color:black;
-
+		color:black;
 	}
 	a:hover { 
 		color: black; 
 		text-decoration: none;	
-	 }
-
+	}
 </style>
 
 <link rel="stylesheet" type="text/css" href="../resources/css/listHeaderStyle.css">
@@ -177,8 +175,9 @@
 													</div>
 													
 												<div class="_1jbo9b6h" style="line-height: 24px; max-height: 24px; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 1; -webkit-box-orient: vertical;">
-													<a href="./placeSelect?placeNum=${placeVO.placeNum}">${placeVO.placeName}</a></div>
-													
+
+													<a href="./placeSelect?placeNum=${placeVO.placeNum}&startDate=${startDate}&endDate=${endDate}&guestData=${guestData}&date=${date}&location=${location}">${placeVO.placeName}</a></div>
+					
 												<!-- 	
 												<div class="_1ulsev2" style="margin-top: 12px;">인원 2명<span aria-hidden="true"> · </span>
 												침실 1개<span aria-hidden="true"> · </span>침대 1개<span aria-hidden="true"> · </span>욕실 1개
@@ -285,11 +284,13 @@
 									<!-- 페이지 선택 -->			
 									<c:forEach begin="${pager.startNum}" end="${pager.lastNum}" var="i">			
 									<li class="_ycd2pg" data-id="page-2">
+									
 									<c:if test="${pager.curPage eq i}">
 										<div class="_115zncnj" aria-label="현재 페이지">${i}</div>
 									</c:if>
+									
 									<c:if test="${pager.curPage ne i}">
-										<a class="_13n1po3b" href="./placeList?location=${location}&guest=${guest}&date=${date}&curPage=${i}&startDate=${startDate}&endDate=${endDate}&guestData=${guestData}" aria-label="현재 페이지가 아님" >${i}</a>
+										<a class="_13n1po3b" href="./placeList?location=${location}&guest=${guest}&date=${date}&curPage=${i}&startDate=${startDate}&endDate=${endDate}&guestData=${guestData}" aria-label="현재 페이지가 아님">${i}</a>
 									</c:if>
 									</li>
 									</c:forEach>
@@ -439,9 +440,12 @@
 	
 	};
 	
-	
-	
-	
+	console.log('totalCount: '+"${totalCount}");
+	console.log('totalPage: '+"${pager.totalPage}");
+	console.log('totalBlock: '+"${pager.totalBlock}");
+	console.log('startNum: '+"${pager.startNum}");
+	console.log('lastNum: '+"${pager.lastNum}");
+	console.log('curBlock: '+"${pager.curBlock}");
 	</script>
 	
 	

@@ -28,12 +28,12 @@
 							<div class="_1fmnqpr">
 								<div class="_rvbd109" role="search">
 									<button class="_37g0dr4" data-index="0" type="button">
-									<span class="_krjbj"></span>강남구, 강남구, 한국
+									<span class="_krjbj"></span>${location}
 									</button>
 									
 									<span class="_1u98t37y"></span>
 									<button class="_37g0dr4" data-index="1" type="button" data-toggle="collapse" data-target="#collapseCal1" aria-expanded="false" aria-controls="collapseExample">
-									<span class="_krjbj"></span>5월 12일 - 5월 15일
+									<span class="_krjbj"></span>${date}
 									</button>
 									
 									
@@ -41,7 +41,7 @@
 									
 									<span class="_1u98t37y"></span>
 									<button class="_37g0dr4" data-index="2" aria-expanded="false" type="button" data-toggle="collapse" data-target="#collapseGuest1" aria-controls="collapseExample">
-									<span class="_krjbj"></span>게스트 3명
+									<span class="_krjbj"></span>게스트 ${guestData}명
 									</button>
 									
 									

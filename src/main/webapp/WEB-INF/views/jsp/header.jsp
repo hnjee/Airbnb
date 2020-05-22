@@ -75,11 +75,11 @@
 						</div>
 					</div>
 				
-				<a class="_547li01" href="/">
+				<a class="_547li01" href="/s1/place/hostPlaceAdd">
 				<div class="_iglww7">숙소 호스트 되기</div>
 				</a>
 				
-				<a class="_547li01" href="/">
+				<a class="_547li01" href="/s1/place/hostPlaceAdd">
 				<div class="_iglww7">체험 호스팅하기</div>
 				</a>
 				

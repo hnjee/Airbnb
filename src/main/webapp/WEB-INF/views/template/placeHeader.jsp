@@ -10,8 +10,8 @@
 	href="https://a0.muscache.com/airbnb/static/rooms/list_your_space-c8a358bc6f29cecc5b6ce213939c652e.css"
 	rel="stylesheet" type="text/css" media="all">
 <link rel="stylesheet" type="text/css"
-	href="./resources/css/hostPlace.css">
-<link rel="stylesheet" type="text/css" href="./resources/css/searchBoxStyle.css">
+	href="../resources/css/hostPlace.css">
+<link rel="stylesheet" type="text/css" href="../resources/css/searchBoxStyle.css">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta id="csrf-param-meta-tag" name="csrf-param"
 	content="authenticity_token">
