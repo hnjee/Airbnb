@@ -56,18 +56,17 @@ public class MemberController {
 	}
 	
 	
-	@GetMapping("memberLogin")
-	public void memberLogin() throws Exception{
-		System.out.println("컨트롤러1");
-	}
-	
 	@PostMapping("memberLogin")
-	public ModelAndView memberLogin(ModelAndView mv, MemberVO memberVO) throws Exception{
-		System.out.println("컨트롤러2");
-		int result = memberService.memberLogin(memberVO);
-		System.out.println(result);
-		mv.setViewName("../");
-		
+	public ModelAndView memberEnter(MemberVO memberVO, ModelAndView mv) throws Exception{
+		System.out.println("컨트롤러");
+		System.out.println(memberVO.getEmail());
+		System.out.println(memberVO.getPw());
+		memberVO = memberService.memberLogin(memberVO);
+		System.out.println(memberVO.getFname());
+		System.out.println(memberVO.getName());
+		mv.addObject("member", memberVO);
+		mv.setViewName("redirect:../");
 		return mv;
 	}
+
 }

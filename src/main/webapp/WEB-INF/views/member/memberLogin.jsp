@@ -34,21 +34,6 @@
 			$('.close').click();
 		}
 	}
-	function init() {
-	console.log('init');
-		gapi.load('auth2', function() {
-		console.log('auth2');	 
-		gauth = gapi.auth2.init({
-			client_id:'302238433723-r1r5tde3ngh2cgtnpijo0fb2fe2ur5tj.apps.googleusercontent.com'
-		});
-		gauth.then(function() {
-			console.log('googleAuth success');
-			checkLoginStatus();
-		}, function() {
-			console.log('googleAuth fail');
-			});
-		});
-	}
 	
 </script>
 
@@ -87,7 +72,7 @@
 				
 				<div class="form-group" >
 					<div class="col-sm-5">
-						<input type="text" class="form-control" id="id" placeholder="이메일 주소" name="id">
+						<input type="text" class="form-control" id="email" placeholder="이메일 주소" name="email">
 					</div>
 				</div>
 				
@@ -107,7 +92,7 @@
 								
 				<div class="form-group">
 					<div class="col-sm-10">
-						<button type="submit" class="btn btn-danger">로그인</button>
+						<button type="submit" class="btn btn-danger" id="loginBtn">로그인</button>
 					</div>
 				</div>
 				

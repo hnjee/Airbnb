@@ -10,9 +10,10 @@
 		(#{email},#{name},#{fname},#{pw},1)
 	</insert>
  
-	<select id="memberLogin" parameterType="MemberVO" resultType="Int">
+	<select id="memberLogin" parameterType="MemberVO" resultType="MemberVO">
 		SELECT * FROM MEMBER WHERE id=#{id} and pw = #{pw}
 	</select>
+	
 	
 	 
 </mapper>
