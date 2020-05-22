@@ -5,6 +5,25 @@
 
 <html>
 <head>
+<script type="text/javascript">
+
+function init() {
+	console.log('init');
+		gapi.load('auth2', function() {
+		console.log('auth2');	 
+		gauth = gapi.auth2.init({
+			client_id:'302238433723-r1r5tde3ngh2cgtnpijo0fb2fe2ur5tj.apps.googleusercontent.com'
+		});
+		gauth.then(function() {
+			console.log('googleAuth success');
+			checkLoginStatus();
+		}, function() {
+			console.log('googleAuth fail');
+			});
+		});
+	}
+	
+</script>
 <meta charset="UTF-8">
 <title>숙소, 체험, 장소를 모두 한 곳에서</title>
 	<style type="text/css">

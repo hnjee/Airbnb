@@ -34,21 +34,6 @@
 			$('.close').click();
 		}
 	}
-	function init() {
-	console.log('init');
-		gapi.load('auth2', function() {
-		console.log('auth2');	 
-		gauth = gapi.auth2.init({
-			client_id:'302238433723-r1r5tde3ngh2cgtnpijo0fb2fe2ur5tj.apps.googleusercontent.com'
-		});
-		gauth.then(function() {
-			console.log('googleAuth success');
-			checkLoginStatus();
-		}, function() {
-			console.log('googleAuth fail');
-			});
-		});
-	}
 	
 </script>
 </head>
@@ -65,18 +50,14 @@
 				
 				<div class="form-group">
 					<div class="col-sm-5">
-					<%-- <input type="button" id="loginBtn" value="checking..." onclick=" --%>
-					<input class = "btn btn-success btn-block"type="button" id="googleBtn" value="checking..." onclick="
+					<input class = "btn btn-success btn-block"type="button" id="googleBtn" value="구글 아이디로 회원가입" onclick="
 					if(this.value =='구글 아이디로 회원가입'){
 						gauth.signIn().then(function() {
-							console.log('gauth.signIn()');
 							checkLoginStatus();
 							location.reload();
 						});
 					}else{
 						gauth.signOut().then(function() {
-							console.log('gauth.signOut()');
-							checkLoginStatus();
 							location.reload();
 						});
 					}
@@ -96,7 +77,7 @@
 				</div>
 				
 				<div>
-					이미 에어비앤비 계정이 있나요? <a>로그인</a>
+					이미 에어비앤비 계정이 있나요? <input type="button" class="_547li01" value="로그인" id="memberLogin2" >	
 				</div>
 				<br><br>
 				
