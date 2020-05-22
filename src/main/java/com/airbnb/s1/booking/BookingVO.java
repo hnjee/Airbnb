@@ -9,6 +9,7 @@ public class BookingVO {
 	private long bookingStat;
 	private Date checkInDate;
 	private Date checkOutDate;
+	private long guestTotal;
 	
 	public String getBookingNum() {
 		return bookingNum;
@@ -45,6 +46,12 @@ public class BookingVO {
 	}
 	public void setCheckOutDate(Date checkOutDate) {
 		this.checkOutDate = checkOutDate;
+	}
+	public long getGuestTotal() {
+		return guestTotal;
+	}
+	public void setGuestTotal(long guestTotal) {
+		this.guestTotal = guestTotal;
 	}
 	
 	
