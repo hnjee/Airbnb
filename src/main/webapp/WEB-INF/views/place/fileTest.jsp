@@ -21,7 +21,7 @@
 <button type="button" id="writeButton" class="btn btn-default">Submit</button>
 </form>
 
-
+<a href="../place/fileView?placeNum=p10">file View</a>
 
 
 

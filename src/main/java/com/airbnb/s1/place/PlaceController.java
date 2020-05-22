@@ -35,12 +35,21 @@ public class PlaceController {
 	}
 	
 	@PostMapping("fileTest")
-	public void fileTest(MultipartFile[] files, String placeNum) throws Exception{
-		System.out.println("input placeNo : "+placeNum);
+	public void fileTest(MultipartFile[] files, String placeNum) throws Exception{		
 		PlaceFileVO placeFileVO = new PlaceFileVO();
 		placeFileVO.setPlaceNum(placeNum);
 
-		placeService.fileWrite(placeNum, files);
+		placeService.fileInsert(placeNum, files);
+		
+	}
+	
+	@GetMapping("fileView")
+	public void fileView(ModelAndView mv,String placeNum) throws Exception{		
+		PlaceVO placeVO = new PlaceVO();
+		placeVO.setPlaceNum(placeNum);
+		List<PlaceFileVO> placeFileList = placeService.fileList(placeVO);
+		System.out.println(placeFileList.get(0).getOriName());
+		mv.addObject("fileList", placeFileList);
 		
 	}
 	

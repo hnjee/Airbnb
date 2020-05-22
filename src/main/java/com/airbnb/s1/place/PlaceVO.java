@@ -1,6 +1,9 @@
 package com.airbnb.s1.place;
 
 import java.sql.Date;
+import java.util.List;
+
+import com.airbnb.s1.place.placeFile.PlaceFileVO;
 
 public class PlaceVO {
 	private String placeNum;
@@ -17,6 +20,7 @@ public class PlaceVO {
 	private Long bathroom;
 	private Long checkInTime;
 	private Long checkOutTime;
+	private List<PlaceFileVO> placeFileVOs;
 
 	public String getPlaceNum() {
 		return placeNum;
@@ -102,4 +106,12 @@ public class PlaceVO {
 	public void setCheckOutTime(Long checkOutTime) {
 		this.checkOutTime = checkOutTime;
 	}
+	public List<PlaceFileVO> getPlaceFileVOs() {
+		return placeFileVOs;
+	}
+	public void setPlaceFileVOs(List<PlaceFileVO> placeFileVOs) {
+		this.placeFileVOs = placeFileVOs;
+	}
+	
+	
 }
