@@ -9,9 +9,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.airbnb.s1.booking.BookingVO;
+import com.airbnb.s1.place.placeFile.PlaceFileVO;
 import com.airbnb.s1.review.ReviewService;
 import com.airbnb.s1.review.ReviewVO;
 import com.airbnb.s1.util.Pager;
@@ -25,6 +27,25 @@ public class PlaceController {
 	@Autowired
 	private ReviewService reviewService;
 	
+	
+	//fileTest를 위한 매핑
+	@GetMapping("fileTest")
+	public void fileTest() throws Exception{
+		
+	}
+	
+	@PostMapping("fileTest")
+	public void fileTest(MultipartFile[] files, String placeNum) throws Exception{
+		System.out.println("input placeNo : "+placeNum);
+		PlaceFileVO placeFileVO = new PlaceFileVO();
+		placeFileVO.setPlaceNum(placeNum);
+
+		placeService.fileWrite(placeNum, files);
+		
+	}
+	
+	
+	//fileTest 끝
 	
 	@GetMapping("placeList")
 	public ModelAndView placeList(Pager pager,String location,String guest, long guestData, String date, String startDate,String endDate, ModelAndView mv) throws Exception{

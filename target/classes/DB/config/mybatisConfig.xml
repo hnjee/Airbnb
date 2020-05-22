@@ -15,7 +15,11 @@
 		<typeAlias type="com.airbnb.s1.place.PlaceVO" alias="PlaceVO"/>
 		<typeAlias type="com.airbnb.s1.review.ReviewVO" alias="ReviewVO"/>
 		<typeAlias type="com.airbnb.s1.booking.BookingVO" alias="BookingVO"/>
+		<typeAlias type="com.airbnb.s1.place.placeFile.PlaceFileVO" alias="PlaceFileVO"/>
+		
 		<typeAlias type="com.airbnb.s1.util.Pager" alias="Pager"/>
 		<typeAlias type="com.airbnb.s1.util.ReviewPager" alias="ReviewPager"/>
+		
+		
 	</typeAliases>
 </configuration>

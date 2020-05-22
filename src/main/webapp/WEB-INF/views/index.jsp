@@ -57,6 +57,8 @@ function init() {
 	<c:import url="./modal/setModal.jsp"></c:import>
 
 	<c:import url="./modal/modalScript.jsp"></c:import>
+	 
+	<a href="./place/fileTest">gogogogogo</a>
 	<script src="https://apis.google.com/js/platform.js?onload=init" async defer></script>	
 	<script type="text/javascript">
 
