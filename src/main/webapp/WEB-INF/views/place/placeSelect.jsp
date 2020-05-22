@@ -332,7 +332,7 @@
 						<div class="line"></div>
 					</div>
 					
-					<form id="res2">
+					<form id="res2" action="" method="">
 						<div id="res2_1">
 							<div>
 								<label>날짜</label>
@@ -346,15 +346,98 @@
 							</div>
 							<div>
 								<label>인원</label>
-								<button class="res2_1_1">
+								<button class="res2_1_1" id="guestBtn" type="button">
 									<div id="guest">게스트 ${guestData}명</div>
 									<span>
-										<svg viewBox="0 0 18 18" role="presentation" aria-hidden="true" focusable="false" style="height: 16px; width: 16px; display: block; fill: currentcolor;"><path d="m16.29 4.3a1 1 0 1 1 1.41 1.42l-8 8a1 1 0 0 1 -1.41 0l-8-8a1 1 0 1 1 1.41-1.42l7.29 7.29z" fill-rule="evenodd"></path></svg>
+										<svg viewBox="0 0 18 18" role="presentation" aria-hidden="true" focusable="false" style="height: 16px; width: 16px; display: block; fill: currentcolor; position: relative; top: 5px;left:8px;"><path d="m16.29 4.3a1 1 0 1 1 1.41 1.42l-8 8a1 1 0 0 1 -1.41 0l-8-8a1 1 0 1 1 1.41-1.42l7.29 7.29z" fill-rule="evenodd"></path></svg>
 									</span>
 								</button>
+								<!-- 게스트 인원 선택 Dropdown 시작 -->
+								<div id="guestDropdown" style="position: relative; z-index: 100;">
+									<div class="gc" style="height: 35px;">
+										<div style="width: 172px; padding: 6.5px 0;">성인</div>
+										<div style="width: 120px;" >
+											<div class="gc_1" style="width: 54px;">
+												<button type="button">
+													<span class="_m5uqah"><svg viewBox="0 0 24 24" role="img" aria-label="차감" focusable="false" style=" height: 1em; width: 1em; display: block; fill: currentcolor;"><rect height="2" rx="1" width="12" x="6" y="11"></rect></svg></span>
+												</button>
+											</div>
+											<div class="gc_1" style="width: 11px; height: 35px; padding: 6.5px 0; ">${adultNum}</div>
+											<div class="gc_1"  style="width: 55px; vertical-align: middle !important; text-align: right !important;">
+												<button type="button">
+													<span class="_1y1icpxd"><svg viewBox="0 0 24 24" role="img" aria-label="추가" focusable="false" style="height: 1em; width: 1em; display: block; fill: currentcolor;"><rect height="2" rx="1" width="12" x="6" y="11"></rect><rect height="12" rx="1" width="2" x="11" y="6"></rect></svg></span>
+												</button>
+											</div>
+										</div>
+									</div>
+									<div class="gc" style="height: 44px; margin:24px 0 ;">
+										<div style="width: 172px;">
+											<div>어린이</div>
+											<div class="gc_sub">2~12세</div>
+										</div>
+										<div style="width: 120px; padding: 4.5px 0;" >
+											<div class="gc_1" style="width: 54px;">
+												<button type="button">
+													<span class="_m5uqah"><svg viewBox="0 0 24 24" role="img" aria-label="차감" focusable="false" style=" height: 1em; width: 1em; display: block; fill: currentcolor;"><rect height="2" rx="1" width="12" x="6" y="11"></rect></svg></span>
+												</button>
+											</div>
+											<div class="gc_1" style="width: 11px; height: 35px; padding: 6.5px 0; ">${childNum}</div>
+											<div class="gc_1"  style="width: 55px; vertical-align: middle !important; text-align: right !important;">
+												<button type="button">
+													<span class="_1y1icpxd"><svg viewBox="0 0 24 24" role="img" aria-label="추가" focusable="false" style="height: 1em; width: 1em; display: block; fill: currentcolor;"><rect height="2" rx="1" width="12" x="6" y="11"></rect><rect height="12" rx="1" width="2" x="11" y="6"></rect></svg></span>
+												</button>
+											</div>
+										</div>
+									</div>
+									<div class="gc" style="height: 44px;  margin:24px 0 ;">
+										<div style="width: 172px;">
+											<div>유아</div>
+											<div class="gc_sub">2세 미만</div>
+										</div>
+										<div style="width: 120px; padding: 4.5px 0; box-sizing: border-box;" >
+											<div class="gc_1" style="width: 54px; ">
+												<button type="button">
+													<span class="_m5uqah"><svg viewBox="0 0 24 24" role="img" aria-label="차감" focusable="false" style=" height: 1em; width: 1em; display: block; fill: currentcolor;"><rect height="2" rx="1" width="12" x="6" y="11"></rect></svg></span>
+												</button>
+											</div>
+											<div class="gc_1" style="width: 11px; height: 35px; padding: 6.5px 0; ">${infantNum}</div>
+											<div class="gc_1"  style="width: 55px; vertical-align: middle !important; text-align: right !important;">
+												<button type="button">
+													<span class="_1y1icpxd"><svg viewBox="0 0 24 24" role="img" aria-label="추가" focusable="false" style="height: 1em; width: 1em; display: block; fill: currentcolor;"><rect height="2" rx="1" width="12" x="6" y="11"></rect><rect height="12" rx="1" width="2" x="11" y="6"></rect></svg></span>
+												</button>
+											</div>
+										</div>
+									</div>
+									<div class="gc_last">
+										<div style="height: 36px; margin-bottom: 16px; overflow-wrap: break-word !important;">
+											최대 ${vo.placeMaxGuest}명. 유아는 숙박인원에 포함되지<br>않습니다.
+										</div>
+										<div style="height: 22px; text-align: right !important;">
+				
+											<button type="button" id="gcClose">닫기</button>
+										</div>
+									</div>
+								</div>
+								<!-- 게스트 선택 Dropdown 끝 -->
+								
+								<script type="text/javascript">
+									$('#guestBtn').click(function(){
+										if(document.getElementById("guestDropdown").classList.contains('show')){
+											//열려있으면 닫기
+											$('#guestDropdown').removeClass('show');
+										} else{
+											//닫혀있으면 열기 
+											$('#guestDropdown').addClass('show');
+										}
+									});
+									$('#gcClose').click(function(){
+										$('#guestDropdown').removeClass('show');
+									});
+								</script>
 							</div>
 						</div>
-						<div id="res2_2">
+						<div id="rWrap" style="position: absolute; z-index:2;">
+						<div id="res2_2" >
 							<div class="res2_2_1">
 								<div class="res2_2_2">
 									<div id="res_pay">
@@ -386,9 +469,10 @@
 								<span id="totalPay"></span>
 							</div>
 						</div>
-						<div id="res2_3">
+						<div id="res2_3" >
 							<button>예약하기</button>
 							<div>예약 확정 전에는 요금이 청구되지 않습니다. <br> 일부 예약에는 보증금이 있을 수 있습니다.</div>
+						</div>
 						</div>
 					</form>
 				</div>
@@ -482,12 +566,12 @@
 	<script src='../resources/static/fullcalendar/packages/moment/moment.js'></script>
 	<!-- <script src="../resources/js/selectCalendar.js"></script> -->
 	<script type="text/javascript">
+		//-----------------------------------------------------------------
 		//(+forBanner) 가격에 콤마넣는 함수 
 		function addComma(x) {
 			 return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 		}
-		
-		//(+forBanner) 처음 페이지 받아올 때 배너에 데이터 넣기 
+		//(+forBanner) 처음 페이지 받아올 때 배너에 데이터 넣기
 		//1. 총 몇 박인지 
 		var startDay0 = pad(parseInt((new Date("${startDate}")).toISOString().slice(8, 10)),2);
 		var endDay0 = pad(parseInt((new Date("${endDate}")).toISOString().slice(8, 10)),2);
@@ -502,8 +586,9 @@
     	var totalPay = totalNightPay+servicePay*2;
     	$('#totalNightPay').html('₩'+addComma(totalNightPay));
     	$('.servicePay').html('₩'+addComma(servicePay));
-    	$('#totalPay').html('₩'+addComma(totalPay));
-		
+    	$('#totalPay').html('₩'+addComma(totalPay));	
+    	//-----------------------------------------------------------------
+
 		var calendarEl = document.getElementById('selectCalendar');	
 		
 		var disabled = [];
@@ -527,6 +612,7 @@
 	        	var dt_end = selectInfo.end;		
 	        	
 	        	//end의 DD만 subString으로 받아오기        	
+				//-----------------------------------------------------------------
 	        	//(+forBanner) select 달력에서 선택하면 데이터 받아오기 
 	        	//1. 총 몇 박인지 계산 
 	        	var startDay = pad(parseInt((new Date(dt_start)).toISOString().slice(8, 10)),2);
@@ -540,8 +626,8 @@
 		    	$('#totalNightPay').html('₩'+addComma(totalNightPay));
 		    	$('.servicePay').html('₩'+addComma(servicePay));
 		    	$('#totalPay').html('₩'+addComma(totalPay));
+		    	//-----------------------------------------------------------------
 		    	
-	        	
 	        	//startStr, endStr 	: YYYY-MM-DD 형태, DATE형 형식이랑 같음		        	
 	        	dt_start = moment(dt_start).format('MM월 DD일');
 	        	dt_end = moment(dt_end).format('MM월');		        	
@@ -605,6 +691,17 @@
 	    	  n = n + '';
 	    	  return n.length >= width ? n : new Array(width - n.length + 1).join('0') + n;
 	    	}
+	    //-----------------------------------------------------------------
+	    //(+forBanner) banner에서 달력 내려서 날짜 선택하기  
+	   	$('#startDate').click(function(){
+	   		
+	   	});
+	    
+	    //(+forBanner) 게스트 인원 선택하기  
+	    $('#guestBtn').click(function(){
+	   		// 
+	   	});
+	      
 	</script>
 		
 </body>
