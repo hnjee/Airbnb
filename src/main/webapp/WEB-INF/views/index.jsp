@@ -15,13 +15,10 @@ function init() {
 			client_id:'302238433723-r1r5tde3ngh2cgtnpijo0fb2fe2ur5tj.apps.googleusercontent.com'
 		});
 		gauth.then(function() {
-			console.log('googleAuth success');
 			checkLoginStatus();
-		}, function() {
-			console.log('googleAuth fail');
-			});
 		});
-	}
+	});
+}
 	
 </script>
 <meta charset="UTF-8">
@@ -38,7 +35,6 @@ function init() {
 	
 	<c:import url="./template/boot.jsp"></c:import> 
 	<c:import url="./template/fullcalendarLoad.jsp"></c:import>
-	<c:import url="./modal/setModal.jsp"></c:import>   
 
 	<link rel="stylesheet" type="text/css" href="./resources/css/searchBoxStyle.css">
 	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
@@ -57,7 +53,6 @@ function init() {
 	<c:import url="./modal/setModal.jsp"></c:import>
 
 	<c:import url="./modal/modalScript.jsp"></c:import>
-	<script src="https://apis.google.com/js/platform.js?onload=init" async defer></script>	
 	<script type="text/javascript">
 
 			

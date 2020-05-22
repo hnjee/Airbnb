@@ -7,7 +7,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 
-<script type="text/javascript">
+<script type="text/javascript"> 
 	function checkLoginStatus() {
 		var loginBtn = document.querySelector('#googleBtn2');
 		var nameTxt = document.querySelector('#name');
@@ -105,6 +105,5 @@
 				
 		</div>
 	</div>
-<script src="https://apis.google.com/js/platform.js?onload=init" async defer></script>
 </body>
 </html>
