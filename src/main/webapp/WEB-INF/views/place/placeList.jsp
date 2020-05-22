@@ -385,13 +385,9 @@
 		locations.push("${placeList.placeLocation}");
 		prices.push("${placeList.placePrice}");
 	</c:forEach>
-	console.log(locations);
-	console.log(prices);
-	
 	//맨 처음 지도 불러오기
 	getMap();
-	
-	
+
 	//숙소 당 정보 세팅
 	const counts = [1,2,3,4,5];
 	for (let i of counts) {
@@ -434,9 +430,8 @@
 						var indexNum = index;
 						var price = prices[indexNum];					
 					var code = new kakao.maps.LatLng(result[0].y, result[0].x); 
-					console.log('check :'+element+':'+result[0].y+', '+result[0].x);
 					var content = '<div class="customoverlay">' +
-				    '    <span class="title" style="display:block;border-radius:15px;text-align:center;background:#fff;margin-right:35px;padding:10px 15px;font-size:15px;font-weight:bold;"> &#8361 '+'숙소'+indexNum+': '+price+' </span>' +
+				    '    <span class="title" style="display:block;border-radius:15px;text-align:center;background:#fff;margin-right:35px;padding:10px 15px;font-size:15px;font-weight:bold;"> &#8361 '+price+' </span>' +
 				    '</div>';
 					var customOverlay = new kakao.maps.CustomOverlay({
 					    map:map,
@@ -500,7 +495,7 @@
 						var price = prices[indexNum];					
 					var code = new kakao.maps.LatLng(result[0].y, result[0].x); 
 					var content = '<div class="customoverlay">' +
-				    '    <span class="title" style="display:block;border-radius:15px;text-align:center;background:#fff;margin-right:35px;padding:10px 15px;font-size:15px;font-weight:bold;"> &#8361 '+'숙소'+indexNum+': '+price+' </span>' +
+				    '    <span class="title" style="display:block;border-radius:15px;text-align:center;background:#fff;margin-right:35px;padding:10px 15px;font-size:15px;font-weight:bold;"> &#8361 '+price+' </span>' +
 				    '</div>';
 					var customOverlay = new kakao.maps.CustomOverlay({
 					    map:map,
