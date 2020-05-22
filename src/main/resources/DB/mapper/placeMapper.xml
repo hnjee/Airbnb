@@ -44,5 +44,10 @@
 	<select id="checkDateSelect" parameterType="String" resultType="BookingVO">
 		SELECT * FROM booking where placeNum=#{placeNum}
 	</select>
+	
+	<insert id="placeHostAdd" parameterType="PlaceVO" >
+		
+	</insert>
+	
 
 </mapper>

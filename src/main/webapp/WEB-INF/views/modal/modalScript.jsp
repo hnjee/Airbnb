@@ -2,10 +2,25 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
 <script type="text/javascript">
+
 		$('#memberJoin').on('click', function() {
 			$('#setMemberJoin').click();
 		});
 		
+		$('#memberJoin2').on('click', function() {
+			$('.close').click();
+			$('#setMemberJoin').click();
+		});
+		
+		$('#memberLogin').on('click', function() {
+			$('#setMemberLogin').click();
+		});
+
+		$('#memberLogin2').on('click', function() {
+			$('.close').click();
+			$('#setMemberLogin').click();
+		});
+
 		$('#JoinByEmail').on('click', function() {
 			$('.close').click();
 			$('#setEmailJoin').click();
@@ -14,18 +29,45 @@
 		$('#signIn').on('click', function() {
 
 			var chk_agree = document.getElementsByName('agree');
+			var email = $('#emailTxt').val();
+			var name = $('#name').val();
+			var familyName = $('#familyName').val();
+			var pw = $('#pwTxt').val();
+			var phoneNum = $('#phoneNum').val();
+			
+			var bMonth = $('#bMonth').val();
+			var bYear = $('#bYear').val();
+			var bDay = $('#bDay').val();
+			
+			alert(email);
+			alert(pw);
+			
+			
+// 			if (email == ''){
+// 				alert('이메일을 입력해주세요');
+// 				return false;
+// 			} else if(name == ''){
+// 				alert('이름을 입력해주세요');
+// 				return false;
+// 			}else if(fname == ''){
+// 				alert('성을 입력해주세요');
+// 				return false;
+// 			}else if(pw == ''){
+// 				alert('비밀번호를 입력해주세요');
+// 				return false;
+// 			} 
+			
 			if (chk_agree[0].checked == false){
 				alert ('개인정보수집에 동의해주세요' );	
 				return false; 
 			}
 
 			$.get("./member/memberJoin", 
-				{email: $('#email').val(), name:$('#name').val(), fname:$('#fname').val(), pw:$('#pw').val()},
+				{email: email, name:name, familyName:familyName, pw:pw, phoneNum:phoneNum},
 				function(result) {
 					if(result>0){
 						$('.close').click();
 
-// 						$('#setPicAdd').click();
 						location.reload();
 					}
 				});

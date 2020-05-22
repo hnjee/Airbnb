@@ -36,7 +36,8 @@ public class FileSaver {
 	
 	
 	
-	//파일명 생성 
+	//2. 파일명 생성 
+	//2-1
 	private String makeNameByUUID(String name) throws Exception {
 		
 		String result = UUID.randomUUID().toString();
@@ -44,6 +45,7 @@ public class FileSaver {
 		System.out.println(result);
 		return result;
 	}	
+	//2-2
 	private Long makeNameByTime(String name) throws Exception{
 		//Calendar는 추상 클래스 이므로 
 		Calendar cal = Calendar.getInstance();
@@ -58,7 +60,7 @@ public class FileSaver {
 	
 	
 	
-	//2.MultipartFile
+	//3.MultipartFile
 	public String saveByTransfer(MultipartFile file, String path) throws Exception{
 		File f = new File(path);
 		if(!f.exists()) {
@@ -70,7 +72,7 @@ public class FileSaver {
 		return fileName;
 	}
 	
-	//3. OutputStream
+	//4. OutputStream
 	public String saveByStream(MultipartFile file, String path) throws Exception{
 		File f = new File(path);
 		if(!f.exists()) {
@@ -97,7 +99,6 @@ public class FileSaver {
 		if(check==true) {
 			res=1;
 		}
-		
 		return res;
 	}
 	

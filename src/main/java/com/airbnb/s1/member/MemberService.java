@@ -13,7 +13,7 @@ public class MemberService {
 		return memberDAO.memberJoin(memberVO);
 	}
 	
-	public int memberLogin(MemberVO memberVO) throws Exception{
+	public MemberVO memberLogin(MemberVO memberVO) throws Exception{
 		return memberDAO.memberLogin(memberVO);
 	}
 }

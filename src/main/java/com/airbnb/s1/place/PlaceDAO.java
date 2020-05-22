@@ -17,6 +17,12 @@ public class PlaceDAO {
 	private SqlSession sqlSession;
 	private final String NAMESPACE = "com.airbnb.s1.place.PlaceDAO.";
 	
+	//file 추가되는 부분
+	
+	
+
+	//
+	
 	public List<PlaceVO> placeList(Map map) throws Exception{
 		return sqlSession.selectList(NAMESPACE+"placeList",map);	
 	}
