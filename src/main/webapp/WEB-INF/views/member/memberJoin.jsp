@@ -6,6 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script src="https://apis.google.com/js/platform.js" async defer></script>
 </head>
 <body>
 	<div class="container">
@@ -56,13 +57,14 @@
 	});
 	console.log("아이디 생성 완료");
 		gauth.signIn().then(function() {
+		var profile = gauth.currentUser.get().getBasicProfile();
 			$.get("./member/googleLogin", 
-					{email : profile.getEmail(), name: profile.getGivenName(), fname:profile.getFamilyName()} ,
+					{email : profile.getEmail(), name: profile.getGivenName(), familyName:profile.getFamilyName()} ,
 					function(result) {
 						location.reload();
 						$('.close').click();
 					});
-	});
+		});
 	});
 });
 	
