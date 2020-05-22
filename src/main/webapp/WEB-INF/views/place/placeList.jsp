@@ -368,27 +368,24 @@
 	<script type="text/javascript" src="../resources/js/houseListScript.js"></script>
 	-->
 	
-	<script type="text/javascript">
-	
-	
-	
-	
+	<script type="text/javascript">	
 	//총 숙박비 계산
 	var start = parseInt(${startDate});
 	var end = parseInt(${endDate});
 	var dayCnt = start-end;
-	//var total = parseInt($('#perPrice'+i).attr('value'))*dayCnt;
-	//document.getElementById("totalPrice").innerHTML = "총 요금: ₩"+total; 
+	
 	
 	//역이름 이런걸로 검색 안되고, 직접 주소 입력해야함
 	var loc ="${location}";	//검색어
-	// 반복문으로 주소 가져오기
+	// 반복문으로 주소, 가격 가져오기
 	var locations=[];
 	var prices = [];
 	<c:forEach items="${list}" var="placeList" varStatus="stat">
 		locations.push("${placeList.placeLocation}");
 		prices.push("${placeList.placePrice}");
 	</c:forEach>
+	console.log(locations);
+	console.log(prices);
 	
 	//맨 처음 지도 불러오기
 	getMap();
@@ -397,7 +394,7 @@
 	//숙소 당 정보 세팅
 	const counts = [1,2,3,4,5];
 	for (let i of counts) {
-		$('.house'+i).hover(function(){
+		$('.house'+i).click(function(){
 			var house_loc = $('#house'+i).attr('value');
 			console.log("house : "+house_loc);
 			loc = house_loc;
@@ -415,8 +412,7 @@
 		var options = {
 			center: new kakao.maps.LatLng(37.5579038249194,126.909600161339),	
 			level: 7
-		};						
-			
+		};									
 		var map = new kakao.maps.Map(container, options);
 		var geocoder = new kakao.maps.services.Geocoder();
 		//loc 기준으로 좌표 가져오기
@@ -429,25 +425,29 @@
 		
 		////////////////////////////////////////////////////////////////////////
 		//돌아가는 것
+		var count =0;
 		locations.forEach(function(element){
 			console.log('element: '+element);
 			geocoder.addressSearch(element,function(result,status){
 				if (status === kakao.maps.services.Status.OK) { 
-					var code = new kakao.maps.LatLng(result[0].y, result[0].x); 
-					/* var marker = new kakao.maps.Marker({
-				        map: map, // 마커를 표시할 지도		      
-				        position: code,
-				        title:element
-				    }); */
+						//console.log('count: '+ count);
+						var price = prices[count-5];
+						//console.log('no.'+(count-5)+': '+price);
 					
-					var iwContent = '<div style="padding-left:40px;font-size:15px;font-weight:bold;"> &#8361 50,000 </div>';
-					var infowindow = new kakao.maps.InfoWindow({
-					    position : code, 
-					    content : iwContent 
+						console.log((count-5)+':'+result[0].y+','+result[0].x);						
+					var code = new kakao.maps.LatLng(result[0].y, result[0].x); 
+					var content = '<div class="customoverlay">' +
+				    '    <span class="title" style="display:block;border-radius:15px;text-align:center;background:#fff;margin-right:35px;padding:10px 15px;font-size:15px;font-weight:bold;"> &#8361 '+price+' </span>' +
+				    '</div>';
+					var customOverlay = new kakao.maps.CustomOverlay({
+					    map:map,
+						position : code, 
+					    content : content 
 					});
-					infowindow.open(map);
+					count++;
 				}
 			});
+			count++;
 		});
 		///////////////////////////////////////////////////////////////////////
 		
@@ -517,6 +517,7 @@
 					infowindow.open(map);
 				}
 		});
+		
 		
 		//반복으로 하나씩 윈도우 찍기
 		//돌아가는 것
