@@ -41,7 +41,7 @@
 <body>
 	<div class="container">
 		<div class="row">
-			<form class="form-horizontal">
+			<form class="form-horizontal" action="./member/memberLogin" method="post">
 				
 				<div class="form-group" >
 					<div class="col-sm-5">
@@ -69,7 +69,6 @@
 				<div>
 				--------------------------------------------------------- 또는 ---------------------------------------------------------
 				</div>
-				
 				<div class="form-group" >
 					<div class="col-sm-5">
 						<input type="text" class="form-control" id="email" placeholder="이메일 주소" name="email">
@@ -95,16 +94,15 @@
 						<button type="submit" class="btn btn-danger" id="loginBtn">로그인</button>
 					</div>
 				</div>
-				
+				</form>
 				<div>
 				----------------------------------------------------------------------------------------------------------------------
 				</div>
 				
 				<div>
-				에어비앤비 계정이 없으세요?<input type="button" class="_547li01" value="회원 가입" id="memberJoin2" onclick="close">	
+				에어비앤비 계정이 없으세요?<input type="button" class="_547li01" value="회원 가입" id="memberJoin2" >	
 				</div>
 				
-			</form>
 		</div>
 	</div>
 <script src="https://apis.google.com/js/platform.js?onload=init" async defer></script>

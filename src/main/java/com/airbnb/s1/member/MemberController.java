@@ -21,7 +21,7 @@ public class MemberController {
 		System.out.println("memberJoin enter");
 		System.out.println(memberVO.getEmail());
 		System.out.println(memberVO.getName());
-		System.out.println(memberVO.getFname());
+		System.out.println(memberVO.getFamilyName());
 		System.out.println(memberVO.getPw());
 		
 		session.setAttribute("member", memberVO);
@@ -43,7 +43,7 @@ public class MemberController {
 		session.setAttribute("member", memberVO);
 		System.out.println(memberVO.getEmail());
 		System.out.println(memberVO.getName());
-		System.out.println(memberVO.getFname());
+		System.out.println(memberVO.getFamilyName());
 		System.out.println(memberVO.getPw());
 		return "redirect:../";
 	}
@@ -57,14 +57,9 @@ public class MemberController {
 	
 	
 	@PostMapping("memberLogin")
-	public ModelAndView memberEnter(MemberVO memberVO, ModelAndView mv) throws Exception{
-		System.out.println("컨트롤러");
-		System.out.println(memberVO.getEmail());
-		System.out.println(memberVO.getPw());
+	public ModelAndView memberEnter(MemberVO memberVO, ModelAndView mv, HttpSession session) throws Exception{
 		memberVO = memberService.memberLogin(memberVO);
-		System.out.println(memberVO.getFname());
-		System.out.println(memberVO.getName());
-		mv.addObject("member", memberVO);
+		session.setAttribute("member", memberVO);
 		mv.setViewName("redirect:../");
 		return mv;
 	}
