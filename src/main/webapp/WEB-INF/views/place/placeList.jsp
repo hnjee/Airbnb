@@ -330,13 +330,8 @@
 					<div data-veloute="map/GoogleMap" style="position: relative; width: 100%; height: 100%;">
 						<div style="height: 100%; background-color: rgb(230, 227, 223); position: relative; overflow: hidden;">
 						<div style="height: 100%; width: 100%; position: absolute; top: 0px; left: 0px; background-color: rgb(229, 227, 223);">
-						<div class="gm-style" style="position: absolute; z-index: 0; left: 0px; top: 0px; height: 100%; width: 100%; padding: 0px; border-width: 0px; margin: 0px;">
-							
-							
+						<div class="gm-style" style="position: absolute; z-index: 0; left: 0px; top: 0px; height: 100%; width: 100%; padding: 0px; border-width: 0px; margin: 0px;">				
 								<div id="map" style="z-index: -1;position: absolute;width: 100%;height: 100%;top: 0px;left: 0px;border: none;"></div>
-							    
-							
-							
 						</div>
 						</div>
 						</div>
@@ -382,44 +377,89 @@
 	var start = parseInt(${startDate});
 	var end = parseInt(${endDate});
 	var dayCnt = start-end;
-	console.log(typeof "${startDate}");
 	//var total = parseInt($('#perPrice'+i).attr('value'))*dayCnt;
 	//document.getElementById("totalPrice").innerHTML = "총 요금: ₩"+total; 
 	
+	//역이름 이런걸로 검색 안되고, 직접 주소 입력해야함
+	var loc ="${location}";	//검색어
+	// 반복문으로 주소 가져오기
+	var locations=[];
+	var prices = [];
+	<c:forEach items="${list}" var="placeList" varStatus="stat">
+		locations.push("${placeList.placeLocation}");
+		prices.push("${placeList.placePrice}");
+	</c:forEach>
+	
+	//맨 처음 지도 불러오기
+	getMap();
+	
+	
+	//숙소 당 정보 세팅
 	const counts = [1,2,3,4,5];
 	for (let i of counts) {
 		$('.house'+i).hover(function(){
 			var house_loc = $('#house'+i).attr('value');
 			console.log("house : "+house_loc);
 			loc = house_loc;
-			getMap();
+			selectMap(loc);
 		});
 		var total = 0;
 		total = parseInt($('#perPrice'+i).attr('value'))*dayCnt;
 		$("#totalPrice"+i).append("총 요금: ₩"+total);
-		
-		
 	}
+
 	
-	//역이름 이런걸로 검색 안되고, 직접 주소 입력해야함
-	var loc ="${location}";	//검색어
-	//맨 처음 지도 불러오기
-	getMap();
+	//지도 표시
 	function getMap(){
 		var container = document.getElementById('map');
 		var options = {
-			center: new kakao.maps.LatLng(33.450701, 126.570667),
-			level: 3
+			center: new kakao.maps.LatLng(37.5579038249194,126.909600161339),	
+			level: 7
 		};						
+			
 		var map = new kakao.maps.Map(container, options);
 		var geocoder = new kakao.maps.services.Geocoder();
+		//loc 기준으로 좌표 가져오기
+		geocoder.addressSearch(loc,function(result,status){
+			if (status === kakao.maps.services.Status.OK) { 
+				var locCode = new kakao.maps.LatLng(result[0].y, result[0].x); 
+				map.setCenter(locCode);
+			}
+		});
+		
+		////////////////////////////////////////////////////////////////////////
+		//돌아가는 것
+		locations.forEach(function(element){
+			console.log('element: '+element);
+			geocoder.addressSearch(element,function(result,status){
+				if (status === kakao.maps.services.Status.OK) { 
+					var code = new kakao.maps.LatLng(result[0].y, result[0].x); 
+					/* var marker = new kakao.maps.Marker({
+				        map: map, // 마커를 표시할 지도		      
+				        position: code,
+				        title:element
+				    }); */
+					
+					var iwContent = '<div style="padding-left:40px;font-size:15px;font-weight:bold;"> &#8361 50,000 </div>';
+					var infowindow = new kakao.maps.InfoWindow({
+					    position : code, 
+					    content : iwContent 
+					});
+					infowindow.open(map);
+				}
+			});
+		});
+		///////////////////////////////////////////////////////////////////////
+		
+	/* 	var geocoder = new kakao.maps.services.Geocoder();
 		geocoder.addressSearch(loc, function(result, status) {
-			
 			// 정상적으로 검색이 완료됐으면
 			if (status === kakao.maps.services.Status.OK) { 
 				var coords = new kakao.maps.LatLng(result[0].y, result[0].x); 
 				yy = result[0].x; 
 				xx = result[0].y; 
+				console.log('yy: '+yy);
+				console.log('xx: '+xx);
 				
 				// 결과값으로 받은 위치를 마커로 표시 
 				var marker = new kakao.maps.Marker({ map: map, position: coords }); 
@@ -436,16 +476,70 @@
 				} else { 
 					console.log(loc);
 					console.log('map error'); }
+		}); */
+	
+	}; 
+	
+	
+	
+	
+	//마커를 표시하는 지도
+	function selectMap(locationInfo){
+		//hover 이벤트 시 들어오는 주소 값
+		var local = locationInfo;
+		//지도 만들 준비
+		var container = document.getElementById('map');
+		var options = {
+			//처음 불러올때 제주도로 시작
+			center: new kakao.maps.LatLng(37.5579038249194,126.909600161339),
+			level: 7
+		};	
+		//지도 생성
+		var map = new kakao.maps.Map(container, options);
+		var geocoder = new kakao.maps.services.Geocoder();	
+		//loc 기준으로 좌표 가져오기
+		geocoder.addressSearch(loc,function(result,status){
+			if (status === kakao.maps.services.Status.OK) { 
+				var locCode = new kakao.maps.LatLng(result[0].y, result[0].x); 
+				map.setCenter(locCode);
+			}
 		});
-	
-	};
-	
-	console.log('totalCount: '+"${totalCount}");
-	console.log('totalPage: '+"${pager.totalPage}");
-	console.log('totalBlock: '+"${pager.totalBlock}");
-	console.log('startNum: '+"${pager.startNum}");
-	console.log('lastNum: '+"${pager.lastNum}");
-	console.log('curBlock: '+"${pager.curBlock}");
+		
+		//hover된 객체 이벤트 적용
+		geocoder.addressSearch(local,function(result,status){
+				if (status === kakao.maps.services.Status.OK) { 
+					var code = new kakao.maps.LatLng(result[0].y, result[0].x); 					
+					var iwContent = '<div style="background-color:black;color:white;padding-left:40px;font-size:15px;font-weight:bold;"> &#8361 50,000 </div>';
+					var infowindow = new kakao.maps.InfoWindow({
+					    position : code, 
+					    content : iwContent 
+					});
+					infowindow.open(map);
+				}
+		});
+		
+		//반복으로 하나씩 윈도우 찍기
+		//돌아가는 것
+		locations.forEach(function(element){
+			console.log('element: '+element);
+			geocoder.addressSearch(element,function(result,status){
+				if (status === kakao.maps.services.Status.OK) { 
+					var code = new kakao.maps.LatLng(result[0].y, result[0].x); 
+					var iwContent = '<div style="padding-left:40px;font-size:15px;font-weight:bold;"> &#8361 50,000 </div>';
+					var infowindow = new kakao.maps.InfoWindow({
+					    position : code, 
+					    content : iwContent 
+					});
+					infowindow.open(map);
+				}
+			});
+		});
+		
+		
+
+	}; 
+
+
 	</script>
 	
 	

@@ -21,8 +21,8 @@ public class PlaceDAO {
 		return sqlSession.selectList(NAMESPACE+"placeList",map);	
 	}
 	
-	public long placeCount(PlaceVO placeVO) throws Exception{
-		return sqlSession.selectOne(NAMESPACE+"placeCount",placeVO);
+	public long placeCount(Map map) throws Exception{
+		return sqlSession.selectOne(NAMESPACE+"placeCount",map);
 	}
 	
 	public PlaceVO placeSelect(String placeNum) throws Exception {
