@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
 <meta charset="UTF-8">
@@ -218,17 +218,17 @@
 			<div><h2><b>숙소 이용규칙 확인하기</b></h2></div>
 			<div class="ex">
 				<div class="logo1"><img alt="" src="../resources/w3images/logo.png"></div>
-				<b>흔치 않은 기회입니다.</b> {__}님의 숙소는 보통 예약이 가득 차 있습니다.
+				<b>흔치 않은 기회입니다.</b> ${vo.memberNum }님의 숙소는 보통 예약이 가득 차 있습니다.
 			</div>
-			<h5><b>{____} {____}</b></h5>
+			<h5><b>${vo.placeLocation }</b></h5>
 			<div class="check">
 				<div class="check1">
-					<div class="month">{}월<br><b><span class="day">{_}</span></b></div>
-					<div class="checkin">체크인:{_}요일<br>조정가능</div>
+					<div class="month">${checkInDate.month+1}월<br><b><span class="day">${checkInDate.date }</span></b></div>
+					<div class="checkin">체크인:<span id="checkIn"></span><br>${vo.checkInTime }:00</div>
 				</div>
 				<div class="check1">
-					<div class="month">{}월<br><b><span class="day">{_}</span></b></div>
-					<div class="checkin">{_}요일 체크아웃<br>오후 12:00</div>
+					<div class="month">${checkOutDate.month+1}월<br><b><span class="day">${checkOutDate.date }</span></b></div>
+					<div class="checkin"><span id="checkOut"></span> 체크아웃<br>${vo.checkOutTime }:00</div>
 				</div>
 			</div>
 			<br><hr>
@@ -236,7 +236,7 @@
 			<div><div class="im"><img alt="" src="../resources/w3images/logo2.png" style="border: 1px silver solid"></div><div class="ca"> 어린이와 유아에게 적합함 </div></div>
 			<div><div class="im"><img alt="" src="../resources/w3images/logo3.png" style="border: 1px silver solid"></div><div class="ca"> 반려동물 동반 불가 </div></div>
 			<div><div class="im"><img alt="" src="../resources/w3images/logo4.png" style="border: 1px silver solid"></div><div class="ca"> 흡연 금지 </div></div>
-		
+			
 			<button type="button" class="btn btn-primary">동의 및 계속하기</button>
 		</div>
 		
@@ -245,8 +245,8 @@
 		<div class="side">
 			<div class="side1">
 				<div class="tags">
-					<div class="tag"> #Sanitation#Mapo <br>#Hongdae #Itaewon #Yeouido Seoul</div>
-					<div class="font">{___}의 아파트 전체</div>
+					<div class="tag"> ${vo.placeName }</div>
+					<div class="font">${vo.memberNum }의 아파트 전체</div>
 					
 					<div>★★★★★ <span style="font-size: 12px">후기 {___}개</span></div>
 				</div>
@@ -254,13 +254,13 @@
 				</div>
 				
 				<hr>
-				<div><img alt="" src="../resources/w3images/p.png"> 게스트 {__}명</div><br>
-				<div><img alt="" src="../resources/w3images/c.png"> {___}년 {__}월{__}일  → {___}년 {__}월{__}일</div><hr><br>
-				<div>€35.06 x 3박	<div class="sum">€105.18</div></div><br>
-				<div>청소비 	 <a href="#" data-toggle="popover" data-content="호스트가 청구하는 일회성 숙소 청소 비용입니다." style="color: gray">(?)</a>	<div class="sum">€27.68</div></div><br>
-				<div>서비스 수수료 	<a href="#" data-toggle="popover" style="color: gray" data-content="수수료는 에어비앤비 플랫폼을 운영하고 연중무휴 고객 지원과 같은 다양한 서비스를 제공하는데 사용됩니다.">(?)</a>	<div class="sum">€18.76</div></div><br>
-				<div>숙박세와 수수료 	<a href="#" data-toggle="popover" style="color: gray" data-content="TOT (South Korea)">(?)</a>	<div class="sum">€1.88</div></div><br><hr><br>
-				<div><b>총 합계(EUR)</b>		<div class="sum"><b>€153.50</b></div></div>
+				<div><img alt="" src="../resources/w3images/p.png"> 게스트 ${guestTotal}명</div><br>
+				<div><img alt="" src="../resources/w3images/c.png"> ${checkInDate }  → ${checkOutDate }</div><hr><br>
+				<div>€${vo.placePrice} x ${days }박	<div class="sum sos">€ </div></div><br>
+				<div>청소비 	 <a href="#" data-toggle="popover" data-content="호스트가 청구하는 일회성 숙소 청소 비용입니다." style="color: gray">(?)</a>	<div class="sum">€${vo.placePrice*0 }</div></div><br>
+				<div>서비스 수수료 	<a href="#" data-toggle="popover" style="color: gray" data-content="수수료는 에어비앤비 플랫폼을 운영하고 연중무휴 고객 지원과 같은 다양한 서비스를 제공하는데 사용됩니다.">(?)</a>	<div class="sum">€${vo.placePrice*0.05 }</div></div><br>
+				<div>숙박세와 수수료 	<a href="#" data-toggle="popover" style="color: gray" data-content="TOT (South Korea)">(?)</a>	<div class="sum">€${vo.placePrice*0.05 }</div></div><br><hr><br>
+				<div><b>총 합계(EUR)</b>		<div class="sum fff"><b>€</b></div></div>
 				
 			</div>
 		</div>
@@ -276,12 +276,31 @@
 </body>
 
 <script>
+var sum = ${vo.placePrice}*${days };
+var sum_j = sum+${vo.placePrice*0.1}
+
+var week = new Array('일요일', '월요일', '화요일', '수요일', '목요일', '금요일', '토요일');
+
+var cin = new Date(${checkInDate}).getDay()+1;
+var cout = new Date(${checkOutDate}).getDay()+1;
+var checkIn = week[cin];
+var checkOut= week[cout]
+
 $(document).ready(function(){
     $('[data-toggle="popover"]').popover();   
+    $(".sos").append(sum);
+    $(".fff").append(sum_j);
+    $("#checkIn").html(checkIn);
+    $("#checkOut").html(checkOut);
+	
 });
 
 $(".btn-primary").click(function() {
-	$(location).attr('href', 'stepTwo?placeNum=${vo.placeNum}');
+	$(location).attr('href', 'stepTwo?placeNum=${vo.placeNum}&checkInDate=${checkInDate}&checkOutDate=${checkOutDate}&guestTotal=${guestTotal}');
 })
+
+
+
+
 </script>
 </html>

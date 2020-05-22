@@ -411,7 +411,7 @@ $(document).ready(function(){
     $('[data-toggle="popover"]').popover();   
 });
 $(".btn-primary").click(function() {
-	window.open("http://localhost:8080/s1/booking/payment?bookingNum=${vo.placeNum}", "PopupWin", "top=200, left=400, width=850,height=600")
+	window.open("http://localhost:8080/s1/booking/payment?bookingNum=${bvo.bookingNum }&placeNum=${bvo.placeNum}&checkInDate=${bvo.checkInDate}&checkOutDate=${bvo.checkOutDate}", "PopupWin", "top=200, left=400, width=850,height=600")
 })
 </script>
 </html>

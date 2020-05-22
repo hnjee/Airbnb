@@ -325,8 +325,16 @@
 			      <textarea class="form-control" rows="5" id="comment" placeholder="안녕하세요? 숙소에서 보낼 시간이 기대됩니다." required="required"></textarea>
 			    </div>
 			</form>
+			<form id="pay" action="./pay" method="post">
+				<input value=${vo.placeNum } name= "placeNum" hidden="true">
+				<input value=${vo.memberNum } name= "memberNum" hidden="true">
+				<input value=${checkInDate } name= "checkInDate" hidden="true">
+				<input value=${checkOutDate } name= "checkOutDate" hidden="true">
+				<input value=${guestTotal } name="guestTotal" hidden="true">
+				<input type="submit" class="btn btn-primary" value="계속하기">
+			</form>
 		
-			<button type="button" class="btn btn-primary">계속하기</button>
+			
 		</div>
 		
 		
@@ -374,15 +382,7 @@ $(document).ready(function(){
     $('[data-toggle="popover"]').popover();   
 });
 
-$(".btn-primary").click(function() {
-	
-	$.post("./pay", {placeNum :  , memberNum :  , checkInDate :  , checkOutDate : }, function(result) {
-		if(result>0){
-			
-		}
-	})
-	$(location).attr('href', 'pay');
-})
+
 
 </script>
 </html>
