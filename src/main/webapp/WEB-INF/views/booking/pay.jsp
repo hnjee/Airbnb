@@ -11,8 +11,6 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-
-
 <title>Insert title here</title>
 <style type="text/css">
 
@@ -285,9 +283,7 @@
 	    background:#23a3a7;
 	    color:#fff;
 	}
-	.cardNum{
-		width :120px;
-	}
+	
 	
 </style>
 
@@ -342,10 +338,7 @@
 			<div>
 				 카드 정보 <br><br>
 				<div class="input-group">
-			      <input class="cardNum" type="text" class="form-control" name="cardNum" placeholder="카드 번호" required="required" maxlength="4"> - 
-			      <input class="cardNum" type="password" class="form-control" name="cardNum" placeholder="카드 번호" required="required" maxlength="4"> - 
-			      <input class="cardNum" type="password" class="form-control" name="cardNum" placeholder="카드 번호" required="required" maxlength="4"> - 
-			      <input class="cardNum cardNumf" type="number" class="form-control" name="cardNum" placeholder="카드 번호" required="required" maxlength="4">
+			      <input id="cardNum" type="text" class="form-control" name="cardNum" placeholder="카드 번호">
 			    </div>
 			    <div class="input-group">
 			      <input id="date" type="text" class="form-control" name="date" placeholder="만료일">
@@ -418,18 +411,7 @@ $(document).ready(function(){
     $('[data-toggle="popover"]').popover();   
 });
 $(".btn-primary").click(function() {
-
-	window.open("http://localhost:8080/s1/booking/payment?bookingNum=${bvo.bookingNum }&placeNum=${bvo.placeNum}&checkInDate=${bvo.checkInDate}&checkOutDate=${bvo.checkOutDate}&cardNum="+$(".cardNumf").val(), "PopupWin", "top=200, left=400, width=850,height=600")
-	
+	window.open("http://localhost:8080/s1/booking/payment?bookingNum=${vo.placeNum}", "PopupWin", "top=200, left=400, width=850,height=600")
 })
-
-$(".ready").click(function(){
-	alert("이 상품은 분할 결제를 지원하지 않습니다.")
-	$(".total").prop("checked", "checked")
-
-})
-
-
- 
 </script>
 </html>

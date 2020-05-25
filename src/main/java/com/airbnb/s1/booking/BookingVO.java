@@ -10,43 +10,7 @@ public class BookingVO {
 	private Date checkInDate;
 	private Date checkOutDate;
 	private long guestTotal;
-	private long payType;
-	private long payInfo;
-	private long payTotal;
-	private Date payDate;
 	
-
-	public long getPayType() {
-		return payType;
-	}
-	public void setPayType(long payType) {
-		this.payType = payType;
-	}
-	public long getPayInfo() {
-		return payInfo;
-	}
-	public void setPayInfo(long payInfo) {
-		this.payInfo = payInfo;
-	}
-	public long getPayTotal() {
-		return payTotal;
-	}
-	public void setPayTotal(long payTotal) {
-		this.payTotal = payTotal;
-	}
-	public Date getPayDate() {
-		return payDate;
-	}
-	public void setPayDate(Date payDate) {
-		this.payDate = payDate;
-	}
-	public long getGuestTotal() {
-		return guestTotal;
-	}
-	public void setGuestTotal(long guestTotal) {
-		this.guestTotal = guestTotal;
-	}
-
 	public String getBookingNum() {
 		return bookingNum;
 	}
@@ -83,7 +47,12 @@ public class BookingVO {
 	public void setCheckOutDate(Date checkOutDate) {
 		this.checkOutDate = checkOutDate;
 	}
-
+	public long getGuestTotal() {
+		return guestTotal;
+	}
+	public void setGuestTotal(long guestTotal) {
+		this.guestTotal = guestTotal;
+	}
 	
 	
 
