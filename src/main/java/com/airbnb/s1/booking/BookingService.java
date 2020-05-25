@@ -21,8 +21,8 @@ public class BookingService {
 		return bookingDAO.bookingEx(bookingVO);
 	}
 	
-	public int payment(String bookingNum) throws Exception {
-		return bookingDAO.payment(bookingNum);
+	public int payment(BookingVO bookingVO) throws Exception {
+		return bookingDAO.payment(bookingVO);
 	}
 	
 }

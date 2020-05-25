@@ -24,8 +24,8 @@ public class BookingDAO {
 		return sqlSession.insert(NAMESPACE+"booking", bookingVO );
 	}
 	
-	public int payment(String bookingNum) throws Exception {
-		return sqlSession.update(NAMESPACE+"payment", bookingNum);
+	public int payment(BookingVO bookingVO) throws Exception {
+		return sqlSession.update(NAMESPACE+"payment", bookingVO);
 	}
 
 }
