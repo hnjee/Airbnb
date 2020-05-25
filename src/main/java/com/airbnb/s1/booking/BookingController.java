@@ -42,10 +42,23 @@ public class BookingController {
 		
 	}
 	
-	@RequestMapping(value = "pay", method = RequestMethod.GET)
-	public ModelAndView booking3(ModelAndView mv, String placeNum) throws Exception {
+
+	
+	
+	@RequestMapping(value = "payment", method = RequestMethod.GET)
+	public ModelAndView payment(ModelAndView mv, BookingVO bookingVO, long cardNum) throws Exception{
 		
-		PlaceVO placeVO = placeService.placeSelect(placeNum);
+		PlaceVO placeVO = placeService.placeSelect(bookingVO.getPlaceNum());
+		
+		long calDate = bookingVO.getCheckOutDate().getTime() - bookingVO.getCheckInDate().getTime(); 
+	       
+	     long calDateDays = calDate / ( 24*60*60*1000); 
+	 
+	     calDateDays = Math.abs(calDateDays);
+	     mv.addObject("payInfo", cardNum);
+		mv.addObject("days", calDateDays);
+		mv.addObject("bvo", bookingVO);
+
 		mv.addObject("vo", placeVO);
 		mv.setViewName("booking/pay");
 		return mv;
@@ -58,9 +71,10 @@ public class BookingController {
 	}
 	
 	@RequestMapping(value = "payment", method = RequestMethod.POST)
-	public String bookingDone() {
-		
-		return "home";
+	public int bookingDone(BookingVO bookingVO) throws Exception{
+		System.out.println(bookingVO.getPayInfo());
+		int result = bookingService.payment(bookingVO);
+		return result;
 	}
 
 }
