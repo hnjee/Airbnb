@@ -23,8 +23,6 @@ ${file.fileName}
 		
 		<img alt="" src="${pageContext.request.contextPath}/resources/images/place/${file.fileName}">
 		
-		<%-- <img alt="" src="${pageContext.request.contextPath}/img/${file.oriName}"> --%>
-		
 	</c:forEach>.
 <h1>upload imgs</h1>	
 	

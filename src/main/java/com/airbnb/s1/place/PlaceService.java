@@ -35,9 +35,11 @@ public class PlaceService {
 	
 	public int fileInsert(String placeNum,MultipartFile[] files) throws Exception{
 		//실제로 저장되는 경로 path
+		//로컬로 작동할 때는 임시 폴더, 배포하면 서버에 등록되어 파일 사라지지 않는다.
+//		String path = servletContext.getRealPath("/resources/images/place");
 		
-//		String path = servletContext.getRealPath("/resources/uploadPlace");
-		String path = servletContext.getRealPath("/resources/images/place");
+		//개발 할 때는 이 주소로 저장 (restart하면 사라지지 않게 직접 저장) -> 계속 파일 저장해놔야하니까
+		String path="C:\\workspaceSpring\\Airbnb\\src\\main\\webapp\\resources\\images\\place";
 		System.out.println("실제 경로: "+path);
 		
 		int res = 0;
