@@ -352,19 +352,20 @@
 										<svg viewBox="0 0 18 18" role="presentation" aria-hidden="true" focusable="false" style="height: 16px; width: 16px; display: block; fill: currentcolor; position: relative; top: 5px;left:8px;"><path d="m16.29 4.3a1 1 0 1 1 1.41 1.42l-8 8a1 1 0 0 1 -1.41 0l-8-8a1 1 0 1 1 1.41-1.42l7.29 7.29z" fill-rule="evenodd"></path></svg>
 									</span>
 								</button>
+								
 								<!-- 게스트 인원 선택 Dropdown 시작 -->
 								<div id="guestDropdown" style="position: relative; z-index: 100;">
 									<div class="gc" style="height: 35px;">
 										<div style="width: 172px; padding: 6.5px 0;">성인</div>
 										<div style="width: 120px;" >
 											<div class="gc_1" style="width: 54px;">
-												<button type="button">
+												<button type="button" id="adultSub">
 													<span class="_m5uqah"><svg viewBox="0 0 24 24" role="img" aria-label="차감" focusable="false" style=" height: 1em; width: 1em; display: block; fill: currentcolor;"><rect height="2" rx="1" width="12" x="6" y="11"></rect></svg></span>
 												</button>
 											</div>
-											<div class="gc_1" style="width: 11px; height: 35px; padding: 6.5px 0; ">${adultNum}</div>
+											<div class="gc_1" id="adultNum" style="width: 11px; height: 35px; padding: 6.5px 0; ">${adultNum}</div>
 											<div class="gc_1"  style="width: 55px; vertical-align: middle !important; text-align: right !important;">
-												<button type="button">
+												<button type="button" id="adultAdd">
 													<span class="_1y1icpxd"><svg viewBox="0 0 24 24" role="img" aria-label="추가" focusable="false" style="height: 1em; width: 1em; display: block; fill: currentcolor;"><rect height="2" rx="1" width="12" x="6" y="11"></rect><rect height="12" rx="1" width="2" x="11" y="6"></rect></svg></span>
 												</button>
 											</div>
@@ -377,13 +378,13 @@
 										</div>
 										<div style="width: 120px; padding: 4.5px 0;" >
 											<div class="gc_1" style="width: 54px;">
-												<button type="button">
+												<button type="button" id="childSub">
 													<span class="_m5uqah"><svg viewBox="0 0 24 24" role="img" aria-label="차감" focusable="false" style=" height: 1em; width: 1em; display: block; fill: currentcolor;"><rect height="2" rx="1" width="12" x="6" y="11"></rect></svg></span>
 												</button>
 											</div>
-											<div class="gc_1" style="width: 11px; height: 35px; padding: 6.5px 0; ">${childNum}</div>
+											<div class="gc_1" id="childNum" style="width: 11px; height: 35px; padding: 6.5px 0; ">${childNum}</div>
 											<div class="gc_1"  style="width: 55px; vertical-align: middle !important; text-align: right !important;">
-												<button type="button">
+												<button type="button" id="childAdd">
 													<span class="_1y1icpxd"><svg viewBox="0 0 24 24" role="img" aria-label="추가" focusable="false" style="height: 1em; width: 1em; display: block; fill: currentcolor;"><rect height="2" rx="1" width="12" x="6" y="11"></rect><rect height="12" rx="1" width="2" x="11" y="6"></rect></svg></span>
 												</button>
 											</div>
@@ -396,13 +397,13 @@
 										</div>
 										<div style="width: 120px; padding: 4.5px 0; box-sizing: border-box;" >
 											<div class="gc_1" style="width: 54px; ">
-												<button type="button">
+												<button type="button" id="infantSub">
 													<span class="_m5uqah"><svg viewBox="0 0 24 24" role="img" aria-label="차감" focusable="false" style=" height: 1em; width: 1em; display: block; fill: currentcolor;"><rect height="2" rx="1" width="12" x="6" y="11"></rect></svg></span>
 												</button>
 											</div>
-											<div class="gc_1" style="width: 11px; height: 35px; padding: 6.5px 0; ">${infantNum}</div>
+											<div class="gc_1" id="infantNum" style="width: 11px; height: 35px; padding: 6.5px 0; ">${infantNum}</div>
 											<div class="gc_1"  style="width: 55px; vertical-align: middle !important; text-align: right !important;">
-												<button type="button">
+												<button type="button" id="infantAdd">
 													<span class="_1y1icpxd"><svg viewBox="0 0 24 24" role="img" aria-label="추가" focusable="false" style="height: 1em; width: 1em; display: block; fill: currentcolor;"><rect height="2" rx="1" width="12" x="6" y="11"></rect><rect height="12" rx="1" width="2" x="11" y="6"></rect></svg></span>
 												</button>
 											</div>
@@ -419,7 +420,6 @@
 									</div>
 								</div>
 								<!-- 게스트 선택 Dropdown 끝 -->
-								
 								<script type="text/javascript">
 									$('#guestBtn').click(function(){
 										if(document.getElementById("guestDropdown").classList.contains('show')){
@@ -433,10 +433,122 @@
 									$('#gcClose').click(function(){
 										$('#guestDropdown').removeClass('show');
 									});
+									
+									/* 버튼 제어 */
+									// 맨 처음 버튼 설정 
+									var adultNum = parseInt($('#adultNum').html());
+									var childNum = parseInt($('#childNum').html());	
+									var infantNum = parseInt($('#infantNum').html());	
+									console.log(adultNum);
+									console.log(childNum);
+									console.log(infantNum);
+									console.log('${vo.placeMaxGuest}');
+									
+									if(adultNum == 0){
+										$('#adultSub').prop('disabled', true);
+									}
+									if(childNum == 0){
+										$('#childSub').prop('disabled', true);
+									}
+									if(infantNum == 0){
+										$('#infantSub').prop('disabled', true);
+									}
+									if(adultNum+childNum=='${vo.placeMaxGuest}'){
+										$('#adultAdd').prop('disabled', true);
+										$('#childAdd').prop('disabled', true);
+									} 
+						
+									//버튼 클릭 후 설정 
+									$('#adultAdd').click(function(){
+										adultNum = parseInt($('#adultNum').html())+1 ;
+										$('#adultNum').html(adultNum);
+										
+										if(adultNum>0){
+											$('#adultSub').prop('disabled', false);
+										}
+										
+										childNum = parseInt($('#childNum').html());
+										if(adultNum+childNum == '${vo.placeMaxGuest}'){
+											$('#adultAdd').prop('disabled', true);
+											$('#childAdd').prop('disabled', true);
+										}
+										
+										
+									});
+									$('#adultSub').click(function(){
+										adultNum = parseInt($('#adultNum').html())-1;
+										$('#adultNum').html(adultNum);
+										
+										if(adultNum <= 1){
+											$('#adultSub').prop('disabled', true);
+										} 
+										
+										childNum = parseInt($('#childNum').html());
+										if(adultNum+childNum < '${vo.placeMaxGuest}'){
+											$('#adultAdd').prop('disabled', false);
+											$('#childAdd').prop('disabled', false);
+										}
+									});
+									
+									$('#childAdd').click(function(){
+										childNum = parseInt($('#childNum').html())+1 ;
+										$('#childNum').html(childNum);
+										
+										if(childNum>0){
+											$('#childSub').prop('disabled', false);
+										}
+										
+										adultNum = parseInt($('#adultNum').html());
+										if(adultNum+childNum == '${vo.placeMaxGuest}'){
+											$('#adultAdd').prop('disabled', true);
+											$('#childAdd').prop('disabled', true);
+										}
+										
+										
+									});
+									$('#childSub').click(function(){
+										childNum = parseInt($('#childNum').html())-1;
+										$('#childNum').html(childNum);
+										
+										if(childNum == 0){
+											$('#childSub').prop('disabled', true);
+										} 
+										
+										adultNum = parseInt($('#adultNum').html());
+										if(adultNum+childNum < '${vo.placeMaxGuest}'){
+											$('#adultAdd').prop('disabled', false);
+											$('#childAdd').prop('disabled', false);
+										}
+									});
+									
+									$('#infantAdd').click(function(){
+										infantNum = parseInt($('#infantNum').html())+1 ;
+										$('#infantNum').html(infantNum);
+										
+										if(infantNum>0){
+											$('#infantSub').prop('disabled', false);
+										}
+										if(infantNum>4){
+											$('#infantAdd').prop('disabled', true);
+										}
+									});
+									
+									$('#infantSub').click(function(){
+										infantNum = parseInt($('#infantNum').html())-1;
+										$('#infantNum').html(infantNum);
+										
+										if(infantNum == 0){
+											$('#infantSub').prop('disabled', true);
+										} 
+										if(infantNum>0){
+											$('#infantAdd').prop('disabled', false);
+										}
+										
+									});
 								</script>
 							</div>
 						</div>
-						<div id="rWrap" style="position: absolute; z-index:2;">
+						<div id="rWrap" style="position: absolute; z-index:2; top: 140px;">
 						<div id="res2_2" >
 							<div class="res2_2_1">
 								<div class="res2_2_2">

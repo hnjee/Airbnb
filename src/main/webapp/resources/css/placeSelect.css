@@ -264,6 +264,7 @@ a{
 #res2 {
 	width: 100%;
 	height: 401px;
+	position: relative;
 }
 
 #res2 label{
@@ -323,11 +324,15 @@ input{
    	box-sizing: border-box;
    	padding-left: 10px;
 }
+#res2_1{
+	position: absolute;
+	
+}
 #res2_2{
 	width: 326px;
 	height: 140px;
 	margin-bottom: 8px;
-	z-index: 2;
+
 }
 
 .res2_2_1{
@@ -373,6 +378,7 @@ input{
 	width: 325px;
 	height: 90px;
 	margin-top: 24px;
+
 }
 #res2_3 button{
 	background: rgb(255, 90, 95) !important;
@@ -635,7 +641,7 @@ input{
 }
 
 #guestDropdown{
-	width:324px;
+	width:326px;
 	height: 301px;
 	box-sizing: border-box;
 	padding: 0 16px;
@@ -645,10 +651,10 @@ input{
     border-radius: 3px !important;
     text-align: left !important;
     border-top: 2px solid rgb(0, 132, 137) !important;
-    position: relative !important;
     top: -5px;
-    left: 1px;
+    
     display: none;
+ 	position: relative !important;
     z-index: 99 !important;
 }
 
@@ -667,7 +673,6 @@ input{
 
 .gc button{
 	cursor: default !important;
-    border-color: rgba(0, 132, 137, 0.3) !important;
     background: transparent !important;
 	display: inline-block !important;
     cursor: pointer !important;
@@ -707,6 +712,11 @@ input{
     border-image: initial;   
     color: #008489 !important;
     font-size: var(--size-flat-button-icon-size-small, 16px) !important;
+}
+
+.gc button:disabled{
+ 	 border-color: rgb(0, 132, 137, 0.3) !important;
+	 color: rgb(0, 132, 137, 0.3) !important;
 }
 
 .gc_1{
