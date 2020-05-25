@@ -57,25 +57,27 @@
 		<div id="picWrap">
 			<div id="pics">
 				<div id="pic1">
-					<img  src="https://a0.muscache.com/im/pictures/e1295260-5ce4-496b-84f2-a90ae2612811.jpg?aki_policy=xx_large"height="712.5" width="951">
+					<img src="${pageContext.request.contextPath}/resources/images/place/${fileList[0].fileName}" height="712.5" width="951">
 				</div>
 				<div class="pic2">
 					<div class="pic">
-						<img src="https://a0.muscache.com/im/pictures/7436dc02-1515-44e8-80d4-64ab18d657c3.jpg?aki_policy=large" height="355.5" width="474">
+						<img src="${pageContext.request.contextPath}/resources/images/place/${fileList[1].fileName}" height="355.5" width="474">
 					</div>
 					<div class="pic">
-						<img  src="https://a0.muscache.com/im/pictures/e0085908-7090-41c6-80d5-9337740b8126.jpg?aki_policy=large" height="355.5" width="474">
+						<img  src="${pageContext.request.contextPath}/resources/images/place/${fileList[2].fileName}" height="355.5" width="474">
 					</div>
 				</div>
 				<div class="pic2">
 					<div class="pic">
-						<img src="https://a0.muscache.com/im/pictures/47f57809-8ce1-47f6-800c-6a7ec5a75eaa.jpg?aki_policy=large" height="355.5" width="474">
+						<img src="${pageContext.request.contextPath}/resources/images/place/${fileList[3].fileName}" height="355.5" width="474">
 					</div>
 					<div class="pic">
-						<img src="https://a0.muscache.com/im/pictures/83a03dac-eda7-482a-a218-086f7a1270c6.jpg?aki_policy=large"  height="355.5" width="474">
+						<img src="${pageContext.request.contextPath}/resources/images/place/${fileList[4].fileName}"  height="355.5" width="474">
 					</div>
 				</div>
 			</div>
+			
+			
 			<div id="btnTop">
 				<button class="picBtn" onclick="myFunction()"> 링크복사 </button>
 				<script>
@@ -425,6 +427,7 @@
 									</div>
 								</div>
 								<!-- 게스트 선택 Dropdown 끝 -->
+								
 								<script type="text/javascript">
 									$('#guestBtn').click(function(){
 										if(document.getElementById("guestDropdown").classList.contains('show')){
@@ -493,8 +496,7 @@
 										if(adultNum <= 1){
 											$('#adultSub').prop('disabled', true);
 										} 
-										
-										
+									
 										if(adultNum+childNum < '${vo.placeMaxGuest}'){
 											$('#adultAdd').prop('disabled', false);
 											$('#childAdd').prop('disabled', false);
@@ -562,6 +564,7 @@
 								</script>
 							</div>
 						</div>
+						
 						<div id="rWrap" style="position: absolute; z-index:2; top: 140px;">
 						<div id="res2_2" >
 							<div class="res2_2_1">
@@ -646,6 +649,7 @@
 	<c:import url="../jsp/footer.jsp"></c:import>
 	<!-- Footer End -->
 	
+	
 	<!-- Picture Modal -->
 	<div id="id01" class="w3-modal">
 		<div class="w3-modal-content w3-animate-opacity">
@@ -653,9 +657,9 @@
 	      <div class="w3-container">
     		<div id="modal_top">1/21</div>
    	  		<div id="madal_con">
-	     		<button id="modal_leftBtn"style="position: absolute; top: 316px; left: 15px"class="w3-button w3-xlarge w3-circle modalBtn"> <svg aria-hidden="true" role="presentation" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" style="display: block; fill: none; height: 12px; width: 12px; stroke: currentcolor; stroke-width: 5.33333; overflow: visible;"><g fill="none"><path d="m20 28-11.29289322-11.2928932c-.39052429-.3905243-.39052429-1.0236893 0-1.4142136l11.29289322-11.2928932"></path></g></svg> </button>
-				<img id="modal_img" src="https://a0.muscache.com/im/pictures/e1295260-5ce4-496b-84f2-a90ae2612811.jpg?aki_policy=xx_large" >
-	     		<button id="modal_leftBtn" style="position: absolute; top: 316px; left:1252px;"class="w3-button w3-xlarge w3-circle modalBtn"> <svg aria-hidden="true" role="presentation" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" style="display: block; fill: none; height: 12px; width: 12px; stroke: currentcolor; stroke-width: 5.33333; overflow: visible;"><g fill="none"><path d="m12 4 11.2928932 11.2928932c.3905243.3905243.3905243 1.0236893 0 1.4142136l-11.2928932 11.2928932"></path></g></svg> </button>
+	     		<button id="modal_leftBtn" style="position: absolute; top: 316px; left: 15px"class="w3-button w3-xlarge w3-circle modalBtn"> <svg aria-hidden="true" role="presentation" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" style="display: block; fill: none; height: 12px; width: 12px; stroke: currentcolor; stroke-width: 5.33333; overflow: visible;"><g fill="none"><path d="m20 28-11.29289322-11.2928932c-.39052429-.3905243-.39052429-1.0236893 0-1.4142136l11.29289322-11.2928932"></path></g></svg> </button>
+				<img id="modal_img" src="" >
+	     		<button id="modal_rightBtn" style="position: absolute; top: 316px; left:1252px;"class="w3-button w3-xlarge w3-circle modalBtn"> <svg aria-hidden="true" role="presentation" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" style="display: block; fill: none; height: 12px; width: 12px; stroke: currentcolor; stroke-width: 5.33333; overflow: visible;"><g fill="none"><path d="m12 4 11.2928932 11.2928932c.3905243.3905243.3905243 1.0236893 0 1.4142136l-11.2928932 11.2928932"></path></g></svg> </button>
      		</div>
 	      </div>
 	    </div>
@@ -663,15 +667,16 @@
 	</div>
 		
 	<script>
-	// Get the modal
-	var modal = document.getElementById('id01');
-	
-	// When the user clicks anywhere outside of the modal, close it
-	window.onclick = function(event) {
-	  if (event.target == modal) {
-	    modal.style.display = "none";
-	  }
-	}
+		// Get the modal
+		var modal = document.getElementById('id01');
+		
+		// When the user clicks anywhere outside of the modal, close it
+		window.onclick = function(event) {
+		  if (event.target == modal) {
+		    modal.style.display = "none";
+		  }
+		}
+
 	
 	</script>
 	

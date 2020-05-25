@@ -51,8 +51,7 @@ public class PlaceController {
 		mv.addObject("fileList", placeFileList);
 		return mv;
 	}
-	
-	
+
 	//fileTest 끝
 	
 	@GetMapping("placeList")
@@ -96,7 +95,6 @@ public class PlaceController {
 	}
 
 	@GetMapping("placeSelect")
-
 	public ModelAndView placeSelect(ModelAndView mv, ReviewPager pager,long guestData, String startDate,String endDate, String location, String date, long adultNum, long childNum, long infantNum) throws Exception{
 		PlaceVO placeVO = placeService.placeSelect(pager.getPlaceNum());
 		List<ReviewVO> reviewVOs = reviewService.reviewSelect(pager);
@@ -107,7 +105,9 @@ public class PlaceController {
 		float ratingAvg = ratingSum/reviewCnt;
 
 		List<BookingVO> bookingVOs =  placeService.checkDateSelect(pager.getPlaceNum());
+		List<PlaceFileVO> placeFileList = placeService.fileList(placeVO);
 		
+		mv.addObject("fileList", placeFileList);
 		mv.addObject("adultNum", adultNum);
 		mv.addObject("childNum", childNum);
 		mv.addObject("infantNum", infantNum);

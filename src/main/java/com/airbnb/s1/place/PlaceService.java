@@ -39,7 +39,7 @@ public class PlaceService {
 //		String path = servletContext.getRealPath("/resources/images/place");
 		
 		//개발 할 때는 이 주소로 저장 (restart하면 사라지지 않게 직접 저장) -> 계속 파일 저장해놔야하니까
-		String path="C:\\workspaceSpring\\Airbnb\\src\\main\\webapp\\resources\\images\\place";
+		String path="C:\\workspace\\Airbnb\\src\\main\\webapp\\resources\\images\\place";
 		System.out.println("실제 경로: "+path);
 		
 		int res = 0;
