@@ -69,7 +69,8 @@ public class BookingController {
 	     long calDateDays = calDate / ( 24*60*60*1000); 
 	 
 	     calDateDays = Math.abs(calDateDays);
-
+	     PlaceVO placeVO = placeService.placeSelect(bookingVO.getPlaceNum());
+	     mv.addObject("vo", placeVO);
 		mv.addObject("days", calDateDays);
 		
 		int result = bookingService.bookingEx(bookingVO);
