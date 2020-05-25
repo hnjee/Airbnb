@@ -1,4 +1,5 @@
 									function map0(loc){
+										
 										map1();
 				
 										$('.house1').hover(function(){
