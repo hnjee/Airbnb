@@ -4,10 +4,16 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.ServletContext;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.airbnb.s1.booking.BookingVO;
+import com.airbnb.s1.place.placeFile.PlaceFileDAO;
+import com.airbnb.s1.place.placeFile.PlaceFileVO;
+import com.airbnb.s1.util.FileSaver;
 import com.airbnb.s1.util.Pager;
 import com.airbnb.s1.review.ReviewDAO;
 
@@ -16,6 +22,37 @@ public class PlaceService {
 
 	@Autowired
 	private PlaceDAO placeDAO;
+	
+	//////////////file 이용 시 추가되는 부분
+	@Autowired
+	private FileSaver fileSaver;
+	@Autowired
+	private ServletContext servletContext;
+	@Autowired
+	private PlaceFileDAO placeFileDAO;
+	
+	public int fileWrite(String placeNum,MultipartFile[] files) throws Exception{
+		//실제로 저장되는 경로 path
+		String path = servletContext.getRealPath("/resources/uploadPlace");
+		System.out.println("실제 경로: "+path);
+		int res = 0;
+		
+		//들어온 files를 반복문으로 하나씩 삽입
+		for(MultipartFile file:files) {
+			if(file.getSize()>0) {
+				PlaceFileVO placeFileVO = new PlaceFileVO();
+				String fileName = fileSaver.saveByTransfer(file,path);			
+				placeFileVO.setPlaceNum(placeNum);
+				placeFileVO.setFileName(fileName);
+				placeFileVO.setOriName(file.getOriginalFilename());
+				res = placeFileDAO.fileInsert(placeFileVO);
+			}	
+		}
+		return res;
+	}
+	
+	
+	///////////////추가 끝
 	
 	public Map placeList(PlaceVO placeVO, Pager pager,BookingVO bookingVO,long guestData) throws Exception {
 		pager.makeRow();

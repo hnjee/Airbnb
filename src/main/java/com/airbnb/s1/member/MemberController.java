@@ -21,7 +21,7 @@ public class MemberController {
 		System.out.println("memberJoin enter");
 		System.out.println(memberVO.getEmail());
 		System.out.println(memberVO.getName());
-		System.out.println(memberVO.getFname());
+		System.out.println(memberVO.getFamilyName());
 		System.out.println(memberVO.getPw());
 		
 		session.setAttribute("member", memberVO);
@@ -39,38 +39,32 @@ public class MemberController {
 	}
 	
 	@GetMapping("googleLogin")
-	public ModelAndView googleLogin(MemberVO memberVO, HttpSession session, ModelAndView mv) throws Exception{
+	public String googleLogin(MemberVO memberVO, HttpSession session, ModelAndView mv) throws Exception{
+		session.setAttribute("member", memberVO);
 		System.out.println(memberVO.getEmail());
 		System.out.println(memberVO.getName());
-		System.out.println(memberVO.getFname());
-		session.setAttribute("member", memberVO);
-		mv.setViewName("./");
-		return mv;
+		System.out.println(memberVO.getFamilyName());
+		System.out.println(memberVO.getPw());
+		return "redirect:../";
 	}
 	
-	
-//	@PostMapping("memberJoin")
-//	public void memberJoin() throws Exception{
-//		System.out.println("memberJoin enter");
-//	}
 	
 	@GetMapping("memberLogout")
-	public void memberLogout(HttpSession session) throws Exception{
+	public String memberLogout(HttpSession session) throws Exception{
 		session.invalidate();
+		return "redirect:../";
 	}
 	
-	
-	@GetMapping("memberLogin")
-	public void memberLogin() throws Exception{
-	}
 	
 	@PostMapping("memberLogin")
-	public ModelAndView memberLogin(ModelAndView mv, MemberVO memberVO) throws Exception{
+	public String memberEnter(MemberVO memberVO, ModelAndView mv, HttpSession session) throws Exception{
+		memberVO = memberService.memberLogin(memberVO);
+
+		if(memberVO.getMemberNum() != null) {
+			session.setAttribute("member", memberVO);
+		}
 		
-		int result = memberService.memberLogin(memberVO);
-		System.out.println(result);
-		mv.setViewName("../");
-		
-		return mv;
+		return "redirect:../";
 	}
+
 }
