@@ -107,7 +107,7 @@
 				        <li><a href="#"><b>여행</b></a></li>
 				        <li><a href="#"><b>저장목록</b></a></li>
 				        <li role="presentation" class="divider"></li>
-				        <li><a href="#">계정</a></li>
+				        <li><a href="./member/memberMyPage">계정</a></li>
 				        <li><a href="./member/memberLogout" id="logOut">로그아웃</a></li>
 				      </ul>
 				    </div>

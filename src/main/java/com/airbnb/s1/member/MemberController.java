@@ -66,5 +66,12 @@ public class MemberController {
 		
 		return "redirect:../";
 	}
+	
+	@GetMapping("memberMyPage")
+	public ModelAndView memberMyPage(ModelAndView mv) throws Exception{
+		mv.setViewName("member/testMyPage");
+		return mv;
+	}
+	
 
 }
