@@ -346,7 +346,7 @@
 										<svg viewBox="0 0 24 24" role="presentation" aria-hidden="true" focusable="false" style="height: 24px; width: 24px; display: block; fill: currentcolor;"><path d="m0 12.5a.5.5 0 0 0 .5.5h21.79l-6.15 6.15a.5.5 0 1 0 .71.71l7-7v-.01a.5.5 0 0 0 .14-.35.5.5 0 0 0 -.14-.35v-.01l-7-7a .5.5 0 0 0 -.71.71l6.15 6.15h-21.79a.5.5 0 0 0 -.5.5z" fill-rule="evenodd"></path></svg>
 									</span>
 									<input class="date" id="endDate" value="${endDate}" name="checkOutDate">
-									<input value ="${guestData}" name="guestTotal" hidden="true">
+									<input class = "totalGuest" value ="${guestData}" name="guestTotal" hidden="true">
 								</div>
 							</div>
 							<div>
@@ -597,7 +597,7 @@
 						</div>
 
 						<div id="res2_3" >
-							<button>예약하기</button>
+							<button id="rese">예약하기</button>
 							<div>예약 확정 전에는 요금이 청구되지 않습니다. <br> 일부 예약에는 보증금이 있을 수 있습니다.</div>
 						</div>
 						</div>
@@ -610,7 +610,9 @@
 			</div> <!-- resWrap -->
 	
 			<script type="text/javascript">
-			
+			$('#rese').click(function() {
+				$('.totalGuest').val($("#totalGuestNum").html());
+			})
 			<!-- banner fixed  -->
 			$('#banner').addClass("banner_abs");
         	$('.banner_abs').css('top', '32px');
