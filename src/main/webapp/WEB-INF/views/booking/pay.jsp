@@ -308,7 +308,7 @@
 			<div><h2><b>확인 및 결제</b></h2></div>
 			<div class="ex">
 				<div class="logo1"><img alt="" src="../resources/w3images/logo.png"></div>
-				<b>흔치 않은 기회입니다.</b> {__}님의 숙소는 보통 예약이 가득 차 있습니다.
+				<b>흔치 않은 기회입니다.</b> ${vo.memberNum }님의 숙소는 보통 예약이 가득 차 있습니다.
 			</div>
 			<div>
 				<div class="card">
@@ -341,7 +341,7 @@
 			      <input id="cardNum" type="text" class="form-control" name="cardNum" placeholder="카드 번호">
 			    </div>
 			    <div class="input-group">
-			      <input id="date" type="text" class="form-control" name="date" placeholder="만료일">
+			      <input id="day" type="text" class="form-control" name="day" placeholder="만료일">
 			      <input id="cvv" type="text" class="form-control" name="cvv" placeholder="CVV">
 			    </div>
 			</div><br><br>
@@ -363,8 +363,8 @@
 			<div>
 				<h6><b>결제 방식을 선택해주세요.</b></h6>
 			</div>
-			<label class="box-radio-input"><input type="radio" name="cp_item" value="전액" checked="checked"><span>전액결제</span></label><br>
-			<label class="box-radio-input"><input type="radio" name="cp_item" value="분할"><span>분할 결제</span></label>
+			<label class="box-radio-input"><input type="radio" name="cp_item" value="전액" checked="checked" class="total"><span>전액결제</span></label><br>
+			<label class="box-radio-input"><input type="radio" name="cp_item" value="분할" class="ready"><span>분할 결제</span></label>
 		
 			<button type="button" class="btn btn-primary">계속하기</button>
 		</div>
@@ -374,8 +374,8 @@
 		<div class="side">
 			<div class="side1">
 				<div class="tags">
-					<div class="tag"> #Sanitation#Mapo <br>#Hongdae #Itaewon #Yeouido Seoul</div>
-					<div class="font">{___}의 아파트 전체</div>
+					<div class="tag"> ${vo.placeName }</div>
+					<div class="font">${vo.memberNum }의 아파트 전체</div>
 					
 					<div>★★★★★ <span style="font-size: 12px">후기 {___}개</span></div>
 				</div>
@@ -383,13 +383,13 @@
 				</div>
 				
 				<hr>
-				<div><img alt="" src="../resources/w3images/p.png"> 게스트 {__}명</div><br>
-				<div><img alt="" src="../resources/w3images/c.png"> {___}년 {__}월{__}일  → {___}년 {__}월{__}일</div><hr><br>
-				<div>€35.06 x 3박	<div class="sum">€105.18</div></div><br>
-				<div>청소비 	 <a href="#" data-toggle="popover" data-content="호스트가 청구하는 일회성 숙소 청소 비용입니다." style="color: gray">(?)</a>	<div class="sum">€27.68</div></div><br>
-				<div>서비스 수수료 	<a href="#" data-toggle="popover" style="color: gray" data-content="수수료는 에어비앤비 플랫폼을 운영하고 연중무휴 고객 지원과 같은 다양한 서비스를 제공하는데 사용됩니다.">(?)</a>	<div class="sum">€18.76</div></div><br>
-				<div>숙박세와 수수료 	<a href="#" data-toggle="popover" style="color: gray" data-content="TOT (South Korea)">(?)</a>	<div class="sum">€1.88</div></div><br><hr><br>
-				<div><b>총 합계(EUR)</b>		<div class="sum"><b>€153.50</b></div></div>
+				<div><img alt="" src="../resources/w3images/p.png"> 게스트 ${bvo.guestTotal}명</div><br>
+				<div><img alt="" src="../resources/w3images/c.png"> ${bvo.checkInDate }  → ${bvo.checkOutDate }</div><hr><br>
+				<div>€${vo.placePrice} x ${days }박	<div class="sum sos">€ </div></div><br>
+				<div>청소비 	 <a href="#" data-toggle="popover" data-content="호스트가 청구하는 일회성 숙소 청소 비용입니다." style="color: gray">(?)</a>	<div class="sum">€${vo.placePrice*0 }</div></div><br>
+				<div>서비스 수수료 	<a href="#" data-toggle="popover" style="color: gray" data-content="수수료는 에어비앤비 플랫폼을 운영하고 연중무휴 고객 지원과 같은 다양한 서비스를 제공하는데 사용됩니다.">(?)</a>	<div class="sum">€${vo.placePrice*0.05 }</div></div><br>
+				<div>숙박세와 수수료 	<a href="#" data-toggle="popover" style="color: gray" data-content="TOT (South Korea)">(?)</a>	<div class="sum">€${vo.placePrice*0.05 }</div></div><br><hr><br>
+				<div><b>총 합계(EUR)</b>		<div class="sum fff"><b>€</b></div></div>
 				
 			</div>
 		</div>
@@ -407,11 +407,24 @@
 
 
 <script>
+var sum = ${vo.placePrice}*${days };
+var sum_j = sum+${vo.placePrice*0.1}
+
 $(document).ready(function(){
     $('[data-toggle="popover"]').popover();   
+    $(".sos").append(sum);
+    $(".fff").append(sum_j);
+    $("#checkIn").html(checkIn);
+    $("#checkOut").html(checkOut);
 });
 $(".btn-primary").click(function() {
-	window.open("http://localhost:8080/s1/booking/payment?bookingNum=${vo.placeNum}", "PopupWin", "top=200, left=400, width=850,height=600")
+	window.open("http://localhost:8080/s1/booking/payment?bookingNum=${bvo.bookingNum }&placeNum=${bvo.placeNum}&checkInDate=${bvo.checkInDate}&checkOutDate=${bvo.checkOutDate}", "PopupWin", "top=200, left=400, width=850,height=600")
+	
+})
+
+$(".ready").click(function(){
+	alert("이 상품은 분할 결제를 지원하지 않습니다.")
+	$(".total").prop("checked", "checked")
 })
 </script>
 </html>

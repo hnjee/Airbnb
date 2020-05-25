@@ -20,7 +20,7 @@
  	<c:import url="./modal/modal.jsp">
  	<c:param name="modal" value="memberLogin"></c:param>
  	</c:import>
-</div>
+</div>	
 
 <!-- 이메일로 로그인 -->
 <div id="emailJoin" class="modal" role="dialog" >
