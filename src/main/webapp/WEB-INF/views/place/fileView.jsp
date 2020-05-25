@@ -14,7 +14,7 @@
 
 ${file.fileName}
 <c:catch>
-	<c:forEach items="${fileList}" var="file">	
+	<c:forEach items="${fileList}" var="file" varStatus="stat">	
 		<%--	링크 누르면 사진 다운로드
 		<div>
 			<a href="../placeFile/fileDown?fileNum=${file.placeFileNum}">${file.oriName}</a>		
