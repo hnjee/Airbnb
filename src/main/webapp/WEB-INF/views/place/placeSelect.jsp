@@ -657,10 +657,14 @@
 		<div class="w3-modal-content w3-animate-opacity">
 	    <div>
 	      <div class="w3-container">
-    		<div id="modal_top">1/21</div>
+    		<div id="modal_top"><span id="curPicNum">1</span>/${fileTotalNum}</div>
    	  		<div id="madal_con">
 	     		<button id="modal_leftBtn" style="position: absolute; top: 316px; left: 15px"class="w3-button w3-xlarge w3-circle modalBtn"> <svg aria-hidden="true" role="presentation" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" style="display: block; fill: none; height: 12px; width: 12px; stroke: currentcolor; stroke-width: 5.33333; overflow: visible;"><g fill="none"><path d="m20 28-11.29289322-11.2928932c-.39052429-.3905243-.39052429-1.0236893 0-1.4142136l11.29289322-11.2928932"></path></g></svg> </button>
-				<img id="modal_img" src="" >
+				<c:catch>
+					<c:forEach items="${fileList}" var="file" varStatus="status">	
+						<img class="modal_img" id="img${status.count}" src="${pageContext.request.contextPath}/resources/images/place/${file.fileName}">
+					</c:forEach>
+				</c:catch>
 	     		<button id="modal_rightBtn" style="position: absolute; top: 316px; left:1252px;"class="w3-button w3-xlarge w3-circle modalBtn"> <svg aria-hidden="true" role="presentation" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" style="display: block; fill: none; height: 12px; width: 12px; stroke: currentcolor; stroke-width: 5.33333; overflow: visible;"><g fill="none"><path d="m12 4 11.2928932 11.2928932c.3905243.3905243.3905243 1.0236893 0 1.4142136l-11.2928932 11.2928932"></path></g></svg> </button>
      		</div>
 	      </div>
@@ -678,8 +682,35 @@
 		    modal.style.display = "none";
 		  }
 		}
+	 	
+		//처음 세팅 
+		var imgNum = 1;
+		$('#curPicNum').html(imgNum);
+		$('#img1').addClass('show');
+		
+		//버튼 클릭시 세팅
+		$('#modal_leftBtn').click(function(){
+			var imgNum = $('#curPicNum').html();
+			$('#img'+imgNum).removeClass('show');
 
-	
+			if(imgNum>1){
+				imgNum--;
+			} 
+			$('#curPicNum').html(imgNum);
+			$('#img'+imgNum).addClass('show');
+		});
+		
+		$('#modal_rightBtn').click(function(){
+			var imgNum = $('#curPicNum').html();
+			$('#img'+imgNum).removeClass('show');
+
+			if(imgNum<'${fileTotalNum}'){
+				imgNum++;
+			} 
+			$('#curPicNum').html(imgNum);
+			$('#img'+imgNum).addClass('show');
+		});
+		
 	</script>
 	
 	<!-- Java Script 파일 삽입-->

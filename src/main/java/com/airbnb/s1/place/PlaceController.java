@@ -107,6 +107,10 @@ public class PlaceController {
 		List<BookingVO> bookingVOs =  placeService.checkDateSelect(pager.getPlaceNum());
 		List<PlaceFileVO> placeFileList = placeService.fileList(placeVO);
 		
+		
+		long placeFileTotalNum = placeService.fileCount(pager.getPlaceNum());
+		
+		mv.addObject("fileTotalNum", placeFileTotalNum);
 		mv.addObject("fileList", placeFileList);
 		mv.addObject("adultNum", adultNum);
 		mv.addObject("childNum", childNum);

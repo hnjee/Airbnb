@@ -17,10 +17,5 @@ public class PlaceFileService {
 	private ServletContext servletContext;
 	@Autowired
 	private FileSaver fileSaver;
-	
-
-	
-	
-	
 
 }

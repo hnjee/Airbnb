@@ -32,7 +32,7 @@ public class PlaceService {
 	private ServletContext servletContext;
 	@Autowired
 	private PlaceFileDAO placeFileDAO;
-	
+		
 	public int fileInsert(String placeNum,MultipartFile[] files) throws Exception{
 		//실제로 저장되는 경로 path
 		//로컬로 작동할 때는 임시 폴더 이건 사라지는 폴더, 배포하면 서버에 등록되어 파일 사라지지 않는다.
@@ -64,6 +64,10 @@ public class PlaceService {
 		
 	}
 	
+	//placeNum으로 placeFileVO 개수를 가져오는 메서드
+	public long fileCount(String placeNum) throws Exception{
+		return placeFileDAO.fileCount(placeNum);
+	}
 	
 	///////////////추가 끝
 	

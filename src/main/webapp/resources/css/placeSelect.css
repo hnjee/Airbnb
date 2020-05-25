@@ -627,14 +627,17 @@ input{
 	font-size: 16px;
 	text-align: center;
 }
-#modal_img{
+
+.modal_img{
 	object-fit: cover; 
 	border-radius: 16px; 
 	max-height: 70vh !important;
 	max-width: 85% !important; 
 	margin: 0 auto !important; 
-	display: block;
+	display: none;
 }
+
+
 .w3-modal-content {
     width: 70% !important;
     height: 90% !important;   
