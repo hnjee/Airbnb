@@ -84,8 +84,14 @@ public class PlaceService {
 		Map<String, Object> map2 = new HashMap<String, Object>();		
 		map2.put("placeList", placeDAO.placeList(map));
 		map2.put("totalCount", totalCount);
+		map2.put("fileList", placeFileDAO.fileList(placeVO));
 		return map2;
 	}
+	
+//	public List<PlaceFileVO> selectMainPic(List<PlaceFileVO> totalImages) throws Exception{
+//		
+//		
+//	}
 	
 	public long placeCount(Map map) throws Exception{
 		return placeDAO.placeCount(map);		

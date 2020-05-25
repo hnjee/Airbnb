@@ -70,15 +70,16 @@ public class PlaceController {
 		Date startData = Date.valueOf(startDate);
 		Date endData = Date.valueOf(endDate);
 
-		
 		bookingVO.setCheckInDate(startData);
 		bookingVO.setCheckOutDate(endData);
 
-		Map<String, Object> map = placeService.placeList(placeVO,pager,bookingVO,guestData);
-		
+		Map<String, Object> map = placeService.placeList(placeVO,pager,bookingVO,guestData);		
 		List<PlaceVO> ar = (List<PlaceVO>)map.get("placeList");
-		long totalCount = (long)map.get("totalCount");
+		long totalCount = (long)map.get("totalCount");	
 		
+		List<PlaceFileVO> totalImages = ar.get(0).getPlaceFileVOs();
+		
+	
 		mv.addObject("list", ar);
 		mv.addObject("totalCount", totalCount);
 		mv.addObject("pager", pager);

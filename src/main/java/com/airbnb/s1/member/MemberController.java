@@ -66,5 +66,10 @@ public class MemberController {
 		
 		return "redirect:../";
 	}
+	
+	@GetMapping("memberMyPage")
+	public void memberMyPage() throws Exception{
+		
+	}
 
 }

@@ -5,16 +5,16 @@
 <html>
 <head>
 <meta charset="UTF-8" >
-<meta http-equiv="refresh" content="1">
+<!-- <meta http-equiv="refresh" content="1"> -->
 <title>Insert title here</title>
 	<c:import url="../template/boot.jsp"></c:import>
 	<link rel="stylesheet" type="text/css" href="./resources/css/searchBoxStyle.css">
 	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-	<link rel="stylesheet" type="text/css" href="./resources/css/searchBoxStyle.css">
-	<link rel="stylesheet" type="text/css" href="./resources/css/headerStyle.css"> 
-	<link rel="stylesheet" type="text/css" href="./resources/css/index_contents.css">
-	<link rel="stylesheet" type="text/css"  href="./resources/css/indexFooter.css"> 
-	<link rel="stylesheet" type="text/css"  href="./resources/css/footer.css">
+	<link rel="stylesheet" type="text/css" href="../resources/css/searchBoxStyle.css">
+	<link rel="stylesheet" type="text/css" href="../resources/css/headerStyle.css"> 
+	<link rel="stylesheet" type="text/css" href="../resources/css/index_contents.css">
+	<link rel="stylesheet" type="text/css"  href="../resources/css/indexFooter.css"> 
+	<link rel="stylesheet" type="text/css"  href="../resources/css/footer.css">
 	<script src="https://kit.fontawesome.com/f3c9922333.js" crossorigin="anonymous"></script>
 	
 	<style type="text/css">
