@@ -21,8 +21,8 @@
 			    pg : 'inicis', // version 1.1.0부터 지원.
 			    pay_method : 'card',
 			    merchant_uid : 'merchant_' + new Date().getTime(),
-			    name : '주문명:결제테스트',
-			    amount : 1,
+			    name : '${vo.placeName}',
+			    amount : 100,
 			    buyer_email : 'iamport@siot.do',
 			    buyer_name : '구매자이름',
 			    buyer_tel : '010-1234-5678',
@@ -43,24 +43,31 @@
 			        msg += '결제 금액 : ' + rsp.paid_amount;
 			        msg += '카드 승인번호 : ' + rsp.apply_num;
 			        
-				    $.post("./payment", {payType:1, payInfo:rsp.imp_uid, payTotal:rsp.paid_amount}, function(result) {
-						result = result.trim();
+			        
+			        
+				    $.post("http://localhost:8080/s1/booking/payment", {payType:'1', payInfo:'${payInfo}', payTotal:rsp.paid_amount, bookingNum:'${bvo.bookingNum}'}, function(result) {
+						
 						if (result>0){
-							msg+= '감사합니다.'
+							alert(msg);
 						} else {
 							msg='결제에 문제가 있어 취소되었습니다.'
 						}
 						alert(msg);
-						opener.location.href="../"
 					})
 				    
 			    } else {
 			        var msg = '결제에 실패하였습니다.';
 			        msg += '에러내용 : ' + rsp.error_msg;
+			        msg += '고유ID : ' + rsp.imp_uid;
+			        msg += '상점 거래ID : ' + rsp.merchant_uid;
+			        msg += '결제 금액 : ' + rsp.paid_amount;
+			        msg += '카드 승인번호 : ' + rsp.apply_num;
 			        alert(msg);
 			    }
 				
-			    window.close();
+				opener.location.href="../"
+				window.close();
+			   
 			}
 		);
 	});

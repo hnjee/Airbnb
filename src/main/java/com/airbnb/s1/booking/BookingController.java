@@ -1,5 +1,8 @@
 package com.airbnb.s1.booking;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
@@ -23,44 +26,91 @@ public class BookingController {
 	private PlaceService placeService;
 
 	@RequestMapping(value = "stepOne", method = RequestMethod.GET)
-	public ModelAndView booking1(ModelAndView mv, String placeNum) throws Exception {
+	public ModelAndView booking1(ModelAndView mv, String placeNum, java.sql.Date checkInDate, java.sql.Date checkOutDate, int guestTotal) throws Exception {
 		PlaceVO placeVO = placeService.placeSelect(placeNum);
+		
+		 long calDate = checkOutDate.getTime() - checkInDate.getTime(); 
+	       
+	     long calDateDays = calDate / ( 24*60*60*1000); 
+	 
+	     calDateDays = Math.abs(calDateDays);
+		mv.addObject("days", calDateDays);
 		mv.addObject("vo", placeVO);
+		mv.addObject("checkInDate", checkInDate);
+		mv.addObject("checkOutDate", checkOutDate);
+		mv.addObject("guestTotal", guestTotal);
 		mv.setViewName("booking/stepOne");
 		return mv;
 	}
 	
 	@RequestMapping(value = "stepTwo", method = RequestMethod.GET)
-	public String booking2() {
-		
-		return "booking/stepTwo";
-	}
-	
-	@RequestMapping(value="pay", method = RequestMethod.POST)
-	public void bookingEx(String placeNum, String memberNum, String checkInDate, String checkOutDate) throws Exception {
-		
-		
-	}
-	
-	@RequestMapping(value = "pay", method = RequestMethod.GET)
-	public ModelAndView booking3(ModelAndView mv, String placeNum) throws Exception {
-		
+	public ModelAndView booking2(ModelAndView mv, String placeNum, java.sql.Date checkInDate, java.sql.Date checkOutDate, int guestTotal) throws Exception {
 		PlaceVO placeVO = placeService.placeSelect(placeNum);
+		 long calDate = checkOutDate.getTime() - checkInDate.getTime(); 
+	       
+	     long calDateDays = calDate / ( 24*60*60*1000); 
+	 
+	     calDateDays = Math.abs(calDateDays);
+
+		mv.addObject("days", calDateDays);
 		mv.addObject("vo", placeVO);
-		mv.setViewName("booking/pay");
+		mv.addObject("checkInDate", checkInDate);
+		mv.addObject("checkOutDate", checkOutDate);
+		mv.addObject("guestTotal", guestTotal);
+		mv.setViewName("booking/stepTwo");
 		return mv;
 	}
 	
-	@RequestMapping(value = "payment", method = RequestMethod.GET)
-	public String payment() {
+	@RequestMapping(value="pay", method = RequestMethod.POST)
+	public ModelAndView bookingEx(ModelAndView mv, BookingVO bookingVO) throws Exception {
 		
-		return "booking/payment";
+		 long calDate = bookingVO.getCheckOutDate().getTime() - bookingVO.getCheckInDate().getTime(); 
+	       
+	     long calDateDays = calDate / ( 24*60*60*1000); 
+	 
+	     calDateDays = Math.abs(calDateDays);
+	     PlaceVO placeVO = placeService.placeSelect(bookingVO.getPlaceNum());
+	     mv.addObject("vo", placeVO);
+		mv.addObject("days", calDateDays);
+		
+		int result = bookingService.bookingEx(bookingVO);
+		BookingVO bookingVO_n = bookingService.bookingSelect(bookingVO);
+		if (result>0) {
+			mv.addObject("bvo", bookingVO_n);
+			mv.setViewName("booking/pay");
+			
+		} else {
+			System.out.println("잠시");
+		}
+		return mv;
+		
+	}
+	
+	
+	
+	@RequestMapping(value = "payment", method = RequestMethod.GET)
+	public ModelAndView payment(ModelAndView mv, BookingVO bookingVO, long cardNum) throws Exception{
+		
+		PlaceVO placeVO = placeService.placeSelect(bookingVO.getPlaceNum());
+		
+		long calDate = bookingVO.getCheckOutDate().getTime() - bookingVO.getCheckInDate().getTime(); 
+	       
+	     long calDateDays = calDate / ( 24*60*60*1000); 
+	 
+	     calDateDays = Math.abs(calDateDays);
+	     mv.addObject("payInfo", cardNum);
+		mv.addObject("days", calDateDays);
+		mv.addObject("bvo", bookingVO);
+		mv.addObject("vo", placeVO);
+		mv.setViewName("booking/payment");
+		return mv;
 	}
 	
 	@RequestMapping(value = "payment", method = RequestMethod.POST)
-	public String bookingDone() {
-		
-		return "home";
+	public int bookingDone(BookingVO bookingVO) throws Exception{
+		System.out.println(bookingVO.getPayInfo());
+		int result = bookingService.payment(bookingVO);
+		return result;
 	}
 
 }

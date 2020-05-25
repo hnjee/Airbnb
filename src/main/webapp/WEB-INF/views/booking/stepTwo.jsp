@@ -72,7 +72,7 @@
    .side {
    		float : right;
    		width: 385px;
-   		height: 600px;
+   		height: 560px;
    		padding : 0 24px;
    		border: 1px silver solid;
    }
@@ -275,11 +275,11 @@
 			<div><h2><b>일행이 있나요?</b></h2></div>
 			<div class="ex">
 				<div class="logo1"><img alt="" src="../resources/w3images/logo.png"></div>
-				<b>흔치 않은 기회입니다.</b> {__}님의 숙소는 보통 예약이 가득 차 있습니다.
+				<b>흔치 않은 기회입니다.</b> ${vo.memberNum }님의 숙소는 보통 예약이 가득 차 있습니다.
 			</div>
 			<h5><b>인원</b></h5>
 			  <div class="dropdown">
-			    <button class="btn btn-default dropdown-toggle" style="text-align: left;"  type="button" data-toggle="dropdown">게스트 1명
+			    <button class="btn btn-default dropdown-toggle" style="text-align: left;"  type="button" data-toggle="dropdown">게스트 ${guestTotal }명
 			    
 			    <div class="caret"></div></button>
 			    <ul class="dropdown-menu">
@@ -316,7 +316,7 @@
 			<div>
 			<div class="q">
 			<h5><b>호스트에게 인사하기</b></h5>
-			{____}님에게 간단히 자신을 소개하고 여행 목적에 대해 알려주세요.
+			${vo.memberNum }님에게 간단히 자신을 소개하고 여행 목적에 대해 알려주세요.
 			</div>
 			</div>
 			<div class="host">img</div>
@@ -325,8 +325,16 @@
 			      <textarea class="form-control" rows="5" id="comment" placeholder="안녕하세요? 숙소에서 보낼 시간이 기대됩니다." required="required"></textarea>
 			    </div>
 			</form>
+			<form id="pay" action="./pay" method="post">
+				<input value=${vo.placeNum } name= "placeNum" hidden="true">
+				<input value=${vo.memberNum } name= "memberNum" hidden="true">
+				<input value=${checkInDate } name= "checkInDate" hidden="true">
+				<input value=${checkOutDate } name= "checkOutDate" hidden="true">
+				<input value=${guestTotal } name="guestTotal" hidden="true">
+				<input type="submit" class="btn btn-primary" value="계속하기">
+			</form>
 		
-			<button type="button" class="btn btn-primary">계속하기</button>
+			
 		</div>
 		
 		
@@ -334,8 +342,8 @@
 		<div class="side">
 			<div class="side1">
 				<div class="tags">
-					<div class="tag"> #Sanitation#Mapo <br>#Hongdae #Itaewon #Yeouido Seoul</div>
-					<div class="font">{___}의 아파트 전체</div>
+					<div class="tag"> ${vo.placeName }</div>
+					<div class="font">${vo.memberNum }의 아파트 전체</div>
 					
 					<div>★★★★★ <span style="font-size: 12px">후기 {___}개</span></div>
 				</div>
@@ -343,16 +351,15 @@
 				</div>
 				
 				<hr>
-				<div><img alt="" src="../resources/w3images/p.png"> 게스트 {__}명</div><br>
-				<div><img alt="" src="../resources/w3images/c.png"> {___}년 {__}월{__}일  → {___}년 {__}월{__}일</div><hr><br>
-				<div>€35.06 x 3박	<div class="sum">€105.18</div></div><br>
-				<div>청소비 	 <a href="#" data-toggle="popover" data-content="호스트가 청구하는 일회성 숙소 청소 비용입니다." style="color: gray">(?)</a>	<div class="sum">€27.68</div></div><br>
-				<div>서비스 수수료 	<a href="#" data-toggle="popover" style="color: gray" data-content="수수료는 에어비앤비 플랫폼을 운영하고 연중무휴 고객 지원과 같은 다양한 서비스를 제공하는데 사용됩니다.">(?)</a>	<div class="sum">€18.76</div></div><br>
-				<div>숙박세와 수수료 	<a href="#" data-toggle="popover" style="color: gray" data-content="TOT (South Korea)">(?)</a>	<div class="sum">€1.88</div></div><br>
-				<div><b>총 합계(EUR)</b>		<div class="sum"><b>€153.50</b></div></div>
+				<div><img alt="" src="../resources/w3images/p.png"> 게스트 ${guestTotal }명</div><br>
+				<div><img alt="" src="../resources/w3images/c.png"> ${checkInDate }  → ${checkOutDate }</div><hr><br>
+				<div>€${vo.placePrice} x ${days }박	<div class="sum sos">€ </div></div><br>
+				<div>청소비 	 <a href="#" data-toggle="popover" data-content="호스트가 청구하는 일회성 숙소 청소 비용입니다." style="color: gray">(?)</a>	<div class="sum">€${vo.placePrice*0 }</div></div><br>
+				<div>서비스 수수료 	<a href="#" data-toggle="popover" style="color: gray" data-content="수수료는 에어비앤비 플랫폼을 운영하고 연중무휴 고객 지원과 같은 다양한 서비스를 제공하는데 사용됩니다.">(?)</a>	<div class="sum">€${vo.placePrice*0.05 }</div></div><br>
+				<div>숙박세와 수수료 	<a href="#" data-toggle="popover" style="color: gray" data-content="TOT (South Korea)">(?)</a>	<div class="sum">€${vo.placePrice*0.05 }</div></div><br>
+				<div><b>총 합계(EUR)</b>		<div class="sum fff"><b>€</b></div></div>
 				<br><hr><br>
-				<div><b>지금 €76.84에 예약하세요.</b></div>
-				<br>나머지 금액은 5월 20일에 결제하세요.<br>
+				
 				<a href="#">자세히 알아보기</a>
 				
 				
@@ -370,19 +377,18 @@
 </body>
 
 <script>
+var sum = ${vo.placePrice}*${days };
+var sum_j = sum+${vo.placePrice*0.1}
+
 $(document).ready(function(){
     $('[data-toggle="popover"]').popover();   
+    $(".sos").append(sum);
+    $(".fff").append(sum_j);
+    $("#checkIn").html(checkIn);
+    $("#checkOut").html(checkOut);
 });
 
-$(".btn-primary").click(function() {
-	
-	$.post("./pay", {placeNum :  , memberNum :  , checkInDate :  , checkOutDate : }, function(result) {
-		if(result>0){
-			
-		}
-	})
-	$(location).attr('href', 'pay');
-})
+
 
 </script>
 </html>
