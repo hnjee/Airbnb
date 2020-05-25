@@ -264,6 +264,7 @@ a{
 #res2 {
 	width: 100%;
 	height: 401px;
+	position: relative;
 }
 
 #res2 label{
@@ -316,17 +317,22 @@ input{
 	float: left;
 	font-size: 17px;
 	font-weight: 400 !important;
-    line-height: 1.375em !important;
+    line-height: 1.3em !important;
     color: rgb(72, 72, 72) !important;
     text-align: left ;
    	adding-left: 8px;
    	box-sizing: border-box;
-   	padding-left: 8px;
+   	padding-left: 10px;
+}
+#res2_1{
+	position: absolute;
+	
 }
 #res2_2{
 	width: 326px;
 	height: 140px;
 	margin-bottom: 8px;
+
 }
 
 .res2_2_1{
@@ -359,6 +365,11 @@ input{
 	height: 100%;
 	float: left;
 }
+#res_pay p {
+	display: block;
+	float: left
+}
+
 .res2_2_2 div{
 	float: left;
 }
@@ -367,6 +378,7 @@ input{
 	width: 325px;
 	height: 90px;
 	margin-top: 24px;
+
 }
 #res2_3 button{
 	background: rgb(255, 90, 95) !important;
@@ -625,6 +637,137 @@ input{
 }
 .w3-modal-content {
     width: 70% !important;
-    height: 90% !important;
+    height: 90% !important;   
+}
+
+#guestDropdown{
+	width:326px;
+	height: 301px;
+	box-sizing: border-box;
+	padding: 0 16px;
+	margin-bottom: 16px;
+	box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 6px, rgba(0, 0, 0, 0.07) 0px 0px 0px 1px !important;
+    background: rgb(255, 255, 255) !important;
+    border-radius: 3px !important;
+    text-align: left !important;
+    border-top: 2px solid rgb(0, 132, 137) !important;
+    top: -5px;
     
+    display: none;
+ 	position: relative !important;
+    z-index: 99 !important;
+}
+
+#guestDropdown div{
+	z-index: 3 !important;
+}
+.gc{
+	overflow-wrap: break-word !important;
+    font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif !important;
+    font-size: 16px !important;
+    font-weight: 600 !important;
+    line-height: 1.375em !important;
+    color: rgb(72, 72, 72) !important;
+    margin: 16px 0; 
+}
+
+.gc button{
+	cursor: default !important;
+    background: transparent !important;
+	display: inline-block !important;
+    cursor: pointer !important;
+    text-align: center !important;
+    line-height: 1 !important;
+    position: relative !important;
+    touch-action: manipulation !important;
+    height: 32px !important;
+    width: 32px !important;
+    box-shadow: none !important;
+    border-radius: 50% !important;
+    border-style: solid !important;
+    border-color: rgb(0, 132, 137) !important;
+    background: transparent !important;
+    border-width: 1px !important;
+    -webkit-appearance: button;
+    -webkit-writing-mode: horizontal-tb !important;
+    text-rendering: auto;
+    color: buttontext;
+    letter-spacing: normal;
+    word-spacing: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    display: inline-block;
+    text-align: center;
+    align-items: flex-start;
+    cursor: default;
+    background-color: buttonface;
+    box-sizing: border-box;
+    margin: 0em;
+    font: 400 13.3333px Arial;
+    padding: 1px 5px 1px 7px;
+    border-width: 2px;
+    border-style: outset;
+    border-color: buttonface;
+    border-image: initial;   
+    color: #008489 !important;
+    font-size: var(--size-flat-button-icon-size-small, 16px) !important;
+}
+
+.gc button:disabled{
+ 	 border-color: rgb(0, 132, 137, 0.3) !important;
+	 color: rgb(0, 132, 137, 0.3) !important;
+}
+
+.gc_1{
+	display: block;
+	float: left;
+}
+.gc > div{
+	display: block; float: left;
+}
+
+.gc_sub{
+	font-size: 14px !important;
+    font-weight: 400 !important;
+    line-height: 1.28571em !important;
+    height: 22px;
+    padding-top: 4px;
+    box-sizing: border-box;
+}
+
+.gc_last{
+	font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif !important;
+    font-size: 14px !important;
+    font-weight: 400 !important;
+    line-height: 1.28571em !important;
+    color: rgb(72, 72, 72) !important;
+	overflow-wrap: break-word !important;
+}
+.gc_last button{
+	overflow-wrap: break-word !important;
+    font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif !important;
+    font-size: 16px !important;
+    font-weight: 600 !important;
+    line-height: 1.375em !important;
+    color: rgb(72, 72, 72) !important;
+    margin: 0px !important;
+    color: #008489 !important;
+    -webkit-appearance: none !important;
+    cursor: pointer !important;
+    user-select: auto !important;
+    text-align: left !important;
+    font: inherit inherit inherit inherit inherit inherit inherit inherit inherit !important;
+    text-decoration: none !important;
+    background: transparent !important;
+    border-width: 0px !important;
+    border-style: initial !important;
+    border-color: initial !important;
+    border-image: initial !important;
+    margin: 0px !important;
+    padding: 0px !important;	
+}
+
+.show {
+  display: block !important;
 }

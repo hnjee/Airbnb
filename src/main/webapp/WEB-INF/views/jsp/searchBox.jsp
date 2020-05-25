@@ -111,7 +111,7 @@
 										
 										<div class="_1665lvv">
 											<span aria-hidden="true">
-												<input type="text" id="adultNum" value="0" style="border: none; width: 10px;">
+												<input type="text" id="adultNum" name="adultNum" value="0" style="border: none; width: 10px;">
 											</span>
 											<span class="_5afswi" aria-live="off">0개 이상의 성인</span>
 										</div>
@@ -144,7 +144,7 @@
 										
 										<div class="_1665lvv">
 											<span aria-hidden="true">
-												<input type="text" id="childNum" value="0" style="border: none; width: 10px;">
+												<input type="text" id="childNum" name="childNum" value="0" style="border: none; width: 10px;">
 											</span>
 											<span class="_5afswi" aria-live="off">0개 이상의 어린이</span>
 										</div>
@@ -174,7 +174,7 @@
 										
 											<div class="_1665lvv">
 												<span aria-hidden="true">
-													<input type="text" id="infantNum" value="0" style="border: none; width: 10px;">
+													<input type="text" id="infantNum" name="infantNum" value="0" style="border: none; width: 10px;">
 												</span>
 												<span class="_5afswi" aria-live="off">0개 이상의 유아</span>
 											</div>

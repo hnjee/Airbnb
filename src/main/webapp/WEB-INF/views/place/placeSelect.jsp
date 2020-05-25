@@ -334,12 +334,13 @@
 						<div class="line"></div>
 					</div>
 					
+
 					<form id="res2" action="../booking/stepOne" method="get" >
 						<div id="res2_1">
 							<div>
 								<label>날짜</label>
 								<div class="res2_1_1">
-									<input value="${vo.placeNum }" name="placeNum" hidden="true">
+									<input value="${vo.placeNum}" name="placeNum" hidden="true">
 									<input class="date" value="${startDate}" name="checkInDate">
 									<span id="to">
 										<svg viewBox="0 0 24 24" role="presentation" aria-hidden="true" focusable="false" style="height: 24px; width: 24px; display: block; fill: currentcolor;"><path d="m0 12.5a.5.5 0 0 0 .5.5h21.79l-6.15 6.15a.5.5 0 1 0 .71.71l7-7v-.01a.5.5 0 0 0 .14-.35.5.5 0 0 0 -.14-.35v-.01l-7-7a .5.5 0 0 0 -.71.71l6.15 6.15h-21.79a.5.5 0 0 0 -.5.5z" fill-rule="evenodd"></path></svg>
@@ -350,44 +351,246 @@
 							</div>
 							<div>
 								<label>인원</label>
-								<button class="res2_1_1">
+								<button class="res2_1_1" id="guestBtn" type="button">
 									<div id="guest">게스트 ${guestData}명</div>
 									<span>
-										<svg viewBox="0 0 18 18" role="presentation" aria-hidden="true" focusable="false" style="height: 16px; width: 16px; display: block; fill: currentcolor;"><path d="m16.29 4.3a1 1 0 1 1 1.41 1.42l-8 8a1 1 0 0 1 -1.41 0l-8-8a1 1 0 1 1 1.41-1.42l7.29 7.29z" fill-rule="evenodd"></path></svg>
+										<svg viewBox="0 0 18 18" role="presentation" aria-hidden="true" focusable="false" style="height: 16px; width: 16px; display: block; fill: currentcolor; position: relative; top: 5px;left:8px;"><path d="m16.29 4.3a1 1 0 1 1 1.41 1.42l-8 8a1 1 0 0 1 -1.41 0l-8-8a1 1 0 1 1 1.41-1.42l7.29 7.29z" fill-rule="evenodd"></path></svg>
 									</span>
 								</button>
+								
+								<!-- 게스트 인원 선택 Dropdown 시작 -->
+								<div id="guestDropdown" style="position: relative; z-index: 100;">
+									<div class="gc" style="height: 35px;">
+										<div style="width: 172px; padding: 6.5px 0;">성인</div>
+										<div style="width: 120px;" >
+											<div class="gc_1" style="width: 54px;">
+												<button type="button" id="adultSub">
+													<span class="_m5uqah"><svg viewBox="0 0 24 24" role="img" aria-label="차감" focusable="false" style=" height: 1em; width: 1em; display: block; fill: currentcolor;"><rect height="2" rx="1" width="12" x="6" y="11"></rect></svg></span>
+												</button>
+											</div>
+											<div class="gc_1" id="adultNum" style="width: 11px; height: 35px; padding: 6.5px 0; ">${adultNum}</div>
+											<div class="gc_1"  style="width: 55px; vertical-align: middle !important; text-align: right !important;">
+												<button type="button" id="adultAdd">
+													<span class="_1y1icpxd"><svg viewBox="0 0 24 24" role="img" aria-label="추가" focusable="false" style="height: 1em; width: 1em; display: block; fill: currentcolor;"><rect height="2" rx="1" width="12" x="6" y="11"></rect><rect height="12" rx="1" width="2" x="11" y="6"></rect></svg></span>
+												</button>
+											</div>
+										</div>
+									</div>
+									<div class="gc" style="height: 44px; margin:24px 0 ;">
+										<div style="width: 172px;">
+											<div>어린이</div>
+											<div class="gc_sub">2~12세</div>
+										</div>
+										<div style="width: 120px; padding: 4.5px 0;" >
+											<div class="gc_1" style="width: 54px;">
+												<button type="button" id="childSub">
+													<span class="_m5uqah"><svg viewBox="0 0 24 24" role="img" aria-label="차감" focusable="false" style=" height: 1em; width: 1em; display: block; fill: currentcolor;"><rect height="2" rx="1" width="12" x="6" y="11"></rect></svg></span>
+												</button>
+											</div>
+											<div class="gc_1" id="childNum" style="width: 11px; height: 35px; padding: 6.5px 0; ">${childNum}</div>
+											<div class="gc_1"  style="width: 55px; vertical-align: middle !important; text-align: right !important;">
+												<button type="button" id="childAdd">
+													<span class="_1y1icpxd"><svg viewBox="0 0 24 24" role="img" aria-label="추가" focusable="false" style="height: 1em; width: 1em; display: block; fill: currentcolor;"><rect height="2" rx="1" width="12" x="6" y="11"></rect><rect height="12" rx="1" width="2" x="11" y="6"></rect></svg></span>
+												</button>
+											</div>
+										</div>
+									</div>
+									<div class="gc" style="height: 44px;  margin:24px 0 ;">
+										<div style="width: 172px;">
+											<div>유아</div>
+											<div class="gc_sub">2세 미만</div>
+										</div>
+										<div style="width: 120px; padding: 4.5px 0; box-sizing: border-box;" >
+											<div class="gc_1" style="width: 54px; ">
+												<button type="button" id="infantSub">
+													<span class="_m5uqah"><svg viewBox="0 0 24 24" role="img" aria-label="차감" focusable="false" style=" height: 1em; width: 1em; display: block; fill: currentcolor;"><rect height="2" rx="1" width="12" x="6" y="11"></rect></svg></span>
+												</button>
+											</div>
+											<div class="gc_1" id="infantNum" style="width: 11px; height: 35px; padding: 6.5px 0; ">${infantNum}</div>
+											<div class="gc_1"  style="width: 55px; vertical-align: middle !important; text-align: right !important;">
+												<button type="button" id="infantAdd">
+													<span class="_1y1icpxd"><svg viewBox="0 0 24 24" role="img" aria-label="추가" focusable="false" style="height: 1em; width: 1em; display: block; fill: currentcolor;"><rect height="2" rx="1" width="12" x="6" y="11"></rect><rect height="12" rx="1" width="2" x="11" y="6"></rect></svg></span>
+												</button>
+											</div>
+										</div>
+									</div>
+									<div class="gc_last">
+										<div style="height: 36px; margin-bottom: 16px; overflow-wrap: break-word !important;">
+											최대 ${vo.placeMaxGuest}명. 유아는 숙박인원에 포함되지<br>않습니다.
+										</div>
+										<div style="height: 22px; text-align: right !important;">
+				
+											<button type="button" id="gcClose">닫기</button>
+										</div>
+									</div>
+								</div>
+								<!-- 게스트 선택 Dropdown 끝 -->
+								<script type="text/javascript">
+									$('#guestBtn').click(function(){
+										if(document.getElementById("guestDropdown").classList.contains('show')){
+											//열려있으면 닫기
+											$('#guestDropdown').removeClass('show');
+										} else{
+											//닫혀있으면 열기 
+											$('#guestDropdown').addClass('show');
+										}
+									});
+									$('#gcClose').click(function(){
+										$('#guestDropdown').removeClass('show');
+									});
+									
+									/* 버튼 제어 */
+									// 맨 처음 버튼 설정 
+									var adultNum = parseInt($('#adultNum').html());
+									var childNum = parseInt($('#childNum').html());	
+									var infantNum = parseInt($('#infantNum').html());	
+									console.log(adultNum);
+									console.log(childNum);
+									console.log(infantNum);
+									console.log('${vo.placeMaxGuest}');
+									
+									if(adultNum == 0){
+										$('#adultSub').prop('disabled', true);
+									}
+									if(childNum == 0){
+										$('#childSub').prop('disabled', true);
+									}
+									if(infantNum == 0){
+										$('#infantSub').prop('disabled', true);
+									}
+									if(adultNum+childNum=='${vo.placeMaxGuest}'){
+										$('#adultAdd').prop('disabled', true);
+										$('#childAdd').prop('disabled', true);
+									} 
+						
+									//버튼 클릭 후 설정 
+									$('#adultAdd').click(function(){
+										adultNum = parseInt($('#adultNum').html())+1 ;
+										$('#adultNum').html(adultNum);
+										
+										if(adultNum>0){
+											$('#adultSub').prop('disabled', false);
+										}
+										
+										childNum = parseInt($('#childNum').html());
+										if(adultNum+childNum == '${vo.placeMaxGuest}'){
+											$('#adultAdd').prop('disabled', true);
+											$('#childAdd').prop('disabled', true);
+										}
+										
+										
+									});
+									$('#adultSub').click(function(){
+										adultNum = parseInt($('#adultNum').html())-1;
+										$('#adultNum').html(adultNum);
+										
+										if(adultNum <= 1){
+											$('#adultSub').prop('disabled', true);
+										} 
+										
+										childNum = parseInt($('#childNum').html());
+										if(adultNum+childNum < '${vo.placeMaxGuest}'){
+											$('#adultAdd').prop('disabled', false);
+											$('#childAdd').prop('disabled', false);
+										}
+									});
+									
+									$('#childAdd').click(function(){
+										childNum = parseInt($('#childNum').html())+1 ;
+										$('#childNum').html(childNum);
+										
+										if(childNum>0){
+											$('#childSub').prop('disabled', false);
+										}
+										
+										adultNum = parseInt($('#adultNum').html());
+										if(adultNum+childNum == '${vo.placeMaxGuest}'){
+											$('#adultAdd').prop('disabled', true);
+											$('#childAdd').prop('disabled', true);
+										}
+										
+										
+									});
+									$('#childSub').click(function(){
+										childNum = parseInt($('#childNum').html())-1;
+										$('#childNum').html(childNum);
+										
+										if(childNum == 0){
+											$('#childSub').prop('disabled', true);
+										} 
+										
+										adultNum = parseInt($('#adultNum').html());
+										if(adultNum+childNum < '${vo.placeMaxGuest}'){
+											$('#adultAdd').prop('disabled', false);
+											$('#childAdd').prop('disabled', false);
+										}
+									});
+									
+									$('#infantAdd').click(function(){
+										infantNum = parseInt($('#infantNum').html())+1 ;
+										$('#infantNum').html(infantNum);
+										
+										if(infantNum>0){
+											$('#infantSub').prop('disabled', false);
+										}
+										if(infantNum>4){
+											$('#infantAdd').prop('disabled', true);
+										}
+									});
+									
+									$('#infantSub').click(function(){
+										infantNum = parseInt($('#infantNum').html())-1;
+										$('#infantNum').html(infantNum);
+										
+										if(infantNum == 0){
+											$('#infantSub').prop('disabled', true);
+										} 
+										if(infantNum>0){
+											$('#infantAdd').prop('disabled', false);
+										}
+										
+									});
+								</script>
 							</div>
 						</div>
-						<div id="res2_2">
+						<div id="rWrap" style="position: absolute; z-index:2; top: 140px;">
+						<div id="res2_2" >
 							<div class="res2_2_1">
 								<div class="res2_2_2">
-									<div>₩${vo.placePrice} x 1박&nbsp</div>
+									<div id="res_pay">
+										<p id="placePrice"></p>
+										<p>&nbspx&nbsp</p> 
+										<p id="totalNight"></p> 
+										<p>박&nbsp</p>
+									</div>
 									<svg viewBox="0 0 24 24" role="presentation" aria-hidden="true" focusable="false" style="height: 15px; width: 15px; display: block; fill: rgb(72, 72, 72);"><path d="m12 0c-6.63 0-12 5.37-12 12s5.37 12 12 12 12-5.37 12-12-5.37-12-12-12zm0 23c-6.07 0-11-4.92-11-11s4.93-11 11-11 11 4.93 11 11-4.93 11-11 11zm4.75-14c0 1.8-.82 2.93-2.35 3.89-.23.14-1 .59-1.14.67-.4.25-.51.38-.51.44v2a .75.75 0 0 1 -1.5 0v-2c0-.74.42-1.22 1.22-1.72.17-.11.94-.55 1.14-.67 1.13-.71 1.64-1.41 1.64-2.61a3.25 3.25 0 0 0 -6.5 0 .75.75 0 0 1 -1.5 0 4.75 4.75 0 0 1 9.5 0zm-3.75 10a1 1 0 1 1 -2 0 1 1 0 0 1 2 0z" fill-rule="evenodd"></path></svg>
 								</div>
-								<span>₩${vo.placePrice * 3}</span>
+								<span id="totalNightPay"></span>
 							</div>
 							<div class="res2_2_1">
 								<div class="res2_2_2">
 									<div>서비스 수수료&nbsp</div>
 									<svg viewBox="0 0 24 24" role="presentation" aria-hidden="true" focusable="false" style="height: 15px; width: 15px; display: block; fill: rgb(72, 72, 72);"><path d="m12 0c-6.63 0-12 5.37-12 12s5.37 12 12 12 12-5.37 12-12-5.37-12-12-12zm0 23c-6.07 0-11-4.92-11-11s4.93-11 11-11 11 4.93 11 11-4.93 11-11 11zm4.75-14c0 1.8-.82 2.93-2.35 3.89-.23.14-1 .59-1.14.67-.4.25-.51.38-.51.44v2a .75.75 0 0 1 -1.5 0v-2c0-.74.42-1.22 1.22-1.72.17-.11.94-.55 1.14-.67 1.13-.71 1.64-1.41 1.64-2.61a3.25 3.25 0 0 0 -6.5 0 .75.75 0 0 1 -1.5 0 4.75 4.75 0 0 1 9.5 0zm-3.75 10a1 1 0 1 1 -2 0 1 1 0 0 1 2 0z" fill-rule="evenodd"></path></svg>
 								</div>
-								<span>₩${vo.placePrice * 0.05}</span>
+								<span class="servicePay"></span>
 							</div>
 							<div class="res2_2_1">
 								<div class="res2_2_2">
 									<div>숙박세와 수수료&nbsp</div>
 									<svg viewBox="0 0 24 24" role="presentation" aria-hidden="true" focusable="false" style="height: 15px; width: 15px; display: block; fill: rgb(72, 72, 72);"><path d="m12 0c-6.63 0-12 5.37-12 12s5.37 12 12 12 12-5.37 12-12-5.37-12-12-12zm0 23c-6.07 0-11-4.92-11-11s4.93-11 11-11 11 4.93 11 11-4.93 11-11 11zm4.75-14c0 1.8-.82 2.93-2.35 3.89-.23.14-1 .59-1.14.67-.4.25-.51.38-.51.44v2a .75.75 0 0 1 -1.5 0v-2c0-.74.42-1.22 1.22-1.72.17-.11.94-.55 1.14-.67 1.13-.71 1.64-1.41 1.64-2.61a3.25 3.25 0 0 0 -6.5 0 .75.75 0 0 1 -1.5 0 4.75 4.75 0 0 1 9.5 0zm-3.75 10a1 1 0 1 1 -2 0 1 1 0 0 1 2 0z" fill-rule="evenodd"></path></svg>
 								</div>
-								<span>₩${vo.placePrice * 0.05}</span>
+								<span class="servicePay"></span>
 							</div>
 							<div id="tot">
 								<div>총 합계</div>
-								<span>₩${vo.placePrice * 3 + vo.placePrice * 0.1}</span>
+								<span id="totalPay"></span>
 							</div>
 						</div>
-						<div id="res2_3">
-						<button>예약하기</button>
+
+						<div id="res2_3" >
+							<button>예약하기</button>
 							<div>예약 확정 전에는 요금이 청구되지 않습니다. <br> 일부 예약에는 보증금이 있을 수 있습니다.</div>
+						</div>
 						</div>
 					</form>
 				</div>
@@ -396,9 +599,10 @@
 				</div>
 			</div> <!-- topFixer -->
 			</div> <!-- resWrap -->
+	
+			<script type="text/javascript">
 			
 			<!-- banner fixed  -->
-			<script type="text/javascript">
 			$('#banner').addClass("banner_abs");
         	$('.banner_abs').css('top', '32px');
 			    $(window).scroll(  
@@ -480,6 +684,29 @@
 	<script src='../resources/static/fullcalendar/packages/moment/moment.js'></script>
 	<!-- <script src="../resources/js/selectCalendar.js"></script> -->
 	<script type="text/javascript">
+		//-----------------------------------------------------------------
+		//(+forBanner) 가격에 콤마넣는 함수 
+		function addComma(x) {
+			 return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+		}
+		//(+forBanner) 처음 페이지 받아올 때 배너에 데이터 넣기
+		//1. 총 몇 박인지 
+		var startDay0 = pad(parseInt((new Date("${startDate}")).toISOString().slice(8, 10)),2);
+		var endDay0 = pad(parseInt((new Date("${endDate}")).toISOString().slice(8, 10)),2);
+		var totalNight0 = endDay0-startDay0;
+		$('#totalNight').html(totalNight0);
+		$('#placePrice').html('₩'+addComma('${vo.placePrice}'));
+		$('#afterCost').html('₩'+addComma('${vo.placePrice}'));
+		
+    	//2. 총 얼만지 
+    	var totalNightPay = '${vo.placePrice}'*totalNight0;
+    	var servicePay = totalNightPay*0.03;
+    	var totalPay = totalNightPay+servicePay*2;
+    	$('#totalNightPay').html('₩'+addComma(totalNightPay));
+    	$('.servicePay').html('₩'+addComma(servicePay));
+    	$('#totalPay').html('₩'+addComma(totalPay));	
+    	//-----------------------------------------------------------------
+
 		var calendarEl = document.getElementById('selectCalendar');	
 		
 		var disabled = [];
@@ -500,12 +727,29 @@
 	        select: function(selectInfo){
 	        	/////////////////////화면 출력 용//////////////////////
 	        	var dt_start = selectInfo.start;
-	        	var dt_end = selectInfo.end;					
+	        	var dt_end = selectInfo.end;		
+	        	
 	        	//end의 DD만 subString으로 받아오기        	
-	        	var endDay = pad(parseInt((new Date(dt_end)).toISOString().slice(8, 10)),2);	
+				//-----------------------------------------------------------------
+	        	//(+forBanner) select 달력에서 선택하면 데이터 받아오기 
+	        	//1. 총 몇 박인지 계산 
+	        	var startDay = pad(parseInt((new Date(dt_start)).toISOString().slice(8, 10)),2);
+	        	var endDay = pad(parseInt((new Date(dt_end)).toISOString().slice(8, 10)),2);
+	        	var totalNight = endDay-startDay-1;
+	        	$('#totalNight').html(totalNight);
+	        	//2. 총 숙박 금액 계산하기 
+	        	totalNightPay = '${vo.placePrice}'*totalNight;
+		    	servicePay = totalNightPay*0.03;
+		    	totalPay = totalNightPay+servicePay*2;
+		    	$('#totalNightPay').html('₩'+addComma(totalNightPay));
+		    	$('.servicePay').html('₩'+addComma(servicePay));
+		    	$('#totalPay').html('₩'+addComma(totalPay));
+		    	//-----------------------------------------------------------------
+		    	
 	        	//startStr, endStr 	: YYYY-MM-DD 형태, DATE형 형식이랑 같음		        	
 	        	dt_start = moment(dt_start).format('MM월 DD일');
 	        	dt_end = moment(dt_end).format('MM월');		        	
+	   
 	        	//jsp 화면에 출력
 	        	$('.datePick').prop('value',dt_start+' - '+dt_end+' '+endDay+'일');
 	        	$('.datePick').prop('style',"border: none;font-weight: 600;color: black;");
@@ -516,9 +760,11 @@
 	       		var dayData = pad(String(parseInt((new Date(selectInfo.endStr)).toISOString().slice(8, 11))-1),2);		       		
 	        	endData = ((new Date(endData)).toISOString().slice(0, 8))+dayData;
 	        	console.log("날짜 데이터 : "+endData);		        	
-	        	//parameter로 보낼 input의 속성에 넣어주기
+	        	//parameter로 보낼 input의 속성에 넣어주기 
+	        	// (+forBanner) 배너로 날짜 넣어주기 
 	        	$('#startDate').prop('value',startData);
-	        	$('#endDate').prop('value',endData);		        	
+	        	$('#endDate').prop('value',endData);		        
+	        	console.log(startData - endData); 
 	        },		       
             dayRender: function (dayRenderInfo) {
                 if (!checkNotAble(dayRenderInfo.date, disabled)) {
@@ -563,7 +809,6 @@
 	    	  n = n + '';
 	    	  return n.length >= width ? n : new Array(width - n.length + 1).join('0') + n;
 	    	}
-
 	</script>
 		
 </body>
