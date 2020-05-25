@@ -352,7 +352,7 @@
 							<div>
 								<label>인원</label>
 								<button class="res2_1_1" id="guestBtn" type="button">
-									<div id="guest">게스트 ${guestData}명</div>
+									<div id="guest">게스트 <span id="totalGuestNum">${guestData}</span>명</div>
 									<span>
 										<svg viewBox="0 0 18 18" role="presentation" aria-hidden="true" focusable="false" style="height: 16px; width: 16px; display: block; fill: currentcolor; position: relative; top: 5px;left:8px;"><path d="m16.29 4.3a1 1 0 1 1 1.41 1.42l-8 8a1 1 0 0 1 -1.41 0l-8-8a1 1 0 1 1 1.41-1.42l7.29 7.29z" fill-rule="evenodd"></path></svg>
 									</span>
@@ -468,6 +468,9 @@
 										adultNum = parseInt($('#adultNum').html())+1 ;
 										$('#adultNum').html(adultNum);
 										
+										childNum = parseInt($('#childNum').html());
+										$('#totalGuestNum').html(adultNum+childNum);
+										
 										if(adultNum>0){
 											$('#adultSub').prop('disabled', false);
 										}
@@ -484,11 +487,14 @@
 										adultNum = parseInt($('#adultNum').html())-1;
 										$('#adultNum').html(adultNum);
 										
+										childNum = parseInt($('#childNum').html());
+										$('#totalGuestNum').html(adultNum+childNum);
+										
 										if(adultNum <= 1){
 											$('#adultSub').prop('disabled', true);
 										} 
 										
-										childNum = parseInt($('#childNum').html());
+										
 										if(adultNum+childNum < '${vo.placeMaxGuest}'){
 											$('#adultAdd').prop('disabled', false);
 											$('#childAdd').prop('disabled', false);
@@ -498,6 +504,8 @@
 									$('#childAdd').click(function(){
 										childNum = parseInt($('#childNum').html())+1 ;
 										$('#childNum').html(childNum);
+										adultNum = parseInt($('#adultNum').html());
+										$('#totalGuestNum').html(adultNum+childNum);
 										
 										if(childNum>0){
 											$('#childSub').prop('disabled', false);
@@ -514,12 +522,13 @@
 									$('#childSub').click(function(){
 										childNum = parseInt($('#childNum').html())-1;
 										$('#childNum').html(childNum);
+										adultNum = parseInt($('#adultNum').html());
+										$('#totalGuestNum').html(adultNum+childNum);
 										
 										if(childNum == 0){
 											$('#childSub').prop('disabled', true);
 										} 
 										
-										adultNum = parseInt($('#adultNum').html());
 										if(adultNum+childNum < '${vo.placeMaxGuest}'){
 											$('#adultAdd').prop('disabled', false);
 											$('#childAdd').prop('disabled', false);
