@@ -22,7 +22,7 @@
 			    pay_method : 'card',
 			    merchant_uid : 'merchant_' + new Date().getTime(),
 			    name : '${vo.placeName}',
-			    amount : 100,
+			    amount : ${vo.placePrice}*${days}+${vo.placePrice}*0.1,
 			    buyer_email : 'iamport@siot.do',
 			    buyer_name : '구매자이름',
 			    buyer_tel : '010-1234-5678',
@@ -51,9 +51,10 @@
 							alert(msg);
 						} else {
 							msg='결제에 문제가 있어 취소되었습니다.'
+							alert(msg);
 						}
-						alert(msg);
-					})
+						
+					});
 				    
 			    } else {
 			        var msg = '결제에 실패하였습니다.';
