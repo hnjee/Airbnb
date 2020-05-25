@@ -117,27 +117,9 @@
 									</div>
 								
 									<div class="_3hmsj">
-									<c:if test="${empty member}">
 									<a class="_sxo1l2o" href="/signup_login" data-no-client-routing="" data-testid="cypress-headernav-signup">
 									<div class="_1ophqko">회원 가입</div>
 									</a>
-									</c:if>
-									
-									<c:if test="${not empty member}">
-										<div class="btn-group">
-									      <button type="button" class="_sxo1l2o dropdown-toggle" data-toggle="dropdown" id="idClick">
-									      ${member.name} </button>
-									      <ul class="dropdown-menu" role="menu">
-									        <li><a href="#"><b>메시지</b></a></li>
-									        <li><a href="#"><b>알림</b></a></li>
-									        <li><a href="#"><b>여행</b></a></li>
-									        <li><a href="#"><b>저장목록</b></a></li>
-									        <li><a href="#">계정</a></li>
-									        <li><a href="./member/memberLogout" id="logOut">로그아웃</a></li>
-									      </ul>
-									    </div>
-									</c:if>
-									
 									</div>
 								</nav>
 							</div>

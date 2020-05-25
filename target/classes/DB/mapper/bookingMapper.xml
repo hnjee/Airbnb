@@ -7,7 +7,7 @@
 <mapper	namespace="com.airbnb.s1.booking.BookingDAO">
 
 	<insert id="booking" parameterType="BookingVO">
-		insert into booking (bookingNum, placenum, membernum, bookingstat, checkindate, checkoutdate, guestTotal) values('b'||BOOKING_SEQ.nextval,#{placeNum},#{memberNum}, 0,#{checkInDate},#{checkOutDate},#{guestTotal})
+		insert into booking (bookingNum, placenum, membernum, bookingstat, checkindate, checkoutdate) values('b'||BOOKING_SEQ.nextval,#{placeNum},#{memberNum}, 0,#{checkInDate},#{checkOutDate})
 	</insert>
 	
 	<update id="payment" parameterType="BookingVO">
@@ -25,17 +25,5 @@
 		where checkoutDate <=sysdate
 		]]>
 	</update>
-	
-	<select id="bookingSelect" parameterType="BookingVO" resultType="BookingVO">
-		select *
-		from(
-		   select *
-		   from booking
-		   where memberNum=#{memberNum} and checkInDate=#{checkInDate} and checkOutDate=#{checkOutDate}
-		   order by bookingNum DESC
-		)
-		
-		where ROWNUM = 1
-	</select>
 
 </mapper>

@@ -9,5 +9,9 @@
 		insert into placeFile values
 		('f'||placeFile_SEQ.nextval,#{placeNum},#{fileName},#{oriName})
 	</insert>
+	
+	<select id="fileList" parameterType="PlaceVO" resultType="PlaceFileVO">
+		select * from placeFile where placeNum=#{placeNum}
+	</select>
 	 
 </mapper>
