@@ -341,11 +341,11 @@
 								<label>날짜</label>
 								<div class="res2_1_1">
 									<input value="${vo.placeNum}" name="placeNum" hidden="true">
-									<input class="date" value="${startDate}" name="checkInDate">
+									<input class="date" id="startDate" value="${startDate}" name="checkInDate">
 									<span id="to">
 										<svg viewBox="0 0 24 24" role="presentation" aria-hidden="true" focusable="false" style="height: 24px; width: 24px; display: block; fill: currentcolor;"><path d="m0 12.5a.5.5 0 0 0 .5.5h21.79l-6.15 6.15a.5.5 0 1 0 .71.71l7-7v-.01a.5.5 0 0 0 .14-.35.5.5 0 0 0 -.14-.35v-.01l-7-7a .5.5 0 0 0 -.71.71l6.15 6.15h-21.79a.5.5 0 0 0 -.5.5z" fill-rule="evenodd"></path></svg>
 									</span>
-									<input class="date" value="${endDate}" name="checkOutDate">
+									<input class="date" id="endDate" value="${endDate}" name="checkOutDate">
 									<input value ="${guestData}" name="guestTotal" hidden="true">
 								</div>
 							</div>
@@ -812,6 +812,7 @@
 	        	endData = ((new Date(endData)).toISOString().slice(0, 8))+dayData;
 	        	console.log("날짜 데이터 : "+endData);		        	
 	        	//parameter로 보낼 input의 속성에 넣어주기 
+	        	
 	        	// (+forBanner) 배너로 날짜 넣어주기 
 	        	$('#startDate').prop('value',startData);
 	        	$('#endDate').prop('value',endData);		        
