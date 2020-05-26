@@ -150,7 +150,7 @@
 																<div class="_e296pg" role="img" aria-busy="false" style="width: 100%; height: 100%;">
 																<!-- <div class="_1i2fr3fi" style="width: 100%; height: 100%; background-image: url(&quot;https://a0.muscache.com/im/pictures/eeebcdf4-c294-4449-978d-68592f3481fb.jpg?aki_policy=large&quot;);">
 																</div> -->
-																<img style="height: 100%; width: 100%;" alt="" src="${pageContext.request.contextPath}/resources/images/place/${placeVO.placeFileVO.fileName}">
+																<img style="height: 200px; width: 300px;" alt="" src="${pageContext.request.contextPath}/resources/images/place/${placeVO.placeFileVO.fileName}">
 																</div>
 															</div>
 															</div>
