@@ -14,7 +14,7 @@ public class MemberService {
 	}
 	
 	public int joinByGoogle(MemberVO memberVO) throws Exception{
-		return memberDAO.memberJoin(memberVO);
+		return memberDAO.joinByGoogle(memberVO);
 	}
 	
 	public MemberVO memberLogin(MemberVO memberVO) throws Exception{
@@ -22,7 +22,7 @@ public class MemberService {
 	}
 	
 	public MemberVO loginByGoogle(MemberVO memberVO) throws Exception{
-		return memberDAO.memberLogin(memberVO);
+		return memberDAO.loginByGoogle(memberVO);
 	}
 	
 }

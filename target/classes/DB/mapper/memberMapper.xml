@@ -12,7 +12,7 @@
  
 	<insert id="joinByGoogle" parameterType="MemberVO">
 		insert into member values
-		('m'||MEMBER_SEQ.nextval,#{email},#{name},#{familyName},'','',sysdate)
+		('m'||MEMBER_SEQ.nextval,#{email},#{name},#{familyName},'PW','phoneNum',sysdate)
 	</insert>
  
 	<select id="memberLogin" parameterType="MemberVO" resultType="MemberVO">

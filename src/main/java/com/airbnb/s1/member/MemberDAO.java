@@ -16,6 +16,7 @@ public class MemberDAO {
 	}
 	
 	public int joinByGoogle(MemberVO memberVO) throws Exception{
+		System.out.println("joinByGoogle");
 		return sqlSession.insert(NAMESPACE+"joinByGoogle", memberVO);
 	}
 	
@@ -24,7 +25,6 @@ public class MemberDAO {
 	}
 	
 	public MemberVO loginByGoogle(MemberVO memberVO) throws Exception{
-		System.out.println("dao");
 		return sqlSession.selectOne(NAMESPACE+"loginByGoogle", memberVO);
 	}
 	

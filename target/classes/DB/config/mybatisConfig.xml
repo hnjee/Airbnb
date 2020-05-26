@@ -10,6 +10,7 @@
 		<typeAlias type="java.lang.Float" alias="Float"/>
 		<typeAlias type="java.util.Map" alias="Map"/>
 		<typeAlias type="java.util.List" alias="List"/>
+		<typeAlias type="java.lang.String" alias="String"/>
 
 		<typeAlias type="com.airbnb.s1.member.MemberVO" alias="MemberVO"/>
 		<typeAlias type="com.airbnb.s1.place.PlaceVO" alias="PlaceVO"/>
