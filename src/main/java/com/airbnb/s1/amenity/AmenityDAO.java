@@ -13,8 +13,8 @@ public class AmenityDAO {
 	private SqlSession sqlSession;
 	private final String NAMESPACE = "com.airbnb.s1.amenity.AmenityDAO.";
 	
-	public List<Long> amenitySelect(String placeNum) throws Exception{
-		return sqlSession.selectList(NAMESPACE+"amenitySelect",placeNum);	
+	public List<AmenityVO> amenitySelect(String placeNum) throws Exception{
+		return sqlSession.selectList(NAMESPACE+"amenitySelect", placeNum);	
 	}
 	
 }

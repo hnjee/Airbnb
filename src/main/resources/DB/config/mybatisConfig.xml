@@ -17,6 +17,7 @@
 		<typeAlias type="com.airbnb.s1.review.ReviewVO" alias="ReviewVO"/>
 		<typeAlias type="com.airbnb.s1.booking.BookingVO" alias="BookingVO"/>
 		<typeAlias type="com.airbnb.s1.place.placeFile.PlaceFileVO" alias="PlaceFileVO"/>
+		<typeAlias type="com.airbnb.s1.amenity.AmenityVO" alias="AmenityVO"/>
 		
 		<typeAlias type="com.airbnb.s1.util.Pager" alias="Pager"/>
 		<typeAlias type="com.airbnb.s1.util.ReviewPager" alias="ReviewPager"/>

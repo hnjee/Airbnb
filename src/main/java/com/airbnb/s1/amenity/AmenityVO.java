@@ -1,12 +1,12 @@
 package com.airbnb.s1.amenity;
 
 public class AmenityVO {
-	private long amenityKind;
+	private int amenityKind;
 
-	public long getAmenityKind() {
+	public int getAmenityKind() {
 		return amenityKind;
 	}
-	public void setAmenityKind(long amenityKind) {
+	public void setAmenityKind(int amenityKind) {
 		this.amenityKind = amenityKind;
 	}
 }
