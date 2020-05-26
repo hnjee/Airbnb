@@ -2,18 +2,27 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-  
+
 <mapper namespace="com.airbnb.s1.member.MemberDAO">
 
 	<insert id="memberJoin" parameterType="MemberVO">
 		insert into member values
-		('m'||MEMBER_SEQ.nextval,#{email},#{name},#{familyName},#{pw},#{birtyday},#{phoneNum},#{memberPicture},sysdate);
+		('m'||MEMBER_SEQ.nextval,#{email},#{name},#{familyName},#{PW},#{phoneNum},sysdate)
 	</insert>
- 
+
+	<insert id="joinByGoogle" parameterType="MemberVO">
+		insert into member values
+		('m'||MEMBER_SEQ.nextval,#{email},#{name},#{familyName},'PW','phoneNum',sysdate)
+	</insert>
+
 	<select id="memberLogin" parameterType="MemberVO" resultType="MemberVO">
-		SELECT * FROM MEMBER WHERE email=#{email} and pw = #{pw}
+		SELECT * FROM MEMBER WHERE email=#{email} and PW = #{PW}
 	</select>
-	
-	
-	 
+
+	<select id="loginByGoogle" parameterType="MemberVO" resultType="MemberVO">
+		SELECT * FROM MEMBER WHERE email= #{email} and name= #{name}
+	</select>
+
+
+
 </mapper>

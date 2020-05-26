@@ -15,63 +15,67 @@ public class MemberController {
 
 	@Autowired
 	private MemberService memberService;
-	
-	@GetMapping("memberJoin")
-	public ModelAndView memberJoin(ModelAndView mv, MemberVO memberVO, HttpSession session) throws Exception{
-		System.out.println("memberJoin enter");
-		System.out.println(memberVO.getEmail());
-		System.out.println(memberVO.getName());
-		System.out.println(memberVO.getFamilyName());
-		System.out.println(memberVO.getPW());
-		
+
+	@PostMapping("memberJoin")
+	public ModelAndView memberJoin(ModelAndView mv, MemberVO memberVO, HttpSession session) throws Exception {
+
 		session.setAttribute("member", memberVO);
-		
+
 		int result = memberService.memberJoin(memberVO);
-		if(result >0) {
+
+		System.out.println(result);
+		if (result > 0) {
 			System.out.println("DB생성 성공");
-		}else {
+		} else {
 			System.out.println("실패");
 		}
-		mv.addObject("memberEmail", memberVO.getEmail());
-		mv.addObject("result", result);
-		mv.setViewName("common/ajaxResult");
+
 		return mv;
 	}
-	
+
 	@GetMapping("googleLogin")
-	public String googleLogin(MemberVO memberVO, HttpSession session, ModelAndView mv) throws Exception{
+	public String googleLogin(MemberVO memberVO, HttpSession session) throws Exception {
+
+		memberVO = memberService.loginByGoogle(memberVO);
+
+
 		session.setAttribute("member", memberVO);
-		System.out.println(memberVO.getEmail());
-		System.out.println(memberVO.getName());
-		System.out.println(memberVO.getFamilyName());
-		System.out.println(memberVO.getPW());
+
 		return "redirect:../";
+
 	}
-	
-	
+
 	@GetMapping("memberLogout")
-	public String memberLogout(HttpSession session) throws Exception{
+	public String memberLogout(HttpSession session) throws Exception {
 		session.invalidate();
 		return "redirect:../";
 	}
-	
-	
+
 	@PostMapping("memberLogin")
-	public String memberEnter(MemberVO memberVO, ModelAndView mv, HttpSession session) throws Exception{
+	public ModelAndView memberEnter(MemberVO memberVO, ModelAndView mv, HttpSession session) throws Exception {
 		memberVO = memberService.memberLogin(memberVO);
+
+		mv.setViewName("./common/result");
+		if (memberVO != null) {
+			session.setAttribute("member", memberVO);
+			mv.addObject("result", "로그인 성공");
+			mv.addObject("path", "../");
+			System.out.println("로그인 성공");
+		} else {
+			mv.addObject("result", "로그인 실패");
+			mv.addObject("path", "../");
 
 		if(memberVO.getMemberNum() != null) {
 			session.setAttribute("member", memberVO);
 		}
-		
-		return "redirect:../";
-	}
-	
-	@GetMapping("memberMyPage")
-	public ModelAndView memberMyPage(ModelAndView mv) throws Exception{
-		mv.setViewName("member/testMyPage");
+
 		return mv;
 	}
 
+	@GetMapping("memberMyPage")
+	public ModelAndView memberMyPage(ModelAndView mv) throws Exception {
+		mv.setViewName("member/testMyPage");
+		return mv;
+	}
 
 }
