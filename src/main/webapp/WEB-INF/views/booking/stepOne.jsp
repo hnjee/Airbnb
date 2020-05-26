@@ -201,7 +201,18 @@
 </style>
 </head>
 <body>
+<c:if test="${empty member}">
 
+	<script type="text/javascript">
+		$(document).ready(function() {
+			alert("로그인 후 이용해주세요");
+			location.href="../";
+		})
+	</script>
+
+</c:if>
+
+<c:if test="${not empty member}">
 <div class="header">
 	<div class="logo">
 		<img alt="" src="../resources/w3images/logo1.png">
@@ -273,6 +284,7 @@
 	</div>
 	
 </div>
+</c:if>
 </body>
 
 <script>

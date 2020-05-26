@@ -1,6 +1,7 @@
 package com.airbnb.s1.booking;
 
 import java.sql.Date;
+import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +27,10 @@ public class BookingDAO {
 	
 	public int payment(BookingVO bookingVO) throws Exception {
 		return sqlSession.update(NAMESPACE+"payment", bookingVO);
+	}
+	
+	public List<BookingVO> notYet(BookingVO bookingVO) throws Exception {
+		return sqlSession.selectList(NAMESPACE+"notYet", bookingVO);
 	}
 
 }

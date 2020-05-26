@@ -3,6 +3,8 @@ package com.airbnb.s1.booking;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
@@ -11,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.airbnb.s1.member.MemberVO;
 import com.airbnb.s1.place.PlaceService;
 import com.airbnb.s1.place.PlaceVO;
 
@@ -112,5 +115,13 @@ public class BookingController {
 		int result = bookingService.payment(bookingVO);
 		return result;
 	}
-
+	
+	@RequestMapping(value="bookingList", method = RequestMethod.GET)
+	public ModelAndView bookingList(ModelAndView mv, String memberNum) throws Exception{
+		
+		mv.addObject("memberNum", memberNum);
+		mv.setViewName("booking/myPage");
+		
+		return mv;
+	}
 }
