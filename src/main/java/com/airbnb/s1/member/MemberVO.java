@@ -12,19 +12,13 @@ public class MemberVO {
 	private String phoneNum;
 	private Date joinDate;
 	private String hostDesc;
-	
-	
+
+
 	public String getHostDesc() {
 		return hostDesc;
 	}
 	public void setHostDesc(String hostDesc) {
 		this.hostDesc = hostDesc;
-	}
-	public String getPW() {
-		return PW;
-	}
-	public void setPW(String PW) {
-		this.PW = PW;
 	}
 	public String getPhoneNum() {
 		return phoneNum;
@@ -57,15 +51,21 @@ public class MemberVO {
 	public void setFamilyName(String familyName) {
 		this.familyName = familyName;
 	}
-	
+	public String getPW() {
+		return PW;
+	}
+	public void setPw(String PW) {
+		this.PW = PW;
+	}
+
 	public Date getJoinDate() {
 		return joinDate;
 	}
 	public void setJoinDate(Date joinDate) {
 		this.joinDate = joinDate;
 	}
-	
 
-	
-	
+
+
+
 }
