@@ -64,7 +64,7 @@ public class MemberController {
 		} else {
 			mv.addObject("result", "로그인 실패");
 			mv.addObject("path", "../");
-
+		}
 		if(memberVO.getMemberNum() != null) {
 			session.setAttribute("member", memberVO);
 		}
