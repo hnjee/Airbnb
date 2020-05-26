@@ -24,11 +24,7 @@ public class MemberService {
 	public MemberVO loginByGoogle(MemberVO memberVO) throws Exception{
 		return memberDAO.memberLogin(memberVO);
 	}
-	
-	public String memberName(String memberNum) throws Exception{
-		return memberDAO.memberName(memberNum);
-	}
-	
+
 }
 
 

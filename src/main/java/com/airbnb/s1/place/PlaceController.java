@@ -112,9 +112,7 @@ public class PlaceController {
 		List<PlaceFileVO> placeFileList = placeService.fileList(placeVO);
 		
 		long placeFileTotalNum = placeService.fileCount(pager.getPlaceNum());
-		String hostName = memberService.memberName(placeVO.getMemberNum());
-		
-		mv.addObject("hostName", hostName);
+	
 		mv.addObject("fileTotalNum", placeFileTotalNum);
 		mv.addObject("fileList", placeFileList);
 		mv.addObject("adultNum", adultNum);

@@ -21,7 +21,7 @@ public class PlaceDAO {
 	
 	public List<PlaceVO> placeList(Map map) throws Exception{
 		return sqlSession.selectList(NAMESPACE+"placeList",map);	
-	
+	}
 	public List<PlaceVO> placeList(List<String> list) throws Exception{
 		return sqlSession.selectList(NAMESPACE+"placeList",list);	
 	}

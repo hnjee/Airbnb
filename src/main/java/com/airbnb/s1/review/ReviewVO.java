@@ -3,6 +3,7 @@ package com.airbnb.s1.review;
 import java.sql.Date;
 
 public class ReviewVO {
+	private String name;
 	private String reviewNum; 
 	private String placeNum;
 	private String memberNum;
@@ -10,6 +11,14 @@ public class ReviewVO {
 	private String reviewDesc;
 	private Date reviewDate;
 
+	
+	
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
 	public String getReviewNum() {
 		return reviewNum;
 	}

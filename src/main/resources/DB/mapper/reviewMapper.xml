@@ -5,10 +5,11 @@
   
 <mapper namespace="com.airbnb.s1.review.ReviewDAO">
 	<select id="reviewSelect" parameterType="ReviewPager" resultType="ReviewVO">
-		select * from
-		(select RV.*, rownum R from 
-		(select * from review where placeNum=#{placeNum} and reviewDesc like '%'||#{search}||'%') RV)
-		where R between #{startRow} and #{lastRow}
+		select T.*, name from
+	          (select RV.*, rownum R from 
+	                                  (select * from review where placeNum=#{placeNum} and reviewDesc like '%'||#{search}||'%') RV) T
+	    join member on (T.memberNum = member.memberNum)
+	    where R between #{startRow} and #{lastRow}
 	</select>
 	
 	<!-- 해당 숙소의 리뷰 총 개수 -->
