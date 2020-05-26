@@ -30,7 +30,6 @@
 			height : 100%;
 			min-width: 1000px;
 			min-height: 600px;
-			border: 1px red solid;
 			margin: 0 auto;
 			padding: 0 35px;
 			box-sizing: border-box;
@@ -61,7 +60,31 @@
   </ul>
 		
 		<div class="back">
+		<table class="table table-hover">
+			<tr>
+				<td>BookingNumber</td>
+				<td>PlaceName</td>
+				<td>CheckInDate</td>
+				<td>CheckOutDate</td>
+				<td>PayTotal</td>
+				<td>PayInfo</td>
+				<td>PayDate</td>
+			</tr>
+			<c:forEach items="${list}" var="bookingVO">
+			<tr>
+				<td>${bookingVO.bookingNum }</td>
+				<td>${bookingVO.placeNum }</td>
+				<td>${bookingVO.checkInDate }</td>
+				<td>${bookingVO.checkOutDate }</td>
+				<td>${bookingVO.payTotal }</td>
+				<td>****-****-****-${bookingVO.payInfo}</td>
+				<td>${bookingVO.payDate}</td>
+			</tr>
+			</c:forEach>
 			
+		
+		</table>
+		
 		</div>
 	</div>
 </div>
@@ -74,12 +97,40 @@
 	$("#yet").click(function() {
 	$(this).attr("class", "active");
 	$("#already").removeClass("active");
+	var ajaxOption = {
+            url : "http://localhost:8080/s1/booking/notYet",
+            
+            data : {memberNum:'${member.memberNum}'},
+            type : "POST",
+            dataType : "html"
+            
+    };  
+	$.ajax(ajaxOption).done(function(data){
+       
+        $('.back').children().remove();
+       
+        $('.back').html(data);
+    });
 	})
 
 	$("#already").click(function() {
 	$(this).attr("class", "active");
 	$("#yet").removeClass("active");
-})
+	var ajaxOption = {
+            url : "http://localhost:8080/s1/booking/already",
+            
+            data : {memberNum:'${member.memberNum}'},
+            type : "POST",
+            dataType : "html"
+            
+    };  
+	$.ajax(ajaxOption).done(function(data){
+       
+        $('.back').children().remove();
+       
+        $('.back').html(data);
+    });
+	})
 </script>
 
 </html>

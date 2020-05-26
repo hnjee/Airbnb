@@ -6,6 +6,8 @@
   
 <mapper	namespace="com.airbnb.s1.booking.BookingDAO">
 
+
+
 	<insert id="booking" parameterType="BookingVO">
 		insert into booking (bookingNum, placenum, membernum, bookingstat, checkindate, checkoutdate, guestTotal) values('b'||BOOKING_SEQ.nextval,#{placeNum},#{memberNum}, 0,#{checkInDate},#{checkOutDate},#{guestTotal})
 	</insert>
@@ -44,6 +46,10 @@
 	
 	<select id="already" parameterType="BookingVO" resultType="BookingVO">
 		select * from booking where memberNum=#{memberNum} and bookingStat=2
+	</select>
+	
+	<select id="memberSelect" parameterType="String" resultType="MemberVO">
+		select name, email, phoneNum from member where memberNum = #{memberNum};
 	</select>
 
 </mapper>

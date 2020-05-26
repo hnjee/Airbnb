@@ -2,6 +2,7 @@ package com.airbnb.s1.booking;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
@@ -111,17 +112,38 @@ public class BookingController {
 	
 	@RequestMapping(value = "payment", method = RequestMethod.POST)
 	public int bookingDone(BookingVO bookingVO) throws Exception{
-		System.out.println(bookingVO.getPayInfo());
+		
 		int result = bookingService.payment(bookingVO);
 		return result;
 	}
 	
 	@RequestMapping(value="bookingList", method = RequestMethod.GET)
-	public ModelAndView bookingList(ModelAndView mv, String memberNum) throws Exception{
+	public ModelAndView bookingList(ModelAndView mv, BookingVO bookingVO) throws Exception{
 		
-		mv.addObject("memberNum", memberNum);
+		bookingService.outRoom(bookingVO);
+		List<BookingVO> ar = bookingService.notYet(bookingVO);
+		
+		mv.addObject("list", ar);
+		mv.addObject("memberNum", bookingVO);
 		mv.setViewName("booking/myPage");
 		
+		return mv;
+	}
+	
+	@RequestMapping(value="already", method = RequestMethod.POST)
+	public ModelAndView already(ModelAndView mv, BookingVO bookingVO) throws Exception {
+		List<BookingVO> ar = bookingService.already(bookingVO);
+		
+		mv.addObject("list", ar);
+		mv.setViewName("jsp/already");
+		return mv;
+	}
+	@RequestMapping(value="notYet", method = RequestMethod.POST)
+	public ModelAndView notYet(ModelAndView mv, BookingVO bookingVO) throws Exception {
+		List<BookingVO> ar = bookingService.notYet(bookingVO);
+		
+		mv.addObject("list", ar);
+		mv.setViewName("jsp/notYet");
 		return mv;
 	}
 }

@@ -22,7 +22,7 @@
 			    pay_method : 'card',
 			    merchant_uid : 'merchant_' + new Date().getTime(),
 			    name : '${vo.placeName}',
-			    amount : ${vo.placePrice}*${days}+${vo.placePrice}*0.1,
+			    amount : 100,
 			    buyer_email : 'iamport@siot.do',
 			    buyer_name : '구매자이름',
 			    buyer_tel : '010-1234-5678',

@@ -1,6 +1,7 @@
 package com.airbnb.s1.booking;
 
 import java.sql.Date;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -25,4 +26,19 @@ public class BookingService {
 		return bookingDAO.payment(bookingVO);
 	}
 	
+	public List<BookingVO> notYet(BookingVO bookingVO) throws Exception {
+		
+		return bookingDAO.notYet(bookingVO);
+	}
+	
+	public List<BookingVO> already(BookingVO bookingVO) throws Exception {
+		
+		return bookingDAO.already(bookingVO);
+	}
+	
+	
+	public int outRoom(BookingVO bookingVO) throws Exception {
+		
+		return bookingDAO.outRoom(bookingVO);
+	}
 }

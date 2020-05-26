@@ -32,5 +32,14 @@ public class BookingDAO {
 	public List<BookingVO> notYet(BookingVO bookingVO) throws Exception {
 		return sqlSession.selectList(NAMESPACE+"notYet", bookingVO);
 	}
+	
+	public List<BookingVO> already(BookingVO bookingVO) throws Exception {
+		return sqlSession.selectList(NAMESPACE+"already", bookingVO);
+	}
+	
+	public int outRoom(BookingVO bookingVO) throws Exception {
+		
+		return sqlSession.update(NAMESPACE+"outRoom", bookingVO);
+	}
 
 }

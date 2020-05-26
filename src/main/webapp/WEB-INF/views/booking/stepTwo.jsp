@@ -327,7 +327,7 @@
 			</form>
 			<form id="pay" action="./pay" method="post">
 				<input value=${vo.placeNum } name= "placeNum" hidden="true">
-				<input value=${vo.memberNum } name= "memberNum" hidden="true">
+				<input value=${member.memberNum } name= "memberNum" hidden="true">
 				<input value=${checkInDate } name= "checkInDate" hidden="true">
 				<input value=${checkOutDate } name= "checkOutDate" hidden="true">
 				<input value=${guestTotal } name="guestTotal" hidden="true">
