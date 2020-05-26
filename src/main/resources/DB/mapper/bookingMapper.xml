@@ -5,7 +5,27 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
 <mapper	namespace="com.airbnb.s1.booking.BookingDAO">
-
+	
+	<resultMap type="PlaceVO" id="PlaceVO">
+		<result column="placeNum" property="placeNum"/>
+		<result column="placeName" property="placeName"/>
+		<result column="placeLocation" property="placeLocation"/>
+	</resultMap>
+	
+	<resultMap type="BookingVO" id="BookingVO">
+		<result column="bookingNum" property="bookingNum"/>
+		<result column="placeNum" property="placeNum"/>
+		<result column="memberNum" property="memberNum"/>
+		<result column="bookingStat" property="bookingStat"/>
+		<result column="checkInDate" property="checkInDate"/>
+		<result column="checkOutDate" property="checkOutDate"/>
+		<result column="payType" property="payType"/>
+		<result column="payInfo" property="payInfo"/>
+		<result column="payTotal" property="payTotal"/>
+		<result column="payDate" property="payDate"/>
+		<result column="guestTotal" property="guestTotal"/>
+		<collection property="placeVO" resultMap="PlaceVO"></collection>
+	</resultMap>
 
 
 	<insert id="booking" parameterType="BookingVO">
@@ -40,12 +60,16 @@
 		where ROWNUM = 1
 	</select>
 	
-	<select id="notYet" parameterType="BookingVO" resultType="BookingVO">
-		select * from booking where memberNum=#{memberNum} and bookingStat=1
+	<select id="notYet" parameterType="BookingVO" resultMap="BookingVO">
+		select b.*, p.placenum, p.placename, p.placeLocation from booking b left join place p
+		on b.placenum = p.placenum
+		where b.memberNum = #{memberNum} and b.bookingStat=1
 	</select>
 	
-	<select id="already" parameterType="BookingVO" resultType="BookingVO">
-		select * from booking where memberNum=#{memberNum} and bookingStat=2
+	<select id="already" parameterType="BookingVO" resultMap="BookingVO">
+		select b.*, p.placenum, p.placename, p.placeLocation from booking b left join place p
+		on b.placenum = p.placenum
+		where b.memberNum = #{memberNum} and b.bookingStat=2
 	</select>
 	
 	<select id="memberSelect" parameterType="String" resultType="MemberVO">
