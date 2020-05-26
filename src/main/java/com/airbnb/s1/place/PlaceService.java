@@ -71,10 +71,6 @@ public class PlaceService {
 	
 	///////////////추가 끝
 	
-	
-	
-	
-	
 	public Map placeList(PlaceVO placeVO, Pager pager,BookingVO bookingVO,long guestData) throws Exception {
 		pager.makeRow();
 		Map<String, Object> map  = new HashMap<String, Object>();
