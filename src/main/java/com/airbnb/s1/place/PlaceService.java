@@ -60,17 +60,12 @@ public class PlaceService {
 	
 	//placeNum으로 placeFileVO 리스트를 가져오는 메서드 fileList()
 	public List<PlaceFileVO> fileList(PlaceVO placeVO) throws Exception{
-		return placeFileDAO.fileList(placeVO);
-		
+		return placeFileDAO.fileList(placeVO);	
 	}
 	
 	
 	///////////////추가 끝
-	
-	
-	
-	
-	
+
 	public Map placeList(PlaceVO placeVO, Pager pager,BookingVO bookingVO,long guestData) throws Exception {
 		pager.makeRow();
 		Map<String, Object> map  = new HashMap<String, Object>();
@@ -79,19 +74,19 @@ public class PlaceService {
 		map.put("pager", pager);
 		map.put("guestData", guestData);
 		long totalCount = placeDAO.placeCount(map);
-
+		
+		//받아온 fileNum의 배열을 이용해서
+		//List<PlaceVO>로 받아오기
+		List<String> selectedFileNum = placeDAO.selectFileNum(map);
 		pager.makePage(totalCount);	
 		Map<String, Object> map2 = new HashMap<String, Object>();		
-		map2.put("placeList", placeDAO.placeList(map));
+		map2.put("placeList", placeDAO.placeList(selectedFileNum));
 		map2.put("totalCount", totalCount);
-		map2.put("fileList", placeFileDAO.fileList(placeVO));
+		
+		
 		return map2;
 	}
 	
-//	public List<PlaceFileVO> selectMainPic(List<PlaceFileVO> totalImages) throws Exception{
-//		
-//		
-//	}
 	
 	public long placeCount(Map map) throws Exception{
 		return placeDAO.placeCount(map);		

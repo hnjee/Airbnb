@@ -20,6 +20,7 @@ public class PlaceVO {
 	private Long bathroom;
 	private Long checkInTime;
 	private Long checkOutTime;
+	private PlaceFileVO placeFileVO;
 	private List<PlaceFileVO> placeFileVOs;
 
 	public String getPlaceNum() {
@@ -106,12 +107,19 @@ public class PlaceVO {
 	public void setCheckOutTime(Long checkOutTime) {
 		this.checkOutTime = checkOutTime;
 	}
+	public PlaceFileVO getPlaceFileVO() {
+		return placeFileVO;
+	}
+	public void setPlaceFileVO(PlaceFileVO placeFileVO) {
+		this.placeFileVO = placeFileVO;
+	}
 	public List<PlaceFileVO> getPlaceFileVOs() {
 		return placeFileVOs;
 	}
 	public void setPlaceFileVOs(List<PlaceFileVO> placeFileVOs) {
 		this.placeFileVOs = placeFileVOs;
 	}
+	
 	
 	
 }

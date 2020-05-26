@@ -38,9 +38,7 @@ public class PlaceController {
 	public void fileTest(MultipartFile[] files, String placeNum) throws Exception{		
 		PlaceFileVO placeFileVO = new PlaceFileVO();
 		placeFileVO.setPlaceNum(placeNum);
-
-		placeService.fileInsert(placeNum, files);
-		
+		placeService.fileInsert(placeNum, files);		
 	}
 	
 	@GetMapping("fileView")
@@ -50,10 +48,9 @@ public class PlaceController {
 		List<PlaceFileVO> placeFileList = placeService.fileList(placeVO);
 		mv.addObject("fileList", placeFileList);
 		return mv;
-	}
-	
-	
+	}	
 	//fileTest 끝
+	
 	
 	@GetMapping("placeList")
 	public ModelAndView placeList(Pager pager,String location,String guest, long guestData, String date, String startDate,String endDate, ModelAndView mv) throws Exception{
@@ -76,9 +73,7 @@ public class PlaceController {
 		Map<String, Object> map = placeService.placeList(placeVO,pager,bookingVO,guestData);		
 		List<PlaceVO> ar = (List<PlaceVO>)map.get("placeList");
 		long totalCount = (long)map.get("totalCount");	
-		
-		List<PlaceFileVO> totalImages = ar.get(0).getPlaceFileVOs();
-		
+
 	
 		mv.addObject("list", ar);
 		mv.addObject("totalCount", totalCount);

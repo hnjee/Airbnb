@@ -29,17 +29,14 @@
 	</resultMap>
 
  	
- 	<select id="placeList" resultMap="listResult" parameterType="Map">
-		SELECT S.*, F.*
-			FROM (SELECT * FROM 
-				(SELECT P.*, ROWNUM R FROM
-					(SELECT * FROM place where placeLocation LIKE '%'||#{placeVO.placeLocation}||'%' and <![CDATA[placeMaxGuest >=#{guestData} ]]>
-								and placeNum NOT IN (SELECT placeNum FROM booking 
-										WHERE<![CDATA[(checkInDate >= #{bookingVO.checkInDate} and checkInDate<#{bookingVO.checkOutDate})
-											or (checkInDate<#{bookingVO.checkInDate} and checkOutDate>#{bookingVO.checkOutDate})]]>
-					) ORDER BY placeNum) P)		
-			WHERE R BETWEEN #{pager.startRow} and #{pager.lastRow}) S left join	placeFile F
-		ON (S.placeNum = F.placeNum)
+ 	<select id="placeList" resultMap="listResult" parameterType="List">
+		SELECT P.*, F.* 
+			FROM place P LEFT JOIN placeFile F
+			on (P.placeNum = F.placeNum)
+			where F.placeFileNum IN 
+			<foreach collection="list" item="item" open="(" close=")" separator=",">
+				#{item}
+			</foreach>
 	</select>
 
 
@@ -58,6 +55,20 @@
 	
 	<select id="checkDateSelect" parameterType="String" resultType="BookingVO">
 		SELECT * FROM booking where placeNum=#{placeNum}
+	</select>
+	
+	<select id="selectFileNum" parameterType="Map" resultType="String">
+		SELECT MIN(F.placeFileNum)
+			FROM (SELECT * FROM 
+				(SELECT P.*, ROWNUM R FROM
+					(SELECT * FROM place where placeLocation LIKE '%'||#{placeVO.placeLocation}||'%' and <![CDATA[placeMaxGuest >=#{guestData} ]]>
+								and placeNum NOT IN (SELECT placeNum FROM booking 
+										WHERE<![CDATA[(checkInDate >= #{bookingVO.checkInDate} and checkInDate<#{bookingVO.checkOutDate})
+											or (checkInDate<#{bookingVO.checkInDate} and checkOutDate>#{bookingVO.checkOutDate})]]>
+					) ORDER BY placeNum) P)		
+			WHERE R BETWEEN #{pager.startRow} and #{pager.lastRow}) S left join	placeFile F
+		ON (S.placeNum = F.placeNum)
+		GROUP BY (F.placeNum)
 	</select>
 	
 	<insert id="placeHostAdd" parameterType="PlaceVO" >

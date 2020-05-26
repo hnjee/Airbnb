@@ -148,7 +148,7 @@
 															<div class="_yydl86">
 															<div class="_1na7kj9b">
 																<div class="_e296pg" role="img" aria-busy="false" style="width: 100%; height: 100%;">
-																<div class="_1i2fr3fi" style="width: 100%; height: 100%; background-image: url(&quot;https://a0.muscache.com/im/pictures/eeebcdf4-c294-4449-978d-68592f3481fb.jpg?aki_policy=large&quot;);">
+																<div class="_1i2fr3fi" style="width: 100%; height: 100%; background-image: url("${pageContext.request.contextPath}/resources/images/place/${placeVO.placeFileVO.fileName}");">
 																
 													
 																</div>
