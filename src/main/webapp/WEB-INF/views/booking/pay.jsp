@@ -345,7 +345,7 @@
 			      <input class="cardNum" type="text" class="form-control" name="cardNum" placeholder="카드 번호" required="required" maxlength="4"> - 
 			      <input class="cardNum" type="password" class="form-control" name="cardNum" placeholder="카드 번호" required="required" maxlength="4"> - 
 			      <input class="cardNum" type="password" class="form-control" name="cardNum" placeholder="카드 번호" required="required" maxlength="4"> - 
-			      <input class="cardNum cardNumf" type="number" class="form-control" name="cardNum" placeholder="카드 번호" required="required" maxlength="4">
+			      <input class="cardNum cardNumf" type="text" class="form-control" name="cardNum" placeholder="카드 번호" required="required" maxlength="4">
 			    </div>
 			    <div class="input-group">
 			      <input id="day" type="text" class="form-control" name="day" placeholder="만료일">

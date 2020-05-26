@@ -100,7 +100,7 @@
 				      <ul class="dropdown-menu" role="menu">
 				        <li><a href="#"><b>메시지</b></a></li>
 				        <li><a href="#"><b>알림</b></a></li>
-				        <li><a href="#"><b>여행</b></a></li>
+				        <li><a href="./booking/bookingList?memberNum=${member.memberNum }"><b>여행</b></a></li>
 				        <li><a href="#"><b>저장목록</b></a></li>
 				        <li role="presentation" class="divider"></li>
 				        <li><a href="./member/memberMyPage">계정</a></li>
@@ -112,5 +112,6 @@
 			</nav>
 		</div>	
 	</div>
+	
 </header>
 <div class="_qkr85q"></div>
