@@ -899,6 +899,25 @@
 	    	  n = n + '';
 	    	  return n.length >= width ? n : new Array(width - n.length + 1).join('0') + n;
 	    	}
+	      
+	      
+	      function dropAction() {
+	    	  document.getElementById("dropDownContent").classList.toggle("show");
+	    	}
+	      
+	      window.onclick = function(event) {
+	    	  if (!event.target.matches('.dropBtn')) {
+	    	    var dropdowns = document.getElementsByClassName("dropdown-menu");
+	    	    var i;
+	    	    for (i = 0; i < dropdowns.length; i++) {
+	    	      var openDropdown = dropdowns[i];
+	    	      if (openDropdown.classList.contains('show')) {
+	    	        openDropdown.classList.remove('show');
+	    	      }
+	    	    }
+	    	  }
+	    	}
+	      
 	</script>
 		
 </body>
