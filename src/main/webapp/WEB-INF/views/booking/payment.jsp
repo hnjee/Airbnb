@@ -23,7 +23,7 @@
 			    merchant_uid : 'merchant_' + new Date().getTime(),
 			    name : '${vo.placeName}',
 
-			    amount : 100, /* ${vo.placePrice}*${days}+${vo.placePrice}*0.1, */
+			    amount : 100, /* ${vo.placePrice}*${days}+${vo.placePrice}*0.06, */
 
 			    buyer_email : '${member.email}',
 			    buyer_name : '${member.name}',
@@ -47,7 +47,7 @@
 			        
 			        
 			        
-				    $.post("http://localhost:8080/s1/booking/payment", {payType:'1', payInfo:'${payInfo}', payTotal:rsp.paid_amount, bookingNum:'${bvo.bookingNum}'}, function(result) {
+				    $.post("http://localhost:8080/s1/booking/payment", {payType:'1', payInfo:'${payInfo}', payTotal: ${vo.placePrice}*${days}+${vo.placePrice}*0.06/*rsp.paid_amount*/, bookingNum:'${bvo.bookingNum}'}, function(result) {
 						
 						if (result>0){
 							alert(msg);
