@@ -13,7 +13,12 @@
 	<select id="fileList" parameterType="PlaceVO" resultType="PlaceFileVO">
 		select * from placeFile where placeNum=#{placeNum}
 	</select>
+
 	 <select id="fileCount" parameterType="String" resultType="Long">
 	 	select count(placeFileNum) from placeFile where placeNum=#{placeNum}
 	 </select>
+
+	
+	
+
 </mapper>

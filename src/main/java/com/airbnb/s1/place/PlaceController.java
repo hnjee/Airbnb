@@ -1,5 +1,6 @@
 package com.airbnb.s1.place;
 
+import java.lang.reflect.Member;
 import java.sql.Date;
 import java.util.List;
 import java.util.Map;
@@ -13,6 +14,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.airbnb.s1.booking.BookingVO;
+import com.airbnb.s1.member.MemberService;
 import com.airbnb.s1.place.placeFile.PlaceFileVO;
 import com.airbnb.s1.review.ReviewService;
 import com.airbnb.s1.review.ReviewVO;
@@ -26,7 +28,8 @@ public class PlaceController {
 	private PlaceService placeService;
 	@Autowired
 	private ReviewService reviewService;
-	
+	@Autowired
+	private MemberService memberService;
 	
 	//fileTest를 위한 매핑
 	@GetMapping("fileTest")
@@ -38,9 +41,7 @@ public class PlaceController {
 	public void fileTest(MultipartFile[] files, String placeNum) throws Exception{		
 		PlaceFileVO placeFileVO = new PlaceFileVO();
 		placeFileVO.setPlaceNum(placeNum);
-
-		placeService.fileInsert(placeNum, files);
-		
+		placeService.fileInsert(placeNum, files);		
 	}
 	
 	@GetMapping("fileView")
@@ -53,6 +54,7 @@ public class PlaceController {
 	}
 
 	//fileTest 끝
+	
 	
 	@GetMapping("placeList")
 	public ModelAndView placeList(Pager pager,String location,String guest, long guestData, String date, String startDate,String endDate,long adultNum, long childNum, long infantNum, ModelAndView mv) throws Exception{
@@ -69,15 +71,15 @@ public class PlaceController {
 		Date startData = Date.valueOf(startDate);
 		Date endData = Date.valueOf(endDate);
 
-		
 		bookingVO.setCheckInDate(startData);
 		bookingVO.setCheckOutDate(endData);
 
-		Map<String, Object> map = placeService.placeList(placeVO,pager,bookingVO,guestData);
-		
+		Map<String, Object> map = placeService.placeList(placeVO,pager,bookingVO,guestData);		
 		List<PlaceVO> ar = (List<PlaceVO>)map.get("placeList");
-		long totalCount = (long)map.get("totalCount");
-		
+		long totalCount = (long)map.get("totalCount");	
+		System.out.println("first placeNum: "+ar.get(1).getPlaceNum());
+		System.out.println("first fileName: "+ar.get(1).getPlaceFileVO().getFileName());
+	
 		mv.addObject("list", ar);
 		mv.addObject("totalCount", totalCount);
 		mv.addObject("pager", pager);
@@ -97,7 +99,9 @@ public class PlaceController {
 	@GetMapping("placeSelect")
 	public ModelAndView placeSelect(ModelAndView mv, ReviewPager pager,long guestData, String startDate,String endDate, String location, String date, long adultNum, long childNum, long infantNum) throws Exception{
 		PlaceVO placeVO = placeService.placeSelect(pager.getPlaceNum());
+		
 		List<ReviewVO> reviewVOs = reviewService.reviewSelect(pager);
+		
 		//리뷰 전체 개수 
 		long reviewCnt = reviewService.reviewCount(pager);
 		//리뷰 평균 계산 
@@ -107,9 +111,8 @@ public class PlaceController {
 		List<BookingVO> bookingVOs =  placeService.checkDateSelect(pager.getPlaceNum());
 		List<PlaceFileVO> placeFileList = placeService.fileList(placeVO);
 		
-		
 		long placeFileTotalNum = placeService.fileCount(pager.getPlaceNum());
-		
+	
 		mv.addObject("fileTotalNum", placeFileTotalNum);
 		mv.addObject("fileList", placeFileList);
 		mv.addObject("adultNum", adultNum);

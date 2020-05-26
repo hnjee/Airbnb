@@ -2,6 +2,8 @@ package com.airbnb.s1.booking;
 
 import java.sql.Date;
 
+import com.airbnb.s1.place.PlaceVO;
+
 public class BookingVO {
 	private String bookingNum;
 	private String placeNum;
@@ -14,7 +16,14 @@ public class BookingVO {
 	private long payInfo;
 	private long payTotal;
 	private Date payDate;
+	private PlaceVO placeVO;
 	
+	public PlaceVO getPlaceVO() {
+		return placeVO;
+	}
+	public void setPlaceVO(PlaceVO placeVO) {
+		this.placeVO = placeVO;
+	}
 	public long getPayType() {
 		return payType;
 	}

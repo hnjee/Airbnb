@@ -148,10 +148,9 @@
 															<div class="_yydl86">
 															<div class="_1na7kj9b">
 																<div class="_e296pg" role="img" aria-busy="false" style="width: 100%; height: 100%;">
-																<div class="_1i2fr3fi" style="width: 100%; height: 100%; background-image: url(&quot;https://a0.muscache.com/im/pictures/eeebcdf4-c294-4449-978d-68592f3481fb.jpg?aki_policy=large&quot;);">
-																
-													
-																</div>
+																<!-- <div class="_1i2fr3fi" style="width: 100%; height: 100%; background-image: url(&quot;https://a0.muscache.com/im/pictures/eeebcdf4-c294-4449-978d-68592f3481fb.jpg?aki_policy=large&quot;);">
+																</div> -->
+																<img style="height: 200px; width: 300px;" alt="" src="${pageContext.request.contextPath}/resources/images/place/${placeVO.placeFileVO.fileName}">
 																</div>
 															</div>
 															</div>
@@ -172,11 +171,10 @@
 												<!-- 컨텐츠 사진 옆 설명 글 -->
 												<div class="_6kiyebe">
 													<div class="_4ntfzh" style="margin-bottom: 8px;">
-													<div class="_13qbppeg">${placeVO.placeType} 전체</div>
+													<div class="_13qbppeg">${placeVO.placeType}</div>
 													</div>
 													
 												<div class="_1jbo9b6h" style="line-height: 24px; max-height: 24px; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 1; -webkit-box-orient: vertical;">
-
 													<a href="./placeSelect?placeNum=${placeVO.placeNum}&startDate=${startDate}&endDate=${endDate}&guestData=${guestData}&date=${date}&location=${location}&adultNum=${adultNum}&childNum=${childNum}&infantNum=${infantNum}">${placeVO.placeName}</a></div>
 					
 												<!-- 	
@@ -269,7 +267,7 @@
 									<!-- 이전으로 돌아가기 -->
 									<c:if test="${pager.curBlock gt 1}">
 										<li class="_foinusc">
-										<a aria-label="이전" href="./placeList?location=${location}&guest=${guest}&date=${date}&startDate=${startDate}&endDate=${endDate}&guestData=${guestData}&curPage=${pager.startNum-1}" class="_1li8g8e">
+										<a aria-label="이전" href="./placeList?location=${location}&guest=${guest}&date=${date}&startDate=${startDate}&endDate=${endDate}&guestData=${guestData}&curPage=${pager.startNum-1}&adultNum=${adultNum}&childNum=${childNum}&infantNum=${infantNum}" class="_1li8g8e">
 											<span class="_3hmsj">
 											<svg aria-hidden="true" role="presentation" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" style="display: block; fill: none; height: 16px; width: 16px; stroke: currentcolor; stroke-width: 4; overflow: visible;">
 												<g fill="none">
@@ -291,7 +289,7 @@
 									</c:if>
 									
 									<c:if test="${pager.curPage ne i}">
-										<a class="_13n1po3b" href="./placeList?location=${location}&guest=${guest}&date=${date}&curPage=${i}&startDate=${startDate}&endDate=${endDate}&guestData=${guestData}" aria-label="현재 페이지가 아님">${i}</a>
+										<a class="_13n1po3b" href="./placeList?location=${location}&guest=${guest}&date=${date}&curPage=${i}&startDate=${startDate}&endDate=${endDate}&guestData=${guestData}&adultNum=${adultNum}&childNum=${childNum}&infantNum=${infantNum}" aria-label="현재 페이지가 아님">${i}</a>
 									</c:if>
 									</li>
 									</c:forEach>
@@ -299,7 +297,7 @@
 									<!-- 다음 페이지로-->
 									<c:if test="${pager.curBlock lt pager.totalBlock}">
 										<li class="_i66xk8d">
-											<a aria-label="다음" href="./placeList?curPage=${pager.lastNum+1}&location=${location}&guest=${guest}&date=${date}&startDate=${startDate}&endDate=${endDate}&guestData=${guestData}" class="_1li8g8e">
+											<a aria-label="다음" href="./placeList?curPage=${pager.lastNum+1}&location=${location}&guest=${guest}&date=${date}&startDate=${startDate}&endDate=${endDate}&guestData=${guestData}&adultNum=${adultNum}&childNum=${childNum}&infantNum=${infantNum}" class="_1li8g8e">
 												<span class="_3hmsj">
 												<svg aria-hidden="true" role="presentation" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" style="display: block; fill: none; height: 16px; width: 16px; stroke: currentcolor; stroke-width: 4; overflow: visible;">
 													<g fill="none">

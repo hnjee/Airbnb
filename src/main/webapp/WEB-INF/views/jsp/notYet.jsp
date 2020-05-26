@@ -21,7 +21,7 @@
 			<c:forEach items="${list}" var="bookingVO">
 			<tr>
 				<td>${bookingVO.bookingNum }</td>
-				<td>${bookingVO.placeNum }</td>
+				<td>${bookingVO.placeVO.placeName }</td>
 				<td>${bookingVO.checkInDate }</td>
 				<td>${bookingVO.checkOutDate }</td>
 				<td>${bookingVO.payTotal }</td>

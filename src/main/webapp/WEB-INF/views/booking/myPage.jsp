@@ -4,21 +4,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-	
-	<c:import url="../template/boot.jsp"></c:import> 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-
-	<link rel="stylesheet" type="text/css" href="../resources/css/searchBoxStyle.css">
-	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-	
-	<link rel="stylesheet" type="text/css" href="../resources/css/headerStyle.css"> 
-
-	<link rel="stylesheet" type="text/css"  href="../resources/css/indexFooter.css"> 
+<link rel="stylesheet" type="text/css"
+	href="../resources/css/myPage.css">
+<link rel="stylesheet" type="text/css"
+	href="../resources/css/headerStyle.css">
+<c:import url="../template/boot.jsp"></c:import>
+<link rel="stylesheet" type="text/css"
+	href="../resources/css/indexFooter.css">
+<link rel="stylesheet"
+	href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"> 
 	<style type="text/css">
 		.content {
 			width:100%;
@@ -47,6 +41,18 @@
 	
 </head>
 <body>
+<c:if test="${member.memberNum ne memberNum.memberNum}">
+
+	<script type="text/javascript">
+		$(document).ready(function() {
+			alert("잘못된 접근입니다.");
+			location.href="../";
+		})
+	</script>
+
+</c:if>
+
+<c:if test="${member.memberNum eq memberNum.memberNum}">
 <c:import url="../jsp/header.jsp"></c:import>
 <div class="content">
 	
@@ -73,7 +79,7 @@
 			<c:forEach items="${list}" var="bookingVO">
 			<tr>
 				<td>${bookingVO.bookingNum }</td>
-				<td>${bookingVO.placeNum }</td>
+				<td>${bookingVO.placeVO.placeName }</td>
 				<td>${bookingVO.checkInDate }</td>
 				<td>${bookingVO.checkOutDate }</td>
 				<td>${bookingVO.payTotal }</td>
@@ -91,6 +97,7 @@
 
 <hr>
 <c:import url="../jsp/footer.jsp"></c:import>
+</c:if>
 </body>
 <script type="text/javascript">
 

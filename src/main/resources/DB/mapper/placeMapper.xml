@@ -4,27 +4,39 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.airbnb.s1.place.PlaceDAO">
 
+	<resultMap type="PlaceVO" id="listResult">
+		<id column="placeNum" property="placeNum"/>
+		<result column="memberNum" property="memberNum"/>
+		<result column="placeName" property="placeName"/>
+		<result column="placeLocation" property="placeLocation"/>
+		<result column="placePrice" property="placePrice"/>
+		<result column="placeImage" property="placeImage"/>
+		<result column="placeType" property="placeType"/>
+		<result column="placeMaxGuest" property="placeMaxGuest"/>
+		<result column="placeDesc" property="placeDesc"/>
+		<result column="placeRule" property="placeRule"/>
+		<result column="bed" property="bed"/>
+		<result column="bathroom" property="bathroom"/>
+		<result column="checkInTime" property="checkInTime"/>
+		<result column="checkOutTime" property="checkOutTime"/>
+		
+		<collection property="placeFileVO" javaType="Object" ofType="PlaceFileVO">
+			<id column="placeFileNum" property="placeFileNum"/>
+			<result column="placeNum" property="placeNum"/>
+			<result column="fileName" property="fileName"/>
+			<result column="oriName" property="oriName"/>
+		</collection>
+	</resultMap>
 
-	<!-- 리스트 뽑아오기 - 페이징 처리와 위치 등 조건 필터링 -->
-	<!-- 
-	<select id="placeList" resultType="PlaceVO" parameterType="Map">
-		SELECT * FROM 
-			(SELECT P.*, ROWNUM R FROM
-				(SELECT * FROM PLACE WHERE placeLocation LIKE '%'||#{placeVO.placeLocation}||'%' ORDER BY placeNum) P
-			)
-		WHERE R BETWEEN #{pager.startRow} and #{pager.lastRow}		
-	</select>
- 	 -->
  	
- 	<select id="placeList" resultType="PlaceVO" parameterType="Map">
-		SELECT * FROM 
-			(SELECT P.*, ROWNUM R FROM
-				(SELECT * FROM place where placeLocation LIKE '%'||#{placeVO.placeLocation}||'%' and <![CDATA[placeMaxGuest >=#{guestData} ]]>
-							and placeNum NOT IN (SELECT placeNum FROM booking 
-									WHERE<![CDATA[(checkInDate >= #{bookingVO.checkInDate} and checkInDate<#{bookingVO.checkOutDate})
-										or (checkInDate<#{bookingVO.checkInDate} and checkOutDate>#{bookingVO.checkOutDate})]]>
-				) ORDER BY placeNum) P)		
-		WHERE R BETWEEN #{pager.startRow} and #{pager.lastRow}		
+ 	<select id="placeList" resultMap="listResult" parameterType="List">
+		SELECT P.*, F.* 
+			FROM place P LEFT JOIN placeFile F
+			on (P.placeNum = F.placeNum)
+			where F.placeFileNum IN 
+			<foreach collection="list" item="item" open="(" close=")" separator=",">
+				#{item}
+			</foreach>
 	</select>
 
 
@@ -38,11 +50,27 @@
  	</select>
 
 	<select id="placeSelect" parameterType="String" resultType="PlaceVO">
-		select * from place where placeNum=#{placeNum}
+		select place.*,member.name,  member.hostdesc from place 
+		join member on (place.memberNum = member.memberNum) 
+		where placeNum=#{placeNum}
 	</select>
 	
 	<select id="checkDateSelect" parameterType="String" resultType="BookingVO">
 		SELECT * FROM booking where placeNum=#{placeNum}
+	</select>
+	
+	<select id="selectFileNum" parameterType="Map" resultType="String">
+		SELECT MIN(F.placeFileNum)
+			FROM (SELECT * FROM 
+				(SELECT P.*, ROWNUM R FROM
+					(SELECT * FROM place where placeLocation LIKE '%'||#{placeVO.placeLocation}||'%' and <![CDATA[placeMaxGuest >=#{guestData} ]]>
+								and placeNum NOT IN (SELECT placeNum FROM booking 
+										WHERE<![CDATA[(checkInDate >= #{bookingVO.checkInDate} and checkInDate<#{bookingVO.checkOutDate})
+											or (checkInDate<#{bookingVO.checkInDate} and checkOutDate>#{bookingVO.checkOutDate})]]>
+					) ORDER BY placeNum) P)		
+			WHERE R BETWEEN #{pager.startRow} and #{pager.lastRow}) S left join	placeFile F
+		ON (S.placeNum = F.placeNum)
+		GROUP BY (F.placeNum)
 	</select>
 	
 	<insert id="placeHostAdd" parameterType="PlaceVO" >
