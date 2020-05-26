@@ -22,7 +22,24 @@ public class PlaceVO {
 	private Long checkOutTime;
 	private PlaceFileVO placeFileVO;
 	private List<PlaceFileVO> placeFileVOs;
+	
+	private String hostDesc;
+	private String name;
+	
+	
 
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public String getHostDesc() {
+		return hostDesc;
+	}
+	public void setHostDesc(String hostDesc) {
+		this.hostDesc = hostDesc;
+	}
 	public String getPlaceNum() {
 		return placeNum;
 	}

@@ -22,9 +22,5 @@
 	<select id="loginByGoogle" parameterType="MemberVO" resultType="MemberVO">
 		SELECT * FROM MEMBER WHERE email=#{email} and name = #{name}
 	</select>
-	
-	<select id="memberName" parameterType="String" resultType="String">
-		select name from member where membernum=#{memberNum}
-	</select>
 	 
 </mapper>

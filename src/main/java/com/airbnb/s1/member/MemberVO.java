@@ -11,7 +11,15 @@ public class MemberVO {
 	private String PW;
 	private String phoneNum;
 	private Date joinDate;
+	private String hostDesc;
 	
+	
+	public String getHostDesc() {
+		return hostDesc;
+	}
+	public void setHostDesc(String hostDesc) {
+		this.hostDesc = hostDesc;
+	}
 	public String getPW() {
 		return PW;
 	}
