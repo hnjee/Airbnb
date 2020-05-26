@@ -25,6 +25,10 @@ public class MemberService {
 		return memberDAO.memberLogin(memberVO);
 	}
 	
+	public String memberName(String memberNum) throws Exception{
+		return memberDAO.memberName(memberNum);
+	}
+	
 }
 
 

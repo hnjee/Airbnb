@@ -27,4 +27,7 @@ public class MemberDAO {
 		return sqlSession.selectOne(NAMESPACE+"loginByGoogle", memberVO);
 	}
 	
+	public String memberName(String memberNum) throws Exception{
+		return sqlSession.selectOne(NAMESPACE+"memberName", memberNum); 
+	}
 }

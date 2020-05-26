@@ -295,7 +295,7 @@
 			    <div id="hostInfo">
 			    	<div id="hostInfo1">
 			    		<div id="hostInfoDesc">
-			    			<h4 style="margin: 0 0 8px 0;"><strong>Host: ${vo.memberNum}님 </strong></h4>
+			    			<h4 style="margin: 0 0 8px 0;"><strong>Host: ${hostName}님 </strong></h4>
 			    			South Korea, 한국 · 회원 가입: 2016년 5월
 			    		</div>
 			    		<div id="hostInfoPic">
@@ -303,7 +303,9 @@
 			    		</div>
 			    	</div>
 			    	<div id="hostInfo2"> ★ 후기 ${reviewCnt}개 </div>
-			    	
+			    	<div id="hostInfo4" style="margin-top: 15px;">
+			    		블로그(스테이 고찌글라)도 운영 중이에요. 함덕바다에서 걸어서 2분 거리에 있습니다. 숙소는 조용한 주택가에 자리잡고 있지만 버스정류장 및 편의시설이 걸어서 도보거리에 위치해 있어 렌트카 없이도 편리하게 머무를 수 있습니다. 옛날 주택을 리모델링 하였기 때문에 벌레나 곤충이 숙소안에 들어 울 수 있으니 예민하신 분은 예약 하실 때 신중해 주세요. 저희는 방범을 위해 cctv가 야외에 출입문을 향해서 설치되어 있어요. 내부및 야외욕조 안쪽은 보이지 않습니다. 저희는 한달살이를 받지 않습니다. 자세한 사항은 꼭 문의를 해주세요 ^^	
+			    	</div>
 			    	
 			    	<div id="hostInfo3">
 			    		<button>호스트에게 연락하기</button>

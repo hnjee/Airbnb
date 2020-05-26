@@ -13,8 +13,6 @@ public class Pager {
 	private long lastNum;
 	private long totalCount;
 	
-	
-	
 	public Long getCurPage() {
 		if(this.curPage==null || this.curPage==0) {
 			this.curPage=1L;

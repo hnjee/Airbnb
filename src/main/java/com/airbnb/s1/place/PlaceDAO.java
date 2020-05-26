@@ -19,10 +19,6 @@ public class PlaceDAO {
 	
 	//file 추가되는 부분
 	
-	
-
-	//
-	
 	public List<PlaceVO> placeList(Map map) throws Exception{
 		return sqlSession.selectList(NAMESPACE+"placeList",map);	
 	}
