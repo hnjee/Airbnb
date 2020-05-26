@@ -118,16 +118,16 @@
 				
 				<c:if test="${not empty member}">
 					<div class="btn-group">
-				      <button type="button" class="_sxo1l2o dropdown-toggle" data-toggle="dropdown" id="idClick">
+				      <button type="button" class="_sxo1l2o dropBtn" onclick="dropAction()" id="idClick">
 				      ${member.name} </button>
-				      <ul class="dropdown-menu" role="menu">
+				      <ul class="dropdown-menu" id="dropDownContent" role="menu">
 				        <li><a href="#"><b>메시지</b></a></li>
 				        <li><a href="#"><b>알림</b></a></li>
 				        <li><a href="#"><b>여행</b></a></li>
 				        <li><a href="#"><b>저장목록</b></a></li>
 				        <li role="presentation" class="divider"></li>
-				        <li><a href="./member/memberMyPage">계정</a></li>
-				        <li><a href="./member/memberLogout" id="logOut">로그아웃</a></li>
+				        <li><a href="${pageContext.request.contextPath}/member/memberMyPage">계정</a></li>
+				        <li><a href="${pageContext.request.contextPath}/member/memberLogout" id="logOut">로그아웃</a></li>
 				      </ul>
 				    </div>
 				</c:if>
