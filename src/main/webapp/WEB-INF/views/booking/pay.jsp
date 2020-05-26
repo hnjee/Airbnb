@@ -345,7 +345,7 @@
 			      <input class="cardNum" type="text" class="form-control" name="cardNum" placeholder="카드 번호" required="required" maxlength="4"> - 
 			      <input class="cardNum" type="password" class="form-control" name="cardNum" placeholder="카드 번호" required="required" maxlength="4"> - 
 			      <input class="cardNum" type="password" class="form-control" name="cardNum" placeholder="카드 번호" required="required" maxlength="4"> - 
-			      <input class="cardNum cardNumf" type="text" class="form-control" name="cardNum" placeholder="카드 번호" required="required" maxlength="4">
+			      <input class="cardNum cardNumf" type="text" class="form-control" name="cardNum" placeholder="카드 번호" required="required" maxlength="4" value="">
 			    </div>
 			    <div class="input-group">
 			      <input id="day" type="text" class="form-control" name="day" placeholder="만료일">
@@ -425,10 +425,15 @@ $(document).ready(function(){
     $("#checkOut").html(checkOut);
 });
 $(".btn-primary").click(function() {
-	
+	if($('.cardNumf').prop("value") != ""){
 	window.open("http://localhost:8080/s1/booking/payment?bookingNum=${bvo.bookingNum }&placeNum=${bvo.placeNum}&checkInDate=${bvo.checkInDate}&checkOutDate=${bvo.checkOutDate}&cardNum="+$(".cardNumf").val(), "PopupWin", "top=200, left=400, width=850,height=600")
-	
+	} else {
+		alert("빈칸을 모두 작성해주세요");
+	}
 })
+
+
+
 
 $(".ready").click(function(){
 	alert("이 상품은 분할 결제를 지원하지 않습니다.")

@@ -280,7 +280,7 @@
 			</div>
 			<h5><b>인원</b></h5>
 			  <div class="dropdown">
-			    <button class="btn btn-default dropdown-toggle" style="text-align: left;"  type="button" data-toggle="dropdown">게스트 ${guestTotal }명
+			    <button class="btn btn-default dropdown-toggle" style="text-align: left;"  type="button" data-toggle="dropdown" disabled="disabled">게스트 ${guestTotal }명
 			    
 			    <div class="caret"></div></button>
 			    <ul class="dropdown-menu">
