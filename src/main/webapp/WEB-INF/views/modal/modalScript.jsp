@@ -28,21 +28,6 @@
 		
 		$('#signIn').on('click', function() {
 
-			var chk_agree = document.getElementsByName('agree');
-			var email = $('#emailTxt').val();
-			var name = $('#name').val();
-			var familyName = $('#familyName').val();
-			var pw = $('#pwTxt').val();
-			var phoneNum = $('#phoneNum').val();
-			
-			var bMonth = $('#bMonth').val();
-			var bYear = $('#bYear').val();
-			var bDay = $('#bDay').val();
-			
-			alert(email);
-			alert(pw);
-			
-			
 // 			if (email == ''){
 // 				alert('이메일을 입력해주세요');
 // 				return false;
@@ -62,21 +47,10 @@
 				return false; 
 			}
 
-			$.get("./member/memberJoin", 
-				{email: email, name:name, familyName:familyName, pw:pw, phoneNum:phoneNum},
-				function(result) {
-					if(result>0){
-						$('.close').click();
-
-						location.reload();
-					}
-				});
 		});
 		
 		$('#logOut').on('click', function() {
 			gauth.signOut().then(function() {
-				console.log('gauth.signOut()');
-				checkLoginStatus();
 				location.reload();
 			});
 		});

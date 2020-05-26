@@ -7,7 +7,7 @@
 
 	<insert id="memberJoin" parameterType="MemberVO">
 		insert into member values
-		('m'||MEMBER_SEQ.nextval,#{email},#{name},#{familyName},#{PW},#{phoneNum},sysdate)
+		('m'||MEMBER_SEQ.nextval,#{email},#{name},#{familyName},#{pw},#{phoneNum},sysdate,'')
 	</insert>
 
 	<insert id="joinByGoogle" parameterType="MemberVO">
@@ -16,11 +16,11 @@
 	</insert>
 
 	<select id="memberLogin" parameterType="MemberVO" resultType="MemberVO">
-		SELECT * FROM MEMBER WHERE email=#{email} and PW = #{PW}
+		SELECT * FROM MEMBER WHERE email=#{email} and pw = #{pw}
 	</select>
 
 	<select id="loginByGoogle" parameterType="MemberVO" resultType="MemberVO">
-		SELECT * FROM MEMBER WHERE email= #{email} and name= #{name}
+		SELECT * FROM MEMBER WHERE email= #{email}
 	</select>
 
 

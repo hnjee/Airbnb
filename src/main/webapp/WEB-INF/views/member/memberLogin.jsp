@@ -7,7 +7,25 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 
+<style type="text/css">
 
+._12j61cy {
+    text-align: center !important;
+    overflow: hidden !important;
+}
+
+._1ish1khj::before {
+    border-bottom-width: var(--border-rule-border-width, 1px) !important;
+    border-bottom-color: #e4e4e4 !important;
+}
+
+._1ish1khj::after {
+    border-bottom-width: var(--border-rule-border-width, 1px) !important;
+    border-bottom-color: #e4e4e4 !important;
+}
+
+
+</style>
 
 </head>
 <body>
@@ -26,9 +44,7 @@
 					</div>
 				</div>
 
-				<div>
-				--------------------------------------------------------- 또는 ---------------------------------------------------------
-				</div>
+				<div class="_12j61cy"><span class="_1ish1khj"><span class="_1rbmiub1">또는</span></span></div>
 				<div class="form-group" >
 					<div class="col-sm-5">
 						<input type="text" class="form-control" id="email" placeholder="이메일 주소" name="email">
@@ -37,7 +53,7 @@
 
 				<div class="form-group">
 					<div class="col-sm-5">
-						<input type="text" class="form-control" id="pw" placeholder="비밀번호" name="pw">
+						<input type="password" class="form-control" id="pw" placeholder="비밀번호" name="pw">
 					</div>
 				</div>
 

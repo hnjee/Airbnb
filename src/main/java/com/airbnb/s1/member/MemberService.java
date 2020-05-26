@@ -2,6 +2,7 @@ package com.airbnb.s1.member;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.servlet.ModelAndView;
 
 @Service
 public class MemberService {
@@ -21,8 +22,14 @@ public class MemberService {
 		return memberDAO.memberLogin(memberVO);
 	}
 
-	public MemberVO loginByGoogle(MemberVO memberVO) throws Exception{
-		return memberDAO.loginByGoogle(memberVO);
+	public ModelAndView loginByGoogle(MemberVO memberVO, ModelAndView mv) throws Exception{
+		String result= "null";
+		memberVO = memberDAO.loginByGoogle(memberVO);
+		if(memberVO != null) {
+			mv.addObject(result, "true");
+			mv.setViewName(memberVO);
+		}
+		return mv;
 	}
 
 }

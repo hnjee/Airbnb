@@ -8,25 +8,10 @@ public class MemberVO {
 	private String email;
 	private String name;
 	private String familyName;
-	private String PW;
+	private String pw;
 	private String phoneNum;
 	private Date joinDate;
 	private String hostDesc;
-
-
-	public String getHostDesc() {
-		return hostDesc;
-	}
-	public void setHostDesc(String hostDesc) {
-		this.hostDesc = hostDesc;
-	}
-	public String getPhoneNum() {
-		return phoneNum;
-	}
-	public void setPhoneNum(String phoneNum) {
-		this.phoneNum = phoneNum;
-	}
-	
 	public String getMemberNum() {
 		return memberNum;
 	}
@@ -51,20 +36,33 @@ public class MemberVO {
 	public void setFamilyName(String familyName) {
 		this.familyName = familyName;
 	}
-	public String getPW() {
-		return PW;
+	public String getPw() {
+		return pw;
 	}
-	public void setPw(String PW) {
-		this.PW = PW;
+	public void setPw(String pw) {
+		this.pw = pw;
 	}
-
+	public String getPhoneNum() {
+		return phoneNum;
+	}
+	public void setPhoneNum(String phoneNum) {
+		this.phoneNum = phoneNum;
+	}
 	public Date getJoinDate() {
 		return joinDate;
 	}
 	public void setJoinDate(Date joinDate) {
 		this.joinDate = joinDate;
 	}
-
+	public String getHostDesc() {
+		return hostDesc;
+	}
+	public void setHostDesc(String hostDesc) {
+		this.hostDesc = hostDesc;
+	}
+	
+	
+	
 
 
 

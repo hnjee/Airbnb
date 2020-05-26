@@ -19,10 +19,8 @@ public class MemberController {
 	@PostMapping("memberJoin")
 	public ModelAndView memberJoin(ModelAndView mv, MemberVO memberVO, HttpSession session) throws Exception {
 
-		session.setAttribute("member", memberVO);
-
 		int result = memberService.memberJoin(memberVO);
-
+		memberVO = memberService.memberLogin(memberVO);
 		System.out.println(result);
 		if (result > 0) {
 			System.out.println("DB생성 성공");
@@ -30,15 +28,39 @@ public class MemberController {
 			System.out.println("실패");
 		}
 
+		mv.setViewName("redirect:../");
+		session.setAttribute("member", memberVO);
 		return mv;
 	}
 
 	@GetMapping("googleLogin")
 	public String googleLogin(MemberVO memberVO, HttpSession session) throws Exception {
-
+		int reuslt = 0;
+		
+		String email = memberVO.getEmail();
+		String name = memberVO.getName();
+		String familyName= memberVO.getFamilyName();
+				
+		System.out.println(memberVO.getEmail());
+		System.out.println(memberVO.getFamilyName());
+		System.out.println(memberVO.getName());
+		
 		memberVO = memberService.loginByGoogle(memberVO);
-
-
+		
+		if(memberVO.getEmail() == "null") {
+			System.out.println("구글 아이디로 회원가입 안되어있음");
+			memberVO.setEmail(email);
+			memberVO.setName(name);
+			memberVO.setFamilyName(familyName);
+			System.out.println(memberVO.getEmail());
+			System.out.println(memberVO.getName());
+			System.out.println(memberVO.getFamilyName());
+			reuslt = memberService.joinByGoogle(memberVO);
+			System.out.println("구글아이디로 회원가입 되었음");
+		}
+		
+		System.out.println("ok");
+		
 		session.setAttribute("member", memberVO);
 
 		return "redirect:../";
@@ -74,6 +96,7 @@ public class MemberController {
 
 	@GetMapping("memberMyPage")
 	public ModelAndView memberMyPage(ModelAndView mv) throws Exception {
+		
 		mv.setViewName("member/testMyPage");
 		return mv;
 	}
