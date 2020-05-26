@@ -18,11 +18,6 @@ public class MemberController {
 
 	@PostMapping("memberJoin")
 	public ModelAndView memberJoin(ModelAndView mv, MemberVO memberVO, HttpSession session) throws Exception {
-		System.out.println("컨트롤러");
-		System.out.println(memberVO.getEmail());
-		System.out.println(memberVO.getName());
-		System.out.println(memberVO.getFamilyName());
-		System.out.println(memberVO.getPW());
 
 		session.setAttribute("member", memberVO);
 
