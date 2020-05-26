@@ -7,35 +7,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 
-<script type="text/javascript">
-	function checkLoginStatus() {
-		var loginBtn = document.querySelector('#googleBtn2');
-		var nameTxt = document.querySelector('#name');
-		if(gauth.isSignedIn.get()){
-			console.log('logined');
-			loginBtn.value = 'Logout';
-			var profile = gauth.currentUser.get().getBasicProfile();
-			console.log(profile.getEmail());
-			console.log(profile.getGivenName());
-			console.log(profile.getFamilyName());
-			console.log(profile.getImageUrl());
-			
-			$.get("./member/googleLogin", 
-					{email : profile.getEmail(), name: profile.getGivenName(), fname:profile.getFamilyName()} ,
-					function(result) {
-					});
-				$('.close').click();
-		}else{
-			$.get("./member/memberLogout",
-					function(result) {
-					});
-			console.log('logouted');
-			loginBtn.value = '구글 아이디로 회원가입';
-			$('.close').click();
-		}
-	}
-	
-</script>
+
 
 </head>
 <body>
@@ -52,18 +24,7 @@
 				
 				<div class="form-group" >
 					<div class="col-sm-5">
-						<input class = "btn btn-success btn-block"type="button" id="googleBtn2" value="구글 아이디로 회원가입" onclick="
-					if(this.value =='구글 아이디로 회원가입'){
-						gauth.signIn().then(function() {
-							checkLoginStatus();
-							location.reload();
-						});
-					}else{
-						gauth.signOut().then(function() {
-							location.reload();
-						});
-					}
-					">
+						<input class = "btn btn-success btn-block"type="button" id="googleBtn2" value="구글 아이디로 회원가입">
 					</div>
 				</div>
 				
@@ -112,7 +73,6 @@
 		gauth = gapi.auth2.init({
 			client_id:'302238433723-r1r5tde3ngh2cgtnpijo0fb2fe2ur5tj.apps.googleusercontent.com'
 		});
-		console.log("아이디 생성 완료");
 			gauth.signIn().then(function() {
 			var profile = gauth.currentUser.get().getBasicProfile();
 				$.get("./member/googleLogin", 
