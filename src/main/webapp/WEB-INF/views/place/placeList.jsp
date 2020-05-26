@@ -148,10 +148,9 @@
 															<div class="_yydl86">
 															<div class="_1na7kj9b">
 																<div class="_e296pg" role="img" aria-busy="false" style="width: 100%; height: 100%;">
-																<div class="_1i2fr3fi" style="width: 100%; height: 100%; background-image: url(&quot;https://a0.muscache.com/im/pictures/eeebcdf4-c294-4449-978d-68592f3481fb.jpg?aki_policy=large&quot;);">
-																
-													
-																</div>
+																<!-- <div class="_1i2fr3fi" style="width: 100%; height: 100%; background-image: url(&quot;https://a0.muscache.com/im/pictures/eeebcdf4-c294-4449-978d-68592f3481fb.jpg?aki_policy=large&quot;);">
+																</div> -->
+																<img style="height: 200px; width: 300px;" alt="" src="${pageContext.request.contextPath}/resources/images/place/${placeVO.placeFileVO.fileName}">
 																</div>
 															</div>
 															</div>
@@ -172,7 +171,7 @@
 												<!-- 컨텐츠 사진 옆 설명 글 -->
 												<div class="_6kiyebe">
 													<div class="_4ntfzh" style="margin-bottom: 8px;">
-													<div class="_13qbppeg">${placeVO.placeType} 전체</div>
+													<div class="_13qbppeg">${placeVO.placeType}</div>
 													</div>
 													
 												<div class="_1jbo9b6h" style="line-height: 24px; max-height: 24px; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 1; -webkit-box-orient: vertical;">

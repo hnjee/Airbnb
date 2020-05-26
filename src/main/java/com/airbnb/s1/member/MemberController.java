@@ -87,6 +87,6 @@ public class MemberController {
 		mv.setViewName("member/testMyPage");
 		return mv;
 	}
-	
+
 
 }
