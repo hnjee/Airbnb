@@ -10,7 +10,7 @@ public class AmenityService {
 	@Autowired
 	private AmenityDAO amenityDAO;
 	
-	public List<Long> amenitySelect(String placeNum) throws Exception{
+	public List<AmenityVO> amenitySelect(String placeNum) throws Exception{
 		return amenityDAO.amenitySelect(placeNum);
 	}
 }
