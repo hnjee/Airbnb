@@ -10,19 +10,12 @@ public class MemberVO {
 	private String familyName;
 	private String pw;
 	private String phoneNum;
-	private Date birthday;
 	
 	public String getPhoneNum() {
 		return phoneNum;
 	}
 	public void setPhoneNum(String phoneNum) {
 		this.phoneNum = phoneNum;
-	}
-	public Date getBirthday() {
-		return birthday;
-	}
-	public void setBirthday(Date birthday) {
-		this.birthday = birthday;
 	}
 	private String memberPicture;
 	private Date joinDate;
