@@ -47,6 +47,18 @@
 	
 </head>
 <body>
+<c:if test="${member.memberNum ne memberNum.memberNum}">
+
+	<script type="text/javascript">
+		$(document).ready(function() {
+			alert("잘못된 접근입니다.");
+			location.href="../";
+		})
+	</script>
+
+</c:if>
+
+<c:if test="${member.memberNum eq memberNum.memberNum}">
 <c:import url="../jsp/header.jsp"></c:import>
 <div class="content">
 	
@@ -91,6 +103,7 @@
 
 <hr>
 <c:import url="../jsp/footer.jsp"></c:import>
+</c:if>
 </body>
 <script type="text/javascript">
 
