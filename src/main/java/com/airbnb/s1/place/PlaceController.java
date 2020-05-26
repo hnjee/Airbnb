@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.airbnb.s1.amenity.AmenityService;
 import com.airbnb.s1.booking.BookingVO;
 import com.airbnb.s1.member.MemberService;
 import com.airbnb.s1.place.placeFile.PlaceFileVO;
@@ -29,9 +28,7 @@ public class PlaceController {
 	private PlaceService placeService;
 	@Autowired
 	private ReviewService reviewService;
-	@Autowired
-	private AmenityService amenityService;
-	
+
 	
 	//fileTest를 위한 매핑
 	@GetMapping("fileTest")
@@ -114,9 +111,7 @@ public class PlaceController {
 		List<PlaceFileVO> placeFileList = placeService.fileList(placeVO);
 		
 		long placeFileTotalNum = placeService.fileCount(pager.getPlaceNum());
-		
-		List<Long> amenities = amenityService.amenitySelect(pager.getPlaceNum());
-			
+
 		mv.addObject("fileTotalNum", placeFileTotalNum);
 		mv.addObject("fileList", placeFileList);
 		mv.addObject("adultNum", adultNum);
