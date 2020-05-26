@@ -28,8 +28,7 @@ public class PlaceController {
 	private PlaceService placeService;
 	@Autowired
 	private ReviewService reviewService;
-	@Autowired
-	private MemberService memberService;
+
 	
 	//fileTest를 위한 매핑
 	@GetMapping("fileTest")
@@ -112,7 +111,7 @@ public class PlaceController {
 		List<PlaceFileVO> placeFileList = placeService.fileList(placeVO);
 		
 		long placeFileTotalNum = placeService.fileCount(pager.getPlaceNum());
-	
+
 		mv.addObject("fileTotalNum", placeFileTotalNum);
 		mv.addObject("fileList", placeFileList);
 		mv.addObject("adultNum", adultNum);
