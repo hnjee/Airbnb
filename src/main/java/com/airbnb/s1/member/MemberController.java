@@ -22,7 +22,7 @@ public class MemberController {
 		System.out.println(memberVO.getEmail());
 		System.out.println(memberVO.getName());
 		System.out.println(memberVO.getFamilyName());
-		System.out.println(memberVO.getPw());
+		System.out.println(memberVO.getPW());
 		
 		session.setAttribute("member", memberVO);
 		
@@ -44,7 +44,7 @@ public class MemberController {
 		System.out.println(memberVO.getEmail());
 		System.out.println(memberVO.getName());
 		System.out.println(memberVO.getFamilyName());
-		System.out.println(memberVO.getPw());
+		System.out.println(memberVO.getPW());
 		return "redirect:../";
 	}
 	
