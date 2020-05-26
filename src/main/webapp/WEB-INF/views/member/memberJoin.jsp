@@ -55,7 +55,7 @@
 		gauth.signIn().then(function() {
 		var profile = gauth.currentUser.get().getBasicProfile();
 			$.get("./member/googleLogin", 
-					{email : profile.getEmail(), name: profile.getGivenName(), familyName:profile.getFamilyName()} ,
+					{email : profile.getEmail(), name: profile.getGivenName()} ,
 					function(result) {
 						location.reload();
 						$('.close').click();

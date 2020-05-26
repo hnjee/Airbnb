@@ -20,7 +20,7 @@
 	</select>
 	 
 	<select id="loginByGoogle" parameterType="MemberVO" resultType="MemberVO">
-		SELECT * FROM MEMBER WHERE email=#{email} and name=#{name}
+		SELECT * FROM MEMBER WHERE email= #{email} and name= #{name}
 	</select>
 	 
 </mapper>
