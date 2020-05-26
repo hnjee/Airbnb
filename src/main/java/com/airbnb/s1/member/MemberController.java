@@ -35,11 +35,25 @@ public class MemberController {
 
 	@GetMapping("googleLogin")
 	public String googleLogin(MemberVO memberVO, HttpSession session, ModelAndView mv) throws Exception {
-		session.setAttribute("member", memberVO);
+		
+		System.out.println("enterController");
+		
 		System.out.println(memberVO.getEmail());
 		System.out.println(memberVO.getName());
 		System.out.println(memberVO.getFamilyName());
+		
+		memberVO = memberService.loginByGoogle(memberVO);
+		
+		if(memberVO == null) {
+			System.out.println("구글로 된 아이디없음");
+			memberService.joinByGoogle(memberVO);
+		}else {
+			System.out.println("구글로 된 아이디 있음");
+		}
+		session.setAttribute("member", memberVO);
+		
 		return "redirect:../";
+		
 	}
 
 	@GetMapping("memberLogout")

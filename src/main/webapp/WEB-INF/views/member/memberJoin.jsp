@@ -57,8 +57,8 @@
 			$.get("./member/googleLogin", 
 					{email : profile.getEmail(), name: profile.getGivenName(), familyName:profile.getFamilyName()} ,
 					function(result) {
-						location.reload();
-						$('.close').click();
+						result.trim();
+						alert(result);
 					});
 		});
 	});
