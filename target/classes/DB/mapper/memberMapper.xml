@@ -7,13 +7,11 @@
 
 	<insert id="memberJoin" parameterType="MemberVO">
 		insert into member values
-		('m'||MEMBER_SEQ.nextval,#{email},#{name},#{familyName},#{pw},#{birtyday},#{phoneNum},#{memberPicture},sysdate);
+		('m'||MEMBER_SEQ.nextval,#{email},#{name},#{familyName},#{PW},#{phoneNum},sysdate)
 	</insert>
  
 	<select id="memberLogin" parameterType="MemberVO" resultType="MemberVO">
-		SELECT * FROM MEMBER WHERE email=#{email} and pw = #{pw}
+		SELECT * FROM MEMBER WHERE email=#{email} and PW = #{PW}
 	</select>
-	
-	
 	 
 </mapper>

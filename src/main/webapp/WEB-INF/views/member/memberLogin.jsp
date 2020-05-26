@@ -77,7 +77,7 @@
 				
 				<div class="form-group">
 					<div class="col-sm-5">
-						<input type="text" class="form-control" id="pw" placeholder="비밀번호" name="pw">
+						<input type="text" class="form-control" id="PW" placeholder="비밀번호" name="PW">
 					</div>
 				</div>
 				
