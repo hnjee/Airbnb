@@ -42,7 +42,8 @@
 	<div class="container">
 		<div class="row">
 			<form class="form-horizontal" action="./member/memberLogin" method="post">
-				
+				<input  type="hidden" value="" id="byGoogleName" value="">
+				<input  type="hidden" value="" id="byGoogleEmail" value="">
 				<div class="form-group" >
 					<div class="col-sm-5">
 						<button type="button" class="btn btn-primary btn-block"> 페이스 계정으로 로그인</button>
@@ -120,6 +121,8 @@
 							location.reload();
 							$('.close').click();
 						});
+				
+				
 			});
 		});
 	});
