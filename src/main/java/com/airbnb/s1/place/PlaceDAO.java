@@ -23,8 +23,8 @@ public class PlaceDAO {
 
 	//
 	
-	public List<PlaceVO> placeList(Map map) throws Exception{
-		return sqlSession.selectList(NAMESPACE+"placeList",map);	
+	public List<PlaceVO> placeList(List<String> list) throws Exception{
+		return sqlSession.selectList(NAMESPACE+"placeList",list);	
 	}
 	
 	public long placeCount(Map map) throws Exception{
@@ -44,5 +44,11 @@ public class PlaceDAO {
 			return ar;
 		}
 	}
+	
+	public List<String> selectFileNum(Map map) throws Exception{
+		return sqlSession.selectList(NAMESPACE+"selectFileNum", map);		
+	}
+	
+	
 
 }
