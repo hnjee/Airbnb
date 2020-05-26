@@ -140,20 +140,32 @@
 				    <hr>
 				    
 				    <h4><strong>Amenities</strong></h4>
-				    <div class="w3-row w3-large">
+					 <div class="w3-row w3-large">
 				      <div class="w3-col s6">
-				        <p><i class="fa fa-fw fa-shower"></i> Shower</p>
-				        <p><i class="fa fa-fw fa-wifi"></i> WiFi</p>
-				        <p><i class="fa fa-fw fa-tv"></i> TV</p>
+				        <p id="am1" ><i class="fa fa-fw fa-shower"></i> Shower</p>
+				        <p id="am2" ><i class="fa fa-fw fa-wifi"></i> WiFi</p>
+				        <p id="am3"><i class="fa fa-fw fa-tv"></i> TV</p>
 				      </div>
 				      <div class="w3-col s6">
-				        <p><i class="fa fa-fw fa-cutlery"></i> Kitchen</p>
-				        <p><i class="fa fa-fw fa-thermometer"></i> Heating</p>
-				        <p><i class="fa fa-fw fa-wheelchair"></i> Accessible</p>
+				        <p id="am4" style="display:none;"><i class="fa fa-fw fa-cutlery"></i> Kitchen</p>
+				        <p id="am5" style="display:none;"><i class="fa fa-fw fa-thermometer"></i> Heating</p>
+				        <p id="am6" style="display:none;"><i class="fa fa-fw fa-wheelchair"></i> Accessible</p>
 				      </div>
 				    </div>
-				    <hr>
-				    
+					<hr>
+					
+					<script type="text/javascript">
+						var list = new Array();
+						
+						//javascript Jquery에서 컨트롤러로부터 받은 List 객체를 넘겨줄 경우 다음과 같이 JSTL을 혼용하여 사용할 수 있다.
+						<c:forEach items="${amenities}" var="am">
+							list.push("${am.amenityKind}");
+						</c:forEach>
+						for(var i=0; i<list.length; i++){
+							$('#am'+list[i]).addClass('show');
+						}
+					</script>
+					
 				    <h4><strong>호스트의 숙소 소개</strong></h4>
 				   	<p style="white-space:pre-line;">${vo.placeDesc}</p>
 				    <p style="margin-top:10px;">We accept: <i class="fa fa-credit-card w3-large"></i> <i class="fa fa-cc-mastercard w3-large"></i> <i class="fa fa-cc-amex w3-large"></i> <i class="fa fa-cc-cc-visa w3-large"></i><i class="fa fa-cc-paypal w3-large"></i></p>

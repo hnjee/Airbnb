@@ -13,8 +13,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.airbnb.s1.amenity.AmenityService;
+import com.airbnb.s1.amenity.AmenityVO;
 import com.airbnb.s1.booking.BookingVO;
-import com.airbnb.s1.member.MemberService;
 import com.airbnb.s1.place.placeFile.PlaceFileVO;
 import com.airbnb.s1.review.ReviewService;
 import com.airbnb.s1.review.ReviewVO;
@@ -29,8 +30,8 @@ public class PlaceController {
 	@Autowired
 	private ReviewService reviewService;
 	@Autowired
-	private MemberService memberService;
-	
+	private AmenityService amenityService;
+
 	//fileTest를 위한 매핑
 	@GetMapping("fileTest")
 	public void fileTest() throws Exception{
@@ -98,7 +99,8 @@ public class PlaceController {
 
 	@GetMapping("placeSelect")
 	public ModelAndView placeSelect(ModelAndView mv, ReviewPager pager,long guestData, String startDate,String endDate, String location, String date, long adultNum, long childNum, long infantNum) throws Exception{
-		PlaceVO placeVO = placeService.placeSelect(pager.getPlaceNum());
+		String placeNum = pager.getPlaceNum();
+		PlaceVO placeVO = placeService.placeSelect(placeNum);
 		
 		List<ReviewVO> reviewVOs = reviewService.reviewSelect(pager);
 		
@@ -108,11 +110,17 @@ public class PlaceController {
 		float ratingSum = reviewService.ratingSum(pager.getPlaceNum());
 		float ratingAvg = ratingSum/reviewCnt;
 
-		List<BookingVO> bookingVOs =  placeService.checkDateSelect(pager.getPlaceNum());
+		List<BookingVO> bookingVOs =  placeService.checkDateSelect(placeNum);
 		List<PlaceFileVO> placeFileList = placeService.fileList(placeVO);
 		
-		long placeFileTotalNum = placeService.fileCount(pager.getPlaceNum());
-	
+		long placeFileTotalNum = placeService.fileCount(placeNum);
+
+		List<AmenityVO> amenities = amenityService.amenitySelect(placeNum);
+		for(AmenityVO am : amenities) {
+		
+		}
+		
+		mv.addObject("amenities", amenities);
 		mv.addObject("fileTotalNum", placeFileTotalNum);
 		mv.addObject("fileList", placeFileList);
 		mv.addObject("adultNum", adultNum);
