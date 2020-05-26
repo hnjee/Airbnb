@@ -20,7 +20,7 @@
 		<result column="checkInTime" property="checkInTime"/>
 		<result column="checkOutTime" property="checkOutTime"/>
 		
-		<collection property="placeFileVOs" javaType="List" ofType="PlaceFileVO">
+		<collection property="placeFileVO" javaType="Object" ofType="PlaceFileVO">
 			<id column="placeFileNum" property="placeFileNum"/>
 			<result column="placeNum" property="placeNum"/>
 			<result column="fileName" property="fileName"/>
