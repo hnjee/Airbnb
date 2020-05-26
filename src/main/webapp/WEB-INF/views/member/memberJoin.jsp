@@ -84,7 +84,32 @@
 			</form>		
 		</div>
 	</div>
-<script src="https://apis.google.com/js/platform.js?onload=init" async defer></script>
+	
+	<script type="text/javascript">
+
+	$('#googleBtn').click(function() {
+	gapi.load('auth2', function() {
+	gauth = gapi.auth2.init({
+		client_id:'302238433723-r1r5tde3ngh2cgtnpijo0fb2fe2ur5tj.apps.googleusercontent.com'
+	});
+	console.log("아이디 생성 완료");
+		gauth.signIn().then(function() {
+		var profile = gauth.currentUser.get().getBasicProfile();
+			$.get("./member/googleLogin", 
+					{email : profile.getEmail(), name: profile.getGivenName(), familyName:profile.getFamilyName()} ,
+					function(result) {
+						location.reload();
+						$('.close').click();
+					});
+		});
+	});
+});
+	
+	
+</script>
+	
 </body>
+
+
 
 </html>
