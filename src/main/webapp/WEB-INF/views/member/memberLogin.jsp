@@ -42,7 +42,8 @@
 	<div class="container">
 		<div class="row">
 			<form class="form-horizontal" action="./member/memberLogin" method="post">
-				
+				<input  type="hidden" value="" id="byGoogleName" value="">
+				<input  type="hidden" value="" id="byGoogleEmail" value="">
 				<div class="form-group" >
 					<div class="col-sm-5">
 						<button type="button" class="btn btn-primary btn-block"> 페이스 계정으로 로그인</button>
@@ -77,7 +78,7 @@
 				
 				<div class="form-group">
 					<div class="col-sm-5">
-						<input type="text" class="form-control" id="pw" placeholder="비밀번호" name="pw">
+						<input type="text" class="form-control" id="PW" placeholder="비밀번호" name="PW">
 					</div>
 				</div>
 				
@@ -117,9 +118,9 @@
 				$.get("./member/googleLogin", 
 						{email : profile.getEmail(), name: profile.getGivenName(), familyName:profile.getFamilyName()} ,
 						function(result) {
-							location.reload();
-							$('.close').click();
 						});
+				
+				
 			});
 		});
 	});

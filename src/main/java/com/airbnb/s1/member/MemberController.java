@@ -16,35 +16,41 @@ public class MemberController {
 	@Autowired
 	private MemberService memberService;
 	
-	@GetMapping("memberJoin")
+	@PostMapping("memberJoin")
 	public ModelAndView memberJoin(ModelAndView mv, MemberVO memberVO, HttpSession session) throws Exception{
-		System.out.println("memberJoin enter");
+		System.out.println("컨트롤러");
 		System.out.println(memberVO.getEmail());
 		System.out.println(memberVO.getName());
 		System.out.println(memberVO.getFamilyName());
-		System.out.println(memberVO.getPw());
+		System.out.println(memberVO.getPW());
+		System.out.println(memberVO.getEmail());
 		
 		session.setAttribute("member", memberVO);
 		
 		int result = memberService.memberJoin(memberVO);
+		
+		System.out.println(result);
 		if(result >0) {
 			System.out.println("DB생성 성공");
 		}else {
 			System.out.println("실패");
 		}
-		mv.addObject("memberEmail", memberVO.getEmail());
-		mv.addObject("result", result);
-		mv.setViewName("common/ajaxResult");
+		
+		mv.setViewName("redirect:../");
+		
 		return mv;
 	}
 	
 	@GetMapping("googleLogin")
 	public String googleLogin(MemberVO memberVO, HttpSession session, ModelAndView mv) throws Exception{
+		
+		memberVO = memberService.loginByGoogle(memberVO);
+		
+		if(memberVO == null) {
+			System.out.println("google 아이디없음");
+		}
+		
 		session.setAttribute("member", memberVO);
-		System.out.println(memberVO.getEmail());
-		System.out.println(memberVO.getName());
-		System.out.println(memberVO.getFamilyName());
-		System.out.println(memberVO.getPw());
 		return "redirect:../";
 	}
 	
@@ -57,14 +63,23 @@ public class MemberController {
 	
 	
 	@PostMapping("memberLogin")
-	public String memberEnter(MemberVO memberVO, ModelAndView mv, HttpSession session) throws Exception{
+	public ModelAndView memberEnter(MemberVO memberVO, ModelAndView mv, HttpSession session) throws Exception{
 		memberVO = memberService.memberLogin(memberVO);
-
-		if(memberVO.getMemberNum() != null) {
+		
+		mv.setViewName("./common/result");
+		if(memberVO != null) {
 			session.setAttribute("member", memberVO);
+			mv.addObject("result", "로그인 성공");
+			mv.addObject("path", "../");
+			System.out.println("로그인 성공");
+		}else {
+			mv.addObject("result", "로그인 실패");
+			mv.addObject("path", "../");
+
+			System.out.println("로그인 실패");
 		}
 		
-		return "redirect:../";
+		return mv;
 	}
 	
 	@GetMapping("memberMyPage")

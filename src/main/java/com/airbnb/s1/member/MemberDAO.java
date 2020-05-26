@@ -15,8 +15,16 @@ public class MemberDAO {
 		return sqlSession.insert(NAMESPACE+"memberJoin", memberVO);
 	}
 	
+	public int joinByGoogle(MemberVO memberVO) throws Exception{
+		return sqlSession.insert(NAMESPACE+"joinByGoogle", memberVO);
+	}
+	
 	public MemberVO memberLogin(MemberVO memberVO) throws Exception{
 		return sqlSession.selectOne(NAMESPACE+"memberLogin", memberVO);
+	}
+	
+	public MemberVO loginByGoogle(MemberVO memberVO) throws Exception{
+		return sqlSession.selectOne(NAMESPACE+"loginByGoogle", memberVO);
 	}
 	
 }
