@@ -85,6 +85,7 @@
 				<td>${bookingVO.payTotal }</td>
 				<td>****-****-****-${bookingVO.payInfo}</td>
 				<td>${bookingVO.payDate}</td>
+				
 			</tr>
 			</c:forEach>
 			
@@ -105,7 +106,7 @@
 	$(this).attr("class", "active");
 	$("#already").removeClass("active");
 	var ajaxOption = {
-            url : "http://localhost:8080/s1/booking/notYet",
+            url : "./notYet",
             
             data : {memberNum:'${member.memberNum}'},
             type : "POST",
@@ -124,7 +125,7 @@
 	$(this).attr("class", "active");
 	$("#yet").removeClass("active");
 	var ajaxOption = {
-            url : "http://localhost:8080/s1/booking/already",
+            url : "./already",
             
             data : {memberNum:'${member.memberNum}'},
             type : "POST",

@@ -19,6 +19,7 @@
 				<td>PayDate</td>
 			</tr>
 			<c:forEach items="${list}" var="bookingVO">
+			
 			<tr>
 				<td>${bookingVO.bookingNum }</td>
 				<td>${bookingVO.placeVO.placeName }</td>
@@ -27,8 +28,36 @@
 				<td>${bookingVO.payTotal }</td>
 				<td>****-****-****-${bookingVO.payInfo}</td>
 				<td>${bookingVO.payDate}</td>
+				<td><button class="btn btn-primary" title="${bookingVO.placeNum }">리뷰쓰기</button></td>
+				
 			</tr>
+			
 			</c:forEach>
 		</table>
+		<script type="text/javascript">
+		$(".btn").click(function() {
+		     
+		        	var placeNum = $(this).attr("title")
+		        	
+		        	var ajaxOption = {
+		                    url : "./review",
+		                    
+		                    data : {placeNum:placeNum},
+		                    type : "POST",
+		                    dataType : "html"
+		                    
+		            };  
+		        	$.ajax(ajaxOption).done(function(data){
+		               
+		                $('.back').children().remove();
+		               
+		                $('.back').html(data);
+		            });
+		        	
+			
+		})
+		
+		</script>
+		
 </body>
 </html>

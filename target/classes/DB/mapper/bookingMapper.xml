@@ -32,6 +32,8 @@
 		insert into booking (bookingNum, placenum, membernum, bookingstat, checkindate, checkoutdate, guestTotal) values('b'||BOOKING_SEQ.nextval,#{placeNum},#{memberNum}, 0,#{checkInDate},#{checkOutDate},#{guestTotal})
 	</insert>
 	
+	
+	
 	<update id="payment" parameterType="BookingVO">
 		update booking set bookingstat=1,
 		paytype = #{payType},
@@ -72,8 +74,7 @@
 		where b.memberNum = #{memberNum} and b.bookingStat=2
 	</select>
 	
-	<select id="memberSelect" parameterType="String" resultType="MemberVO">
-		select name, email, phoneNum from member where memberNum = #{memberNum};
-	</select>
+	
+
 
 </mapper>
