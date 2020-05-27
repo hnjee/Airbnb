@@ -99,7 +99,7 @@ public class MemberController {
 	@GetMapping("memberMyPage")
 	public ModelAndView memberMyPage(ModelAndView mv) throws Exception {
 		
-		mv.setViewName("member/testMyPage");
+		mv.setViewName("member/memberMyPage");
 		return mv;
 	}
 	
@@ -123,6 +123,14 @@ public class MemberController {
 	public void memberFileInsert() throws Exception{
 		
 	}
+	
+	@GetMapping("memberUpdate")
+	public void memberUpdate() throws Exception{
+		
+		
+	}
+	
+	
 	
 
 }
