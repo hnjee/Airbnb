@@ -124,5 +124,13 @@ public class MemberController {
 		
 	}
 	
+	@GetMapping("memberUpdate")
+	public void memberUpdate() throws Exception{
+		
+		
+	}
+	
+	
+	
 
 }
