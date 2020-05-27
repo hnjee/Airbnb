@@ -218,10 +218,10 @@
 				      </div>
 				    </div>
 					<hr>
-					
+					<!-- 숙소에 해당하는 Amenities만 받아와서 표시하는 스크립트 -->
 					<script type="text/javascript">
 						var list = new Array();
-						
+	
 						//javascript Jquery에서 컨트롤러로부터 받은 List 객체를 넘겨줄 경우 다음과 같이 JSTL을 혼용하여 사용할 수 있다.
 						<c:forEach items="${amenities}" var="am">
 							list.push("${am.amenityKind}");
@@ -502,6 +502,7 @@
 								</div>
 								<!-- 게스트 선택 Dropdown 끝 -->
 								
+								<!-- 게스트 선택 Dropdown 열기, 닫기 / 게스트 숫자 변경 버튼 제어 스크립트 -->
 								<script type="text/javascript">
 									$('#guestBtn').click(function(){
 										if(document.getElementById("guestDropdown").classList.contains('show')){
@@ -556,8 +557,7 @@
 										if(adultNum+childNum == '${vo.placeMaxGuest}'){
 											$('#adultAdd').prop('disabled', true);
 											$('#childAdd').prop('disabled', true);
-										}
-										
+										}	
 										
 									});
 									$('#adultSub').click(function(){
@@ -685,7 +685,7 @@
 				</div>
 			</div> <!-- topFixer -->
 			</div> <!-- resWrap -->
-	
+		
 			<script type="text/javascript">
 			$('#rese').click(function() {
 				$('.totalGuest').val($("#totalGuestNum").html());
@@ -929,7 +929,6 @@
 	    	    }
 	    	  }
 	    	}
-	      
 	</script>
 		
 </body>
