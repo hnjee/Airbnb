@@ -6,6 +6,8 @@
 <head>
 <meta charset="UTF-8">
 <title>숙소 - 에어비엔비</title>
+<c:import url="../template/boot.jsp"></c:import>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <link rel="stylesheet" type="text/css" href="../resources/css/headerStyle.css"> 
 <link rel="stylesheet" type="text/css"  href="../resources/css/placeUpdate.css"> 
 <link rel="stylesheet" type="text/css"  href="../resources/css/footer.css"> 
