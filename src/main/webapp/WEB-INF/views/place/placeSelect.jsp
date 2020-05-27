@@ -179,7 +179,7 @@
 				  	
 					<div id="titRight">
 						<div id="hostPic">
-							<img src="https://a0.muscache.com/im/pictures/user/c7afacd0-a5ef-469d-bf31-87e4f81e3940.jpg?aki_policy=profile_x_medium" height="64" width="64">
+							<img src="${pageContext.request.contextPath}/resources/images/member/${hostFile.fileName}" height="64" width="64">
 						</div>
 						<div id="hostName">
 							${vo.name}
@@ -273,7 +273,7 @@
 							<div class="review_one" style="margin-top:20px;">
 						    	<div class="review_user">
 						  	  		<div class="review_user_pic">
-						    			<img src="https://a0.muscache.com/im/pictures/user/42d3a3e4-f462-4d8f-85cb-1a444865ecb2.jpg?aki_policy=profile_x_medium" height="48" width="48" alt="Jina님의 사용자 프로필" title="Jina님의 사용자 프로필">
+						    			<img src="${pageContext.request.contextPath}/resources/images/member/${review.fileName}" height="48" width="48">
 						    		</div>
 						    		<div class="review_user_info" style="margin-left:16px;  font-family: Circular">
 						    			<div style="font-weight: bold;">${review.name}</div>
@@ -375,7 +375,7 @@
 			    			South Korea, 한국 · 회원 가입: 2016년 5월
 			    		</div>
 			    		<div id="hostInfoPic">
-			    			<img src="https://a0.muscache.com/im/pictures/user/c7afacd0-a5ef-469d-bf31-87e4f81e3940.jpg?aki_policy=profile_x_medium" height="64" width="64">
+			    			<img src="${pageContext.request.contextPath}/resources/images/member/${hostFile.fileName}" height="64" width="64">
 			    		</div>
 			    	</div>
 			    	<div id="hostInfo2"> ★ 후기 ${reviewCnt}개 </div>

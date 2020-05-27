@@ -107,7 +107,7 @@ public class MemberController {
 	@GetMapping("memberFileView")
 	public ModelAndView memberFileView(ModelAndView mv, String memberNum) throws Exception{
 		//VO받아오는 서비스 등록하기!!!
-		MemberFileVO memberFileVO = memberService.fileList(memberNum);
+		MemberFileVO memberFileVO = memberService.fileSelect(memberNum);
 		mv.addObject("file", memberFileVO);
 		return mv;
 	}

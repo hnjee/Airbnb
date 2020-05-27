@@ -55,11 +55,9 @@ public class MemberService {
 		return res;
 	}
 	
-	public MemberFileVO fileList(String memberNum) throws Exception{
-		return memberFileDAO.fileList(memberNum);
+	//memberNum으로 MemberFileVO를 가져오는 메서드 fileOne()
+	public MemberFileVO fileSelect(String memberNum) throws Exception{
+		return memberFileDAO.fileSelect(memberNum);	
 	}
-	
-	
-	
-
+		
 }

@@ -15,8 +15,8 @@ public class MemberFileDAO {
 		return sqlSession.insert(NAMESPACE+"fileInsert", memberFileVO);
 	}
 	
-	public MemberFileVO fileList(String memberNum) throws Exception{
-		return sqlSession.selectOne(NAMESPACE+"fileList", memberNum);
+	public MemberFileVO fileSelect(String memberNum) throws Exception{
+		return sqlSession.selectOne(NAMESPACE+"fileSelect", memberNum);
 	}
 
 }
