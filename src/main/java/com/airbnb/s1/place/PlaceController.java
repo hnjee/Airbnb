@@ -197,20 +197,27 @@ public class PlaceController {
 		return mv;
 	}
 	
-	@PostMapping("addPlaceDone")
-	public String addPlaceDone(PlaceVO placeVO,  ModelAndView mv) throws Exception{
-		System.out.println(placeVO.getPlaceName());
-		System.out.println(placeVO.getPlaceType());
-		System.out.println(placeVO.getPlaceMaxGuest());
-		System.out.println(placeVO.getBed());
-		System.out.println(placeVO.getBathroom());
-		System.out.println(placeVO.getPlacePrice());
-		System.out.println(placeVO.getPlaceDesc());
-		System.out.println(placeVO.getPlaceRule());
-		System.out.println(placeVO.getCheckInTime());
-		System.out.println(placeVO.getCheckOutTime());
-		System.out.println(placeVO.getPlaceLocation());
-		return "redirect:../";
+	@PostMapping("addPlace4")
+	public ModelAndView addPlace4(PlaceVO placeVO,  ModelAndView mv) throws Exception{
+//		PlaceFileVO placeFileVO = new PlaceFileVO();
+//		int result = placeService.hostPlaceAdd(placeVO);
+//		
+//		if(result>0) {
+//			System.out.println("placeDB연동성공");
+//		}
+//		
+		mv.setViewName("place/addPlace4");
+		
+		return mv;
 	}
+	
+	@PostMapping("addPlaceDone")
+	public ModelAndView addPlaceDone(PlaceVO placeVO, ModelAndView mv, MultipartFile[] files) throws Exception{
+		System.out.println("이미지 저장하고 들어올곳");
+		mv.setViewName("redirect:../");
+		
+		return mv;
+	}
+	
 	
 }

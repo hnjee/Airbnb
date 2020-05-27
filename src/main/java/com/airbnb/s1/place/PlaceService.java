@@ -23,8 +23,6 @@ public class PlaceService {
 	@Autowired
 	private PlaceDAO placeDAO;
 	
-	
-	
 	//////////////file 이용 시 추가되는 부분
 	@Autowired
 	private FileSaver fileSaver;
@@ -103,6 +101,10 @@ public class PlaceService {
 	
 	public List<BookingVO> checkDateSelect(String placeNum) throws Exception{
 		return placeDAO.checkDateSelect(placeNum);
+	}
+	
+	public int hostPlaceAdd(PlaceVO placeVO) throws Exception{
+		return placeDAO.hostPlaceAdd(placeVO);
 	}
 	
 	

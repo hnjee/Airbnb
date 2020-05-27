@@ -49,5 +49,11 @@ public class PlaceDAO {
 	}
 	
 	
+	public int hostPlaceAdd(PlaceVO placeVO) throws Exception{
+		System.out.println("dao");
+		return sqlSession.insert(NAMESPACE+"hostPlaceAdd", placeVO);
+	}
+	
+	
 
 }

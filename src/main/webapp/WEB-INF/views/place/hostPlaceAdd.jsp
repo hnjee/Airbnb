@@ -210,8 +210,9 @@
 								$('#ajaxContents').html(result);
 							});
 								curPage++;
-								$('#nextPage').html("완료");
+								$('#nextPage').html("다음");
 						}else if(curPage == 3){
+							
 							var placeNameTxt = $('#placeName').val();
 							var typeSelected = $('#pType').val();
 							var MaxGuestSelected = $('#pMaxGuest').val();
@@ -225,8 +226,10 @@
 							var checkOutTimeTxt = $('#pCheckOutTime').val();
 							
 							var placeLocationTxt = $('#placeLocation').val();
+							var memberNum = $('#memberNum').val();
 // 							$(location).attr('href','../');
-							$.post("addPlaceDone", 
+							
+							$.post("addPlace4", 
 								{placeName:placeNameTxt,
 								placeType:typeSelected,
 								placeMaxGuest:MaxGuestSelected,
@@ -238,14 +241,18 @@
 								placeRule:placeRuleTxt,
 								checkInTime:checkInTimeTxt,
 								checkOutTime:checkOutTimeTxt,
-								placeLocation:placeLocationTxt
+								placeLocation:placeLocationTxt,
+								memberNum:memberNum
+								
 								},function(result) {
-									alert("숙소 등록 성공");
+									result = result.trim();
+									$('#ajaxContents').html(result);
+									
 							});
+							curPage++;
+							$('#nextPage').html("완료");
 						}
-					});
-					var loc = "${vo.placeLocation}";	//검색어
-					map0(loc);
+				});
 				</script>
 </body>
 </html>

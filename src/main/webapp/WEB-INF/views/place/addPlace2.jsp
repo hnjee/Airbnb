@@ -15,7 +15,7 @@
 </div>
 
 <input class="input-block" id="placePrice" type="text"
-						placeholder="예)10000">
+						placeholder="예)10000" value="${pVo.placePrice}">
 
 <div class="_1mbllh6j">
 	<div class="_s1tlw0m">숙소에 대한 정보를 적어주세요.</div>

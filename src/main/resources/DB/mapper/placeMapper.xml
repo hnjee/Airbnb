@@ -73,8 +73,9 @@
 		GROUP BY (F.placeNum)
 	</select>
 	
-	<insert id="placeHostAdd" parameterType="PlaceVO" >
-		
+	<insert id="hostPlaceAdd" parameterType="PlaceVO">
+			insert into place values
+		('p'||place_seq.nextval,#{memberNum},#{placeName},#{placeLocation},#{placePrice},'image',#{placeType},#{placeMaxGuest},#{placeDesc},#{placeRule},#{bed},#{bathroom},#{checkInTime},#{checkOutTime})
 	</insert>
 	
 
