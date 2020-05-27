@@ -22,14 +22,8 @@ public class MemberService {
 		return memberDAO.memberLogin(memberVO);
 	}
 
-	public ModelAndView loginByGoogle(MemberVO memberVO, ModelAndView mv) throws Exception{
-		String result= "null";
-		memberVO = memberDAO.loginByGoogle(memberVO);
-		if(memberVO != null) {
-			mv.addObject(result, "true");
-			mv.setViewName(memberVO);
-		}
-		return mv;
+	public MemberVO loginByGoogle(MemberVO memberVO) throws Exception{
+		return memberDAO.loginByGoogle(memberVO);
 	}
 
 }
