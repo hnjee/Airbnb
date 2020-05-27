@@ -56,7 +56,7 @@
 					</div>
 					</td>
 				</tr>
-	
+				<!-- 예시용으로 한개 더 넣어놓은 것. 실제로는 placeList를  memberNum으로 검색해서 가져온 List를 forEach로 받아오면 됩니다 -->
 				<tr>
 					<td>2</td>
 					<td id="td_place" style="text-align: left;">
