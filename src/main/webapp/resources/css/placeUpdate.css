@@ -15,6 +15,11 @@
     color: #484848 !important;
     padding: 16px 0 8px; 
     box-sizing: border-box;	
+    font-family
+:
+
+Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif !important;
+    
     
 }
 
@@ -41,9 +46,7 @@
 #place_table>tbody>tr{
 	height: 80px; 
 	box-sizing: border-box;
-	    border-bottom-style: solid !important;
-    border-bottom-width: 1px !important;
-    border-bottom-color: #F2F2F2 !important;
+
 }
 
 #place_table tbody tr td{

@@ -2,29 +2,32 @@
 *{
   margin:0px;
   padding: 0px;
-  box-sizing: content-box;
+  box-sizing: content-box;	
 }
 footer{
 	width: 1600px;
 	height: 398px;
 	padding: 0px 80px;
 	margin: 0 auto;
-	
+	box-sizing: content-box !important;	
 }
 #footerWrap{
 	border-top: 1px solid #F2F2F2;
+	box-sizing: content-box !important;	
 }
 #footer1{
 	width: 1624px;
 	height: 233px;
 	padding: 48px 0;
 	margin: 0 -12px;
+	box-sizing: content-box !important;	
 } 
 #footer2{
 	width: 1600px;
 	height: 20px;
 	padding: 24px 0px;
 	border-top: 1px solid #DDDDDD;
+	box-sizing: content-box !important;	
 }
 .footer1_sec{
 	float: left;

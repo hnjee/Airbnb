@@ -34,19 +34,18 @@
 						<button type="button" class="_547li01" aria-expanded="false" aria-label="언어와 통화">
 							<div class="_iglww7">
 								<div class="_z5mecy" aria-hidden="true">
-									<div class="_xpkakx">
-										<svg aria-hidden="true" role="presentation" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" style="display: block; height: 16px; width: 16px; fill: currentcolor;">
+									<div class="_xpkakx" style="float: left; margin-right: 6px ">
+										<svg aria-hidden="true" role="presentation" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" style="vertical-align: center; height: 16px; width: 16px; fill: currentcolor;">
 										<path d="M1.24 11.251h3.307c.323 1.698.898 3.14 1.656 4.032a7.515 7.515 0 0 1-4.964-4.032zm13.52 0a7.516 7.516 0 0 1-4.962 4.032c.757-.892 1.332-2.334 1.655-4.033zm-4.849 0C9.473 13.298 8.685 14.75 8 14.75s-1.473-1.452-1.911-3.5zm.242-5.001a15.91 15.91 0 0 1 0 3.501H5.847a15.91 15.91 0 0 1 0-3.501zm5.142 0a7.52 7.52 0 0 1 0 3.5h-3.629a18.251 18.251 0 0 0 0-3.5zm-14.59 0h3.628a18.252 18.252 0 0 0 0 3.5H.706a7.52 7.52 0 0 1 0-3.5zM9.798.717A7.516 7.516 0 0 1 14.76 4.75h-3.307c-.308-1.612-.841-2.993-1.542-3.892zm-3.596 0c-.757.893-1.332 2.334-1.656 4.034L1.24 4.75A7.517 7.517 0 0 1 6.119.738zM8 1.25c.685 0 1.473 1.452 1.911 3.5H6.09c.437-2.048 1.225-3.5 1.91-3.5z">
 										</path>
 										</svg>
 									</div>
-								
-									<div>
-										<svg width="9" height="6" viewBox="0 0 9 6" fill="none" style="display: block;">
-										<path d="M1 1L4.5 4.5L8 1" stroke="currentcolor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-										</path>
-										</svg>
-									</div>								
+
+									<svg width="9" height="6" viewBox="0 0 9 6" fill="none" style="float: left; position: relative; top: 6px; ">
+									<path d="M1 1L4.5 4.5L8 1" stroke="currentcolor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+									</path>
+									</svg>
+					
 								</div>
 							</div>
 						</button>
@@ -90,30 +89,28 @@
 				</c:if>
 				
 				</div>
-					<div>
-				<c:if test="${empty member}">
-				<input type="button" class="_sxo1l2o" value="로그인" id="memberLogin">	
-				</c:if>
 				
-				<c:if test="${not empty member}">
-					<div class="btn-group">
-				      <button type="button" class="_sxo1l2o dropdown-toggle" data-toggle="dropdown" id="idClick">
-				      ${member.name} </button>
-				      <ul class="dropdown-menu" role="menu">
-				        <li><a href="#"><b>메시지</b></a></li>
-				        <li><a href="#"><b>알림</b></a></li>
-				        <li><a href="http://localhost:8080/s1/booking/bookingList?memberNum=${member.memberNum }"><b>여행</b></a></li>
-				        <li><a href="#"><b>저장목록</b></a></li>
-				        <li role="presentation" class="divider"></li>
-				        
-
-				        <li><a href="${pageContext.request.contextPath}/member/memberMyPage">계정</a></li>
-				        <li><a href="${pageContext.request.contextPath}/member/memberLogout" id="logOut">로그아웃</a></li>
-
-				      </ul>
-				    </div>
-				</c:if>
-					</div>
+				<div>
+					<c:if test="${empty member}">
+					<input type="button" class="_sxo1l2o" value="로그인" id="memberLogin">	
+					</c:if>
+					
+					<c:if test="${not empty member}">
+						<div class="btn-group">
+					      <button type="button" class="_sxo1l2o dropdown-toggle" data-toggle="dropdown" id="idClick"> ${member.name} </button>
+					      <ul class="dropdown-menu" role="menu">
+					        <li><a href="#"><b>메시지</b></a></li>
+					        <li><a href="#"><b>알림</b></a></li>
+					        <li><a href="http://localhost:8080/s1/booking/bookingList?memberNum=${member.memberNum}"><b>여행</b></a></li>
+					        <li><a href="#"><b>저장목록</b></a></li>
+					        <li role="presentation" class="divider"></li>
+					        
+					        <li><a href="${pageContext.request.contextPath}/member/memberMyPage">계정</a></li>
+					        <li><a href="${pageContext.request.contextPath}/member/memberLogout" id="logOut">로그아웃</a></li>
+					      </ul>
+					    </div>
+					</c:if>
+				</div>
 			</nav>
 		</div>	
 	</div>
