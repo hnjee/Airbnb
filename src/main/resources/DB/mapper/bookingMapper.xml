@@ -66,12 +66,14 @@
 		select b.*, p.placenum, p.placename, p.placeLocation from booking b left join place p
 		on b.placenum = p.placenum
 		where b.memberNum = #{memberNum} and b.bookingStat=1
+		order by bookingNum DESC
 	</select>
 	
 	<select id="already" parameterType="BookingVO" resultMap="BookingVO">
 		select b.*, p.placenum, p.placename, p.placeLocation from booking b left join place p
 		on b.placenum = p.placenum
 		where b.memberNum = #{memberNum} and b.bookingStat=2
+		order by bookingNum DESC
 	</select>
 	
 	<select id="bookingResult" parameterType="String" resultMap="BookingVO">

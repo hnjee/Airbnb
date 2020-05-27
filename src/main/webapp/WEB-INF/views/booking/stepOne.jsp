@@ -260,7 +260,7 @@
 					<div class="tag"> ${vo.placeName }</div>
 					<div class="font">${vo.name }의 아파트 전체</div>
 					
-					<div>★★★★★ <span style="font-size: 12px">후기 {___}개</span></div>
+					
 				</div>
 				<div class="img"> <img src="${pageContext.request.contextPath}/resources/images/place/${fileList[0].fileName}" width="100px" height="120px" >
 				</div>
