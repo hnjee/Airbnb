@@ -100,7 +100,7 @@
 				      <button type="button" class="_sxo1l2o dropdown-toggle" data-toggle="dropdown" id="idClick">
 				      ${member.name} </button>
 				      <ul class="dropdown-menu" role="menu">
-				        <li><a href="#"><b>메시지</b></a></li>
+				        <li><a href="http://localhost:8080/s1/message/checkMessage?memberNum=${member.memberNum }"><b>메시지</b></a></li>
 				        <li><a href="#"><b>알림</b></a></li>
 				        <li><a href="http://localhost:8080/s1/booking/bookingList?memberNum=${member.memberNum }"><b>여행</b></a></li>
 				        <li><a href="#"><b>저장목록</b></a></li>

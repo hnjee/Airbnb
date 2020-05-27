@@ -1,5 +1,9 @@
+<%@page import="com.airbnb.s1.message.MessageVO"%>
+<%@page import="java.util.HashSet"%>
+<%@page import="java.util.Set"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
@@ -41,7 +45,7 @@
 	
 </head>
 <body>
-<c:if test="${member.memberNum ne memberNum.memberNum}">
+<c:if test="${member.memberNum ne memberNum}">
 
 	<script type="text/javascript">
 		$(document).ready(function() {
@@ -52,7 +56,7 @@
 
 </c:if>
 
-<c:if test="${member.memberNum eq memberNum.memberNum}">
+<c:if test="${member.memberNum eq memberNum}">
 <c:import url="../jsp/header.jsp"></c:import>
 <div class="content">
 	
@@ -60,31 +64,23 @@
 
   <h2><b>여행</b></h2>
   <ul class="nav nav-tabs">
-    <li class="active c" id="yet"><a href="#"><b>예정된 예약</b></a></li>
-    <li class="c" id="already"><a href="#"><b>이전 예약</b></a></li>
+    <li class="active c" id="yet"><a href="#"><b>받은 메시지함</b></a></li>
+    <li class="c" id="already"><a href="#"><b>보낸 메시지함</b></a></li>
     
   </ul>
 		
 		<div class="back">
 		<table class="table table-hover">
 			<tr>
-				<td>BookingNumber</td>
-				<td>PlaceName</td>
-				<td>CheckInDate</td>
-				<td>CheckOutDate</td>
-				<td>PayTotal</td>
-				<td>PayInfo</td>
-				<td>PayDate</td>
+				
+				<td><h2>Name</h2></td>
+				
 			</tr>
-			<c:forEach items="${list}" var="bookingVO">
+			<c:forEach items="${list}" var="vo">
+			
 			<tr>
-				<td>${bookingVO.bookingNum }</td>
-				<td>${bookingVO.placeVO.placeName }</td>
-				<td>${bookingVO.checkInDate }</td>
-				<td>${bookingVO.checkOutDate }</td>
-				<td>${bookingVO.payTotal }</td>
-				<td>****-****-****-${bookingVO.payInfo}</td>
-				<td>${bookingVO.payDate}</td>
+				<td><button class="btn btn-success" title="${vo.s_memberNum }">${vo.sendName }</button></td>
+				
 				
 			</tr>
 			</c:forEach>
@@ -106,7 +102,7 @@
 	$(this).attr("class", "active");
 	$("#already").removeClass("active");
 	var ajaxOption = {
-            url : "./notYet",
+            url : "./sendWho",
             
             data : {memberNum:'${member.memberNum}'},
             type : "POST",
@@ -125,7 +121,7 @@
 	$(this).attr("class", "active");
 	$("#yet").removeClass("active");
 	var ajaxOption = {
-            url : "./already",
+            url : "./receiveWho",
             
             data : {memberNum:'${member.memberNum}'},
             type : "POST",
@@ -139,6 +135,29 @@
         $('.back').html(data);
     });
 	})
+	
+	$(".btn").click(function() {
+		
+		     
+		        	var s_memberNum = $(this).attr("title")
+		        	var memberNum = ${member.memberNum}
+		        	var ajaxOption = {
+		                    url : "./messageWindow",
+		                    
+		                    data : {memberNum:memberNum, s_memberNum:s_memberNum},
+		                    type : "POST",
+		                    dataType : "html"
+		                    
+		            };  
+		        	$.ajax(ajaxOption).done(function(data){
+		               
+		                $('.back').children().remove();
+		               
+		                $('.back').html(data);
+		            });
+		        	
+			
+		})
 </script>
 
 </html>

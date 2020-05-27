@@ -248,9 +248,8 @@
 	}
 	.host {
 		float : right;
-		border: 1px silver solid;
-		width: 48px;
-		height: 48px;
+		width: 64px;
+		height: 64px;
 	}
 	
  	
@@ -311,7 +310,7 @@
 			      <input type="radio" name="optradio" class="ch"> YES
 			    </label>
 			    <label class="radio-inline">
-			      <input type="radio" name="optradio" required="required" class="ch"> NO
+			      <input type="radio" checked="checked" required="required" class="ch"> NO
 			    </label>
 			  </form>
 			  <br><br><br><br>
@@ -321,7 +320,7 @@
 			${vo.name } 님에게 간단히 자신을 소개하고 여행 목적에 대해 알려주세요.
 			</div>
 			</div>
-			<div class="host"></div>
+			<div class="host"><img src="${pageContext.request.contextPath}/resources/images/member/${hostFile.fileName}" height="64" width="64"></div>
 			<form>
 			    <div class="form-group">
 			      <textarea class="form-control" rows="5" id="comment" placeholder="안녕하세요? 숙소에서 보낼 시간이 기대됩니다." required="required"></textarea>
@@ -345,7 +344,7 @@
 			<div class="side1">
 				<div class="tags">
 					<div class="tag"> ${vo.placeName }</div>
-					<div class="font">${vo.name }의 아파트 전체</div>
+					<div class="font">${vo.placeLocation }의 <br>${vo.placeType }</div>
 					
 					
 				</div>
