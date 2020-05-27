@@ -99,7 +99,7 @@ public class MemberController {
 	@GetMapping("memberMyPage")
 	public ModelAndView memberMyPage(ModelAndView mv) throws Exception {
 		
-		mv.setViewName("member/testMyPage");
+		mv.setViewName("member/memberMyPage");
 		return mv;
 	}
 	
