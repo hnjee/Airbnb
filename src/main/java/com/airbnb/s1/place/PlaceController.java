@@ -225,20 +225,21 @@ public class PlaceController {
 
 	@PostMapping("addPlaceDone")
 	public ModelAndView addPlaceDone(PlaceVO placeVO, ModelAndView mv, MultipartFile[] files, HttpServletRequest request) throws Exception{
+		System.out.println(placeVO.getPlaceNum());
 		AmenityVO amenityVO = new AmenityVO();
-		
+		amenityVO.setPlaceNum(placeVO.getPlaceNum());
 		String[] amenities = request.getParameterValues("amenity");
 		
 		for(int i=0; i < amenities.length; i++ ) {
 			amenityVO.setAmenityKind(Integer.parseInt(amenities[i]));
-			System.out.println(amenityVO.getAmenityKind());
-//			amenityService.amenityAdd(amenityVO);
-//			System.out.println(amenities[i]);
+			amenityService.amenityAdd(amenityVO);
+			System.out.println("어메니티 다 저장함");
 		}
 		
 		System.out.println("이미지 저장하고 들어올곳");
 		System.out.println(placeVO.getPlaceNum());
 		System.out.println(placeVO.getPlaceLocation());
+		placeVO.setPlaceNum("p"+placeVO.getPlaceNum());
 		int result = placeService.fileInsert(placeVO.getPlaceNum(), files);
 		
 		if(result>0) {
