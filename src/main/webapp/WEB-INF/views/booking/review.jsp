@@ -46,6 +46,8 @@
 </head>
 
 <body>
+
+<br><br><br>
 <div class="img">
 <img src="${pageContext.request.contextPath}/resources/images/place/${fileList[0].fileName}" width="250px" height="180px" >
 </div>
@@ -76,6 +78,7 @@
 			    <input type="button" class="btn btn-success" value="뒤로 가기" style="float:right">
 		</form>
 </div>
+
 
 <script type="text/javascript">
 	$('.starRev span').click(function(){
