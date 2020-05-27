@@ -215,7 +215,9 @@
 <c:if test="${not empty member}">
 <div class="header">
 	<div class="logo">
+		<a href="${pageContext.request.contextPath}">
 		<img alt="" src="../resources/w3images/logo1.png">
+		</a>
 	</div>
 	<ul class="header1">
 		<li><span><b>1. 숙소 이용규칙 확인 > </b></span>
