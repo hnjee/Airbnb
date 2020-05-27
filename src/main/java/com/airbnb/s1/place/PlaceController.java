@@ -198,7 +198,18 @@ public class PlaceController {
 	}
 	
 	@PostMapping("addPlaceDone")
-	public String addPlaceDone(PlaceVO placeVO, ModelAndView mv) throws Exception{
+	public String addPlaceDone(PlaceVO placeVO,  ModelAndView mv) throws Exception{
+		System.out.println(placeVO.getPlaceName());
+		System.out.println(placeVO.getPlaceType());
+		System.out.println(placeVO.getPlaceMaxGuest());
+		System.out.println(placeVO.getBed());
+		System.out.println(placeVO.getBathroom());
+		System.out.println(placeVO.getPlacePrice());
+		System.out.println(placeVO.getPlaceDesc());
+		System.out.println(placeVO.getPlaceRule());
+		System.out.println(placeVO.getCheckInTime());
+		System.out.println(placeVO.getCheckOutTime());
+		System.out.println(placeVO.getPlaceLocation());
 		return "redirect:../";
 	}
 	

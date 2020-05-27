@@ -181,7 +181,7 @@
 							});
 							curPage++;
 						} else if (curPage == 2) {
-							var placeNameTxt = $('#pName').val();
+							var placeNameTxt = $('#placeName').val();
 							var typeSelected = $('#pType').val();
 							var MaxGuestSelected = $('#pMaxGuest').val();
 							var bedSelected = $('#pBed').val();
@@ -212,7 +212,7 @@
 								curPage++;
 								$('#nextPage').html("완료");
 						}else if(curPage == 3){
-							var placeNameTxt = $('#pName').val();
+							var placeNameTxt = $('#placeName').val();
 							var typeSelected = $('#pType').val();
 							var MaxGuestSelected = $('#pMaxGuest').val();
 							var bedSelected = $('#pBed').val();

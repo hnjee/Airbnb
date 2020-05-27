@@ -75,9 +75,11 @@
 						</div>
 					</div>
 				
+				<c:if test="${not empty member}">
 				<a class="_547li01" href="/s1/place/hostPlaceAdd">
 				<div class="_iglww7">숙소 호스트 되기</div>
 				</a>
+				</c:if>
 				
 				<a class="_547li01" href="/help" data-no-client-routing="" id="field-guide-toggle">
 				<div class="_iglww7">도움말</div>
