@@ -2,17 +2,25 @@ package com.airbnb.s1.review;
 
 import java.sql.Date;
 
+import com.airbnb.s1.member.memberFile.MemberFileVO;
+
 public class ReviewVO {
-	private String name;
 	private String reviewNum; 
 	private String placeNum;
 	private String memberNum;
 	private float reviewRate; 
 	private String reviewDesc;
 	private Date reviewDate;
-
+	private String name;
+	private String fileName;
 	
 	
+	public String getFileName() {
+		return fileName;
+	}
+	public void setFileName(String fileName) {
+		this.fileName = fileName;
+	}
 	public String getName() {
 		return name;
 	}

@@ -5,11 +5,13 @@
   
 <mapper namespace="com.airbnb.s1.review.ReviewDAO">
 	<select id="reviewSelect" parameterType="ReviewPager" resultType="ReviewVO">
-		select T.*, name from
-	          (select RV.*, rownum R from 
-	                                  (select * from review where placeNum=#{placeNum} and reviewDesc like '%'||#{search}||'%') RV) T
-	    join member on (T.memberNum = member.memberNum)
-	    where R between #{startRow} and #{lastRow}
+	 	select L.*, fileName from 
+				(select T.*, name from
+						(select RV.*, rownum R from 
+								(select * from review where placeNum=#{placeNum} and reviewDesc like '%'||#{search}||'%') RV) T 
+				left outer join member on (T.memberNum = member.memberNum)) L 
+		left outer join memberFile F on(L.memberNum = f.memberNum)
+		where R between #{startRow} and #{lastRow}
 	</select>
 	
 	<!-- 해당 숙소의 리뷰 총 개수 -->
@@ -22,4 +24,8 @@
 	<select id="ratingSum" parameterType="String" resultType="Float">
 		select sum(reviewRate) from review where placeNum=#{placeNum} 
 	</select>	
+	
+	<insert id="reviewInsert" parameterType="ReviewVO">
+		insert into review values ('r'||review_SEQ.nextval, #{placeNum}, #{memberNum}, #{reviewRate}, #{reviewDesc}, sysdate)
+	</insert>
 </mapper>

@@ -6,7 +6,11 @@
   
 <mapper	namespace="com.airbnb.s1.message.MessageDAO">
 
-
-
+	<insert id="send" parameterType="MemberVO">
+		insert into message values (message_seq.nextval, #{s_memberNum}, #{sendName}, #{r_memberNum}, #{receiveName}, #{message}, sysdate )
+	
+	</insert>
+	
+	
 
 </mapper>

@@ -11,6 +11,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.airbnb.s1.booking.BookingVO;
+import com.airbnb.s1.member.memberFile.MemberFileDAO;
+import com.airbnb.s1.member.memberFile.MemberFileVO;
 import com.airbnb.s1.place.placeFile.PlaceFileDAO;
 import com.airbnb.s1.place.placeFile.PlaceFileVO;
 import com.airbnb.s1.util.FileSaver;
@@ -22,7 +24,11 @@ public class PlaceService {
 
 	@Autowired
 	private PlaceDAO placeDAO;
+
+	@Autowired 
+	private MemberFileDAO memberFileDAO;
 	
+
 	//////////////file 이용 시 추가되는 부분
 	@Autowired
 	private FileSaver fileSaver;

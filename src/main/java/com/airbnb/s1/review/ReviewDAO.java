@@ -26,4 +26,9 @@ public class ReviewDAO {
 	public Float ratingSum(String placeNum) throws Exception{
 		return sqlSession.selectOne(NAMESPACE+"ratingSum", placeNum);
 	}
+	
+	public int reviewInsert(ReviewVO reviewVO) throws Exception{
+		return sqlSession.insert(NAMESPACE+"reviewInsert", reviewVO);
+	}
+	
 }

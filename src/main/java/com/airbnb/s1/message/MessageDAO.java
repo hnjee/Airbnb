@@ -10,4 +10,8 @@ public class MessageDAO {
 	private SqlSession sqlSession;
 	
 	private final String NAMESPACE = "com.airbnb.s1.message.MessageDAO.";
+	
+	public int send(MessageVO messageVO) throws Exception {
+		return sqlSession.insert(NAMESPACE+"send", messageVO);
+	}
 }

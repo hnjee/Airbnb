@@ -17,6 +17,8 @@ public class ReviewService {
 		pager.makeRow();
 		long totalCount = reviewDAO.reviewCount(pager); //전체글의 개수 가져오기 
 		pager.makePage(totalCount);
+		
+		
 		return reviewDAO.reviewSelect(pager);
 	}
 	public Long reviewCount(ReviewPager pager) throws Exception{
@@ -25,4 +27,8 @@ public class ReviewService {
 	public Float ratingSum(String placeNum) throws Exception{
 		return reviewDAO.ratingSum(placeNum);
 	}
+	public int reviewInsert(ReviewVO reviewVO) throws Exception{
+		return reviewDAO.reviewInsert(reviewVO);
+	}
+	
 }
