@@ -9,7 +9,7 @@
 	</select>
 	
 	<insert id="amenityAdd" parameterType="AmenityVO">
-		insert into amenity values(#{placeNum},#{amenityKind})
+		insert into amenity values('p'||#{placeNum},#{amenityKind})
 	</insert>
 	
 </mapper>
