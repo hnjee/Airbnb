@@ -4,18 +4,25 @@ import java.sql.Date;
 
 public class MessageVO {
 	
-	private long messageNumber;
+	private long messageNum;
 	private String s_memberNum;
 	private String sendName;
 	private String r_memberNum;
 	private String receiveName;
 	private String message;
 	private Date sendDate;
-	public long getMessageNumber() {
-		return messageNumber;
+	private String placeNum;
+	public String getPlaceNum() {
+		return placeNum;
 	}
-	public void setMessageNumber(long messageNumber) {
-		this.messageNumber = messageNumber;
+	public void setPlaceNum(String placeNum) {
+		this.placeNum = placeNum;
+	}
+	public long getMessageNum() {
+		return messageNum;
+	}
+	public void setMessageNum(long messageNum) {
+		this.messageNum = messageNum;
 	}
 	public String getS_memberNum() {
 		return s_memberNum;
@@ -53,5 +60,6 @@ public class MessageVO {
 	public void setSendDate(Date sendDate) {
 		this.sendDate = sendDate;
 	}
+	
 
 }

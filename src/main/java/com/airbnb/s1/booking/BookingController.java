@@ -185,9 +185,14 @@ public class BookingController {
 		
 		return mv;
 	}
+	
 	@RequestMapping(value = "result")
-	public ModelAndView result(ModelAndView mv, BookingVO bookingVO) throws Exception {
-		
+	public ModelAndView result(ModelAndView mv, String bookingNum) throws Exception {
+		BookingVO bookingVO = bookingService.bookingResult(bookingNum);
+		PlaceVO placeVO = placeService.placeSelect(bookingVO.getPlaceNum());
+		List<PlaceFileVO> placeFileList = placeService.fileList(placeVO);
+		mv.addObject("fileList", placeFileList);
+		mv.addObject("vo", bookingVO);
 		mv.setViewName("booking/result");
 		return mv;
 	}

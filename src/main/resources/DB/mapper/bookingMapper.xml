@@ -46,7 +46,7 @@
 	<update id="outRoom" parameterType="BookingVO">
 		<![CDATA[
 		update booking set bookingstat=2
-		where checkoutDate <=sysdate
+		where checkoutDate <=sysdate and bookingstat=1
 		]]>
 	</update>
 	
@@ -74,6 +74,11 @@
 		where b.memberNum = #{memberNum} and b.bookingStat=2
 	</select>
 	
+	<select id="bookingResult" parameterType="String" resultMap="BookingVO">
+		select b.*, p.placenum, p.placename, p.placeLocation from booking b left join place p
+		on b.placenum = p.placenum
+		where b.bookingNum = #{bookingNum}
+	</select>
 	
 
 

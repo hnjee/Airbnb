@@ -932,7 +932,7 @@
 
 	      
 	      $(".sendMessage").click(function() {
-	    	  $(location).attr('href',"http://localhost:8080/s1/message/send?r_memberNum=${vo.memberNum}&receiveName=${vo.name}");
+	    	  $(location).attr('href',"http://localhost:8080/s1/message/send?r_memberNum=${vo.memberNum}&receiveName=${vo.name}&placeNum=${vo.placeNum}");
 		})
 	      
 
