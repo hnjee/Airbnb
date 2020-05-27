@@ -77,7 +77,7 @@
 					      <li><a href="#">삭제</a></li>
 					    </ul>
 					</div>
-					</td>ㄴ
+					</td>
 				</tr>
 			</tbody>
 		</table>
