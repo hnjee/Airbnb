@@ -22,4 +22,9 @@
 	<select id="ratingSum" parameterType="String" resultType="Float">
 		select sum(reviewRate) from review where placeNum=#{placeNum} 
 	</select>	
+	
+	<insert id="reviewInsert" parameterType="ReviewVO">
+		insert into review values ('r'||review_SEQ.nextval, #{placeNum}, #{memberNum}, #{reviewRate}, #{reviewDesc}, sysdate)
+	</insert>
+	
 </mapper>

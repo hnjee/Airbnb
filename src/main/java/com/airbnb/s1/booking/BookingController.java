@@ -17,6 +17,9 @@ import org.springframework.web.servlet.ModelAndView;
 import com.airbnb.s1.member.MemberVO;
 import com.airbnb.s1.place.PlaceService;
 import com.airbnb.s1.place.PlaceVO;
+import com.airbnb.s1.place.placeFile.PlaceFileVO;
+import com.airbnb.s1.review.ReviewService;
+import com.airbnb.s1.review.ReviewVO;
 
 
 
@@ -28,16 +31,19 @@ public class BookingController {
 	private BookingService bookingService;
 	@Autowired
 	private PlaceService placeService;
+	@Autowired
+	private ReviewService reviewService;
 
 	@RequestMapping(value = "stepOne", method = RequestMethod.GET)
 	public ModelAndView booking1(ModelAndView mv, String placeNum, java.sql.Date checkInDate, java.sql.Date checkOutDate, int guestTotal) throws Exception {
 		PlaceVO placeVO = placeService.placeSelect(placeNum);
-		
+		List<PlaceFileVO> placeFileList = placeService.fileList(placeVO);
 		 long calDate = checkOutDate.getTime() - checkInDate.getTime(); 
 	       
 	     long calDateDays = calDate / ( 24*60*60*1000); 
 	 
 	     calDateDays = Math.abs(calDateDays);
+	     mv.addObject("fileList", placeFileList);
 		mv.addObject("days", calDateDays);
 		mv.addObject("vo", placeVO);
 		mv.addObject("checkInDate", checkInDate);
@@ -50,12 +56,13 @@ public class BookingController {
 	@RequestMapping(value = "stepTwo", method = RequestMethod.GET)
 	public ModelAndView booking2(ModelAndView mv, String placeNum, java.sql.Date checkInDate, java.sql.Date checkOutDate, int guestTotal) throws Exception {
 		PlaceVO placeVO = placeService.placeSelect(placeNum);
+		List<PlaceFileVO> placeFileList = placeService.fileList(placeVO);
 		 long calDate = checkOutDate.getTime() - checkInDate.getTime(); 
 	       
 	     long calDateDays = calDate / ( 24*60*60*1000); 
 	 
 	     calDateDays = Math.abs(calDateDays);
-
+	     mv.addObject("fileList", placeFileList);
 		mv.addObject("days", calDateDays);
 		mv.addObject("vo", placeVO);
 		mv.addObject("checkInDate", checkInDate);
@@ -74,6 +81,9 @@ public class BookingController {
 	 
 	     calDateDays = Math.abs(calDateDays);
 	     PlaceVO placeVO = placeService.placeSelect(bookingVO.getPlaceNum());
+	     List<PlaceFileVO> placeFileList = placeService.fileList(placeVO);
+	     
+	     mv.addObject("fileList", placeFileList);
 	     mv.addObject("vo", placeVO);
 		mv.addObject("days", calDateDays);
 		
@@ -144,6 +154,35 @@ public class BookingController {
 		
 		mv.addObject("list", ar);
 		mv.setViewName("jsp/notYet");
+		return mv;
+	}
+	
+	@RequestMapping(value="review", method = RequestMethod.POST)
+	public ModelAndView review(ModelAndView mv, String placeNum) throws Exception {
+		
+		PlaceVO placeVO = placeService.placeSelect(placeNum);
+		List<PlaceFileVO> placeFileList = placeService.fileList(placeVO);
+		
+		mv.addObject("vo", placeVO);
+		mv.addObject("fileList", placeFileList);
+		mv.addObject("placeNum", placeNum);
+		mv.setViewName("booking/review");
+		
+		return mv;
+	}
+	
+	@RequestMapping(value="reviewInsert", method = RequestMethod.POST)
+	public ModelAndView reviewInsert(ModelAndView mv, ReviewVO reviewVO) throws Exception {
+		reviewService.reviewInsert(reviewVO);
+		BookingVO bookingVO = new BookingVO();
+		bookingVO.setMemberNum(reviewVO.getMemberNum());
+		
+		List<BookingVO> ar = bookingService.notYet(bookingVO);
+		
+		mv.addObject("list", ar);
+		mv.addObject("memberNum", bookingVO);
+		mv.setViewName("booking/myPage");
+		
 		return mv;
 	}
 }

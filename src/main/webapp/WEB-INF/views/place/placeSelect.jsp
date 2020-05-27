@@ -382,7 +382,7 @@
 			    	<div id="hostInfo4" style="margin-top: 15px; white-space:pre-line;"> ${vo.hostDesc} </div>
 			    	
 			    	<div id="hostInfo3">
-			    		<button>호스트에게 연락하기</button>
+			    		<button class="sendMessage">호스트에게 연락하기</button>
 			    	</div>
 			    	 <!-- 클릭하면 이메일 전송 -->
 			    	  <hr>
@@ -929,6 +929,13 @@
 	    	    }
 	    	  }
 	    	}
+
+	      
+	      $(".sendMessage").click(function() {
+	    	  $(location).attr('href',"http://localhost:8080/s1/message/send?r_memberNum=${vo.memberNum}&receiveName=${vo.name}");
+		})
+	      
+
 	</script>
 		
 </body>

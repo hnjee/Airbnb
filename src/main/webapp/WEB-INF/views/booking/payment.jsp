@@ -47,7 +47,7 @@
 			        
 			        
 			        
-				    $.post("http://localhost:8080/s1/booking/payment", {payType:'1', payInfo:'${payInfo}', payTotal: ${vo.placePrice}*${days}+${vo.placePrice}*0.06/*rsp.paid_amount*/, bookingNum:'${bvo.bookingNum}'}, function(result) {
+				    $.post("./payment", {payType:'1', payInfo:'${payInfo}', payTotal: ${vo.placePrice}*${days}+${vo.placePrice}*0.06/*rsp.paid_amount*/, bookingNum:'${bvo.bookingNum}'}, function(result) {
 						
 						if (result>0){
 							alert(msg);

@@ -25,4 +25,8 @@ public class ReviewService {
 	public Float ratingSum(String placeNum) throws Exception{
 		return reviewDAO.ratingSum(placeNum);
 	}
+	public int reviewInsert(ReviewVO reviewVO) throws Exception{
+		return reviewDAO.reviewInsert(reviewVO);
+	}
+	
 }
