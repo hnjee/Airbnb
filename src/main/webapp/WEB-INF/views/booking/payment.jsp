@@ -68,7 +68,7 @@
 			        alert(msg);
 			    }
 				
-				opener.location.href="./result";
+				opener.location.href="./result?bookingNum=${bvo.bookingNum}";
 				window.close();
 			   
 			}

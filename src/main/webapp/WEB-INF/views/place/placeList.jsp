@@ -38,7 +38,7 @@
 
 <link rel="stylesheet" type="text/css" href="../resources/css/listHeaderStyle.css">
 <link rel="stylesheet" type="text/css" href="../resources/css/listMainStyle.css">
- <link rel="stylesheet" type="text/css" href="../resources/css/listFooter.css">
+<link rel="stylesheet" type="text/css" href="../resources/css/footer.css">
 </head>
 <body>
 
@@ -353,7 +353,6 @@
 					
 			<!-- Footer start -->
 			<c:import url="../jsp/footer.jsp"></c:import>
-			
 			<!-- Footer End -->
 		</div>
 		</div>	

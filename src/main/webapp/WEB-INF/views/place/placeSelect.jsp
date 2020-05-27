@@ -10,7 +10,7 @@
 	<!-- 화면 css -->
 	<link rel="stylesheet" type="text/css" href="../resources/css/selectHeaderStyle.css">
 	<link rel="stylesheet" type="text/css" href="../resources/css/placeSelect.css">
-	<link rel="stylesheet" type="text/css"  href="../resources/css/listFooter.css"> 
+	<link rel="stylesheet" type="text/css"  href="../resources/css/footer.css"> 
 
 	<!-- contents부분 template-->
 	<meta name="viewport" content="width=device-width, initial-scale=1">	
@@ -24,9 +24,6 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	
 	<style type="text/css">
-		footer{
-			padding: 0px 80px 80px 80px;
-		}
 		body,h1,h2,h3,h4,h5,h6 {
 			font-family: "Raleway", Arial, Helvetica, sans-serif;
 			color: rgb(72, 72, 72);
@@ -40,6 +37,9 @@
 
 		._37g0dr4{
 			font-family: Circular !important;
+		}
+		footer{
+			box-sizing: content-box !important;
 		}
 	</style>
 </head>
@@ -932,7 +932,7 @@
 
 	      
 	      $(".sendMessage").click(function() {
-	    	  $(location).attr('href',"http://localhost:8080/s1/message/send?r_memberNum=${vo.memberNum}&receiveName=${vo.name}");
+	    	  $(location).attr('href',"http://localhost:8080/s1/message/send?r_memberNum=${vo.memberNum}&receiveName=${vo.name}&placeNum=${vo.placeNum}");
 		})
 	      
 

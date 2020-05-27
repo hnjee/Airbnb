@@ -41,5 +41,9 @@ public class BookingDAO {
 		
 		return sqlSession.update(NAMESPACE+"outRoom", bookingVO);
 	}
+	
+	public BookingVO bookingResult(String bookingNum) throws Exception {
+		return sqlSession.selectOne(NAMESPACE+"bookingResult", bookingNum);
+	}
 
 }
