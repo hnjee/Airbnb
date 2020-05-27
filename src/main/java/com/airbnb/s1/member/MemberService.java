@@ -40,7 +40,7 @@ public class MemberService {
 	}
 	
 	public int fileInsert(String memberNum, MultipartFile file) throws Exception{
-		String path="C:\\workspaceSpring\\Airbnb\\src\\main\\webapp\\resources\\images\\member";		
+		String path="C:\\hj\\workspace\\Airbnb\\src\\main\\webapp\\resources\\images\\member";		
 		System.out.println("실제 저장 경로: "+path);
 		
 		int res = 0;
