@@ -23,6 +23,21 @@
 		SELECT * FROM MEMBER WHERE email= #{email}
 	</select>
 
+	<update id="memberUpdate1" parameterType="MemberVO">
+		update member set name=#{name}, familyName=#{familyName} where memberNum=#{memberNum}
+	</update>
+	
+	<update id="memberUpdate2" parameterType="MemberVO">
+		update member set email=#{email} where memberNum=#{memberNum}
+	</update>
+	
+	<update id="memberUpdate3" parameterType="MemberVO">
+		update member set pw=#{pw} where memberNum=#{memberNum}
+	</update>
+	
+	<update id="memberUpdate4" parameterType="MemberVO">
+		update member set phoneNum=#{phoneNum} where memberNum=#{memberNum}
+	</update>
 
 
 </mapper>

@@ -124,15 +124,45 @@ public class MemberController {
 	
 	@GetMapping("memberUpdate")
 	public void memberUpdate() throws Exception{
-
 		
 	}
 	
-	@GetMapping("placeUpdate")
-	public void placeUpdate() throws Exception{
+	@PostMapping("memberUpdate")
+	public void memberUpdate(MemberVO memberVO, HttpSession session) throws Exception{
+		
+		String name = memberVO.getName();
+		String familyName= memberVO.getFamilyName();
+		
+		String email = memberVO.getEmail();
+		
+		String pw = memberVO.getPw();
+		
+		String phoneNum = memberVO.getPhoneNum();
+		
+		memberVO=(MemberVO)session.getAttribute("member");
+		
+		if(name == memberVO.getName() && familyName == memberVO.getFamilyName()) {
+			System.out.println(name);
+			System.out.println(memberVO.getName());
+			System.out.println("----");
+			System.out.println(familyName);
+			System.out.println(memberVO.getFamilyName());
+		}else {
+			
+		}
+		
+		
+		
 		
 	}
+	
+	
+	@GetMapping("placeUpdate")
+	public void placeUpdate() throws Exception{
+	}
 
+	
+	
 	
 	@GetMapping("placeEdit")
 	public void placeEdit() throws Exception{

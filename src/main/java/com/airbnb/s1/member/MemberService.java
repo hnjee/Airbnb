@@ -60,4 +60,8 @@ public class MemberService {
 		return memberFileDAO.fileSelect(memberNum);	
 	}
 		
+	public int memberUpdate(MemberVO memberVO) throws Exception{
+		return memberDAO.member
+	}
+	
 }

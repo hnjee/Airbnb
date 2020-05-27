@@ -91,7 +91,7 @@
 					<div class="_en5l15m">
 					<div class="_9hxttoo">
 					<div style="margin-bottom: 8px;">
-					<label class="_rin72m" for="first_name">
+					<label class="_rin72m" for="name">
 					<div class="_czm8crp">이름</div>
 					</label>
 					</div>
@@ -99,7 +99,7 @@
 					<div dir="ltr">
 					<div class="_1wcr140x">
 					<div class="_178faes">
-					<input class="_14fdu48d" id="first_name" name="first_name" type="text" value="firstName"></div>
+					<input class="_14fdu48d" id="name" name="name" type="text" value="${member.name}"></div>
 					</div>
 					</div>
 					</div>
@@ -116,7 +116,7 @@
 					<div dir="ltr">
 					<div class="_1wcr140x">
 					<div class="_178faes">
-					<input class="_14fdu48d" id="last_name" name="last_name" type="text" value="lastName"></div>
+					<input class="_14fdu48d" id="familyName" name="familyName" type="text" value="${member.familyName}"></div>
 					</div>
 					</div>
 					
@@ -178,7 +178,7 @@
 					<div class="_1wcr140x">
 					<div class="_178faes">
 					
-					<input class="_14fdu48d" id="email" name="email" type="text" value="air1@gmail.com"></div>
+					<input class="_14fdu48d" id="email" name="email" type="text" value="${member.email}"></div>
 					</div>
 					</div>
 					</div>
@@ -234,7 +234,7 @@
 					<div class="_1wcr140x">
 					<div class="_178faes">
 					
-					<input class="_14fdu48d" id="pw" name="pw" type="password" value="비밀번호 변경"></div>
+					<input class="_14fdu48d" id="pw" name="pw" type="password" value="${member.pw}"></div>
 					</div>
 					</div>
 					</div>
@@ -290,7 +290,7 @@
 					<div class="_1wcr140x">
 					<div class="_178faes">
 					
-					<input class="_14fdu48d" id="phoneNum" name="phoneNum" type="text" value="010-1234-7890"></div>
+					<input class="_14fdu48d" id="phoneNum" name="phoneNum" type="text" value="${member.phoneNum}"></div>
 					</div>
 					</div>
 					</div>

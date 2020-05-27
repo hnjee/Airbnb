@@ -28,4 +28,9 @@ public class MemberDAO {
 		return sqlSession.selectOne(NAMESPACE+"loginByGoogle", memberVO);
 	}
 
+	public int memberUpdate(MemberVO memberVO) throws Exception{
+		return sqlSession.update(NAMESPACE, memberVO);
+	}
+	
+	
 }
