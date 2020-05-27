@@ -17,4 +17,8 @@ public class AmenityDAO {
 		return sqlSession.selectList(NAMESPACE+"amenitySelect", placeNum);	
 	}
 	
+	public int amenityAdd(AmenityVO amenityVO)throws Exception{
+		return sqlSession.insert(NAMESPACE+"amenityAdd", amenityVO);
+	}
+	
 }

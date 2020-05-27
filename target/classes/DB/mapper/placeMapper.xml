@@ -79,7 +79,7 @@
 		</selectKey>
 	
 			insert into place values
-		(#{placeNum},#{memberNum},#{placeName},#{placeLocation},#{placePrice},'image',#{placeType},#{placeMaxGuest},#{placeDesc},#{placeRule},#{bed},#{bathroom},#{checkInTime},#{checkOutTime})
+		('p'||#{placeNum},#{memberNum},#{placeName},#{placeLocation},#{placePrice},'image',#{placeType},#{placeMaxGuest},#{placeDesc},#{placeRule},#{bed},#{bathroom},#{checkInTime},#{checkOutTime})
 	</insert>
 	
 

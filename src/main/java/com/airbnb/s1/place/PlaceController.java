@@ -5,6 +5,9 @@ import java.sql.Date;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -221,7 +224,18 @@ public class PlaceController {
 	}
 
 	@PostMapping("addPlaceDone")
-	public ModelAndView addPlaceDone(PlaceVO placeVO, ModelAndView mv, MultipartFile[] files) throws Exception{
+	public ModelAndView addPlaceDone(PlaceVO placeVO, ModelAndView mv, MultipartFile[] files, HttpServletRequest request) throws Exception{
+		AmenityVO amenityVO = new AmenityVO();
+		
+		String[] amenities = request.getParameterValues("amenity");
+		
+		for(int i=0; i < amenities.length; i++ ) {
+			amenityVO.setAmenityKind(Integer.parseInt(amenities[i]));
+			System.out.println(amenityVO.getAmenityKind());
+//			amenityService.amenityAdd(amenityVO);
+//			System.out.println(amenities[i]);
+		}
+		
 		System.out.println("이미지 저장하고 들어올곳");
 		System.out.println(placeVO.getPlaceNum());
 		System.out.println(placeVO.getPlaceLocation());

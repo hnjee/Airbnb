@@ -5,9 +5,11 @@
   
 <mapper namespace="com.airbnb.s1.amenity.AmenityDAO">
 	<select id="amenitySelect" parameterType="String" resultType="AmenityVO">
-		select amenityKind from amenity where placeNum=#{placeNum}
+		select * from amenity where placeNum=#{placeNum}
 	</select>
 	
-	
+	<insert id="amenityAdd" parameterType="AmenityVO">
+		insert into amenity values(#{placeNum},#{amenityKind})
+	</insert>
 	
 </mapper>
