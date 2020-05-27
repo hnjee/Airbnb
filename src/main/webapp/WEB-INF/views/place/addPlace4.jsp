@@ -16,10 +16,9 @@
 <form action="./addPlaceDone" id="formData" method="POST" enctype="multipart/form-data">
 
 <input type="button" id="add" class="btn btn-info" value="AddFile">
-<input type="hidden" id="placeNum" value="${place.placeNum}">
+<input type="hidden" readonly="readonly" id="placeNum"  name="placeNum" value="${placeNum}">
 <div id="file"></div>
 
-<button type="button" id="writeButton" class="btn btn-default">Submit</button>
 </form>
 
 <script type="text/javascript">
@@ -40,7 +39,7 @@
 	});
 	
 	
-	$('#writeButton').on("click",function(){
+	$('#nextPage').on("click",function(){
 		//title, contents 데이터 유무 검증
 		var ch3 = true;
 		

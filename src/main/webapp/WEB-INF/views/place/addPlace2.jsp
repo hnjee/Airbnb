@@ -3,10 +3,10 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <input type="hidden"  id="placeName" value="${pVo.placeName}">
-<input type="hidden"  id="pType" value="${pVo.placeType}">
-<input type="hidden"  id="pMaxGuest" value="${pVo.placeMaxGuest}">
-<input type="hidden"  id="pBed" value="${pVo.bed}">
-<input type="hidden"  id="pBathroom" value="${pVo.bathroom}">
+<input type="hidden"  id="placeType" value="${pVo.placeType}">
+<input type="hidden"  id="placeMaxGuest" value="${pVo.placeMaxGuest}">
+<input type="hidden"  id="bed" value="${pVo.bed}">
+<input type="hidden"  id="bathroom" value="${pVo.bathroom}">
 
 
 
