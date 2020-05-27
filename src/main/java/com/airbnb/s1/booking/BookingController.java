@@ -185,4 +185,11 @@ public class BookingController {
 		
 		return mv;
 	}
+	@RequestMapping(value = "result")
+	public ModelAndView result(ModelAndView mv, BookingVO bookingVO) throws Exception {
+		
+		mv.setViewName("booking/result");
+		return mv;
+	}
+	
 }

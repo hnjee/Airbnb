@@ -68,7 +68,7 @@
 			        alert(msg);
 			    }
 				
-				opener.location.href="../"
+				opener.location.href="./result";
 				window.close();
 			   
 			}
