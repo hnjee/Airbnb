@@ -27,7 +27,7 @@
 	<link rel="stylesheet" type="text/css" href="./resources/css/searchBoxStyle.css">
 	<link rel="stylesheet" type="text/css" href="./resources/css/headerStyle.css"> 
 	<link rel="stylesheet" type="text/css" href="./resources/css/index_contents.css">
-	<link rel="stylesheet" type="text/css"  href="./resources/css/indexFooter.css"> 
+	<link rel="stylesheet" type="text/css"  href="./resources/css/footer.css"> 
 
 </head>
 
