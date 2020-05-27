@@ -24,7 +24,6 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	
 	<style type="text/css">
-		
 		footer{
 			padding: 0px 80px 80px 80px;
 		}
@@ -42,7 +41,6 @@
 		._37g0dr4{
 			font-family: Circular !important;
 		}
-
 	</style>
 </head>
 <body>
@@ -55,6 +53,7 @@
 	<main id="mainWrap">
 		<!-- 1. 위쪽 사진 -->
 		<div id="picWrap">
+			<!-- 1-1. 대표 사진들 -->
 			<div id="pics">
 				<div id="pic1">
 					<img src="${pageContext.request.contextPath}/resources/images/place/${fileList[0].fileName}" height="712.5" width="951">
@@ -77,7 +76,7 @@
 				</div>
 			</div>
 			
-			
+			<!-- 1-2. 링크 복사 -->
 			<div id="btnTop">
 				<button class="picBtn" onclick="myFunction()"> 링크복사 </button>
 				<script>
@@ -94,10 +93,76 @@
 				}
 			</script>
 			</div>
+			
+			<!-- 1-3. 사진 모두 보기 (모달) -->
 			<div id="btnBtm">
 				<button class="picBtn" onclick="document.getElementById('id01').style.display='block'"> 사진 모두 보기 </button>
 			</div>
+			<!-- Picture Modal -->
+			<div id="id01" class="w3-modal">
+				<div class="w3-modal-content w3-animate-opacity">
+			    <div>
+			      <div class="w3-container">
+		    		<div id="modal_top">
+		    		
+		    			<span id="curPicNum">1</span>/${fileTotalNum}
+		    			<span onclick="document.getElementById('id01').style.display='none'" class="w3-button w3-display-topright">&times;</span>
+		    		</div>
+		   	  		<div id="madal_con">
+			     		<button id="modal_leftBtn" style="position: absolute; top: 316px; left: 15px"class="w3-button w3-xlarge w3-circle modalBtn"> <svg aria-hidden="true" role="presentation" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" style="display: block; fill: none; height: 12px; width: 12px; stroke: currentcolor; stroke-width: 5.33333; overflow: visible;"><g fill="none"><path d="m20 28-11.29289322-11.2928932c-.39052429-.3905243-.39052429-1.0236893 0-1.4142136l11.29289322-11.2928932"></path></g></svg> </button>
+						<c:catch>
+							<c:forEach items="${fileList}" var="file" varStatus="status">	
+								<img class="modal_img" id="img${status.count}" src="${pageContext.request.contextPath}/resources/images/place/${file.fileName}">
+							</c:forEach>
+						</c:catch>
+			     		<button id="modal_rightBtn" style="position: absolute; top: 316px; left:1252px;"class="w3-button w3-xlarge w3-circle modalBtn"> <svg aria-hidden="true" role="presentation" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" style="display: block; fill: none; height: 12px; width: 12px; stroke: currentcolor; stroke-width: 5.33333; overflow: visible;"><g fill="none"><path d="m12 4 11.2928932 11.2928932c.3905243.3905243.3905243 1.0236893 0 1.4142136l-11.2928932 11.2928932"></path></g></svg> </button>
+		     		</div>
+			      </div>
+			    </div>
+			    </div>
+			</div>
+			<script>
+				// Get the modal
+				var modal = document.getElementById('id01');
+				
+				// When the user clicks anywhere outside of the modal, close it
+				$(document).click(function(e){
+					if(e.target == modal){
+						modal.style.display = "none";	
+					}
+				});
+				
+				//처음 세팅 
+				var imgNum = 1;
+				$('#curPicNum').html(imgNum);
+				$('#img1').addClass('show');
+				
+				//버튼 클릭시 세팅
+				$('#modal_leftBtn').click(function(){
+					var imgNum = $('#curPicNum').html();
+					$('#img'+imgNum).removeClass('show');
+		
+					if(imgNum>1){
+						imgNum--;
+					} 
+					$('#curPicNum').html(imgNum);
+					$('#img'+imgNum).addClass('show');
+				});
+				
+				$('#modal_rightBtn').click(function(){
+					var imgNum = $('#curPicNum').html();
+					$('#img'+imgNum).removeClass('show');
+		
+					if(imgNum<'${fileTotalNum}'){
+						imgNum++;
+					} 
+					$('#curPicNum').html(imgNum);
+					$('#img'+imgNum).addClass('show');
+				});
+			</script>
 		</div>
+		
+		
 		<!-- 2. 아래쪽 설명/예약 -->
 		<div id="descWrap">
 			<!-- 2-1. 왼쪽 설명 파트-->
@@ -153,10 +218,10 @@
 				      </div>
 				    </div>
 					<hr>
-					
+					<!-- 숙소에 해당하는 Amenities만 받아와서 표시하는 스크립트 -->
 					<script type="text/javascript">
 						var list = new Array();
-						
+	
 						//javascript Jquery에서 컨트롤러로부터 받은 List 객체를 넘겨줄 경우 다음과 같이 JSTL을 혼용하여 사용할 수 있다.
 						<c:forEach items="${amenities}" var="am">
 							list.push("${am.amenityKind}");
@@ -247,8 +312,7 @@
 						</div>
 					</div>
 				</div>
-			    
-			    
+		
 			     <!-- review ajax -->
 				 <script type="text/javascript">	
 				 	var search="";
@@ -438,6 +502,7 @@
 								</div>
 								<!-- 게스트 선택 Dropdown 끝 -->
 								
+								<!-- 게스트 선택 Dropdown 열기, 닫기 / 게스트 숫자 변경 버튼 제어 스크립트 -->
 								<script type="text/javascript">
 									$('#guestBtn').click(function(){
 										if(document.getElementById("guestDropdown").classList.contains('show')){
@@ -492,8 +557,7 @@
 										if(adultNum+childNum == '${vo.placeMaxGuest}'){
 											$('#adultAdd').prop('disabled', true);
 											$('#childAdd').prop('disabled', true);
-										}
-										
+										}	
 										
 									});
 									$('#adultSub').click(function(){
@@ -621,7 +685,7 @@
 				</div>
 			</div> <!-- topFixer -->
 			</div> <!-- resWrap -->
-	
+		
 			<script type="text/javascript">
 			$('#rese').click(function() {
 				$('.totalGuest').val($("#totalGuestNum").html());
@@ -660,68 +724,6 @@
 	<!-- Footer Start -->
 	<c:import url="../jsp/footer.jsp"></c:import>
 	<!-- Footer End -->
-	
-	
-	<!-- Picture Modal -->
-	<div id="id01" class="w3-modal">
-		<div class="w3-modal-content w3-animate-opacity">
-	    <div>
-	      <div class="w3-container">
-    		<div id="modal_top"><span id="curPicNum">1</span>/${fileTotalNum}</div>
-   	  		<div id="madal_con">
-	     		<button id="modal_leftBtn" style="position: absolute; top: 316px; left: 15px"class="w3-button w3-xlarge w3-circle modalBtn"> <svg aria-hidden="true" role="presentation" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" style="display: block; fill: none; height: 12px; width: 12px; stroke: currentcolor; stroke-width: 5.33333; overflow: visible;"><g fill="none"><path d="m20 28-11.29289322-11.2928932c-.39052429-.3905243-.39052429-1.0236893 0-1.4142136l11.29289322-11.2928932"></path></g></svg> </button>
-				<c:catch>
-					<c:forEach items="${fileList}" var="file" varStatus="status">	
-						<img class="modal_img" id="img${status.count}" src="${pageContext.request.contextPath}/resources/images/place/${file.fileName}">
-					</c:forEach>
-				</c:catch>
-	     		<button id="modal_rightBtn" style="position: absolute; top: 316px; left:1252px;"class="w3-button w3-xlarge w3-circle modalBtn"> <svg aria-hidden="true" role="presentation" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" style="display: block; fill: none; height: 12px; width: 12px; stroke: currentcolor; stroke-width: 5.33333; overflow: visible;"><g fill="none"><path d="m12 4 11.2928932 11.2928932c.3905243.3905243.3905243 1.0236893 0 1.4142136l-11.2928932 11.2928932"></path></g></svg> </button>
-     		</div>
-	      </div>
-	    </div>
-	    </div>
-	</div>
-		
-	<script>
-		// Get the modal
-		var modal = document.getElementById('id01');
-		
-		// When the user clicks anywhere outside of the modal, close it
-		window.onclick = function(event) {
-		  if (event.target == modal) {
-		    modal.style.display = "none";
-		  }
-		}
-	 	
-		//처음 세팅 
-		var imgNum = 1;
-		$('#curPicNum').html(imgNum);
-		$('#img1').addClass('show');
-		
-		//버튼 클릭시 세팅
-		$('#modal_leftBtn').click(function(){
-			var imgNum = $('#curPicNum').html();
-			$('#img'+imgNum).removeClass('show');
-
-			if(imgNum>1){
-				imgNum--;
-			} 
-			$('#curPicNum').html(imgNum);
-			$('#img'+imgNum).addClass('show');
-		});
-		
-		$('#modal_rightBtn').click(function(){
-			var imgNum = $('#curPicNum').html();
-			$('#img'+imgNum).removeClass('show');
-
-			if(imgNum<'${fileTotalNum}'){
-				imgNum++;
-			} 
-			$('#curPicNum').html(imgNum);
-			$('#img'+imgNum).addClass('show');
-		});
-		
-	</script>
 	
 	<!-- Java Script 파일 삽입-->
 	<!-- Kakao API -->
@@ -927,7 +929,6 @@
 	    	    }
 	    	  }
 	    	}
-	      
 	</script>
 		
 </body>
