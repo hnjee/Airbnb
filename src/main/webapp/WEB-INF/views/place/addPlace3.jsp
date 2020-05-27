@@ -2,16 +2,16 @@
     pageEncoding="UTF-8"%>
 
 <input type="hidden"  id="placeName" value="${pVo.placeName}">
-<input type="hidden"  id="pType" value="${pVo.placeType}">
-<input type="hidden"  id="pMaxGuest" value="${pVo.placeMaxGuest}">
-<input type="hidden"  id="pBed" value="${pVo.bed}">
-<input type="hidden"  id="pBathroom" value="${pVo.bathroom}">
+<input type="hidden"  id="placeType" value="${pVo.placeType}">
+<input type="hidden"  id="placeMaxGuest" value="${pVo.placeMaxGuest}">
+<input type="hidden"  id="bed" value="${pVo.bed}">
+<input type="hidden"  id="bathroom" value="${pVo.bathroom}">
 
-<input type="hidden"  id="pPrice" value="${pVo.placePrice}">
-<input type="hidden"  id="pDesc" value="${pVo.placeDesc}">
-<input type="hidden"  id="pRule" value="${pVo.placeRule}">
-<input type="hidden"  id="pCheckInTime" value="${pVo.checkInTime}">
-<input type="hidden"  id="pCheckOutTime" value="${pVo.checkOutTime}">
+<input type="hidden"  id="placePrice" value="${pVo.placePrice}">
+<input type="hidden"  id="placeDesc" value="${pVo.placeDesc}">
+<input type="hidden"  id="placeRule" value="${pVo.placeRule}">
+<input type="hidden"  id="checkInTime" value="${pVo.checkInTime}">
+<input type="hidden"  id="checkOutTime" value="${pVo.checkOutTime}">
 <input type="hidden"  id="memberNum" value="${member.memberNum}">
 
 

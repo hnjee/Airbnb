@@ -55,7 +55,7 @@
 
 					<div class="_wlf6154">
 						<div class="_y9ev9r">
-							<select id="placeMaxGuest" name="bedrooms" class="_bwyiq2l"><option
+							<select id="placeMaxGuest" name="placeMaxGuest" class="_bwyiq2l"><option
 									value="1">1</option>
 								<option value="2">2</option>
 								<option value="3">3</option>
@@ -98,7 +98,7 @@
 
 					<div class="_wlf6154">
 						<div class="_y9ev9r">
-							<select id="bathroom" name="bedrooms" class="_bwyiq2l"><option
+							<select id="bathroom" name="bathroom" class="_bwyiq2l"><option
 									value="1">1</option>
 								<option value="2">2</option>
 								<option value="3">3</option>
@@ -182,10 +182,10 @@
 							curPage++;
 						} else if (curPage == 2) {
 							var placeNameTxt = $('#placeName').val();
-							var typeSelected = $('#pType').val();
-							var MaxGuestSelected = $('#pMaxGuest').val();
-							var bedSelected = $('#pBed').val();
-							var bathroomSelected = $('#pBathroom').val();
+							var typeSelected = $('#placeType').val();
+							var MaxGuestSelected = $('#placeMaxGuest').val();
+							var bedSelected = $('#bed').val();
+							var bathroomSelected = $('#bathroom').val();
 							
 							var placePriceTxt = $('#placePrice').val();
 							var placeDescTxt = $('#placeDesc').val();
@@ -214,16 +214,16 @@
 						}else if(curPage == 3){
 							
 							var placeNameTxt = $('#placeName').val();
-							var typeSelected = $('#pType').val();
-							var MaxGuestSelected = $('#pMaxGuest').val();
-							var bedSelected = $('#pBed').val();
-							var bathroomSelected = $('#pBathroom').val();
+							var typeSelected = $('#placeType').val();
+							var MaxGuestSelected = $('#placeMaxGuest').val();
+							var bedSelected = $('#bed').val();
+							var bathroomSelected = $('#bathroom').val();
 							
-							var placePriceTxt = $('#pPrice').val();
-							var placeDescTxt = $('#pDesc').val();
-							var placeRuleTxt = $('#pRule').val();
-							var checkInTimeTxt = $('#pCheckInTime').val();
-							var checkOutTimeTxt = $('#pCheckOutTime').val();
+							var placePriceTxt = $('#placePrice').val();
+							var placeDescTxt = $('#placeDesc').val();
+							var placeRuleTxt = $('#placeRule').val();
+							var checkInTimeTxt = $('#checkInTime').val();
+							var checkOutTimeTxt = $('#checkOutTime').val();
 							
 							var placeLocationTxt = $('#placeLocation').val();
 							var memberNum = $('#memberNum').val();
