@@ -22,6 +22,9 @@
 
 <textarea class="input-block" id="placeLocation" placeholder="예) 서울시 마포구 서교동" 
 						style="height : 50px;"></textarea>
+		
+		
+		
 						
 
 

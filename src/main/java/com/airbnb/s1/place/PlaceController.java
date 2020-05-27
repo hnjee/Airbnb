@@ -236,4 +236,19 @@ public class PlaceController {
 		return mv;
 	}
 	
+	@GetMapping("addAmenity")
+	public ModelAndView addAmenity(ModelAndView mv) throws Exception{
+		
+		return mv;
+	}
+	
+	@PostMapping
+	public ModelAndView addAmenity(ModelAndView mv, AmenityVO amenityVO) throws Exception{
+		
+		mv.setViewName("redirect:../");
+		return mv;
+	}
+	
+	
+	
 }

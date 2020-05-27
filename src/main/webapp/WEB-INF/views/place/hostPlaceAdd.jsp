@@ -8,9 +8,6 @@
 <body class="with-new-header">
 	<c:import url="../template/boot.jsp"></c:import>
 	<c:import url="../template/placeHeader.jsp"></c:import>
-    <script type="text/javascript" src="../resources/js/houseSelectScript.js"></script>
-	    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=327fa35f2eae30fcd772f149b123ba65&libraries=services"></script>
-	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=327fa35f2eae30fcd772f149b123ba65"></script>	
 
 	<div class="_13x7hnca">
 		<div class="_1v3ttpa">
@@ -128,11 +125,11 @@
 									<div class="_ni9axhe"></div>
 
 									<button class="_kt3i5a4" id="previous">이전</button>
-								
+
 									<div class="_10ejfg4u"></div>
-									
+
 									<button class="_kt3i5a4" id="nextPage">다음</button>
-									
+
 								</div>
 
 							</div>
@@ -142,7 +139,7 @@
 
 				<script type="text/javascript">
 					var curPage = 1;
-					
+
 					$('#previous').on('click', function() {
 
 						if (curPage == 2) {
@@ -169,13 +166,14 @@
 							var MaxGuestSelected = $('#placeMaxGuest').val();
 							var bedSelected = $('#bed').val();
 							var bathroomSelected = $('#bathroom').val();
-							
-							$.post("addPlace2", 
-								{placeName:placeNameTxt,
-								placeType:typeSelected,
-								placeMaxGuest:MaxGuestSelected,
-								bed:bedSelected,
-								bathroom:bathroomSelected}, function(result) {
+
+							$.post("addPlace2", {
+								placeName : placeNameTxt,
+								placeType : typeSelected,
+								placeMaxGuest : MaxGuestSelected,
+								bed : bedSelected,
+								bathroom : bathroomSelected
+							}, function(result) {
 								result = result.trim();
 								$('#ajaxContents').html(result);
 							});
@@ -186,73 +184,73 @@
 							var MaxGuestSelected = $('#placeMaxGuest').val();
 							var bedSelected = $('#bed').val();
 							var bathroomSelected = $('#bathroom').val();
-							
+
 							var placePriceTxt = $('#placePrice').val();
 							var placeDescTxt = $('#placeDesc').val();
 							var placeRuleTxt = $('#placeRule').val();
 							var checkInTimeTxt = $('#checkInTime').val();
 							var checkOutTimeTxt = $('#checkOutTime').val();
-							
-							$.post("addPlace3", 
-								{placeName:placeNameTxt,
-								placeType:typeSelected,
-								placeMaxGuest:MaxGuestSelected,
-								bed:bedSelected,
-								bathroom:bathroomSelected,
-								
-								placePrice:placePriceTxt,
-								placeDesc:placeDescTxt,
-								placeRule:placeRuleTxt,
-								checkInTime:checkInTimeTxt,
-								checkOutTime:checkOutTimeTxt								
-								}, function(result) {
+
+							$.post("addPlace3", {
+								placeName : placeNameTxt,
+								placeType : typeSelected,
+								placeMaxGuest : MaxGuestSelected,
+								bed : bedSelected,
+								bathroom : bathroomSelected,
+
+								placePrice : placePriceTxt,
+								placeDesc : placeDescTxt,
+								placeRule : placeRuleTxt,
+								checkInTime : checkInTimeTxt,
+								checkOutTime : checkOutTimeTxt
+							}, function(result) {
 								result = result.trim();
 								$('#ajaxContents').html(result);
 							});
-								curPage++;
-								$('#nextPage').html("다음");
-						}else if(curPage == 3){
-							
+							curPage++;
+							$('#nextPage').html("다음");
+						} else if (curPage == 3) {
+
 							var placeNameTxt = $('#placeName').val();
 							var typeSelected = $('#placeType').val();
 							var MaxGuestSelected = $('#placeMaxGuest').val();
 							var bedSelected = $('#bed').val();
 							var bathroomSelected = $('#bathroom').val();
-							
+
 							var placePriceTxt = $('#placePrice').val();
 							var placeDescTxt = $('#placeDesc').val();
 							var placeRuleTxt = $('#placeRule').val();
 							var checkInTimeTxt = $('#checkInTime').val();
 							var checkOutTimeTxt = $('#checkOutTime').val();
-							
+
 							var placeLocationTxt = $('#placeLocation').val();
 							var memberNum = $('#memberNum').val();
-// 							$(location).attr('href','../');
-							
-							$.post("addPlace4", 
-								{placeName:placeNameTxt,
-								placeType:typeSelected,
-								placeMaxGuest:MaxGuestSelected,
-								bed:bedSelected,
-								bathroom:bathroomSelected,
-								
-								placePrice:placePriceTxt,
-								placeDesc:placeDescTxt,
-								placeRule:placeRuleTxt,
-								checkInTime:checkInTimeTxt,
-								checkOutTime:checkOutTimeTxt,
-								placeLocation:placeLocationTxt,
-								memberNum:memberNum
-								
-								},function(result) {
-									result = result.trim();
-									$('#ajaxContents').html(result);
-									
+							// 							$(location).attr('href','../');
+
+							$.post("addPlace4", {
+								placeName : placeNameTxt,
+								placeType : typeSelected,
+								placeMaxGuest : MaxGuestSelected,
+								bed : bedSelected,
+								bathroom : bathroomSelected,
+
+								placePrice : placePriceTxt,
+								placeDesc : placeDescTxt,
+								placeRule : placeRuleTxt,
+								checkInTime : checkInTimeTxt,
+								checkOutTime : checkOutTimeTxt,
+								placeLocation : placeLocationTxt,
+								memberNum : memberNum
+
+							}, function(result) {
+								result = result.trim();
+								$('#ajaxContents').html(result);
+
 							});
 							curPage++;
 							$('#nextPage').html("완료");
 						}
-				});
+					});
 				</script>
 </body>
 </html>

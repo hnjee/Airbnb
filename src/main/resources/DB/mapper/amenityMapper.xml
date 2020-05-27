@@ -7,4 +7,7 @@
 	<select id="amenitySelect" parameterType="String" resultType="AmenityVO">
 		select amenityKind from amenity where placeNum=#{placeNum}
 	</select>
+	
+	
+	
 </mapper>
