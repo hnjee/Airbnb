@@ -267,58 +267,6 @@
 </div>
 </main>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- <div class="contentsMain">
-	<div class="contentsInner">
-		<div class="contentsInner2">
-			<div> 
-			<h2>계정</h2>
-			<h3>이름,이메일. 프로필 이동</h3>
-			</div>
-			<div class="contentsInnerBoxes">
-				
-				<div class="fisrtBox">
-					<div onclick="">
-					<i class="far fa-address-card" style="font-size:30px; color:lightblue;"></i>
-					개인정보
-					</div>
-					<div onclick="./member/emailJoin">
-					로그인 및 보안sasfdsd
-					</div>
-				</div>
-				
-				<div class="secondBox">
-					<div>??</div>
-					<div>??</div>
-				</div>
-				
-			</div>
-		</div>
-	</div>
-</div> -->
-
-
-
 <c:import url="../jsp/footer.jsp"></c:import>
 </body>
 </html>
