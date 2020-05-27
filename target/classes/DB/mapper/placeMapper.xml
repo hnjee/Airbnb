@@ -75,7 +75,7 @@
 	
 	<insert id="hostPlaceAdd" parameterType="PlaceVO">
 		<selectKey keyProperty="placeNum" order="BEFORE" resultType="String">
-			select place_seq.nextval from place
+			select place_seq.nextval from dual
 		</selectKey>
 	
 			insert into place values

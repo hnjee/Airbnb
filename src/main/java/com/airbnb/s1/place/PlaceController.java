@@ -214,14 +214,11 @@ public class PlaceController {
 		if(result>0) {
 			System.out.println("placeDB연동성공");
 		}
-//		mv.addObject("placeNum", placeVO.getPlaceNum());
-//		System.out.println(placeVO.getPlaceNum());
+		mv.addObject("placeNum", placeVO.getPlaceNum());
 		mv.setViewName("place/addPlace4");
 		
 		return mv;
 	}
-	
-	
 
 	@PostMapping("addPlaceDone")
 	public ModelAndView addPlaceDone(PlaceVO placeVO, ModelAndView mv, MultipartFile[] files) throws Exception{
