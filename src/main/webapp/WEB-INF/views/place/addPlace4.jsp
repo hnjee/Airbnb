@@ -15,12 +15,12 @@
 		</div>
 		
 		<filedset>
-		  <input type="checkbox" id="Shower" name="Shower" value="Shower">Shower
-		  <input type="checkbox" id="vehicle2" name="Kitchen" value="Kitchen">Kitchen
-		  <input type="checkbox" id="vehicle3" name="Wifi" value="Wifi">Wifi<br>
-		  <input type="checkbox" id="vehicle3" name="Heating" value="Heating">Heating
-		  <input type="checkbox" id="TV" name="TV" value="TV">TV
-		  <input type="checkbox" id="Accessible" name="Accessible" value="Accessible">휠체어
+		  <input type="checkbox" id="Shower" name="amenity" value="1">Shower
+		  <input type="checkbox" id="vehicle2" name="amenity" value="2">Kitchen
+		  <input type="checkbox" id="vehicle3" name="amenity" value="3">Wifi<br>
+		  <input type="checkbox" id="vehicle3" name="amenity" value="4">Heating
+		  <input type="checkbox" id="TV" name="amenity" value="5">TV
+		  <input type="checkbox" id="Accessible" name="amenity" value="6">휠체어
 		</filedset>
 
 		<div class="_1mbllh6j">

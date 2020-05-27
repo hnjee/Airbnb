@@ -13,4 +13,9 @@ public class AmenityService {
 	public List<AmenityVO> amenitySelect(String placeNum) throws Exception{
 		return amenityDAO.amenitySelect(placeNum);
 	}
+	
+	public int amenityAdd(AmenityVO amenityVO) throws Exception{
+		return amenityDAO.amenityAdd(amenityVO);
+	}
+	
 }

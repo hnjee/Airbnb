@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <link rel="stylesheet" type="text/css" href="../resources/css/memberUpdateStyle.css"> 
 <link rel="stylesheet" type="text/css" href="../resources/css/headerStyle.css"> 
-<link rel="stylesheet" type="text/css"  href="../resources/css/footer.css">
+<link rel="stylesheet" type="text/css"  href="../resources/css/listFooter.css">
 </head>
 <body>
 <div data-application="true"><div dir="ltr"><div>
@@ -28,7 +28,7 @@
 	<div class="_xca6kx"></div>
 	
 	<!-- main 시작 -->
-	<main id="site-content" tabindex="-1" class="" style="overflow: auto;S">
+	<main id="site-content" tabindex="-1" class="" style="overflow: auto; margin-bottom: 50px;">
 	<div class="_mwt4r90">
 	<div style="margin: 0px;">
 	<div style="margin-bottom: 48px;">
@@ -65,28 +65,94 @@
 		<!-- 수정 Form 시작 -->
 		<div class="_2h22gn">
 		<div class="_169grxv2">
-		
-			<!-- 수정 대상 -->
+			<!-- collapse 아코디언 -->
+			<div class="" id="accordion" role="tablist" aria-multiselectable="true">
+            
+            
+            <!-- 수정 대상 -->
 			<div class="_s50zru">
 			<div style="margin-top: 24px;">
 			<div class="_hgs47m">
 				<div class="_n5lh69r">
 				<div class="_1p3joamp">실명 이름</div>
 				<div style="margin-top: 8px; margin-bottom: 24px;">
-				<div class="_czm8crp">계정 주인의 name + familyName</div>
+				<div class="_czm8crp">Lim Jaebeom</div>
+				
+				<!-- collapse 부분 -->
+				<div id="collapse1" class="panel-collapse collapse" aria-expanded="false">
+				<div style="margin-top: 8px; margin-bottom: 24px;">
+				<form action="../member/memberUpdate" method="POST">
+					<div style="margin-top: 8px; margin-bottom: 20px;">
+					<div class="_czm8crp">허가증이나 여권 등 여행 서류에 기재되어 있는 이름을 말합니다.</div>
+					</div>
+					
+					<div style="margin-bottom: 16px;">
+					<div class="_2h22gn">
+					<div class="_en5l15m">
+					<div class="_9hxttoo">
+					<div style="margin-bottom: 8px;">
+					<label class="_rin72m" for="first_name">
+					<div class="_czm8crp">이름</div>
+					</label>
+					</div>
+					
+					<div dir="ltr">
+					<div class="_1wcr140x">
+					<div class="_178faes">
+					<input class="_14fdu48d" id="first_name" name="first_name" type="text" value="firstName"></div>
+					</div>
+					</div>
+					</div>
+					</div>
+					
+					<div class="_en5l15m">
+					<div class="_9hxttoo">
+					<div style="margin-bottom: 8px;">
+					<label class="_rin72m" for="last_name">
+					<div class="_czm8crp">성</div>
+					</label>
+					</div>
+					
+					<div dir="ltr">
+					<div class="_1wcr140x">
+					<div class="_178faes">
+					<input class="_14fdu48d" id="last_name" name="last_name" type="text" value="lastName"></div>
+					</div>
+					</div>
+					
+					</div>
+					</div>
+					</div>
+					</div>
+				
+					<div id="airlock-inline-container"></div>
+					
+					<button type="submit" class="_kt3i5a4" aria-busy="false">
+					<span class="_ftj2sg4">저장</span>
+					</button>
+					
+				</form>
+				</div>
+				</div>
+				<!-- collapse 부분 끝-->
+				
 				</div>
 				</div>
 				
 				<div class="_1rtgmd8y">
 				<div class="_1p3joamp">
 				<div class="_1asnseo">
-				<button type="button" class="_b0ybw8s" aria-busy="false">수정</button>
+					<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse1" aria-expanded="false" aria-controls="collapse1">
+					<button type="button" class="_b0ybw8s" aria-busy="false">수정</button>
+					</a>
 				</div>
 				</div>
 				</div>
+				
 			</div>
 			</div>
 			</div>
+			
 			
 			<!-- 수정 대상 -->
 			<div class="_s50zru">
@@ -95,14 +161,48 @@
 				<div class="_n5lh69r">
 				<div class="_1p3joamp">이메일 주소</div>
 				<div style="margin-top: 8px; margin-bottom: 24px;">
-				<div class="_czm8crp">계정 주인의 email</div>
+				<div class="_czm8crp">웅앵웅@gmail.com</div>
+				
+				<!-- collapse 부분 -->
+				<div id="collapse2" class="panel-collapse collapse" aria-expanded="false">
+				<div style="margin-top: 8px; margin-bottom: 24px;">
+				<form action="../member/memberUpdate" method="POST">
+					<div style="margin-top: 8px; margin-bottom: 20px;">
+					<div class="_czm8crp">언제든지 확인하실 수 있는 주소를 사용하세요</div>
+					</div>
+					
+					<div style="margin-bottom: 24px;">
+					<div class="_9hxttoo">
+					<label class="_krjbj" for="email">이메일 주소</label>
+					<div dir="ltr">
+					<div class="_1wcr140x">
+					<div class="_178faes">
+					
+					<input class="_14fdu48d" id="email" name="email" type="text" value="air1@gmail.com"></div>
+					</div>
+					</div>
+					</div>
+					</div>
+					
+					<div id="airlock-inline-container"></div>
+					<button type="submit" class="_kt3i5a4" aria-busy="false">
+					<span class="_ftj2sg4">저장</span>
+					</button>
+					
+				</form>
+				</div>
+				</div>
+				<!-- collapse 부분 끝-->
+				
 				</div>
 				</div>
 				
 				<div class="_1rtgmd8y">
 				<div class="_1p3joamp">
 				<div class="_1asnseo">
+				<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse2" aria-expanded="false" aria-controls="collapse2">
 				<button type="button" class="_b0ybw8s" aria-busy="false">수정</button>
+				</a>
 				</div>
 				</div>
 				</div>
@@ -117,20 +217,55 @@
 				<div class="_n5lh69r">
 				<div class="_1p3joamp">비밀번호</div>
 				<div style="margin-top: 8px; margin-bottom: 24px;">
-				<div class="_czm8crp">계정 주인의 pw</div>
+				<div class="_czm8crp">안전하게 비밀번호를 변경하세요</div>
+				
+				<!-- collapse 부분 -->
+				<div id="collapse3" class="panel-collapse collapse" aria-expanded="false">
+				<div style="margin-top: 8px; margin-bottom: 20px;">
+				<form action="../member/memberUpdate" method="POST">
+					<div style="margin-top: 8px; margin-bottom: 20px;">
+					
+					</div>
+					
+					<div style="margin-bottom: 24px;">
+					<div class="_9hxttoo">
+					<label class="_krjbj" for="pw">비밀번호</label>
+					<div dir="ltr">
+					<div class="_1wcr140x">
+					<div class="_178faes">
+					
+					<input class="_14fdu48d" id="pw" name="pw" type="password" value="비밀번호 변경"></div>
+					</div>
+					</div>
+					</div>
+					</div>
+					
+					<div id="airlock-inline-container"></div>
+					<button type="submit" class="_kt3i5a4" aria-busy="false">
+					<span class="_ftj2sg4">저장</span>
+					</button>
+					
+				</form>
+				</div>
+				</div>
+				<!-- collapse 부분 끝-->
+				
 				</div>
 				</div>
 				
 				<div class="_1rtgmd8y">
 				<div class="_1p3joamp">
 				<div class="_1asnseo">
+				<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse3" aria-expanded="false" aria-controls="collapse3">
 				<button type="button" class="_b0ybw8s" aria-busy="false">수정</button>
+				</a>
 				</div>
 				</div>
 				</div>
 			</div>
 			</div>
 			</div>
+			
 			
 			<!-- 수정 대상 -->
 			<div class="_s50zru">
@@ -139,47 +274,59 @@
 				<div class="_n5lh69r">
 				<div class="_1p3joamp">전화번호</div>
 				<div style="margin-top: 8px; margin-bottom: 24px;">
-				<div class="_czm8crp">계정 주인의 phoneNum</div>
+				<div class="_czm8crp">계정 주인의 phoneNum여기에 받아오세요</div>
+				<!-- collapse 부분 -->
+				<div id="collapse4" class="panel-collapse collapse" aria-expanded="false">
+				<div style="margin-top: 8px; margin-bottom: 20px;">
+				<form action="../member/memberUpdate" method="POST">
+					<div style="margin-top: 8px; margin-bottom: 20px;">
+					<div class="_czm8crp">알림, 미리 알림 및 로그인에 도움이 됩니다.</div>
+					</div>
+					
+					<div style="margin-bottom: 24px;">
+					<div class="_9hxttoo">
+					<label class="_krjbj" for="phoneNum">전화번호</label>
+					<div dir="ltr">
+					<div class="_1wcr140x">
+					<div class="_178faes">
+					
+					<input class="_14fdu48d" id="phoneNum" name="phoneNum" type="text" value="010-1234-7890"></div>
+					</div>
+					</div>
+					</div>
+					</div>
+					
+					<div id="airlock-inline-container"></div>
+					<button type="submit" class="_kt3i5a4" aria-busy="false">
+					<span class="_ftj2sg4">저장</span>
+					</button>
+					
+				</form>
+				</div>
+				</div>
+				<!-- collapse 부분 끝-->
+
 				</div>
 				</div>
 				
 				<div class="_1rtgmd8y">
 				<div class="_1p3joamp">
 				<div class="_1asnseo">
+				<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse4" aria-expanded="false" aria-controls="collapse4">
 				<button type="button" class="_b0ybw8s" aria-busy="false">수정</button>
+				</a>
 				</div>
 				</div>
 				</div>
 			</div>
 			</div>
 			</div>
-			
-			<!-- 수정 대상 -->
-			<div class="_s50zru">
-			<div style="margin-top: 24px;">
-			<div class="_hgs47m">
-				<div class="_n5lh69r">
-				<div class="_1p3joamp">숙소 주소</div>
-				<div style="margin-top: 8px; margin-bottom: 24px;">
-				<div class="_czm8crp">계정 주인 소유의 숙소 주소</div>
-				</div>
-				</div>
-				
-				<div class="_1rtgmd8y">
-				<div class="_1p3joamp">
-				<div class="_1asnseo">
-				<button type="button" class="_b0ybw8s" aria-busy="false">수정</button>
-				</div>
-				</div>
-				</div>
-			</div>
-			</div>
-			</div>
-		
-		
-		
+
+
+		</div>
 		</div>
 		<!-- 수정 폼 끝 -->
+		
 		
 		<!-- 오른쪽 배너 -->
 		<div class="_17pxz94u">
