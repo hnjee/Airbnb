@@ -13,7 +13,7 @@
 </div>
 
 
-<form action="./addPlaceDone" id="formData" method="POST" enctype="multipart/form-data">
+<form action="./addPlaceDone" id="formData" method="post" enctype="multipart/form-data">
 
 <input type="button" id="add" class="btn btn-info" value="AddFile">
 <input type="hidden" readonly="readonly" id="placeNum"  name="placeNum" value="${placeNum}">

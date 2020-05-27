@@ -74,12 +74,12 @@
 	</select>
 	
 	<insert id="hostPlaceAdd" parameterType="PlaceVO">
-		<selectKey keyProperty="placeNum" order="BEFORE" resultType="Long">
+		<selectKey keyProperty="placeNum" order="BEFORE" resultType="String">
 			select place_seq.nextval from place
 		</selectKey>
 	
 			insert into place values
-		('m'||#{placeNum},#{memberNum},#{placeName},#{placeLocation},#{placePrice},'image',#{placeType},#{placeMaxGuest},#{placeDesc},#{placeRule},#{bed},#{bathroom},#{checkInTime},#{checkOutTime})
+		(#{placeNum},#{memberNum},#{placeName},#{placeLocation},#{placePrice},'image',#{placeType},#{placeMaxGuest},#{placeDesc},#{placeRule},#{bed},#{bathroom},#{checkInTime},#{checkOutTime})
 	</insert>
 	
 

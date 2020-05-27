@@ -82,9 +82,7 @@ public class MemberController {
 		mv.setViewName("./common/result");
 		if (memberVO != null) {
 			session.setAttribute("member", memberVO);
-			mv.addObject("result", "로그인 성공");
-			mv.addObject("path", "../");
-			System.out.println("로그인 성공");
+			mv.setViewName("redirect:../");
 		} else {
 			mv.addObject("result", "로그인 실패");
 			mv.addObject("path", "../");

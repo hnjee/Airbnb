@@ -198,6 +198,7 @@ public class PlaceController {
 	
 	@PostMapping("addPlace3")
 	public ModelAndView addPlace3(PlaceVO placeVO, ModelAndView mv) throws Exception{
+		
 		mv.addObject("pVo", placeVO);
 		mv.setViewName("place/addPlace3");
 		
@@ -206,24 +207,27 @@ public class PlaceController {
 	
 	@PostMapping("addPlace4")
 	public ModelAndView addPlace4(PlaceVO placeVO, ModelAndView mv) throws Exception{
-
+		System.out.println(placeVO.getMemberNum());
+		System.out.println(placeVO.getPlaceLocation());
 		int result = placeService.hostPlaceAdd(placeVO);
 		
 		if(result>0) {
 			System.out.println("placeDB연동성공");
 		}
-		mv.addObject("placeNum", placeVO.getPlaceNum());
-		System.out.println(placeVO.getPlaceNum());
+//		mv.addObject("placeNum", placeVO.getPlaceNum());
+//		System.out.println(placeVO.getPlaceNum());
 		mv.setViewName("place/addPlace4");
 		
 		return mv;
 	}
 	
+	
+
 	@PostMapping("addPlaceDone")
 	public ModelAndView addPlaceDone(PlaceVO placeVO, ModelAndView mv, MultipartFile[] files) throws Exception{
 		System.out.println("이미지 저장하고 들어올곳");
 		System.out.println(placeVO.getPlaceNum());
-		
+		System.out.println(placeVO.getPlaceLocation());
 		int result = placeService.fileInsert(placeVO.getPlaceNum(), files);
 		
 		if(result>0) {
@@ -234,6 +238,5 @@ public class PlaceController {
 		
 		return mv;
 	}
-	
 	
 }

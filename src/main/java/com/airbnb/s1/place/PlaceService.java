@@ -110,7 +110,10 @@ public class PlaceService {
 	}
 	
 	public int hostPlaceAdd(PlaceVO placeVO) throws Exception{
-		return placeDAO.hostPlaceAdd(placeVO);
+		int result = placeDAO.hostPlaceAdd(placeVO);
+		System.out.println(placeVO.getPlaceNum());
+		
+		return result;
 	}
 	
 	
