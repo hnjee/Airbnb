@@ -11,7 +11,7 @@
 
 <style type="text/css">
 	*{
- 		box-sizing: border-box;
+ 		box-sizing: border-box !important;
 	}
 	body {
 	    font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue, sans-serif;
