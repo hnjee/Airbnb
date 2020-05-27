@@ -60,4 +60,14 @@ Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif !impo
 	float: left;
 }
 
+#td_place a{
+	 text-decoration: none;
+ 		color: #484848;  
+}
+
+#td_place a:hover{
+	 color: #484848; 
+	 text-decoration: underline;
+}
+
 
