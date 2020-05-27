@@ -70,6 +70,7 @@
 				<input type="text" name="sendName" value="${member.name }" hidden="true">
 				<input type="text" name="r_memberNum" value="${host.r_memberNum }" hidden="true">
 				<input type="text" name="receiveName" value="${host.receiveName }" hidden="true">
+				<input type="text" name="placeNum" value="${host.placeNum }" hidden="true">
 			    <div class="form-group">
 			      <textarea class="form-control" rows="5" id="comment" placeholder="여기에 메세지를 입력하세요" required="required" name="message"></textarea>
 			    </div>

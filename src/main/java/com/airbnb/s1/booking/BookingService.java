@@ -41,4 +41,9 @@ public class BookingService {
 		
 		return bookingDAO.outRoom(bookingVO);
 	}
+	
+	public BookingVO bookingResult(String bookingNum) throws Exception{
+		return bookingDAO.bookingResult(bookingNum);
+	}
+	
 }

@@ -35,11 +35,35 @@
 			background-image: url("../resources/w3images/back.png");
 			background-repeat: no-repeat;
 			background-position: center;
+			
 		}
 		
 		h2{
 			text-align: center;
 		}
+		
+		.finish{
+			box-sizing: border-box;
+			background-color: #ffffff;
+       		background-color: rgba( 245, 245, 245, 0.5 );
+		}
+		.explain {
+			width: 60%;
+			min-width:480px;
+			height: 300px;
+			
+		}
+		.price{
+			font-size: 1.4em;
+			text-decoration: underline;
+			color: maroon;
+		}
+		.out {
+			font-size: 1.2em;
+			color : olive;
+			text-align: right;
+		}
+		
 	</style>
 	
 </head>
@@ -50,13 +74,25 @@
 <div class="contents">
 
   <h2><b>결제가 완료되었습니다</b></h2>
+  <hr>
   
-		
+ 
+	
 		<div class="back">
-		
+			<h2>예약이 정상적으로 완료되었습니다.</h2>
+		<div class="finish">
+			<div class="img" style="display: inline-block;">
+			<img src="${pageContext.request.contextPath}/resources/images/place/${fileList[0].fileName}" width="480px" height="320px" >
+			</div>
+			<div class="explain" style="display: inline-block;">
+			<h1><b>${vo.placeVO.placeName }</b></h1>
+			<h4>${vo.placeVO.placeLocation }</h4>
+			<div class="price" style="text-align: right;"><b>₩ ${vo.payTotal }</b></div><br>
+			<div class="out">체크인 : ${vo.checkInDate } ~ 체크아웃 : ${vo.checkOutDate }</div>
+			</div>
+			<div style="float: right;"><a href="./bookingList?memberNum=${member.memberNum }"><button class="btn btn-success" style="width: 150px;">예약 확인하러 가기</button></a> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a href="../"><button class="btn btn-primary">에이비앤비 더 둘러보기</button></a></div>
 			
-		
-		
+			</div>
 		</div>
 	</div>
 </div>
