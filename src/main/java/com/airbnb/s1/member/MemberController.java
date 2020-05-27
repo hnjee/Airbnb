@@ -126,10 +126,13 @@ public class MemberController {
 	
 	@GetMapping("memberUpdate")
 	public void memberUpdate() throws Exception{
-		
-		
+
 	}
 	
+	@GetMapping("memberPlaceEdit")
+	public void memberPlaceEdit() throws Exception{
+		
+	}
 	
 	
 

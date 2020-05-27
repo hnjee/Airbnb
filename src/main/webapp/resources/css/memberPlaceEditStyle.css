@@ -27,6 +27,35 @@ h1 {
     margin-inline-end: 0px;
     font-weight: bold;
 }
+select {
+    -webkit-writing-mode: horizontal-tb !important;
+    text-rendering: auto;
+    color: -internal-light-dark-color(black, white);
+    letter-spacing: normal;
+    word-spacing: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    display: inline-block;
+    text-align: start;
+    -webkit-appearance: menulist;
+    box-sizing: border-box;
+    align-items: center;
+    white-space: pre;
+    -webkit-rtl-ordering: logical;
+    background-color: -internal-light-dark-color(white, black);
+    cursor: default;
+    margin: 0em;
+    font: 400 13.3333px Arial;
+    border-radius: 0px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(169, 169, 169);
+    border-image: initial;
+}
+select:not(:-internal-list-box) {
+    overflow: visible !important;
+}
 ol {
     display: block;
     list-style-type: decimal;
@@ -166,6 +195,15 @@ button {
 ._2h22gn {
     margin-left: -8px !important;
     margin-right: -8px !important;
+}
+._2h22gn:after {
+    content: " " !important;
+    display: table !important;
+    clear: both !important;
+}
+._2h22gn:before {
+    content: " " !important;
+    display: table !important;
 }
 ._169grxv2 {
     width: 58.3333% !important;
@@ -427,8 +465,67 @@ button {
     position: relative !important;
     overflow: hidden !important;
 }
-
-
+._1q8ezn3a {
+    width: 41.6667% !important;
+    float: left !important;
+    padding-left: 8px !important;
+    padding-right: 8px !important;
+    min-height: 1px !important;
+    position: relative !important;
+}
+._wlf6154 {
+    font-size: var(--font-form-element-font-size, 16px) !important;
+    line-height: var(--font-form-element-line-height, 24px) !important;
+    letter-spacing: var(--font-form-element-letter-spacing, normal) !important;
+    font-family: var(--font-form-element-font-family, Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif) !important;
+    text-transform: var(--font-form-element-text-transform, undefined) !important;
+    color: #484848 !important;
+    padding-top: var(--font-form-element-padding-top, undefined) !important;
+    padding-bottom: var(--font-form-element-padding-bottom, undefined) !important;
+    background-color: #ffffff !important;
+    margin-bottom: var(--spacing-form-element-margin-bottom, 8px) !important;
+    display: block !important;
+    width: 100% !important;
+    border-width: 1px !important;
+    border-style: solid !important;
+    border-color: rgb(235, 235, 235) !important;
+    border-radius: 4px !important;
+}
+._y9ev9r {
+    overflow: hidden !important;
+}
+._bwyiq2l {
+    font-size: var(--font-form-element-font-size, 16px) !important;
+    line-height: var(--font-form-element-line-height, 24px) !important;
+    letter-spacing: var(--font-form-element-letter-spacing, normal) !important;
+    font-family: var(--font-form-element-font-family, Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif) !important;
+    text-transform: var(--font-form-element-text-transform, undefined) !important;
+    color: #484848 !important;
+    padding-top: var(--spacing-form-element-vertical, 11px) !important;
+    padding-bottom: var(--spacing-form-element-vertical, 11px) !important;
+    font-weight: var(--font-light-font-weight, normal) !important;
+    background-color: transparent !important;
+    padding-left: var(--spacing-form-element-horizontal, 11px) !important;
+    padding-right: var(--spacing-select-arrow, 40px) !important;
+    -webkit-appearance: none !important;
+    text-indent: 0px !important;
+    height: unset !important;
+    display: block !important;
+    width: 100% !important;
+    border-width: initial !important;
+    border-style: none !important;
+    border-color: initial !important;
+    border-image: initial !important;
+    border-radius: 0px !important;
+    margin: 0px !important;
+}
+._1idvclr {
+    top: var(--spacing-select-arrow-margin-top, 16px) !important;
+    right: var(--spacing-select-arrow-margin-outside, 16px) !important;
+    position: absolute !important;
+    line-height: 0 !important;
+    pointer-events: none !important;
+}
 
 
 
