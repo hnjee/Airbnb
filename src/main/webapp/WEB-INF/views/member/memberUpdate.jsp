@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <link rel="stylesheet" type="text/css" href="../resources/css/memberUpdateStyle.css"> 
 <link rel="stylesheet" type="text/css" href="../resources/css/headerStyle.css"> 
-<link rel="stylesheet" type="text/css"  href="../resources/css/listFooter.css">
+<link rel="stylesheet" type="text/css"  href="../resources/css/footer.css">
 </head>
 <body>
 <div data-application="true"><div dir="ltr"><div>
@@ -28,7 +28,7 @@
 	<div class="_xca6kx"></div>
 	
 	<!-- main 시작 -->
-	<main id="site-content" tabindex="-1" class="">
+	<main id="site-content" tabindex="-1" class="" style="overflow: auto;S">
 	<div class="_mwt4r90">
 	<div style="margin: 0px;">
 	<div style="margin-bottom: 48px;">

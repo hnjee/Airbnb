@@ -88,7 +88,7 @@
 				
 		<div class="_1m936jew">
 		<div class="_15wuypg">
-		<a href="/account-settings/personal-info" class="_1cvdx4x">
+		<a href="${pageContext.request.contextPath}/member/placeUpdate" class="_1cvdx4x">
 			<div>
 			<div style="margin-bottom: 16px;">
 				<svg viewBox="0 0 24 24" role="presentation" aria-hidden="true" focusable="false" style="height: 32px; width: 32px; display: block; fill: rgb(255, 180, 0);">
@@ -101,7 +101,7 @@
 			<div class="_djxl322">
 			<div class="_ni9axhe"><div><div>
 			<div class="_36rlri">
-			<span class="_1p0spma2">로그인 밎 보안</span>
+			<span class="_1p0spma2">숙소정보 수정</span>
 			</div>
 			<div class="_36rlri" style="vertical-align: middle; margin-top: -2px; margin-left: 4px;">
 				<svg viewBox="0 0 18 18" role="presentation" aria-hidden="true" focusable="false" style="height: 12px; width: 12px; fill: currentcolor;">
@@ -114,7 +114,7 @@
 			
 			<div>
 				<div class="_1xc0f9k">
-				<div class="_czm8crp">비밀번호를 변경하고 계정을 안전하게<br>보호하세요</div>
+				<div class="_czm8crp">숙소정보를 수정하세요</div>
 				</div>
 			</div>
 		</a>
