@@ -13,9 +13,8 @@
 
 
 
-		<img alt="" src="${pageContext.request.contextPath}/resources/images/member/${file.fileName}">
+<img alt="" src="${pageContext.request.contextPath}/resources/images/member/${file.fileName}">
 		
-<h1>upload imgs</h1>	
 	
 
 

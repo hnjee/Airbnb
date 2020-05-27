@@ -38,8 +38,7 @@ public class MemberService {
 	}
 	
 	public int fileInsert(String memberNum, MultipartFile file) throws Exception{
-		String path="C:\\workspaceSpring\\Airbnb\\src\\main\\webapp\\resources\\images\\member";
-		
+		String path="C:\\workspaceSpring\\Airbnb\\src\\main\\webapp\\resources\\images\\member";		
 		System.out.println("실제 저장 경로: "+path);
 		
 		int res = 0;
@@ -50,10 +49,14 @@ public class MemberService {
 			memberFileVO.setFileName(fileName);
 			memberFileVO.setOriName(file.getOriginalFilename());
 			res = memberFileDAO.fileInsert(memberFileVO);
-		}	
-		System.out.println("Save,,");
+		}
 		return res;
 	}
+	
+	public MemberFileVO fileList(String memberNum) throws Exception{
+		return memberFileDAO.fileList(memberNum);
+	}
+	
 	
 	
 

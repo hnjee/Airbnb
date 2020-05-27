@@ -9,4 +9,8 @@
 		INSERT INTO memberFile VALUES(#{memberNum},#{fileName},#{oriName})
 	</insert>
 
+	<select id="fileList" parameterType="String" resultType="MemberFileVO">
+		SELECT * FROM memberFile WHERE memberNum=#{memberNum}
+	</select>
+
 </mapper>
