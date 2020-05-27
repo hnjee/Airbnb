@@ -2,6 +2,7 @@ package com.airbnb.s1.place;
 
 import java.util.List;
 
+import com.airbnb.s1.member.memberFile.MemberFileVO;
 import com.airbnb.s1.place.placeFile.PlaceFileVO;
 
 public class PlaceVO {
@@ -24,9 +25,17 @@ public class PlaceVO {
 	
 	private String hostDesc;
 	private String name;
+	private MemberFileVO memberFileVO;
 	
 	
-
+	
+	
+	public MemberFileVO getMemberFileVO() {
+		return memberFileVO;
+	}
+	public void setMemberFileVO(MemberFileVO memberFileVO) {
+		this.memberFileVO = memberFileVO;
+	}
 	public String getName() {
 		return name;
 	}

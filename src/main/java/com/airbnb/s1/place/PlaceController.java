@@ -16,6 +16,8 @@ import org.springframework.web.servlet.ModelAndView;
 import com.airbnb.s1.amenity.AmenityService;
 import com.airbnb.s1.amenity.AmenityVO;
 import com.airbnb.s1.booking.BookingVO;
+import com.airbnb.s1.member.MemberService;
+import com.airbnb.s1.member.memberFile.MemberFileVO;
 import com.airbnb.s1.place.placeFile.PlaceFileVO;
 import com.airbnb.s1.review.ReviewService;
 import com.airbnb.s1.review.ReviewVO;
@@ -31,6 +33,8 @@ public class PlaceController {
 	private ReviewService reviewService;
 	@Autowired
 	private AmenityService amenityService;
+	@Autowired
+	private MemberService memberService;
 
 	//fileTest를 위한 매핑
 	@GetMapping("fileTest")
@@ -99,27 +103,30 @@ public class PlaceController {
 
 	@GetMapping("placeSelect")
 	public ModelAndView placeSelect(ModelAndView mv, ReviewPager pager,long guestData, String startDate,String endDate, String location, String date, long adultNum, long childNum, long infantNum) throws Exception{
+		//placeNum으로 해당 PlaceVO 가져오기 
 		String placeNum = pager.getPlaceNum();
-		PlaceVO placeVO = placeService.placeSelect(placeNum);
+		PlaceVO placeVO = placeService.placeSelect(placeNum);	
 		
-		List<ReviewVO> reviewVOs = reviewService.reviewSelect(pager);
-		
+		//리뷰 
+		List<ReviewVO> reviewVOs = reviewService.reviewSelect(pager); 
 		//리뷰 전체 개수 
 		long reviewCnt = reviewService.reviewCount(pager);
 		//리뷰 평균 계산 
 		float ratingSum = reviewService.ratingSum(pager.getPlaceNum());
 		float ratingAvg = ratingSum/reviewCnt;
-
-		List<BookingVO> bookingVOs =  placeService.checkDateSelect(placeNum);
-		List<PlaceFileVO> placeFileList = placeService.fileList(placeVO);
 		
-		long placeFileTotalNum = placeService.fileCount(placeNum);
-
+		//amenityKind   
 		List<AmenityVO> amenities = amenityService.amenitySelect(placeNum);
-		for(AmenityVO am : amenities) {
 		
-		}
+		//예약 일자 
+		List<BookingVO> bookingVOs =  placeService.checkDateSelect(placeNum);
 		
+		//사진 파일  
+		List<PlaceFileVO> placeFileList = placeService.fileList(placeVO);
+		long placeFileTotalNum = placeService.fileCount(placeNum);
+		MemberFileVO memberFileVO = memberService.fileSelect(placeVO.getMemberNum());
+		
+		mv.addObject("hostFile", memberFileVO);
 		mv.addObject("amenities", amenities);
 		mv.addObject("fileTotalNum", placeFileTotalNum);
 		mv.addObject("fileList", placeFileList);
