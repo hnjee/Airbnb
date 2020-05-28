@@ -39,8 +39,8 @@
 			</foreach>
 	</select>
 
-	<select id="picOne" parameterType="PlaceVO" resultType="String">
-		select fileName from placeFile where placeNum=#{placeNum} and rowNum = 1
+	<select id="picOne" >
+		select fileName from placeFile where placeNum='p1' and rowNum = 1;
 	</select>
 
 
