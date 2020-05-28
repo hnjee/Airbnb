@@ -34,17 +34,25 @@
 			<form class="form-horizontal" action="./member/memberLogin" method="post">
 				<div class="form-group" >
 					<div class="col-sm-5">
-						<button type="button" class="btn btn-primary btn-block"> 페이스 계정으로 로그인</button>
+						<button type="button" class="btn btn-primary btn-block" id="faceLoginBtn"> 페이스북계정으로 로그인</button>
 					</div>
 				</div>
 
-				<div class="form-group" >
+				<div class="form-group" style="margin-bottom:3px;">
 					<div class="col-sm-5">
-						<input class = "btn btn-success btn-block"type="button" id="googleBtn2" value="구글 아이디로 회원가입">
+						<button type="button" class="btn btn-success btn-block" id="googleBtn2" > 구글 계정으로 로그인</button>
 					</div>
 				</div>
 
-				<div class="_12j61cy"><span class="_1ish1khj"><span class="_1rbmiub1">또는</span></span></div>
+				<div style="width: 538.5px;overflow:hidden;">
+					<div style="width: 239px; float:left;"> <hr> </div>
+					<span style="padding:16px; width:60.5px; height: 50px; box-sizing:border-box; Circular; font-size: 14px !important;
+					    font-weight: 600 !important;
+					    line-height: 1.28571em !important;
+					    color: rgb(118, 118, 118) !important; margin: 0px !important; float:left;"> 또는 </span>  
+					<div style="width: 239px; float:left;"> <hr> </div>
+				</div>
+				
 				<div class="form-group" >
 					<div class="col-sm-5">
 						<input type="text" class="form-control" id="email" placeholder="이메일 주소" name="email">
@@ -66,13 +74,14 @@
 				</div>
 
 				<div class="form-group">
-					<div class="col-sm-10">
-						<button type="submit" class="btn btn-danger" id="loginBtn">로그인</button>
+					<div class="col-sm-5">
+						<button type="submit" class="btn btn-block" id="loginBtn" style="background: rgb(255, 90, 95); color: white;"> 로그인</button>
 					</div>
 				</div>
 				</form>
-				<div>
-				----------------------------------------------------------------------------------------------------------------------
+				
+				<div style="margin-top: 16px; margin-bottom: 16px; width: 538.5px;overflow:hidden;">
+					<div style="border-bottom: 1px solid #EBEBEB !important;"></div>
 				</div>
 
 				<div>

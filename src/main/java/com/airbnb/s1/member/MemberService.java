@@ -59,9 +59,9 @@ public class MemberService {
 	public MemberFileVO fileSelect(String memberNum) throws Exception{
 		return memberFileDAO.fileSelect(memberNum);	
 	}
-		
-	public int memberUpdate(MemberVO memberVO) throws Exception{
-		return memberDAO.member
-	}
+//		
+//	public int memberUpdate(MemberVO memberVO) throws Exception{
+//		return memberDAO.member
+//	}
 	
 }
