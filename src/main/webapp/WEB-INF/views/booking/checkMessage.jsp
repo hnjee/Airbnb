@@ -140,17 +140,17 @@
 		
 		     
 		        	var s_memberNum = $(this).attr("title")
-		        	var memberNum = ${member.memberNum}
+		        	
 		        	var ajaxOption = {
 		                    url : "./messageWindow",
 		                    
-		                    data : {memberNum:memberNum, s_memberNum:s_memberNum},
+		                    data : {r_memberNum: '${member.memberNum}', s_memberNum:s_memberNum},
 		                    type : "POST",
 		                    dataType : "html"
 		                    
 		            };  
 		        	$.ajax(ajaxOption).done(function(data){
-		               
+		              
 		                $('.back').children().remove();
 		               
 		                $('.back').html(data);

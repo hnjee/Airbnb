@@ -21,8 +21,8 @@
 	
 	<select id="messageWindow" parameterType = "MessageVO" resultType="MessageVO">
 		select * from
-		(select * from (select * from message where s_memberNum=#{memberNum} or r_memberNum=#{memberNum})
-		where (s_memberNum=#{memberNum} and r_memberNum=#{s_memberNum}) or (s_memberNum=#{s_memberNum} and r_memberNum=#{memberNum}))
+		(select m.*, TO_CHAR(sendDate, 'HH24:MI:SS') as sendTime from (select * from message where s_memberNum=#{r_memberNum} or r_memberNum=#{r_memberNum}) m
+		where (s_memberNum=#{r_memberNum} and r_memberNum=#{s_memberNum}) or (s_memberNum=#{s_memberNum} and r_memberNum=#{r_memberNum}))
 	</select>
 
 </mapper>

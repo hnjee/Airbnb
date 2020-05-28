@@ -17,13 +17,36 @@
 			<c:forEach items="${list}" var="vo">
 			
 			<tr>
-				<td>${vo.sendName }</td>
+				<td><button class="btn btn-success" title="${vo.s_memberNum }">${vo.sendName }</button></td>
 				
 				
 			</tr>
 			
 			</c:forEach>
 		</table>
-		
+		<script type="text/javascript">
+		$(".btn").click(function() {
+			
+		     
+        	var s_memberNum = $(this).attr("title")
+        	
+        	var ajaxOption = {
+                    url : "./messageWindow",
+                    
+                    data : {r_memberNum: '${member.memberNum}', s_memberNum:s_memberNum},
+                    type : "POST",
+                    dataType : "html"
+                    
+            };  
+        	$.ajax(ajaxOption).done(function(data){
+              
+                $('.back').children().remove();
+               
+                $('.back').html(data);
+            });
+        	
+	
+})
+		</script>
 </body>
 </html>
