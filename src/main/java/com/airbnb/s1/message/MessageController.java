@@ -14,6 +14,7 @@ import com.airbnb.s1.member.MemberService;
 import com.airbnb.s1.member.memberFile.MemberFileVO;
 import com.airbnb.s1.place.PlaceService;
 import com.airbnb.s1.place.PlaceVO;
+import com.airbnb.s1.place.placeFile.PlaceFileVO;
 
 @Controller
 @RequestMapping(value="/message/**")
@@ -32,7 +33,9 @@ public class MessageController {
 		
 		MemberFileVO memberFileVO = memberService.fileSelect(messageVO.getR_memberNum());
 		PlaceVO placeVO = placeService.placeSelect(messageVO.getPlaceNum());
+		List<PlaceFileVO> placeFileVO = placeService.fileList(placeVO);
 		
+		mv.addObject("fileList", placeFileVO);
 		mv.addObject("vo", placeVO);
 		mv.addObject("host", messageVO);
 		mv.addObject("hostFile", memberFileVO);

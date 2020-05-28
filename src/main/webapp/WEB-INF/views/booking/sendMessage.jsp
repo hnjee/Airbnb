@@ -13,6 +13,12 @@
 	href="../resources/css/footer.css">
 <link rel="stylesheet"
 	href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"> 
+	
+	<link rel="stylesheet" type="text/css"
+	href="../resources/css/bookingResultStyle.css">
+
+	
+	
 	<style type="text/css">
 		.content {
 			width:100%;
@@ -144,6 +150,53 @@
 			    <input type="submit" class="btn btn-primary" value="메시지 전송하기" width="250px" height="100px" style="float: right">
 		</form>
 		</div>
+		
+		
+		<!-- 이미지 대신 -->
+			<div class="_15tm4du">
+			<div class="_znbf64">
+			<div class="_1uwpj50">
+			<img alt="" crossorigin="anonymous" role="presentation" sizes="674px" src="https://a0.muscache.com/4ea/air/v2/pictures/4407da7a-494a-4deb-a55f-7572fcd9b759.jpg?t=c:w744-h419,r:w744-h419-sfit,e:fjpg-c75" srcset="https://a0.muscache.com/4ea/air/v2/pictures/4407da7a-494a-4deb-a55f-7572fcd9b759.jpg?t=c:w744-h419,r:w744-h419-sfit,e:fjpg-c75 744w,https://a0.muscache.com/4ea/air/v2/pictures/4407da7a-494a-4deb-a55f-7572fcd9b759.jpg?t=c:w1488-h838,r:w1488-h838-sfit,e:fjpg-c75 1488w,https://a0.muscache.com/4ea/air/v2/pictures/4407da7a-494a-4deb-a55f-7572fcd9b759.jpg?t=c:w2232-h1257,r:w2232-h1257-sfit,e:fjpg-c75 2232w,https://a0.muscache.com/4ea/air/v2/pictures/4407da7a-494a-4deb-a55f-7572fcd9b759.jpg?t=c:w2976-h1676,r:w2976-h1676-sfit,e:fjpg-c75 2976w,https://a0.muscache.com/4ea/air/v2/pictures/4407da7a-494a-4deb-a55f-7572fcd9b759.jpg?t=c:w4464-h2514,r:w4464-h2514-sfit,e:fjpg-c75 4464w" style="width: 100%; height: 100%; position: relative; object-fit: cover;">
+			<div class="_uq22ss"></div>
+			</div>
+			
+			<div class="_y4pwm8">
+			<div class="_1hgbtph">
+			<div>${vo.checkInDate } - ${vo.checkOutDate }</div>
+			</div>
+			<div class="_1rez5ls">
+			<a href="" class="_1y6ygmzc">
+			<span class="_2ws1rv">${vo.placeVO.placeName }</span>
+			</a>
+			</div>
+			<div class="_1q5n55t">
+			<div class="_xjvqu8z">
+			<div class="_7kd9rz">
+			<img alt="" crossorigin="anonymous" role="presentation" sizes="40px" src="https://a0.muscache.com/4ea/air/v2/pictures/4407da7a-494a-4deb-a55f-7572fcd9b759.jpg?t=c:w80-h80,r:w80-h80-sfit,e:fjpg-c75" srcset="https://a0.muscache.com/4ea/air/v2/pictures/4407da7a-494a-4deb-a55f-7572fcd9b759.jpg?t=c:w80-h80,r:w80-h80-sfit,e:fjpg-c75 80w,https://a0.muscache.com/4ea/air/v2/pictures/4407da7a-494a-4deb-a55f-7572fcd9b759.jpg?t=c:w160-h160,r:w160-h160-sfit,e:fjpg-c75 160w,https://a0.muscache.com/4ea/air/v2/pictures/4407da7a-494a-4deb-a55f-7572fcd9b759.jpg?t=c:w240-h240,r:w240-h240-sfit,e:fjpg-c75 240w,https://a0.muscache.com/4ea/air/v2/pictures/4407da7a-494a-4deb-a55f-7572fcd9b759.jpg?t=c:w320-h320,r:w320-h320-sfit,e:fjpg-c75 320w,https://a0.muscache.com/4ea/air/v2/pictures/4407da7a-494a-4deb-a55f-7572fcd9b759.jpg?t=c:w480-h480,r:w480-h480-sfit,e:fjpg-c75 480w" style="width: 40px; height: 40px; position: relative; object-fit: cover;">
+			</div>
+			<div class="_anh6ot">
+			<a href="" class="_bim8e2w">
+			<span class="_2ws1rv">${vo.placeVO.placeLocation}</span>
+			</a>
+			</div>
+			<svg aria-hidden="true" role="presentation" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" style="display: block; fill: none; height: 12px; width: 12px; stroke: currentcolor; stroke-width: 5.33333; overflow: visible;">
+			<g fill="none">
+			<path d="m12 4 11.2928932 11.2928932c.3905243.3905243.3905243 1.0236893 0 1.4142136l-11.2928932 11.2928932"></path>
+			</g>
+			</svg>
+			</div>
+			<div class="_1yadbbeu">
+			<a href="" class="./bookingList?memberNum=${member.memberNum}">
+			<span class="_mbimaq2" style="color: black;">여행 계획 더 보기</span>
+			</a>
+			</div>
+			</div>
+			</div>
+			</div>
+			</div>
+			<!-- 이미지 대신 끝 -->
+		
+		
 		</div>
 	</div>
 </div>
