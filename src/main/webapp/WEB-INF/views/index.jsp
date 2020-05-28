@@ -212,7 +212,52 @@
 	    		  e.preventDefault();
 	    	  }
 	      });
-
+	    
+	    	$(function(){
+	    		$('.alarm1').hide();
+	    		$('.alarm2').hide();
+	    		
+	    		 $('#checkElpw').keyup(function(){
+	 		    	if($('#checkElpw').prop('value').length<8){
+	 		    		$('.alarm1').show();
+	 		    	} else{
+	 		    		$('.alarm1').hide();
+	 		    		$('.alarm2').hide();
+	 		    	}
+	 		    		
+	 		    });
+	 			
+	 		    $('#checkElCheckpw').keyup(function(){
+	 		    	if($('#checkElpw').prop('value')!=$('#checkElCheckpw').prop('value')){
+	 		    		$('.alarm2').show();
+	 		    	} else{
+	 		    		$('.alarm2').hide();
+	 		    	}
+	 		    });
+	    		
+	    		
+	    		
+	    	});
+	     
+	    
+	    
+	    /* $('#checkElpw').blur(function(){
+	    	if($('#checkElpw').prop('value').length<8){
+	    		$('#pwCheck1').append('<p class="alarm1" style="margin-top: 7px; margin-bottom:0px; color: red;">비밀번호는 8자 이상 입력하세요</p>');
+	    	} else{
+	    		$('.alarm1').remove();
+	    		$('.alarm2').remove();
+	    	}
+	    		
+	    });
+		
+	    $('#checkElCheckpw').blur(function(){
+	    	if($('#checkElpw').prop('value')!=$('#checkElCheckpw').prop('value')){
+	    		$('#pwCheck2').append('<p class="alarm2" style="margin-top: 7px; margin-bottom:0px; color: red;">비밀번호가 일치하지 않습니다</p>');
+	    	} else{
+	    		$('.alarm2').remove();
+	    	}
+	    }); */
   
 	</script> 
 </body>
