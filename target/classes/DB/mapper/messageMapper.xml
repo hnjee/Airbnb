@@ -11,18 +11,32 @@
 	
 	</insert>
 	
+	<insert id="windowSend" parameterType="MessageVO">
+		insert into message values (message_seq.nextval, #{s_memberNum}, #{sendName}, #{r_memberNum}, #{receiveName}, #{message}, sysdate, 'p1')
+	</insert>
+	
 	<select id="checkMessage" parameterType = "String" resultType="MessageVO">
 		select * from (select distinct sendName, s_memberNum from message where s_memberNum=#{memberNum} or r_memberNum=#{memberNum}) where s_memberNum not in #{memberNum}
+		
 	</select>
 	
 	<select id="checkMessage_2" parameterType = "String" resultType="MessageVO">
 		select * from (select distinct receiveName, r_memberNum from message where s_memberNum=#{memberNum} or r_memberNum=#{memberNum}) where r_memberNum not in #{memberNum}
+		
 	</select>
 	
 	<select id="messageWindow" parameterType = "MessageVO" resultType="MessageVO">
 		select * from
 		(select m.*, TO_CHAR(sendDate, 'HH24:MI:SS') as sendTime from (select * from message where s_memberNum=#{r_memberNum} or r_memberNum=#{r_memberNum}) m
 		where (s_memberNum=#{r_memberNum} and r_memberNum=#{s_memberNum}) or (s_memberNum=#{s_memberNum} and r_memberNum=#{r_memberNum}))
+		order by messageNum
+	</select>
+	
+	<select id="laterWindow" parameterType = "MessageVO" resultType="MessageVO">
+		select * from
+		(select m.*, TO_CHAR(sendDate, 'HH24:MI:SS') as sendTime from (select * from message where s_memberNum=#{s_memberNum} or r_memberNum=#{s_memberNum}) m
+		where (s_memberNum=#{s_memberNum} and r_memberNum=#{r_memberNum}) or (s_memberNum=#{r_memberNum} and r_memberNum=#{s_memberNum}))
+		order by messageNum
 	</select>
 
 </mapper>

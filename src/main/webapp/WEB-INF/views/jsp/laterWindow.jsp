@@ -87,12 +87,13 @@
 
 $(".chat").animate({scrollTop : $(".chat").height()+2500},1);
 
-$(".btn").click(function() {
+$(".btn-primary").click(function() {
+	
 	var message =$('#comm').val();
 	var ajaxOption = {
             url : "./windowSend",
             
-            data : {s_memberNum:'${member.memberNum}', sendName:'${member.name }', r_memberNum:'${messageVO.s_memberNum }', receiveName: '${messageVO.sendName }', message:message},
+            data : {s_memberNum:'${member.memberNum}', sendName:'${member.name }', r_memberNum:'${messageVO.r_memberNum }', receiveName: '${messageVO.receiveName }', message:message},
             type : "POST",
             dataType : "html"
             
@@ -106,12 +107,16 @@ $(".btn").click(function() {
 	
 
 });
-
-
+	function scroll_go(){
+	
+	$("body").scrollTop($(document).height());
+	
+	}
+	
+	scroll_go();
 
 
 </script>
 
 </body>
 </html>
-
