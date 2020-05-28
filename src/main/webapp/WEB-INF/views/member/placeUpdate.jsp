@@ -52,7 +52,7 @@
 					   </button>
 					    <ul class="dropdown-menu dropdown-menu-right">
 					      <li><a href="./placeEdit?memberNum=${placeVOs.memberNum}&placeNum=${placeVOs.placeNum}&placeName=${placeVOs.placeName}&placeLocation=${placeVOs.placeLocation}&placePrice=${placeVOs.placePrice}&placeType=${placeVOs.placeType}&placeMaxGuest=${placeVOs.placeMaxGuest}&placeDesc=${placeVOs.placeDesc}&placeRule=${placeVOs.placeRule}&bed=${placeVOs.bed}&bathroom=${placeVOs.bathroom}&checkInTime=${placeVOs.checkInTime}&checkOutTime=${placeVOs.checkOutTime}">수정</a></li>
-					      <li><a href="#">삭제</a></li>
+					      <li><a href="./placeDelete?placeNum=${placeVOs.placeNum}">삭제</a></li>
 					    </ul>
 					</div>
 					</td>
