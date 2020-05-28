@@ -11,60 +11,12 @@
 <c:import url="../template/boot.jsp"></c:import>
 <link rel="stylesheet" type="text/css"
 	href="../resources/css/indexFooter.css">
+	<link rel="stylesheet" type="text/css"
+	href="../resources/css/bookingResultStyle.css">
+	
 <link rel="stylesheet"
 	href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"> 
-	<style type="text/css">
-		.content {
-			width:100%;
-			min-height: 720px;
-			height:100%;
-		}
-		.contents {
-			width:85%;
-			height : 100%;
-			min-width: 1000px;
-			min-height: 600px;
-			margin: 0 auto;
-			padding: 0 35px;
-			box-sizing: border-box;
-			
-		}
-		.back{
-			width: 100%;
-			min-height: 600px;
-			background-image: url("../resources/w3images/back.png");
-			background-repeat: no-repeat;
-			background-position: center;
-			
-		}
-		
-		h2{
-			text-align: center;
-		}
-		
-		.finish{
-			box-sizing: border-box;
-			background-color: #ffffff;
-       		background-color: rgba( 245, 245, 245, 0.5 );
-		}
-		.explain {
-			width: 60%;
-			min-width:480px;
-			height: 300px;
-			
-		}
-		.price{
-			font-size: 1.4em;
-			text-decoration: underline;
-			color: maroon;
-		}
-		.out {
-			font-size: 1.2em;
-			color : olive;
-			text-align: right;
-		}
-		
-	</style>
+
 	
 </head>
 <body>
@@ -86,25 +38,82 @@
 <div class="contents">
 
   <h2><b>결제가 완료되었습니다</b></h2>
-  <hr>
+  
   
  
 	
 		<div class="back">
-			<h2>예약이 정상적으로 완료되었습니다.</h2>
+		
 		<div class="finish">
-			<div class="img" style="display: inline-block;">
-			<img src="${pageContext.request.contextPath}/resources/images/place/${fileList[0].fileName}" width="480px" height="320px" >
-			</div>
+		<div>
 			<div class="explain" style="display: inline-block;">
-			<h1><b>${vo.placeVO.placeName }</b></h1>
-			<h4>${vo.placeVO.placeLocation }</h4>
-			<div class="price" style="text-align: right;"><b>₩ ${vo.payTotal }</b></div><br>
-			<div class="out">체크인 : ${vo.checkInDate } ~ 체크아웃 : ${vo.checkOutDate }</div>
-			</div>
-			<div style="float: right;"><a href="./bookingList?memberNum=${member.memberNum }"><button class="btn btn-success" style="width: 150px;">예약 확인하러 가기</button></a> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a href="../"><button class="btn btn-primary">에이비앤비 더 둘러보기</button></a></div>
+				<h2 style="text-align: left;"><b>예약이 완료되었습니다.</b></h2>
+				<h4 style="line-height: 28px; margin-top: 20px;">예약이 확정되었습니다. 24시간이내에 이메일(${member.email})로<br>예약 요청에 대한 답변을 받게 됩니다.</h4>
+				<h3 style="text-align: left; margin-top: 40px;"><b>여행지에서의 즐길 거리를 추천해드려요.</b></h3>
+				<h4 style="line-height: 28px; margin-top: 20px;">관심사를 바탕으로 적합한 트립을 추천해드리고 에어비앤비 제품을<br>개선하는 데 도움이 됩니다.</h4>
+				
+				<div class="price" style="text-align: left;"><b>결제 가격 &nbsp&nbsp&nbsp ₩ ${vo.payTotal }</b></div><br>
+				<div style="font-size: 15px;" class="out">체크인 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp ${vo.checkInDate} <br>체크아웃   &nbsp&nbsp&nbsp ${vo.checkOutDate }</div>
+				<div style="float: left;margin-top: 30px;">
+					<a href="../">
+					<button class="btn _kt3i5a4" >에이비앤비 더 둘러보기</button>
+					</a>
+				</div>
 			
 			</div>
+			</div>
+			
+			
+			<!-- 이미지 대신 -->
+			<div class="_15tm4du">
+			<div class="_znbf64">
+			<div class="_1uwpj50">
+			<img alt="" crossorigin="anonymous" role="presentation" sizes="674px" src="https://a0.muscache.com/4ea/air/v2/pictures/4407da7a-494a-4deb-a55f-7572fcd9b759.jpg?t=c:w744-h419,r:w744-h419-sfit,e:fjpg-c75" srcset="https://a0.muscache.com/4ea/air/v2/pictures/4407da7a-494a-4deb-a55f-7572fcd9b759.jpg?t=c:w744-h419,r:w744-h419-sfit,e:fjpg-c75 744w,https://a0.muscache.com/4ea/air/v2/pictures/4407da7a-494a-4deb-a55f-7572fcd9b759.jpg?t=c:w1488-h838,r:w1488-h838-sfit,e:fjpg-c75 1488w,https://a0.muscache.com/4ea/air/v2/pictures/4407da7a-494a-4deb-a55f-7572fcd9b759.jpg?t=c:w2232-h1257,r:w2232-h1257-sfit,e:fjpg-c75 2232w,https://a0.muscache.com/4ea/air/v2/pictures/4407da7a-494a-4deb-a55f-7572fcd9b759.jpg?t=c:w2976-h1676,r:w2976-h1676-sfit,e:fjpg-c75 2976w,https://a0.muscache.com/4ea/air/v2/pictures/4407da7a-494a-4deb-a55f-7572fcd9b759.jpg?t=c:w4464-h2514,r:w4464-h2514-sfit,e:fjpg-c75 4464w" style="width: 100%; height: 100%; position: relative; object-fit: cover;">
+			<div class="_uq22ss"></div>
+			</div>
+			
+			<div class="_y4pwm8">
+			<div class="_1hgbtph">
+			<div>${vo.checkInDate } - ${vo.checkOutDate }</div>
+			</div>
+			<div class="_1rez5ls">
+			<a href="" class="_1y6ygmzc">
+			<span class="_2ws1rv">${vo.placeVO.placeName }</span>
+			</a>
+			</div>
+			<div class="_1q5n55t">
+			<div class="_xjvqu8z">
+			<div class="_7kd9rz">
+			<img alt="" crossorigin="anonymous" role="presentation" sizes="40px" src="https://a0.muscache.com/4ea/air/v2/pictures/4407da7a-494a-4deb-a55f-7572fcd9b759.jpg?t=c:w80-h80,r:w80-h80-sfit,e:fjpg-c75" srcset="https://a0.muscache.com/4ea/air/v2/pictures/4407da7a-494a-4deb-a55f-7572fcd9b759.jpg?t=c:w80-h80,r:w80-h80-sfit,e:fjpg-c75 80w,https://a0.muscache.com/4ea/air/v2/pictures/4407da7a-494a-4deb-a55f-7572fcd9b759.jpg?t=c:w160-h160,r:w160-h160-sfit,e:fjpg-c75 160w,https://a0.muscache.com/4ea/air/v2/pictures/4407da7a-494a-4deb-a55f-7572fcd9b759.jpg?t=c:w240-h240,r:w240-h240-sfit,e:fjpg-c75 240w,https://a0.muscache.com/4ea/air/v2/pictures/4407da7a-494a-4deb-a55f-7572fcd9b759.jpg?t=c:w320-h320,r:w320-h320-sfit,e:fjpg-c75 320w,https://a0.muscache.com/4ea/air/v2/pictures/4407da7a-494a-4deb-a55f-7572fcd9b759.jpg?t=c:w480-h480,r:w480-h480-sfit,e:fjpg-c75 480w" style="width: 40px; height: 40px; position: relative; object-fit: cover;">
+			</div>
+			<div class="_anh6ot">
+			<a href="" class="_bim8e2w">
+			<span class="_2ws1rv">${vo.placeVO.placeLocation}</span>
+			</a>
+			</div>
+			<svg aria-hidden="true" role="presentation" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" style="display: block; fill: none; height: 12px; width: 12px; stroke: currentcolor; stroke-width: 5.33333; overflow: visible;">
+			<g fill="none">
+			<path d="m12 4 11.2928932 11.2928932c.3905243.3905243.3905243 1.0236893 0 1.4142136l-11.2928932 11.2928932"></path>
+			</g>
+			</svg>
+			</div>
+			<div class="_1yadbbeu">
+			<a href="" class="./bookingList?memberNum=${member.memberNum}">
+			<span class="_mbimaq2" style="color: black;">여행 계획 더 보기</span>
+			</a>
+			</div>
+			</div>
+			</div>
+			</div>
+			</div>
+			<!-- 이미지 대신 끝 -->
+			
+			<%-- <div class="img" style="display: inline-block;">
+			<img src="${pageContext.request.contextPath}/resources/images/place/${fileList[0].fileName}" width="480px" height="320px" >
+			</div> --%>
+			
+			
+		</div>
 		</div>
 	</div>
 </div>
