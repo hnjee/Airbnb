@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.airbnb.s1.member.MemberVO;
 import com.airbnb.s1.member.memberFile.MemberFileVO;
 import com.airbnb.s1.place.PlaceService;
 import com.airbnb.s1.place.PlaceVO;
@@ -204,7 +205,7 @@ public class MemberController {
 
 		System.out.println(placeVO.getPlaceNum());
 			mv.addObject("list", placeVOs);
-			mv.addObject("file", placeFileList);
+			//mv.addObject("file", placeFileList);
 
 			mv.setViewName("member/placeUpdate");
 
@@ -223,7 +224,7 @@ public class MemberController {
 	@GetMapping("memberDelete")
 	public ModelAndView memberDelete(HttpSession session, ModelAndView mv) throws Exception{
 		MemberVO memberVO = (MemberVO)session.getAttribute("member");
-		int res = memberService.memberDelete(memberVO.getEmail()); 
+		int res = memberService.memberDelete(memberVO.getMemberNum()); 
 		String msg="Delete Fail";
 		if(res>0) {
 			msg = "Delete Success"; 
@@ -234,66 +235,67 @@ public class MemberController {
 		mv.setViewName("common/result");
 		return mv;
 	}
-
-
-	@PostMapping("placeEdit")
-	public String placeEdit(PlaceVO placeVO, HttpSession session) throws Exception{
-//		System.out.println(placeVO.getMemberNum());
-//		System.out.println(placeVO.getPlaceNum());
-//		System.out.println(placeVO.getPlaceName());
-//		System.out.println(placeVO.getPlaceLocation());
-//
-//		System.out.println(placeVO.getPlacePrice());
-//
-//		System.out.println(placeVO.getPlaceType());
-//
-//		System.out.println(placeVO.getPlaceMaxGuest());
-//
-//		System.out.println(placeVO.getPlaceDesc());
-//
-//		System.out.println(placeVO.getPlaceRule());
-//
-//		System.out.println(placeVO.getBed());
-//		System.out.println(placeVO.getBathroom());
-//
-//		System.out.println(placeVO.getCheckInTime());
-//		System.out.println(placeVO.getCheckOutTime());
-//
-		if(placeVO.getPlaceName() !=null) {
-			memberVO.setFamilyName(familyName);
-			memberVO.setHostDesc("1");
-			int result = memberService.memberUpdate(memberVO);
-			memberVO.setHostDesc(hostDesc);
-			System.out.println("변경 성공1");
-		}else if(placeVO.getPlaceLocation() != null){
-			System.out.println(email);
-			memberVO.setEmail(email);
-			memberVO.setHostDesc("2");
-			memberService.memberUpdate(memberVO);
-			memberVO.setHostDesc(hostDesc);
-			System.out.println("변경 성공2");
-		}else if(placeVO.getPlacePrice() != null) {
-			System.out.println(pw);
-			memberVO.setPw(pw);
-			memberVO.setHostDesc("3");
-			memberService.memberUpdate(memberVO);
-			memberVO.setHostDesc(hostDesc);
-			System.out.println("변경 성공3");
-		}else if(placeVO.getPlaceMaxGuest() != null) {
-			System.out.println("변경 성공4");
-		}else if(placeVO.getPlaceDesc() != null) {
-			System.out.println("변경 성공5");
-		}else if(placeVO.getPlaceRule() != null) {
-			System.out.println("변경 성공6");
-		}else if(placeVO.getBed() != null || placeVO.getBathroom() != null) {
-			System.out.println("변경 성공7");
-		}else if(placeVO.getCheckInTime() != null || placeVO.getCheckOutTime() != null) {
-			System.out.println("변경 성공8");
-		}
-
-
-		return "./";
-
-	}
-
 }
+
+//
+//	@PostMapping("placeEdit")
+//	public String placeEdit(PlaceVO placeVO, HttpSession session) throws Exception{
+////		System.out.println(placeVO.getMemberNum());
+////		System.out.println(placeVO.getPlaceNum());
+////		System.out.println(placeVO.getPlaceName());
+////		System.out.println(placeVO.getPlaceLocation());
+////
+////		System.out.println(placeVO.getPlacePrice());
+////
+////		System.out.println(placeVO.getPlaceType());
+////
+////		System.out.println(placeVO.getPlaceMaxGuest());
+////
+////		System.out.println(placeVO.getPlaceDesc());
+////
+////		System.out.println(placeVO.getPlaceRule());
+////
+////		System.out.println(placeVO.getBed());
+////		System.out.println(placeVO.getBathroom());
+////
+////		System.out.println(placeVO.getCheckInTime());
+////		System.out.println(placeVO.getCheckOutTime());
+////
+//		if(placeVO.getPlaceName() !=null) {
+//			memberVO.setFamilyName(familyName);
+//			memberVO.setHostDesc("1");
+//			int result = memberService.memberUpdate(memberVO);
+//			memberVO.setHostDesc(hostDesc);
+//			System.out.println("변경 성공1");
+//		}else if(placeVO.getPlaceLocation() != null){
+//			System.out.println(email);
+//			memberVO.setEmail(email);
+//			memberVO.setHostDesc("2");
+//			memberService.memberUpdate(memberVO);
+//			memberVO.setHostDesc(hostDesc);
+//			System.out.println("변경 성공2");
+//		}else if(placeVO.getPlacePrice() != null) {
+//			System.out.println(pw);
+//			memberVO.setPw(pw);
+//			memberVO.setHostDesc("3");
+//			memberService.memberUpdate(memberVO);
+//			memberVO.setHostDesc(hostDesc);
+//			System.out.println("변경 성공3");
+//		}else if(placeVO.getPlaceMaxGuest() != null) {
+//			System.out.println("변경 성공4");
+//		}else if(placeVO.getPlaceDesc() != null) {
+//			System.out.println("변경 성공5");
+//		}else if(placeVO.getPlaceRule() != null) {
+//			System.out.println("변경 성공6");
+//		}else if(placeVO.getBed() != null || placeVO.getBathroom() != null) {
+//			System.out.println("변경 성공7");
+//		}else if(placeVO.getCheckInTime() != null || placeVO.getCheckOutTime() != null) {
+//			System.out.println("변경 성공8");
+//		}
+//
+//
+//		return "./";
+//
+//	}
+//
+//}
