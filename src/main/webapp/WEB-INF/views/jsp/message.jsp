@@ -16,7 +16,7 @@
 			<c:forEach items="${list}" var="vo">
 			
 			<tr>
-				<td><button class="btn btn-success" title="${vo.r_memberNum }">${vo.receiveName }</button></td>
+				<td><button class="btn btn-success" title="${vo.r_memberNum }" id="${vo.receiveName }">${vo.receiveName }</button></td>
 				
 				
 			</tr>
@@ -26,13 +26,13 @@
 		<script type="text/javascript">
 		$(".btn").click(function() {
 			
-		     
+			var sendName = $(this).attr("id")
         	var s_memberNum = $(this).attr("title")
         	
         	var ajaxOption = {
                     url : "./messageWindow",
                     
-                    data : {r_memberNum: '${member.memberNum}', s_memberNum:s_memberNum},
+                    data : {r_memberNum: '${member.memberNum}', s_memberNum:s_memberNum, sendName:sendName},
                     type : "POST",
                     dataType : "html"
                     

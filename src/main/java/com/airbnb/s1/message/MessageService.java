@@ -28,5 +28,13 @@ public class MessageService {
 	public List<MessageVO> messageWindow(MessageVO messageVO) throws Exception{
 		return messageDAO.messageWindow(messageVO);
 	}
+	
+	public List<MessageVO> laterWindow(MessageVO messageVO) throws Exception{
+		return messageDAO.laterWindow(messageVO);
+	}
+	
+	public int windowSend(MessageVO messageVO) throws Exception{
+		return messageDAO.windowSend(messageVO);
+	}
 
 }

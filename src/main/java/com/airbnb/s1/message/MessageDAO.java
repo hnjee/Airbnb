@@ -28,4 +28,11 @@ public class MessageDAO {
 	public List<MessageVO> messageWindow(MessageVO messageVO) throws Exception{
 		return sqlSession.selectList(NAMESPACE+"messageWindow", messageVO);
 	}
+	public List<MessageVO> laterWindow(MessageVO messageVO) throws Exception{
+		return sqlSession.selectList(NAMESPACE+"laterWindow", messageVO);
+	}
+	
+	public int windowSend(MessageVO messageVO) throws Exception {
+		return sqlSession.insert(NAMESPACE+"windowSend", messageVO);
+	}
 }

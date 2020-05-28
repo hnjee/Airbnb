@@ -78,7 +78,7 @@ public class MessageController {
 	
 	@RequestMapping(value="messageWindow", method = RequestMethod.POST)
 	public ModelAndView messageWindow(ModelAndView mv, MessageVO messageVO) throws Exception {
-
+		
 		List<MessageVO> ar = messageService.messageWindow(messageVO);
 		MemberFileVO memberFileVO = memberService.fileSelect(messageVO.getR_memberNum());
 		MemberFileVO memberFileVOs = memberService.fileSelect(messageVO.getS_memberNum());
@@ -86,8 +86,25 @@ public class MessageController {
 		mv.addObject("hostFile", memberFileVOs);
 		mv.addObject("myFile", memberFileVO);
 		mv.addObject("list", ar);
-		mv.addObject("memberNum", messageVO);
+		mv.addObject("messageVO", messageVO);
 		mv.setViewName("jsp/messageWindow");
 		return mv;
 	}
+	
+	@RequestMapping(value="windowSend", method = RequestMethod.POST)
+	public ModelAndView windowSend(ModelAndView mv, MessageVO messageVO) throws Exception{
+		
+		messageService.windowSend(messageVO);
+		List<MessageVO> ar = messageService.laterWindow(messageVO);
+		MemberFileVO memberFileVO = memberService.fileSelect(messageVO.getR_memberNum());
+		MemberFileVO memberFileVOs = memberService.fileSelect(messageVO.getS_memberNum());
+		mv.addObject("messageVO", messageVO);
+		mv.addObject("hostFile", memberFileVO);
+		mv.addObject("myFile", memberFileVOs);
+		mv.addObject("list", ar);
+		mv.setViewName("jsp/laterWindow");
+		
+		return mv;
+	}
+	
 }
