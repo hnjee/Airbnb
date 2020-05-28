@@ -10,7 +10,7 @@
 	href="../resources/css/headerStyle.css">
 <c:import url="../template/boot.jsp"></c:import>
 <link rel="stylesheet" type="text/css"
-	href="../resources/css/indexFooter.css">
+	href="../resources/css/footer.css">
 <link rel="stylesheet"
 	href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"> 
 	<style type="text/css">

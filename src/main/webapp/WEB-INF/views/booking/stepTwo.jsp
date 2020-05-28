@@ -310,7 +310,7 @@
 			      <input type="radio" name="optradio" class="ch"> YES
 			    </label>
 			    <label class="radio-inline">
-			      <input type="radio" checked="checked" required="required" class="ch"> NO
+			      <input type="radio" name="optradio" checked="checked" class="ch"> NO
 			    </label>
 			  </form>
 			  <br><br><br><br>
