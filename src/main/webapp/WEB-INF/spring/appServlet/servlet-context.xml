@@ -25,6 +25,17 @@
 	<beans:bean class="org.springframework.web.servlet.view.BeanNameViewResolver">
 		<beans:property name="order" value="0"></beans:property>	
 	</beans:bean>
+	<beans:bean class="com.airbnb.s1.interceptor.MemberInterceptor" id="memberInterceptor"></beans:bean>
+	
+	<interceptors>
+		<interceptor>
+			<mapping path="/member/*"/>
+			<beans:ref bean="memberInterceptor"/>
+		
+		</interceptor>
+	
+	
+	</interceptors>
 	
 	<context:component-scan base-package="com.airbnb.s1" />
 	
