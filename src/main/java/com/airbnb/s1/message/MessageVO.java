@@ -12,6 +12,14 @@ public class MessageVO {
 	private String message;
 	private Date sendDate;
 	private String placeNum;
+	private String sendTime;
+	
+	public String getSendTime() {
+		return sendTime;
+	}
+	public void setSendTime(String sendTime) {
+		this.sendTime = sendTime;
+	}
 	public String getPlaceNum() {
 		return placeNum;
 	}

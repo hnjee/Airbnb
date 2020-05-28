@@ -44,9 +44,7 @@
 	<a href="./member/memberFileInsert">Member Image</a>
 	
 	<script src="https://apis.google.com/js/platform.js?onload=init" async defer></script>	
-	<script type="text/javascript">
-
-			
+	<script type="text/javascript">			
 			//searchBox 동작
 			var adultNum=0;
 			var childNum=0;
@@ -197,7 +195,24 @@
 	    	  }
 	      });
 	      
-	      
+	    //modal 회원가입 시 값 입력 안하면 넘어가는것 방지
+	      $('.goJoin').click(function(e){	      	
+	    	  if(!$('#checkElname').prop('value')){   
+	    		  e.preventDefault();
+	    	  } else if(!$('#checkElfamilyName').prop('value')){
+	    		  e.preventDefault();
+	    	  } else if(!$('#checkElpw').prop('value')){
+	    		  e.preventDefault();
+	    	  } else if(!$('#checkElphoneNum').prop('value')){
+	    		  e.preventDefault();
+	    	  } else if(!$('#checkElemail').prop('value')){
+	    		  e.preventDefault();
+	    	  }else if(!$('#checkAgree').prop("checked")){
+	    		  alert("약관에 동의하세요");
+	    		  e.preventDefault();
+	    	  }
+	      });
+
   
 	</script> 
 </body>

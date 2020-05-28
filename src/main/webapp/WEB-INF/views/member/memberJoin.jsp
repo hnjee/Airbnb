@@ -15,32 +15,34 @@
 			
 				<div class="form-group">
 					<div class="col-sm-5">
-						<button type="button" class="btn btn-primary btn-block"> 페이스 계정으로 로그인</button>				
+						<button type="button" class="btn btn-primary btn-block" id="faceJoinBtn"> 페이스북 계정으로 회원가입</button>				
 					</div>
 				</div>
 				
+				<div class="form-group" style="margin-bottom:3px;">
+					<div class="col-sm-5">
+						<button type="button" class="btn btn-success btn-block" id="googleBtn"> 구글 계정으로 회원가입</button>				
+					</div>
+				</div>
+				
+				<div style="width: 538.5px; overflow:hidden;">
+					<div style="width: 239px; float:left;"> <hr> </div>
+					<span style="padding:16px; width:60.5px; height: 50px; box-sizing:border-box; Circular; font-size: 14px !important;
+					    font-weight: 600 !important;
+					    line-height: 1.28571em !important;
+					    color: rgb(118, 118, 118) !important; margin: 0px !important; float:left;"> 또는 </span>  
+					<div style="width: 239px; float:left;"> <hr> </div>
+				</div>
+
 				<div class="form-group">
 					<div class="col-sm-5">
-					<input class = "btn btn-success btn-block"type="button" id="googleBtn" value="구글 아이디로 회원가입">
+						<button type="button" class="btn btn-block" id="JoinByEmail" style="background: rgb(255, 90, 95); color: white;"> 이메일로 회원가입</button>							
 					</div>
 				</div>
 				
 				<div>
-				--------------------------------------------------------- 또는 ---------------------------------------------------------
-				</div>
-				
-				<br>
-				<div class="form-group">
-					<div class="col-sm-5">
-						<input type="button" class="btn btn-danger btn-block" value="이메일로 회원 가입" id="JoinByEmail">				
-					</div>
-				</div>
-				
-				<div>
-					이미 에어비앤비 계정이 있나요? <input type="button" class="_547li01" value="로그인" id="memberLogin2" >	
-				</div>
-				<br><br>
-				
+					이미 에어비앤비 계정이 있나요? <input type="button" class="_547li01" value="로그인" id="memberLogin2">	
+				</div>			
 			</form>		
 		</div>
 	</div>

@@ -64,6 +64,7 @@ public class MemberService {
 	}
 		
 	public int memberUpdate(MemberVO memberVO) throws Exception{
+
 		int result = 0;
 		if(memberVO.getHostDesc()=="1") {
 			result = memberDAO.memberUpdate1(memberVO);
@@ -75,6 +76,8 @@ public class MemberService {
 			result = memberDAO.memberUpdate4(memberVO);
 		}
 		return result;
+
+
 	}
 	
 	
