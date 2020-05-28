@@ -28,8 +28,20 @@ public class MemberDAO {
 		return sqlSession.selectOne(NAMESPACE+"loginByGoogle", memberVO);
 	}
 
-	public int memberUpdate(MemberVO memberVO) throws Exception{
-		return sqlSession.update(NAMESPACE, memberVO);
+	public int memberUpdate1(MemberVO memberVO) throws Exception{
+		return sqlSession.update(NAMESPACE+"memberUpdate1", memberVO);
+	}
+	
+	public int memberUpdate2(MemberVO memberVO) throws Exception{
+		return sqlSession.update(NAMESPACE+"memberUpdate2", memberVO);
+	}
+	
+	public int memberUpdate3(MemberVO memberVO) throws Exception{
+		return sqlSession.update(NAMESPACE+"memberUpdate3", memberVO);
+	}
+	
+	public int memberUpdate4(MemberVO memberVO) throws Exception{
+		return sqlSession.update(NAMESPACE+"memberUpdate4", memberVO);
 	}
 	
 	

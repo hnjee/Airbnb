@@ -128,7 +128,7 @@ public class MemberController {
 	}
 	
 	@PostMapping("memberUpdate")
-	public void memberUpdate(MemberVO memberVO, HttpSession session) throws Exception{
+	public String memberUpdate(MemberVO memberVO, HttpSession session) throws Exception{
 		
 		String name = memberVO.getName();
 		String familyName= memberVO.getFamilyName();
@@ -141,18 +141,41 @@ public class MemberController {
 		
 		memberVO=(MemberVO)session.getAttribute("member");
 		
-		if(name == memberVO.getName() && familyName == memberVO.getFamilyName()) {
-			System.out.println(name);
-			System.out.println(memberVO.getName());
-			System.out.println("----");
-			System.out.println(familyName);
-			System.out.println(memberVO.getFamilyName());
-		}else {
-			
+		String hostDesc = memberVO.getHostDesc();
+		
+		if(name !=null || familyName !=null) {
+			memberVO.setName(name);
+			memberVO.setFamilyName(familyName);
+			memberVO.setHostDesc("1");
+			int result = memberService.memberUpdate(memberVO);
+			memberVO.setHostDesc(hostDesc);
+			System.out.println("변경 성공1");
+		}else if(email != null){
+			System.out.println(email);
+			memberVO.setEmail(email);
+			memberVO.setHostDesc("2");
+			memberService.memberUpdate(memberVO);
+			memberVO.setHostDesc(hostDesc);
+			System.out.println("변경 성공2");
+		}else if(pw != null) {
+			System.out.println(pw);
+			memberVO.setPw(pw);
+			memberVO.setHostDesc("3");
+			memberService.memberUpdate(memberVO);
+			memberVO.setHostDesc(hostDesc);
+			System.out.println("변경 성공3");
+		}else if(phoneNum != null) {
+			System.out.println(phoneNum);
+			memberVO.setPhoneNum(phoneNum);
+			memberVO.setHostDesc("4");
+			memberService.memberUpdate(memberVO);
+			memberVO.setHostDesc(hostDesc);
+			System.out.println("변경 성공4");
 		}
 		
+		session.setAttribute("member", memberVO);
 		
-		
+		return "redirect:./memberUpdate";
 		
 	}
 	

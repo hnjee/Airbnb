@@ -76,7 +76,7 @@
 				<div class="_n5lh69r">
 				<div class="_1p3joamp">실명 이름</div>
 				<div style="margin-top: 8px; margin-bottom: 24px;">
-				<div class="_czm8crp">Lim Jaebeom</div>
+				<div class="_czm8crp">${member.familyName} ${member.name}</div>
 				
 				<!-- collapse 부분 -->
 				<div id="collapse1" class="panel-collapse collapse" aria-expanded="false">
@@ -161,7 +161,7 @@
 				<div class="_n5lh69r">
 				<div class="_1p3joamp">이메일 주소</div>
 				<div style="margin-top: 8px; margin-bottom: 24px;">
-				<div class="_czm8crp">웅앵웅@gmail.com</div>
+				<div class="_czm8crp">${member.email}</div>
 				
 				<!-- collapse 부분 -->
 				<div id="collapse2" class="panel-collapse collapse" aria-expanded="false">
@@ -274,7 +274,7 @@
 				<div class="_n5lh69r">
 				<div class="_1p3joamp">전화번호</div>
 				<div style="margin-top: 8px; margin-bottom: 24px;">
-				<div class="_czm8crp">계정 주인의 phoneNum여기에 받아오세요</div>
+				<div class="_czm8crp">${member.phoneNum}</div>
 				<!-- collapse 부분 -->
 				<div id="collapse4" class="panel-collapse collapse" aria-expanded="false">
 				<div style="margin-top: 8px; margin-bottom: 20px;">
