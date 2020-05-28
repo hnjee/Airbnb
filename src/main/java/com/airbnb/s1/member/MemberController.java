@@ -296,8 +296,13 @@ public class MemberController {
 		return mv;
 	}
 
-	public ModelAndView placeDelete(ModelAndView mv,PlaceVO placeVO, PlaceFileVO placeFileVO) throws Exception{
-		
+	@GetMapping("placeDelete")
+	public ModelAndView placeDelete(ModelAndView mv,PlaceVO placeVO, PlaceFileVO placeFileVO,MemberVO memberVO) throws Exception{
+		placeService.placeFileDelete(placeFileVO);
+		placeService.placeDelete(placeVO);
+		List<PlaceVO> placeVOs = placeService.myPlace(memberVO);
+		mv.addObject("p", attributeValue)
+		mv.setViewName("member/placeUpdate");
 		return mv;
 	}
 	
