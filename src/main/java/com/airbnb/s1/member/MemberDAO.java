@@ -48,6 +48,10 @@ public class MemberDAO {
 		return sqlSession.update(NAMESPACE+"memberUpdate4", memberVO);
 	}
 	
+	public int memberDelete(String memberNum) throws Exception{
+		return sqlSession.delete(NAMESPACE+"memberDelete",memberNum);
+	}
+	
 	
 
 	

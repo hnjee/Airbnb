@@ -107,8 +107,10 @@ public class MemberService {
 			result = memberDAO.memberUpdate4(memberVO);
 		}
 		return result;
-
-
+	}
+	
+	public int memberDelete(String memberNum) throws Exception{
+		return memberDAO.memberDelete (memberNum);
 	}
 	
 	

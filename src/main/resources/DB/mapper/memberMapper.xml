@@ -38,6 +38,11 @@
 	<update id="memberUpdate4" parameterType="MemberVO">
 		update member set phoneNum=#{phoneNum} where memberNum=#{memberNum}
 	</update>
+	
+	<delete id="memberDelete" parameterType="String">
+		delete member where memberNum=#{memberNum}
+	</delete>
+	
 
 
 

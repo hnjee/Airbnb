@@ -223,11 +223,17 @@ public class MemberController {
 	}
 	
 	@GetMapping("memberDelete")
-	public void memberDelete() throws Exception{
-		
+	public ModelAndView memberDelete(HttpSession session, ModelAndView mv) throws Exception{
+		MemberVO memberVO = (MemberVO)session.getAttribute("member");
+		int res = memberService.memberDelete(memberVO.getEmail()); 
+		String msg="Delete Fail";
+		if(res>0) {
+			msg = "Delete Success"; 
+			session.invalidate();
+		} 
+		mv.addObject("result",msg);
+		mv.addObject("path", "../");
+		mv.setViewName("common/result");
+		return mv;
 	}
-	
-
-	
-
 }
