@@ -123,20 +123,19 @@ public class MemberController {
 	}
 	
 	@GetMapping("memberUpdate")
-	public void memberUpdate() throws Exception{
-		
+	public void memberUpdate(MemberVO memberVO, ModelAndView mv, HttpSession session) throws Exception{
+		memberVO=(MemberVO)session.getAttribute("member");
+		MemberFileVO memberFileVO = memberService.fileSelect(memberVO.getMemberNum());
+		session.setAttribute("file", memberFileVO);
 	}
 	
 	@PostMapping("memberUpdate")
 	public String memberUpdate(MemberVO memberVO, HttpSession session) throws Exception{
-		
+	
 		String name = memberVO.getName();
 		String familyName= memberVO.getFamilyName();
-		
 		String email = memberVO.getEmail();
-		
 		String pw = memberVO.getPw();
-		
 		String phoneNum = memberVO.getPhoneNum();
 		
 		memberVO=(MemberVO)session.getAttribute("member");
@@ -174,9 +173,7 @@ public class MemberController {
 		}
 		
 		session.setAttribute("member", memberVO);
-		
 		return "redirect:./memberUpdate";
-		
 	}
 	
 	
