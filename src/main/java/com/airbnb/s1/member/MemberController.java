@@ -199,6 +199,7 @@ public class MemberController {
 		PlaceFileVO placeFileVO = new PlaceFileVO();
 		memberVO=(MemberVO)session.getAttribute("member");
 <<<<<<< HEAD
+<<<<<<< HEAD
 		System.out.println(memberVO.getMemberNum());
 		
 		List<PlaceVO> placeVOs = placeService.myPlace(memberVO);
@@ -221,11 +222,20 @@ public class MemberController {
 		List<PlaceVO> placeVOs = placeService.myPlace(memberVO);
 		
 		placeVO = placeVOs.get(0);
+=======
+		
+		List<PlaceVO> placeVOs = placeService.myPlace(memberVO);
+		
+		placeVO = placeVOs.get(0);
+>>>>>>> parent of 88d4ffc... Merge branch 'master' of https://github.com/hnjee/Airbnb
 		
 		mv.addObject("list", placeVOs);
 		mv.setViewName("member/placeUpdate");
 		return mv;
 		
+<<<<<<< HEAD
+>>>>>>> parent of 88d4ffc... Merge branch 'master' of https://github.com/hnjee/Airbnb
+=======
 >>>>>>> parent of 88d4ffc... Merge branch 'master' of https://github.com/hnjee/Airbnb
 	}
 	
@@ -317,5 +327,8 @@ public class MemberController {
 		
 	}
 	
+<<<<<<< HEAD
+>>>>>>> parent of 88d4ffc... Merge branch 'master' of https://github.com/hnjee/Airbnb
+=======
 >>>>>>> parent of 88d4ffc... Merge branch 'master' of https://github.com/hnjee/Airbnb
 }
