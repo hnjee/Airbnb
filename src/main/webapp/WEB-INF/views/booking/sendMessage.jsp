@@ -33,9 +33,25 @@
 			
 			width: 100%;
 			min-height: 600px;
-			background-image: url("../resources/w3images/back.png");
-			background-repeat: no-repeat;
-			background-position: center;
+			
+			box-sizing: border-box;
+			
+		}
+		
+		.back:after{
+			 background-image:url("../resources/w3images/back.png");
+			    top:0;
+			    left:0;
+			    position:absolute;
+			    background-size:100%;
+			    opacity:0.5!important;
+			    filter:alpha(opacity=50);
+			    z-index:-1;
+			    content:"";
+			    width:100%;
+			    height:100%;
+			    
+
 		}
 
 		.qu{
