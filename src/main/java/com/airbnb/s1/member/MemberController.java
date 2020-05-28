@@ -15,6 +15,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.airbnb.s1.member.memberFile.MemberFileVO;
 import com.airbnb.s1.place.PlaceService;
 import com.airbnb.s1.place.PlaceVO;
+import com.airbnb.s1.place.placeFile.PlaceFileVO;
 
 @Controller
 @RequestMapping("/member/**")
@@ -186,17 +187,22 @@ public class MemberController {
 	
 	@GetMapping("placeUpdate")
 	public ModelAndView placeUpdate(MemberVO memberVO,PlaceVO placeVO, HttpSession session,ModelAndView mv) throws Exception{
+		PlaceFileVO placeFileVO = new PlaceFileVO();
 		memberVO=(MemberVO)session.getAttribute("member");
 		System.out.println(memberVO.getMemberNum());
 		
 		List<PlaceVO> placeVOs = placeService.myPlace(memberVO);
-//		for(int i =0; i<placeVOs.size(); i++) {
-//			placeVO = placeVOs.get(i);
-//			
-//			session.setAttribute("place"+i, placeVO);
-//			System.out.println(placeVO.getPlaceName());
-			
+		placeVO = placeVOs.get(0);
+		System.out.println(placeVO.getPlaceNum());
+		List<PlaceFileVO> placeFileList = placeService.fileList(placeVO);
+		
+//		placeFileVO = placeFileList.get(0);
+//		System.out.println(placeFileVO.getFileName());
+		
+		System.out.println(placeVO.getPlaceNum());
 			mv.addObject("list", placeVOs);
+			mv.addObject("file", placeFileList);
+			
 			mv.setViewName("member/placeUpdate");
 			
 			return mv;
