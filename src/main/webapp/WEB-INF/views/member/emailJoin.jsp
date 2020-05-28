@@ -16,7 +16,6 @@
 	<div class="container">
 		<div class="row">
 			<form class="form-horizontal" action="member/memberJoin" method="post">
-
 				<div class="form-group" >
 					<div class="col-sm-5">
 						<input type="email" class="form-control" id="checkElemail"

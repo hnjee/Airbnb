@@ -81,25 +81,24 @@
 				<div class="_1p3joamp">프로필 사진</div>
 				<div style="margin-top: 8px; margin-bottom: 24px;">
 				<div class="_czm8crp">
-						<img src="${pageContext.request.contextPath}/resources/images/member/${file.fileName}"  height="80" width="80">
+						<img src="${pageContext.request.contextPath}/resources/images/member/${file.fileName}" height="100" width="100">
 				</div>
 				
 				<!-- collapse 부분 -->
 				<div id="collapse2" class="panel-collapse collapse" aria-expanded="false">
 				<div style="margin-top: 8px; margin-bottom: 24px;">
-				<form action="../member/memberUpdate" method="POST">
+				<form action="../member/memberUpdate" method="POST" enctype="multipart/form-data">
 					<div style="margin-top: 8px; margin-bottom: 20px;">
-					<div class="_czm8crp">언제든지 확인하실 수 있는 주소를 사용하세요</div>
 					</div>
 					
 					<div style="margin-bottom: 24px;">
 					<div class="_9hxttoo">
-					<label class="_krjbj" for="email">이메일 주소</label>
+					<label class="_krjbj" for="memberPic">프로필 사진</label>
 					<div dir="ltr">
 					<div class="_1wcr140x">
 					<div class="_178faes">
 					
-					<input class="_14fdu48d" id="email" name="email" type="text" value="${member.email}"></div>
+					<input class="_14fdu48d" id="file" name="file" type="file"></div>
 					</div>
 					</div>
 					</div>

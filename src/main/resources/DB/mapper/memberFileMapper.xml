@@ -12,5 +12,8 @@
 	<select id="fileSelect" parameterType="String" resultType="MemberFileVO">
 		SELECT * FROM memberFile WHERE memberNum=#{memberNum}
 	</select>
-
+	
+	<update id="fileUpdate" parameterType="MemberFileVO">
+		update memberFile set fileName=#{fileName}, oriName= #{oriName} where memberNum=#{memberNum}
+	</update>
 </mapper>

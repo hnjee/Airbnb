@@ -30,7 +30,11 @@ public class MemberController {
 		} else {
 			System.out.println("실패");
 		}
+		
+		//멤버 프로필사진 초기화하기
+		memberService.fileInsert(memberVO.getMemberNum());
 
+		
 		mv.setViewName("redirect:../");
 		session.setAttribute("member", memberVO);
 		return mv;
@@ -130,8 +134,7 @@ public class MemberController {
 	}
 	
 	@PostMapping("memberUpdate")
-	public String memberUpdate(MemberVO memberVO, HttpSession session) throws Exception{
-	
+	public String memberUpdate(MemberVO memberVO, HttpSession session, MultipartFile file) throws Exception{		
 		String name = memberVO.getName();
 		String familyName= memberVO.getFamilyName();
 		String email = memberVO.getEmail();
@@ -141,6 +144,13 @@ public class MemberController {
 		memberVO=(MemberVO)session.getAttribute("member");
 		
 		String hostDesc = memberVO.getHostDesc();
+		
+		//멤버 파일 
+		memberService.fileUpdate(memberVO.getMemberNum(), file);
+		
+		memberVO=(MemberVO)session.getAttribute("member");
+		MemberFileVO memberFileVO = memberService.fileSelect(memberVO.getMemberNum());
+		session.setAttribute("file", memberFileVO);
 		
 		if(name !=null || familyName !=null) {
 			memberVO.setName(name);
