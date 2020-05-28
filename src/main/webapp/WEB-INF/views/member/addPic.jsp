@@ -21,7 +21,7 @@
 				
 				<div class="form-group">
 					<div class="col-sm-5">
-					<span id="name"></span> <input type="button" id="loginBtn" value="checking..." onclick="
+					<span id="name1"></span> <input type="button" id="loginBtn1" value="checking..." onclick="
 					if(this.value =='Login'){
 						gauth.signIn().then(function() {
 							console.log('gauth.signIn()');
@@ -44,7 +44,7 @@
 				<br>
 				<div class="form-group">
 					<div class="col-sm-5">
-						<input type="button" class="btn btn-danger btn-block" value="이메일로 회원 가입" id="JoinByEmail">				
+						<input type="button" class="btn btn-danger btn-block" value="이메일로 회원 가입" id="JoinByEmail1">				
 					</div>
 				</div>
 				
