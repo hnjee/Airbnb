@@ -26,4 +26,10 @@ public class PlaceFileDAO {
 	public long fileCount(String placeNum) throws Exception{
 		return sqlSession.selectOne(NAMESPACE+"fileCount", placeNum);
 	}
+	
+	public String picOne(PlaceVO placeVO) throws Exception{
+		return sqlSession.selectOne(NAMESPACE+"picOne", placeVO);
+		
+	}
+	
 }
