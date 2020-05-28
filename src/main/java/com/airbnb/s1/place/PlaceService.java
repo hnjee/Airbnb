@@ -118,12 +118,7 @@ public class PlaceService {
 	}
 	
 	public List<PlaceVO> myPlace(MemberVO memberVO) throws Exception{
-		PlaceVO placeVO = new PlaceVO();
-		List<PlaceVO> placeVOs = placeDAO.myPlace(memberVO);
-		for(int i=0; i<placeVOs.size(); i++) {
-			placeVOs.get(i).setFileName(placeFileDAO.picOne(placeVO));
-		}
-		return placeVOs;
+		return placeDAO.myPlace(memberVO);
 	}
 	
 	public int placeUpdate(PlaceVO placeVO) throws Exception{

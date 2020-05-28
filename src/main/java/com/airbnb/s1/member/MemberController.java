@@ -203,7 +203,11 @@ public class MemberController {
 
 		List<PlaceVO> placeVOs = placeService.myPlace(memberVO);
 
+		placeVO = placeVOs.get(0);
+
+		System.out.println(placeVO.getPlaceNum());
 			mv.addObject("list", placeVOs);
+
 			mv.setViewName("member/placeUpdate");
 
 			return mv;

@@ -11,7 +11,7 @@
 	</insert>
 	
 	<select id="fileList" parameterType="PlaceVO" resultType="PlaceFileVO">
-		select * from placeFile where placeNum=#{placeNum}
+		select * from placeFile where placeNum='p779'
 	</select>
 
 	 <select id="fileCount" parameterType="String" resultType="Long">
