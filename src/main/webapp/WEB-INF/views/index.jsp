@@ -44,9 +44,7 @@
 	<a href="./member/memberFileInsert">Member Image</a>
 	
 	<script src="https://apis.google.com/js/platform.js?onload=init" async defer></script>	
-	<script type="text/javascript">
-
-			
+	<script type="text/javascript">			
 			//searchBox 동작
 			var adultNum=0;
 			var childNum=0;
