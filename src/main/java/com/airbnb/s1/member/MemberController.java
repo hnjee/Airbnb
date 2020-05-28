@@ -205,7 +205,6 @@ public class MemberController {
 
 		System.out.println(placeVO.getPlaceNum());
 			mv.addObject("list", placeVOs);
-			//mv.addObject("file", placeFileList);
 
 			mv.setViewName("member/placeUpdate");
 
@@ -220,20 +219,70 @@ public class MemberController {
 		return mv;
 	}
 
-	
-	@GetMapping("memberDelete")
-	public ModelAndView memberDelete(HttpSession session, ModelAndView mv) throws Exception{
-		MemberVO memberVO = (MemberVO)session.getAttribute("member");
-		int res = memberService.memberDelete(memberVO.getMemberNum()); 
-		String msg="Delete Fail";
-		if(res>0) {
-			msg = "Delete Success"; 
-			session.invalidate();
-		} 
-		mv.addObject("result",msg);
-		mv.addObject("path", "../");
-		mv.setViewName("common/result");
-		return mv;
+	@PostMapping("placeEdit")
+	public String placeEdit(PlaceVO placeVO, HttpSession session) throws Exception{
+		System.out.println(placeVO.getMemberNum());
+		System.out.println(placeVO.getPlaceNum());
+		System.out.println(placeVO.getPlaceName());
+		System.out.println(placeVO.getPlaceLocation());
+
+		System.out.println(placeVO.getPlacePrice());
+
+		System.out.println(placeVO.getPlaceType());
+
+		System.out.println(placeVO.getPlaceMaxGuest());
+
+		System.out.println(placeVO.getPlaceDesc());
+
+		System.out.println(placeVO.getPlaceRule());
+
+		System.out.println(placeVO.getBed());
+		System.out.println(placeVO.getBathroom());
+
+		System.out.println(placeVO.getCheckInTime());
+		System.out.println(placeVO.getCheckOutTime());
+
+		if(placeVO.getPlaceName() !=null) {
+			placeVO.setUpdateNum(1);
+			int result = placeService.placeUpdate(placeVO);
+			System.out.println("변경 성공1");
+		}else if(placeVO.getPlaceLocation() != null){
+			placeVO.setUpdateNum(2);
+			int result = placeService.placeUpdate(placeVO);
+			System.out.println("변경 성공2");
+		}else if(placeVO.getPlacePrice() != null) {
+			placeVO.setUpdateNum(3);
+			int result = placeService.placeUpdate(placeVO);
+			System.out.println("변경 성공3");
+		}else if(placeVO.getPlaceType() != null) {
+			placeVO.setUpdateNum(4);
+			int result = placeService.placeUpdate(placeVO);
+			System.out.println("변경 성공4");
+		}else if(placeVO.getPlaceMaxGuest() != null) {
+			placeVO.setUpdateNum(5);
+			int result = placeService.placeUpdate(placeVO);
+			System.out.println("변경 성공5");
+		}else if(placeVO.getPlaceDesc() != null) {
+			placeVO.setUpdateNum(6);
+			int result = placeService.placeUpdate(placeVO);
+			System.out.println("변경 성공6");
+		}else if(placeVO.getPlaceRule() != null) {
+			placeVO.setUpdateNum(7);
+			int result = placeService.placeUpdate(placeVO);
+			System.out.println("변경 성공7");
+		}else if(placeVO.getBed() != null || placeVO.getBathroom() != null) {
+			placeVO.setUpdateNum(8);
+			int result = placeService.placeUpdate(placeVO);
+			System.out.println("변경 성공8");
+		}else if(placeVO.getCheckInTime() != null || placeVO.getCheckOutTime() != null) {
+			placeVO.setUpdateNum(9);
+			int result = placeService.placeUpdate(placeVO);
+			System.out.println("변경 성공9");
+		}
+
+
+		return "redirect:../placeUpdate";
+
 	}
 
 
