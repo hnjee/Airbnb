@@ -21,11 +21,7 @@ public class PlaceVO {
 	private Long checkInTime;
 	private Long checkOutTime;
 	private PlaceFileVO placeFileVO;
-	private String fileName;
-	private String oriName;
 	private List<PlaceFileVO> placeFileVOs;
-	private int updateNum;
-	
 	
 	private String hostDesc;
 	private String name;
@@ -34,26 +30,6 @@ public class PlaceVO {
 	
 	
 	
-	
-	
-	public int getUpdateNum() {
-		return updateNum;
-	}
-	public void setUpdateNum(int updateNum) {
-		this.updateNum = updateNum;
-	}
-	public String getFileName() {
-		return fileName;
-	}
-	public void setFileName(String fileName) {
-		this.fileName = fileName;
-	}
-	public String getOriName() {
-		return oriName;
-	}
-	public void setOriName(String oriName) {
-		this.oriName = oriName;
-	}
 	public MemberFileVO getMemberFileVO() {
 		return memberFileVO;
 	}

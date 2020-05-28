@@ -121,36 +121,5 @@ public class PlaceService {
 		return placeDAO.myPlace(memberVO);
 	}
 	
-	public int placeUpdate(PlaceVO placeVO) throws Exception{
-
-		int result = 0;
-		
-		if(placeVO.getUpdateNum()==1) {
-			result = placeDAO.placeUpdate1(placeVO);
-		}else if(placeVO.getUpdateNum()==2) {
-			result = placeDAO.placeUpdate2(placeVO);
-		}else if(placeVO.getUpdateNum()==3) {
-			result = placeDAO.placeUpdate3(placeVO);
-		}else if(placeVO.getUpdateNum()==4) {
-			result = placeDAO.placeUpdate4(placeVO);
-		}else if(placeVO.getUpdateNum()==5) {
-			result = placeDAO.placeUpdate5(placeVO);
-		}else if(placeVO.getUpdateNum()==6) {
-			result = placeDAO.placeUpdate6(placeVO);
-		}else if(placeVO.getUpdateNum()==7) {
-			result = placeDAO.placeUpdate7(placeVO);
-		}else if(placeVO.getUpdateNum()==8) {
-			result = placeDAO.placeUpdate8(placeVO);
-		}else if(placeVO.getUpdateNum()==9) {
-			result = placeDAO.placeUpdate9(placeVO);
-		}
-		
-		return result;
-
-
-	}
-	
-	
-	
 	
 }

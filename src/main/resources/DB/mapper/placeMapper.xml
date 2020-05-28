@@ -83,49 +83,8 @@
 	</insert>
 	
 	<select id="myPlace" parameterType="MemberVO" resultType="PlaceVO">
-		SELECT pl.*, pf.*
-		FROM place pl Left JOIN placefile pf
-		ON ( pl.placeNum = pf.placeNum) WHERE pl.memberNum = #{memberNum}
+		select * from place where memberNum = #{memberNum}
 	</select>
-	
-	<update id="placeUpdate1" parameterType="placeVO" >
-		update place set placeName=#{placeName} where placeNum=#{placeNum}
-	</update>
-	
-	<update id="placeUpdate2" parameterType="placeVO" >
-		update place set placeLocation=#{placeLocation} where placeNum=#{placeNum}
-	</update>
-	
-	
-	<update id="placeUpdate3" parameterType="placeVO" >
-		update place set placePrice=#{placePrice} where placeNum=#{placeNum}
-	</update>
-	
-	<update id="placeUpdate4" parameterType="placeVO" >
-		update place set placeType=#{placeType} where placeNum=#{placeNum}
-	</update>
-	
-	<update id="placeUpdate5" parameterType="placeVO" >
-		update place set placeGuestMax=#{placeGuestMax} where placeNum=#{placeNum}
-	</update>
-	
-	
-	<update id="placeUpdate6" parameterType="placeVO" >
-		update place set placeDesc=#{placeDesc} where placeNum=#{placeNum}
-	</update>
-	
-	
-	<update id="placeUpdate7" parameterType="placeVO" >
-		update place set placeRule=#{placeRule} where placeNum=#{placeNum}
-	</update>
-	
-	<update id="placeUpdate8" parameterType="placeVO" >
-		update place set bed=#{bed}, bathroom=#{bathroom} where placeNum=#{placeNum} 
-	</update>
-	
-	<update id="placeUpdate9" parameterType="placeVO" >
-		update place set checkInTime=#{checkInTime}, checkOutTime=#{checkOutTime} where placeNum=#{placeNum}
-	</update>
 	
 
 </mapper>
