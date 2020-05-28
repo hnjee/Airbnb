@@ -84,7 +84,7 @@
 				<div class="_1p3joamp">프로필 사진</div>
 				<div style="margin-top: 8px; margin-bottom: 24px;height:100px;">
 				<div class="_czm8crp">
-						<img style="float: left;" src="${pageContext.request.contextPath}/resources/images/member/1696400a-5b50-4e93-8374-e2b08b30b67420171108111613422oxog.jpg" height="100" width="100">
+						<img style="float: left;" src="${pageContext.request.contextPath}/resources/images/member/${file.fileName}" height="100" width="100">
 				<div style="margin-left:65px; margin-top: 45px; float: left;">
 				<form action="../member/memberUpdate" method="POST" enctype="multipart/form-data">
 					
