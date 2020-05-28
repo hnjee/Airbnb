@@ -296,4 +296,9 @@ public class MemberController {
 		return mv;
 	}
 
+	public ModelAndView placeDelete(ModelAndView mv,PlaceVO placeVO, PlaceFileVO placeFileVO) throws Exception{
+		
+		return mv;
+	}
+	
 }

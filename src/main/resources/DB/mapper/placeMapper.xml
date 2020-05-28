@@ -129,5 +129,13 @@
 		update place set checkInTime=#{checkInTime}, checkOutTime=#{checkOutTime} where placeNum=#{placeNum}
 	</update>
 	
+	<delete id="placeFileDelete" parameterType="PlaceFileVO">
+		delete placeFile where placeNum=#{placeNum} 
+	</delete>
+	
+	<delete id="placeDelete" parameterType="PlaceVO">
+		delete place where placeNum=#{placeNum} 
+	</delete>
+	
 
 </mapper>
