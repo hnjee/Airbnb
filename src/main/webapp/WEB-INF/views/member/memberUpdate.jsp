@@ -85,7 +85,7 @@
 				</div>
 				
 				<!-- collapse 부분 -->
-				<div id="collapse2" class="panel-collapse collapse" aria-expanded="false">
+				<div id="collapse5" class="panel-collapse collapse" aria-expanded="false">
 				<div style="margin-top: 8px; margin-bottom: 24px;">
 				<form action="../member/memberUpdate" method="POST" enctype="multipart/form-data">
 					<div style="margin-top: 8px; margin-bottom: 20px;">
@@ -120,7 +120,7 @@
 				<div class="_1rtgmd8y">
 				<div class="_1p3joamp">
 				<div class="_1asnseo">
-				<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse2" aria-expanded="false" aria-controls="collapse2">
+				<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse5" aria-expanded="false" aria-controls="collapse2">
 				<button type="button" class="_b0ybw8s" aria-busy="false">수정</button>
 				</a>
 				</div>
@@ -290,18 +290,22 @@
 					
 					</div>
 					
-					<div style="margin-bottom: 24px;">
+					<div style="margin-bottom: 10px;">
 					<div class="_9hxttoo">
 					<label class="_krjbj" for="pw">비밀번호</label>
 					<div dir="ltr">
 					<div class="_1wcr140x">
 					<div class="_178faes">
 					
-					<input class="_14fdu48d" id="pw" name="pw" type="password" value="${member.pw}"></div>
+					<input class="_14fdu48d" id="pwIn" name="pw" type="password" value="${member.pw}"></div>
 					</div>
 					</div>
 					</div>
 					</div>
+					
+					<!-- 비밀번호 검증 시 추가되는 p태그 -->
+					<p class="alarm3" style="margin-top: 0px; margin-bottom:10px; color: red;">비밀번호는 8자 이상 입력하세요</p>
+					<p class="alarm4" style="margin-top: 0px; margin-bottom:10px; color: red;">새로운 비밀번호를 등록하세요</p>
 					
 					<div id="airlock-inline-container"></div>
 					<button type="submit" class="_kt3i5a4" aria-busy="false">
@@ -342,11 +346,11 @@
 				<div id="collapse4" class="panel-collapse collapse" aria-expanded="false">
 				<div style="margin-top: 8px; margin-bottom: 20px;">
 				<form action="../member/memberUpdate" method="POST">
-					<div style="margin-top: 8px; margin-bottom: 20px;">
+					<div style="margin-top: 8px; margin-bottom: 17px;">
 					<div class="_czm8crp">알림, 미리 알림 및 로그인에 도움이 됩니다.</div>
 					</div>
 					
-					<div style="margin-bottom: 24px;">
+					<div style="margin-bottom: 12px;">
 					<div class="_9hxttoo">
 					<label class="_krjbj" for="phoneNum">전화번호</label>
 					<div dir="ltr">
@@ -358,6 +362,8 @@
 					</div>
 					</div>
 					</div>
+					
+					<p class="alarm5" style="margin-top: 0px; margin-bottom:10px; color: red;">전화번호 형식에 맞춰 입력하세요</p>
 					
 					<div id="airlock-inline-container"></div>
 					<button type="submit" class="_kt3i5a4" aria-busy="false">
@@ -431,6 +437,44 @@
 </div>
 
 </div></div></div>
+
+
+	<script type="text/javascript">
+	$(function(){
+		
+		$('.alarm3').hide();
+		$('.alarm4').hide();
+		$('.alarm5').hide();
+		
+		 $('#pwIn').keyup(function(){
+		    	if($('#pwIn').prop('value').length<8){
+		    		$('.alarm3').show();
+		    	} else{
+		    		$('.alarm3').hide();
+		    	}	
+		    });
+		 
+		 $('#pwIn').keyup(function(){
+		    	 if("${member.pw}"==$('#pwIn').prop('value')){
+		    		$('.alarm4').show();
+		    	} else{
+		    		$('.alarm4').hide();
+		    	}	
+		    });
+		 
+		 $('#phoneNum').keyup(function(){
+		    	if($('#phoneNum').prop('value').length<13){
+		    		$('.alarm5').show();
+		    	} else{
+		    		$('.alarm5').hide();
+		    	}	
+		    });
+		 
+		 
+	});
+
+	</script>
+
 
 </body>
 </html>
