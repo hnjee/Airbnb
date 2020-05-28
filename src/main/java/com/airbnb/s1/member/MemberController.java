@@ -88,12 +88,12 @@ public class MemberController {
 		session.invalidate();
 		return "redirect:../";
 	}
-	
+
 
 	@PostMapping("memberLogin")
 	public ModelAndView memberLogin(MemberVO memberVO, ModelAndView mv, HttpSession session,HttpServletResponse response) throws Exception {
 		memberVO = memberService.memberLogin(memberVO);
-		
+
 		if(memberVO!=null) {
 			session.setAttribute("member", memberVO);
 			mv.setViewName("redirect:../");
@@ -104,12 +104,12 @@ public class MemberController {
 		}
 		return mv;
 	}
-	
+
 	@GetMapping("memberLogin")
 	public void memberLogin() throws Exception{
-		
+
 	}
-	
+
 
 	@GetMapping("memberMyPage")
 	public ModelAndView memberMyPage(ModelAndView mv) throws Exception {
@@ -347,6 +347,6 @@ public class MemberController {
 //
 //		return "./";
 
-	
+
 
 }
