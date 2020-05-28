@@ -39,7 +39,7 @@
 					<td>${placeVOs.placeNum}</td>
 					<td id="td_place" style="text-align: left;">
 						<img src="${pageContext.request.contextPath}/resources/images/place/${placeVOs.fileName}" width="71px" height="47px">
-						<span style="margin: 0 16px; line-height: 3.4em !important;"> <a href="./placeEdit">${placeVOs.placeName}</a> </span>
+						<span style="margin: 0 16px; line-height: 3.4em !important;"> <a href="./placeEdit?memberNum=${placeVOs.memberNum}&placeNum=${placeVOs.placeNum}&placeName=${placeVOs.placeName}&placeLocation=${placeVOs.placeLocation}&placePrice=${placeVOs.placePrice}&placeType=${placeVOs.placeType}&placeMaxGuest=${placeVOs.placeMaxGuest}&placeDesc=${placeVOs.placeDesc}&placeRule=${placeVOs.placeRule}&bed=${placeVOs.bed}&bathroom=${placeVOs.bathroom}&checkInTime=${placeVOs.checkInTime}&checkOutTime=${placeVOs.checkOutTime}">${placeVOs.placeName}</a> </span>
 					</td>
 					<td>${placeVOs.placeMaxGuest}</td>
 					<td>${placeVOs.bed}</td>
