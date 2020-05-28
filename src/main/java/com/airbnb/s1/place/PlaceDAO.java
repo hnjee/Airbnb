@@ -59,4 +59,41 @@ public class PlaceDAO {
 		return sqlSession.selectList(NAMESPACE+"myPlace", memberVO);
 	}
 
+	
+	public int placeUpdate1(PlaceVO placeVO) throws Exception{
+		return sqlSession.update(NAMESPACE+"placeUpdate1", placeVO);
+	}
+	
+	public int placeUpdate2(PlaceVO placeVO) throws Exception{
+		return sqlSession.update(NAMESPACE+"placeUpdate2", placeVO);
+	}
+	
+	public int placeUpdate3(PlaceVO placeVO) throws Exception{
+		return sqlSession.update(NAMESPACE+"placeUpdate3", placeVO);
+	}
+	
+	public int placeUpdate4(PlaceVO placeVO) throws Exception{
+		return sqlSession.update(NAMESPACE+"placeUpdate4", placeVO);
+	}
+	
+	public int placeUpdate5(PlaceVO placeVO) throws Exception{
+		return sqlSession.update(NAMESPACE+"placeUpdate5", placeVO);
+	}
+	
+	public int placeUpdate6(PlaceVO placeVO) throws Exception{
+		return sqlSession.update(NAMESPACE+"placeUpdate6", placeVO);
+	}
+	
+	public int placeUpdate7(PlaceVO placeVO) throws Exception{
+		return sqlSession.update(NAMESPACE+"placeUpdate7", placeVO);
+	}
+	
+	public int placeUpdate8(PlaceVO placeVO) throws Exception{
+		return sqlSession.update(NAMESPACE+"placeUpdate8", placeVO);
+	}
+	
+	public int placeUpdate9(PlaceVO placeVO) throws Exception{
+		return sqlSession.update(NAMESPACE+"placeUpdate9", placeVO);
+	}
+	
 }
