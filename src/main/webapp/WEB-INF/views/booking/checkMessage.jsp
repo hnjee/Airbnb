@@ -39,6 +39,16 @@
 			background-image: url("../resources/w3images/back.png");
 			background-repeat: no-repeat;
 			background-position: center;
+			overflow-y:scroll; 
+			overflow-x:hidden;
+			height :800px;
+			box-sizing: border-box;
+		}
+		.btn{
+			width: 100%;
+			height : 30px;
+			font-size: 20px;
+			
 		}
 		
 	</style>
@@ -79,7 +89,7 @@
 			<c:forEach items="${list}" var="vo">
 			
 			<tr>
-				<td><button class="btn btn-success" title="${vo.s_memberNum }" id="${vo.sendName }">${vo.sendName }</button></td>
+				<td><button class="btn btn-info" title="${vo.s_memberNum }" id="${vo.sendName }">${vo.sendName }</button></td>
 				
 				
 			</tr>

@@ -17,7 +17,7 @@
 			<c:forEach items="${list}" var="vo">
 			
 			<tr>
-				<td><button class="btn btn-success" title="${vo.s_memberNum }" id="${vo.sendName }">${vo.sendName }</button></td>
+				<td><button class="btn btn-info" title="${vo.s_memberNum }" id="${vo.sendName }">${vo.sendName }</button></td>
 				
 				
 			</tr>
