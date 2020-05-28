@@ -198,16 +198,20 @@ public class MemberController {
 	@GetMapping("placeUpdate")
 	public ModelAndView placeUpdate(MemberVO memberVO,PlaceVO placeVO, HttpSession session,ModelAndView mv, PlaceFileVO placeFileVO) throws Exception{
 		memberVO=(MemberVO)session.getAttribute("member");
-
+		String fileName =  "";
 		List<PlaceVO> placeVOs = placeService.myPlace(memberVO);
-		placeVO = placeVOs.get(0);
-		List<PlaceFileVO> fileVOs = placeService.fileList(placeVO);
-		placeFileVO = fileVOs.get(0);
-		System.out.println(placeFileVO.getFileName());
-
-		placeVOs.set(0, fileVOs.get(0));
+		for(int i =0; i<placeVOs.size(); i++) {
+			placeVO = placeVOs.get(i);
+			List<PlaceFileVO> fileVOs = placeService.fileList(placeVO);
+			for(int j =0; j<fileVOs.size(); j++) {
+				placeFileVO = fileVOs.get(i);
+				fileName =  placeFileVO.getFileName();
+				placeVO.setFileName(fileName);
+			}
+		}
 		
-		System.out.println(placeVO.getPlaceNum());
+		System.out.println("placeFileName :" +placeVO.getFileName());
+		
 			mv.addObject("list", placeVOs);
 
 			mv.setViewName("member/placeUpdate");
