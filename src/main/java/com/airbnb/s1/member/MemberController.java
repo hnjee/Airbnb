@@ -196,157 +196,110 @@ public class MemberController {
 		return "redirect:./memberUpdate";
 	}
 
-//
-//	@GetMapping("placeUpdate")
-//	public ModelAndView placeUpdate(MemberVO memberVO,PlaceVO placeVO, HttpSession session,ModelAndView mv) throws Exception{
-//		memberVO=(MemberVO)session.getAttribute("member");
-//
-//		List<PlaceVO> placeVOs = placeService.myPlace(memberVO);
-//
-//		placeVO = placeVOs.get(0);
-//
-//		System.out.println(placeVO.getPlaceNum());
-//			mv.addObject("list", placeVOs);
-//
-//			mv.setViewName("member/placeUpdate");
-//
-//			return mv;
-//	}
-//
-//	@GetMapping("placeEdit")
-//	public ModelAndView placeEdit(PlaceVO placeVO, ModelAndView mv) throws Exception{
-//		mv.addObject("place", placeVO);
-//		mv.setViewName("member/placeEdit");
-//
-//		return mv;
-//	}
-//
-//	@PostMapping("placeEdit")
-//	public String placeEdit(PlaceVO placeVO, HttpSession session) throws Exception{
-//		System.out.println(placeVO.getMemberNum());
-//		System.out.println(placeVO.getPlaceNum());
-//		System.out.println(placeVO.getPlaceName());
-//		System.out.println(placeVO.getPlaceLocation());
-//
-//		System.out.println(placeVO.getPlacePrice());
-//
-//		System.out.println(placeVO.getPlaceType());
-//
-//		System.out.println(placeVO.getPlaceMaxGuest());
-//
-//		System.out.println(placeVO.getPlaceDesc());
-//
-//		System.out.println(placeVO.getPlaceRule());
-//
-//		System.out.println(placeVO.getBed());
-//		System.out.println(placeVO.getBathroom());
-//
-//		System.out.println(placeVO.getCheckInTime());
-//		System.out.println(placeVO.getCheckOutTime());
-//
-//		if(placeVO.getPlaceName() !=null) {
-//			placeVO.setUpdateNum(1);
-//			int result = placeService.placeUpdate(placeVO);
-//			System.out.println("변경 성공1");
-//		}else if(placeVO.getPlaceLocation() != null){
-//			placeVO.setUpdateNum(2);
-//			int result = placeService.placeUpdate(placeVO);
-//			System.out.println("변경 성공2");
-//		}else if(placeVO.getPlacePrice() != null) {
-//			placeVO.setUpdateNum(3);
-//			int result = placeService.placeUpdate(placeVO);
-//			System.out.println("변경 성공3");
-//		}else if(placeVO.getPlaceType() != null) {
-//			placeVO.setUpdateNum(4);
-//			int result = placeService.placeUpdate(placeVO);
-//			System.out.println("변경 성공4");
-//		}else if(placeVO.getPlaceMaxGuest() != null) {
-//			placeVO.setUpdateNum(5);
-//			int result = placeService.placeUpdate(placeVO);
-//			System.out.println("변경 성공5");
-//		}else if(placeVO.getPlaceDesc() != null) {
-//			placeVO.setUpdateNum(6);
-//			int result = placeService.placeUpdate(placeVO);
-//			System.out.println("변경 성공6");
-//		}else if(placeVO.getPlaceRule() != null) {
-//			placeVO.setUpdateNum(7);
-//			int result = placeService.placeUpdate(placeVO);
-//			System.out.println("변경 성공7");
-//		}else if(placeVO.getBed() != null || placeVO.getBathroom() != null) {
-//			placeVO.setUpdateNum(8);
-//			int result = placeService.placeUpdate(placeVO);
-//			System.out.println("변경 성공8");
-//		}else if(placeVO.getCheckInTime() != null || placeVO.getCheckOutTime() != null) {
-//			placeVO.setUpdateNum(9);
-//			int result = placeService.placeUpdate(placeVO);
-//			System.out.println("변경 성공9");
-//		}
-//
-//
-//		return "redirect:../placeUpdate";
-//
-//	}
-//
-//
-//
-//	@PostMapping("placeEdit")
-//	public String placeEdit(PlaceVO placeVO, HttpSession session) throws Exception{
-////		System.out.println(placeVO.getMemberNum());
-////		System.out.println(placeVO.getPlaceNum());
-////		System.out.println(placeVO.getPlaceName());
-////		System.out.println(placeVO.getPlaceLocation());
-////
-////		System.out.println(placeVO.getPlacePrice());
-////
-////		System.out.println(placeVO.getPlaceType());
-////
-////		System.out.println(placeVO.getPlaceMaxGuest());
-////
-////		System.out.println(placeVO.getPlaceDesc());
-////
-////		System.out.println(placeVO.getPlaceRule());
-////
-////		System.out.println(placeVO.getBed());
-////		System.out.println(placeVO.getBathroom());
-////
-////		System.out.println(placeVO.getCheckInTime());
-////		System.out.println(placeVO.getCheckOutTime());
-////
-//		if(placeVO.getPlaceName() !=null) {
-//			memberVO.setFamilyName(familyName);
-//			memberVO.setHostDesc("1");
-//			int result = memberService.memberUpdate(memberVO);
-//			memberVO.setHostDesc(hostDesc);
-//			System.out.println("변경 성공1");
-//		}else if(placeVO.getPlaceLocation() != null){
-//			System.out.println(email);
-//			memberVO.setEmail(email);
-//			memberVO.setHostDesc("2");
-//			memberService.memberUpdate(memberVO);
-//			memberVO.setHostDesc(hostDesc);
-//			System.out.println("변경 성공2");
-//		}else if(placeVO.getPlacePrice() != null) {
-//			System.out.println(pw);
-//			memberVO.setPw(pw);
-//			memberVO.setHostDesc("3");
-//			memberService.memberUpdate(memberVO);
-//			memberVO.setHostDesc(hostDesc);
-//			System.out.println("변경 성공3");
-//		}else if(placeVO.getPlaceMaxGuest() != null) {
-//			System.out.println("변경 성공4");
-//		}else if(placeVO.getPlaceDesc() != null) {
-//			System.out.println("변경 성공5");
-//		}else if(placeVO.getPlaceRule() != null) {
-//			System.out.println("변경 성공6");
-//		}else if(placeVO.getBed() != null || placeVO.getBathroom() != null) {
-//			System.out.println("변경 성공7");
-//		}else if(placeVO.getCheckInTime() != null || placeVO.getCheckOutTime() != null) {
-//			System.out.println("변경 성공8");
-//		}
-//
-//
-//		return "./";
+
+	@GetMapping("placeUpdate")
+	public ModelAndView placeUpdate(MemberVO memberVO,PlaceVO placeVO, HttpSession session,ModelAndView mv) throws Exception{
+		memberVO=(MemberVO)session.getAttribute("member");
+
+		List<PlaceVO> placeVOs = placeService.myPlace(memberVO);
+
+		placeVO = placeVOs.get(0);
+
+		System.out.println(placeVO.getPlaceNum());
+			mv.addObject("list", placeVOs);
+
+			mv.setViewName("member/placeUpdate");
+
+			return mv;
+	}
+
+	@GetMapping("placeEdit")
+	public ModelAndView placeEdit(PlaceVO placeVO, ModelAndView mv) throws Exception{
+		mv.addObject("place", placeVO);
+		mv.setViewName("member/placeEdit");
+
+		return mv;
+	}
+
+	@PostMapping("placeEdit")
+	public String placeEdit(PlaceVO placeVO, HttpSession session) throws Exception{
+		System.out.println(placeVO.getMemberNum());
+		System.out.println(placeVO.getPlaceNum());
+		System.out.println(placeVO.getPlaceName());
+		System.out.println(placeVO.getPlaceLocation());
+
+		System.out.println(placeVO.getPlacePrice());
+
+		System.out.println(placeVO.getPlaceType());
+
+		System.out.println(placeVO.getPlaceMaxGuest());
+
+		System.out.println(placeVO.getPlaceDesc());
+
+		System.out.println(placeVO.getPlaceRule());
+
+		System.out.println(placeVO.getBed());
+		System.out.println(placeVO.getBathroom());
+
+		System.out.println(placeVO.getCheckInTime());
+		System.out.println(placeVO.getCheckOutTime());
+
+		if(placeVO.getPlaceName() !=null) {
+			placeVO.setUpdateNum(1);
+			int result = placeService.placeUpdate(placeVO);
+			System.out.println("변경 성공1");
+		}else if(placeVO.getPlaceLocation() != null){
+			placeVO.setUpdateNum(2);
+			int result = placeService.placeUpdate(placeVO);
+			System.out.println("변경 성공2");
+		}else if(placeVO.getPlacePrice() != null) {
+			placeVO.setUpdateNum(3);
+			int result = placeService.placeUpdate(placeVO);
+			System.out.println("변경 성공3");
+		}else if(placeVO.getPlaceType() != null) {
+			placeVO.setUpdateNum(4);
+			int result = placeService.placeUpdate(placeVO);
+			System.out.println("변경 성공4");
+		}else if(placeVO.getPlaceMaxGuest() != null) {
+			placeVO.setUpdateNum(5);
+			int result = placeService.placeUpdate(placeVO);
+			System.out.println("변경 성공5");
+		}else if(placeVO.getPlaceDesc() != null) {
+			placeVO.setUpdateNum(6);
+			int result = placeService.placeUpdate(placeVO);
+			System.out.println("변경 성공6");
+		}else if(placeVO.getPlaceRule() != null) {
+			placeVO.setUpdateNum(7);
+			int result = placeService.placeUpdate(placeVO);
+			System.out.println("변경 성공7");
+		}else if(placeVO.getBed() != null || placeVO.getBathroom() != null) {
+			placeVO.setUpdateNum(8);
+			int result = placeService.placeUpdate(placeVO);
+			System.out.println("변경 성공8");
+		}else if(placeVO.getCheckInTime() != null || placeVO.getCheckOutTime() != null) {
+			placeVO.setUpdateNum(9);
+			int result = placeService.placeUpdate(placeVO);
+			System.out.println("변경 성공9");
+		}
 
 
+		return "redirect:../placeUpdate";
+
+	}
+	
+	@GetMapping("memberDelete")
+	public ModelAndView memberDelete(HttpSession session, ModelAndView mv) throws Exception{
+		MemberVO memberVO = (MemberVO)session.getAttribute("member");
+		int res = memberService.memberDelete(memberVO.getMemberNum()); 
+		String msg="Delete Fail";
+		if(res>0) {
+			msg = "Delete Success"; 
+			session.invalidate();
+		} 
+		mv.addObject("result",msg);
+		mv.addObject("path", "../");
+		mv.setViewName("common/result");
+		return mv;
+	}
 
 }

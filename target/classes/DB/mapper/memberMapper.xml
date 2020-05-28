@@ -42,8 +42,6 @@
 	<delete id="memberDelete" parameterType="String">
 		delete member where memberNum=#{memberNum}
 	</delete>
-	
-
 
 
 </mapper>
