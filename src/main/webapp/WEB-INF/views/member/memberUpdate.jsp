@@ -10,7 +10,12 @@
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <link rel="stylesheet" type="text/css" href="../resources/css/memberUpdateStyle.css"> 
 <link rel="stylesheet" type="text/css" href="../resources/css/headerStyle.css"> 
-<link rel="stylesheet" type="text/css"  href="../resources/css/listFooter.css">
+<link rel="stylesheet" type="text/css"  href="../resources/css/footer.css">
+<style type="text/css">
+	*{
+		box-sizing: border-box;
+	}
+</style>
 </head>
 <body>
 <div data-application="true"><div dir="ltr"><div>
