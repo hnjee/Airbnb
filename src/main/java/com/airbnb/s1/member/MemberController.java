@@ -136,7 +136,7 @@ public class MemberController {
 	
 	@GetMapping("memberUpdate")
 	public void memberUpdate(MemberVO memberVO, ModelAndView mv, HttpSession session) throws Exception{
-		memberVO=(MemberVO)session.getAttribute("member");
+		memberVO = (MemberVO)session.getAttribute("member");
 		MemberFileVO memberFileVO = memberService.fileSelect(memberVO.getMemberNum());
 		session.setAttribute("file", memberFileVO);
 	}
@@ -223,6 +223,11 @@ public class MemberController {
 	
 	@GetMapping("placeEdit")
 	public void placeEdit() throws Exception{
+		
+	}
+	
+	@GetMapping("memberDelete")
+	public void memberDelete() throws Exception{
 		
 	}
 	
