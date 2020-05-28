@@ -60,7 +60,6 @@ public class MemberService {
 		}
 		return res;
 	}
-	
 	//멤버 프로필사진 초기화  
 	public int fileInsert(String memberNum) throws Exception{
 		int res = 0;
@@ -72,14 +71,9 @@ public class MemberService {
 		return res;
 	}
 	
-	//memberNum으로 MemberFileVO를 가져오는 메서드 fileSelect()
-	public MemberFileVO fileSelect(String memberNum) throws Exception{
-		return memberFileDAO.fileSelect(memberNum);	
-	}
-	
 	public int fileUpdate(String memberNum, MultipartFile file, HttpSession session) throws Exception{
-		//String path="C:\\hj\\workspace\\Airbnb\\src\\main\\webapp\\resources\\images\\member";	
-		String path = session.getServletContext().getRealPath("resources\\images\\member");
+		String path="C:\\hj\\workspace\\Airbnb\\src\\main\\webapp\\resources\\images\\member";	
+		path=session.getServletContext().getRealPath("resources\\images\\member");
 		System.out.println("실제 저장 경로: "+path);
 		
 		int res = 0;
@@ -94,6 +88,11 @@ public class MemberService {
 		return res;
 	}
 	
+	//memberNum으로 MemberFileVO를 가져오는 메서드 fileSelect()
+	public MemberFileVO fileSelect(String memberNum) throws Exception{
+		return memberFileDAO.fileSelect(memberNum);	
+	}
+		
 	public int memberUpdate(MemberVO memberVO) throws Exception{
 
 		int result = 0;
@@ -112,8 +111,6 @@ public class MemberService {
 	public int memberDelete(String memberNum) throws Exception{
 		return memberDAO.memberDelete (memberNum);
 	}
-	
-	
 	
 	
 	

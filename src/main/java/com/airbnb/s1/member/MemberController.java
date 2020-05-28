@@ -136,7 +136,7 @@ public class MemberController {
 	
 	@GetMapping("memberUpdate")
 	public void memberUpdate(MemberVO memberVO, ModelAndView mv, HttpSession session) throws Exception{
-		memberVO = (MemberVO)session.getAttribute("member");
+		memberVO=(MemberVO)session.getAttribute("member");
 		MemberFileVO memberFileVO = memberService.fileSelect(memberVO.getMemberNum());
 		session.setAttribute("file", memberFileVO);
 	}
@@ -198,6 +198,7 @@ public class MemberController {
 	public ModelAndView placeUpdate(MemberVO memberVO,PlaceVO placeVO, HttpSession session,ModelAndView mv) throws Exception{
 		PlaceFileVO placeFileVO = new PlaceFileVO();
 		memberVO=(MemberVO)session.getAttribute("member");
+<<<<<<< HEAD
 		System.out.println(memberVO.getMemberNum());
 		
 		List<PlaceVO> placeVOs = placeService.myPlace(memberVO);
@@ -215,9 +216,21 @@ public class MemberController {
 			mv.setViewName("member/placeUpdate");
 			
 			return mv;
+=======
+		
+		List<PlaceVO> placeVOs = placeService.myPlace(memberVO);
+		
+		placeVO = placeVOs.get(0);
+		
+		mv.addObject("list", placeVOs);
+		mv.setViewName("member/placeUpdate");
+		return mv;
+		
+>>>>>>> parent of 88d4ffc... Merge branch 'master' of https://github.com/hnjee/Airbnb
 	}
-
+	
 	@GetMapping("placeEdit")
+<<<<<<< HEAD
 	public void placeEdit() throws Exception{
 		
 	}
@@ -236,4 +249,73 @@ public class MemberController {
 		mv.setViewName("common/result");
 		return mv;
 	}
+=======
+	public ModelAndView placeEdit(PlaceVO placeVO, ModelAndView mv) throws Exception{
+		mv.addObject("place", placeVO);
+		mv.setViewName("member/placeEdit");
+		
+		return mv;
+	}
+	
+	@PostMapping("placeEdit")
+	public String placeEdit(PlaceVO placeVO, HttpSession session) throws Exception{
+//		System.out.println(placeVO.getMemberNum());
+//		System.out.println(placeVO.getPlaceNum());
+//		System.out.println(placeVO.getPlaceName());
+//		System.out.println(placeVO.getPlaceLocation());
+//		
+//		System.out.println(placeVO.getPlacePrice());
+//		
+//		System.out.println(placeVO.getPlaceType());
+//		
+//		System.out.println(placeVO.getPlaceMaxGuest());
+//		
+//		System.out.println(placeVO.getPlaceDesc());
+//		
+//		System.out.println(placeVO.getPlaceRule());
+//		
+//		System.out.println(placeVO.getBed());
+//		System.out.println(placeVO.getBathroom());
+//		
+//		System.out.println(placeVO.getCheckInTime());
+//		System.out.println(placeVO.getCheckOutTime());
+//		
+		if(placeVO.getPlaceName() !=null) {
+			memberVO.setFamilyName(familyName);
+			memberVO.setHostDesc("1");
+			int result = memberService.memberUpdate(memberVO);
+			memberVO.setHostDesc(hostDesc);
+			System.out.println("변경 성공1");
+		}else if(placeVO.getPlaceLocation() != null){
+			System.out.println(email);
+			memberVO.setEmail(email);
+			memberVO.setHostDesc("2");
+			memberService.memberUpdate(memberVO);
+			memberVO.setHostDesc(hostDesc);
+			System.out.println("변경 성공2");
+		}else if(placeVO.getPlacePrice() != null) {
+			System.out.println(pw);
+			memberVO.setPw(pw);
+			memberVO.setHostDesc("3");
+			memberService.memberUpdate(memberVO);
+			memberVO.setHostDesc(hostDesc);
+			System.out.println("변경 성공3");
+		}else if(placeVO.getPlaceMaxGuest() != null) {
+			System.out.println("변경 성공4");
+		}else if(placeVO.getPlaceDesc() != null) {
+			System.out.println("변경 성공5");
+		}else if(placeVO.getPlaceRule() != null) {
+			System.out.println("변경 성공6");
+		}else if(placeVO.getBed() != null || placeVO.getBathroom() != null) {
+			System.out.println("변경 성공7");
+		}else if(placeVO.getCheckInTime() != null || placeVO.getCheckOutTime() != null) {
+			System.out.println("변경 성공8");
+		}
+		
+		
+		return "./";
+		
+	}
+	
+>>>>>>> parent of 88d4ffc... Merge branch 'master' of https://github.com/hnjee/Airbnb
 }
