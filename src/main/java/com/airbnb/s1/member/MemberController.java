@@ -2,10 +2,13 @@ package com.airbnb.s1.member;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -87,25 +90,28 @@ public class MemberController {
 		session.invalidate();
 		return "redirect:../";
 	}
+	
 
 	@PostMapping("memberLogin")
-	public ModelAndView memberEnter(MemberVO memberVO, ModelAndView mv, HttpSession session) throws Exception {
+	public ModelAndView memberLogin(MemberVO memberVO, ModelAndView mv, HttpSession session,HttpServletResponse response) throws Exception {
 		memberVO = memberService.memberLogin(memberVO);
-
-		mv.setViewName("./common/result");
-		if (memberVO != null) {
+		
+		if(memberVO!=null) {
 			session.setAttribute("member", memberVO);
 			mv.setViewName("redirect:../");
 		} else {
 			mv.addObject("result", "로그인 실패");
 			mv.addObject("path", "../");
+			mv.setViewName("common/result");
 		}
-		if(memberVO.getMemberNum() != null) {
-			session.setAttribute("member", memberVO);
-		}
-
 		return mv;
 	}
+	
+	@GetMapping("memberLogin")
+	public void memberLogin() throws Exception{
+		
+	}
+	
 
 	@GetMapping("memberMyPage")
 	public ModelAndView memberMyPage(ModelAndView mv) throws Exception {
