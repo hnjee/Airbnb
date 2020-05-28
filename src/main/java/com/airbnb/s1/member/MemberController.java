@@ -215,12 +215,8 @@ public class MemberController {
 			mv.setViewName("member/placeUpdate");
 			
 			return mv;
-		
 	}
 
-	
-	
-	
 	@GetMapping("placeEdit")
 	public void placeEdit() throws Exception{
 		
