@@ -106,7 +106,7 @@
 	</update>
 	
 	<update id="placeUpdate5" parameterType="placeVO" >
-		update place set placeGuestMax=#{placeGuestMax} where placeNum=#{placeNum}
+		update place set placeMaxGuest=#{placeMaxGuest} where placeNum=#{placeNum}
 	</update>
 	
 	
