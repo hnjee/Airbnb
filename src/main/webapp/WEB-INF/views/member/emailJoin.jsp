@@ -19,35 +19,35 @@
 
 				<div class="form-group" >
 					<div class="col-sm-5">
-						<input type="email" class="form-control" id="email"
-							placeholder="이메일 주소" name="email" onblur="">
+						<input type="email" class="form-control" id="checkElemail"
+							placeholder="이메일 주소" name="email">
 					</div>
 				</div>
 
 				<div class="form-group">
 					<div class="col-sm-5">
-						<input type="text" class="form-control" id="name"
+						<input type="text" class="form-control" id="checkElname"
 							placeholder="이름(예: 길동)" name="name">
 					</div>
 				</div>
 
 				<div class="form-group">
 					<div class="col-sm-5">
-						<input type="text" class="form-control" id="familyName"
+						<input type="text" class="form-control" id="checkElfamilyName"
 							placeholder="성(예: 홍)" name="familyName">
 					</div>
 				</div>
 
 				<div class="form-group">
 					<div class="col-sm-5">
-						<input type="password" class="form-control" id="pw"
+						<input type="password" class="form-control" id="checkElpw"
 							placeholder="비밀번호 설정하기" name="pw">
 					</div>
 				</div>
 
 				<div class="form-group">
 					<div class="col-sm-5">
-						<input type="text" class="form-control" id="phoneNum"
+						<input type="text" class="form-control" id="checkElphoneNum"
 							placeholder="예)010-1234-5678" name="phoneNum">
 					</div>
 				</div>
@@ -56,7 +56,7 @@
 				<div class="form-group">
 					<div class="col-sm-5">
 						<div class="checkbox">
-							<label><input type="checkbox" name="agree" value="agree">
+							<label><input type="checkbox" name="agree" value="agree" id="checkAgree">
 								(필수)에어비앤비 서비스 약관 ,결제 서비스 약관,차별 금지 정책에 동의합니다.또한, 에어비앤비 개인정보 처리방침에
 								따른 개인정보 이용 및 처리에도 동의합니다. </label>
 						</div>
@@ -65,8 +65,7 @@
 
 				<div class="form-group">
 					<div class="col-sm-8">
-						<input type="submit" class="btn btn-danger btn-block" value="가입하기"
-							id="signIn">
+						<input type="submit" class="btn btn-danger btn-block goJoin" value="가입하기" id="signIn">
 					</div>
 				</div>
 
@@ -83,5 +82,8 @@
 			</form>
 		</div>
 	</div>
+	
+	
+	
 </body>
 </html>

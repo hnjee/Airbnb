@@ -61,7 +61,7 @@ public class MemberService {
 	}
 		
 	public int memberUpdate(MemberVO memberVO) throws Exception{
-		return memberDAO.member
+		return memberDAO.memberUpdate(memberVO);
 	}
 	
 }
