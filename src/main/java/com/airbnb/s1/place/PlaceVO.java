@@ -24,6 +24,7 @@ public class PlaceVO {
 	private String fileName;
 	private String oriName;
 	private List<PlaceFileVO> placeFileVOs;
+	private int updateNum;
 	
 	
 	private String hostDesc;
@@ -35,6 +36,12 @@ public class PlaceVO {
 	
 	
 	
+	public int getUpdateNum() {
+		return updateNum;
+	}
+	public void setUpdateNum(int updateNum) {
+		this.updateNum = updateNum;
+	}
 	public String getFileName() {
 		return fileName;
 	}

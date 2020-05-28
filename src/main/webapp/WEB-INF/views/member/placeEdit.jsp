@@ -85,7 +85,7 @@
 				<!-- collapse 부분 -->
 				<div id="collapse1" class="panel-collapse collapse" aria-expanded="false">
 				<div style="margin-top: 8px; margin-bottom: 24px;">
-				<form action="../member/memberUpdate" method="POST">
+				<form action="./member/placeEdit" method="POST">
 					
 					<div style="margin-top:18px; margin-bottom: 24px;">
 					<div class="_9hxttoo">
@@ -95,6 +95,8 @@
 					<div class="_178faes">
 					
 					<input class="_14fdu48d" id="placeName" name="placeName" type="text" value="${place.placeName}"></div>
+					<input type="hidden" id="" name="placeNum" value="${place.placeNum}">
+					<input type="hidden" id="" name="memberNum" value="${place.memberNum}">
 					</div>
 					</div>
 					</div>
@@ -141,7 +143,7 @@
 				<!-- collapse 부분 -->
 				<div id="collapse2" class="panel-collapse collapse" aria-expanded="false">
 				<div style="margin-top: 8px; margin-bottom: 24px;">
-				<form action="../member/memberUpdate" method="POST">
+				<form action="./member/placeEdit" method="POST">
 					
 					
 					<div style="margin-bottom: 24px;">
@@ -152,6 +154,8 @@
 					<div class="_178faes">
 					
 					<input class="_14fdu48d" id="placeLocation" name="placeLocation" type="text" value="${place.placeLocation}"></div>
+					<input type="hidden" id="" name="placeNum" value="${place.placeNum}">
+					<input type="hidden" id="" name="memberNum" value="${place.memberNum}">
 					</div>
 					</div>
 					</div>
@@ -196,7 +200,7 @@
 				<!-- collapse 부분 -->
 				<div id="collapse3" class="panel-collapse collapse" aria-expanded="false">
 				<div style="margin-top: 8px; margin-bottom: 20px;">
-				<form action="../member/memberUpdate" method="POST">
+				<form action="./member/placeEdit" method="POST">
 					<div style="margin-top:18px; margin-bottom: 24px;">
 					<div class="_9hxttoo">
 					<label class="_krjbj" for="placePrice">숙소 1박 가격</label>
@@ -205,6 +209,8 @@
 					<div class="_178faes">
 					
 					<input class="_14fdu48d" id="placePrice" name="placePrice" type="text" value="${place.placePrice}"></div>
+					<input type="hidden" id="" name="placeNum" value="${place.placeNum}">
+					<input type="hidden" id="" name="memberNum" value="${place.memberNum}">
 					</div>
 					</div>
 					</div>
@@ -249,17 +255,32 @@
 				<!-- collapse 부분 -->
 				<div id="collapse4" class="panel-collapse collapse" aria-expanded="false">
 				<div style="margin-top: 8px; margin-bottom: 20px;">
-				<form action="../member/memberUpdate" method="POST">
-					<div style="margin-top:18px; margin-bottom: 24px;">
+				<form action="./member/placeEdit" method="POST">
+						<div style="margin-top:18px; margin-bottom: 24px;">
 					<div class="_9hxttoo">
-					<label class="_krjbj" for="placeType">숙소 형태</label>
-					<div dir="ltr">
-					<div class="_1wcr140x">
-					<div class="_178faes">
-					
-					<input class="_14fdu48d" id="placeType" name="placeType" type="text" value="${place.placeType}"></div>
-					</div>
-					</div>
+					<label class="_krjbj" for="placeMaxGuest">최대 게스트 수</label>
+					<div class="_wlf6154">
+						<div class="_y9ev9r">
+						<input type="hidden" id="" name="placeNum" value="${place.placeNum}">
+						<input type="hidden" id="" name="memberNum" value="${place.memberNum}">
+							<select id="" name="placeType"class="_bwyiq2l">
+								<option disabled="" value="" selected>숙소 형태</option>
+									<option value="아파트">아파트</option>
+									<option value="주택">주택</option>
+									<option value="별채">별채</option>
+									<option value="독특한 숙소">독특한 숙소</option>
+									<option value="bnb">B&amp;B</option>
+									<option value="부티크 호텔">부티크 호텔</option>
+								</select>
+						</div>
+						
+						<span class="_1idvclr">
+						<svg viewBox="0 0 18 18" role="presentation" aria-hidden="true" focusable="false" style="height: 16px; width: 16px; display: block; fill: rgb(72, 72, 72);">
+						<path d="m16.29 4.3a1 1 0 1 1 1.41 1.42l-8 8a1 1 0 0 1 -1.41 0l-8-8a1 1 0 1 1 1.41-1.42l7.29 7.29z" fill-rule="evenodd"></path>
+						</svg>
+						</span>
+						
+						</div>
 					</div>
 					</div>
 				
@@ -302,12 +323,14 @@
 				<!-- collapse 부분 -->
 				<div id="collapse5" class="panel-collapse collapse" aria-expanded="false">
 				<div style="margin-top: 8px; margin-bottom: 20px;">
-				<form action="../member/memberUpdate" method="POST">
+				<form action="./member/placeEdit" method="POST">
 					<div style="margin-top:18px; margin-bottom: 24px;">
 					<div class="_9hxttoo">
 					<label class="_krjbj" for="placeMaxGuest">최대 게스트 수</label>
 					<div class="_wlf6154">
 						<div class="_y9ev9r">
+						<input type="hidden" id="" name="placeNum" value="${place.placeNum}">
+						<input type="hidden" id="" name="memberNum" value="${place.memberNum}">
 						<select id="" name="placeMaxGuest" class="_bwyiq2l">
 							<option disabled="" value="" selected>게스트 수</option>
 							<option value="1">1 명</option>
@@ -373,14 +396,15 @@
 				<!-- collapse 부분 -->
 				<div id="collapse6" class="panel-collapse collapse" aria-expanded="false">
 				<div style="margin-top: 8px; margin-bottom: 20px;">
-				<form action="../member/memberUpdate" method="POST">
+				<form action="./member/placeEdit" method="POST">
 					<div style="margin-top:18px; margin-bottom: 24px;">
 					<div class="_9hxttoo">
 					<label class="_krjbj" for="placeDesc">숙소 설명</label>
 					<div dir="ltr">
 					<div class="_1wcr140x">
 					<div class="_178faes">
-					
+					<input type="hidden" id="" name="placeNum" value="${place.placeNum}">
+					<input type="hidden" id="" name="memberNum" value="${place.memberNum}">
 					<textarea class="_14fdu48d" id="placeDesc" name="placeDesc" >${place.placeDesc}</textarea></div>
 					</div>
 					</div>
@@ -424,14 +448,15 @@
 				<!-- collapse 부분 -->
 				<div id="collapse7" class="panel-collapse collapse" aria-expanded="false">
 				<div style="margin-top: 8px; margin-bottom: 20px;">
-				<form action="../member/memberUpdate" method="POST">
+				<form action="./member/placeEdit" method="POST">
 					<div style="margin-top:18px; margin-bottom: 24px;">
 					<div class="_9hxttoo">
 					<label class="_krjbj" for="placeRule">숙소규칙</label>
 					<div dir="ltr">
 					<div class="_1wcr140x">
 					<div class="_178faes">
-					
+					<input type="hidden" id="" name="placeNum" value="${place.placeNum}">
+					<input type="hidden" id="" name="memberNum" value="${place.memberNum}">
 					<textarea class="_14fdu48d" id="placeRule" name="placeRule" >${place.placeRule}</textarea></div>
 					</div>
 					</div>
@@ -476,7 +501,7 @@
 				<!-- collapse 부분 -->
 				<div id="collapse8" class="panel-collapse collapse" aria-expanded="false">
 				<div style="margin-top: 8px; margin-bottom: 20px;">
-				<form action="../member/memberUpdate" method="POST">
+				<form action="./member/placeEdit" method="POST">
 					<div style="margin-top:18px; margin-bottom: 24px;">
 					<div class="_9hxttoo">
 					<label class="_krjbj" for="placeRule">침대, 화장실 수</label>
@@ -489,6 +514,8 @@
 						<label class="_krjbj" for="">침대 수</label>
 						<div class="_wlf6154">
 						<div class="_y9ev9r">
+						<input type="hidden" id="" name="placeNum" value="${place.placeNum}">
+						<input type="hidden" id="" name="memberNum" value="${place.memberNum}">
 						<select id="" name="bed" class="_bwyiq2l">
 							<option disabled="" value="" selected>침대 갯수</option>
 							<option value="1">1 개</option>
@@ -593,7 +620,7 @@
 				<!-- collapse 부분 -->
 				<div id="collapse9" class="panel-collapse collapse" aria-expanded="false">
 				<div style="margin-top: 8px; margin-bottom: 20px;">
-				<form action="../member/memberUpdate" method="POST">
+				<form action="./member/placeEdit" method="POST">
 					<div style="margin-top:18px; margin-bottom: 24px;">
 					<div class="_9hxttoo">
 					<label class="_krjbj" for="placeRule">체크인아웃 시간</label>
@@ -606,6 +633,8 @@
 						<label class="_krjbj" for="">체크인</label>
 						<div class="_wlf6154">
 						<div class="_y9ev9r">
+						<input type="hidden" id="" name="placeNum" value="${place.placeNum}">
+						<input type="hidden" id="" name="memberNum" value="${place.memberNum}">
 						<select id="" name="checkInTime" class="_bwyiq2l">
 							<option disabled="" value="" selected>체크인 시간</option>
 							<option value="1">1 시</option>
