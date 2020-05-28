@@ -2,6 +2,8 @@ package com.airbnb.s1.member;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.servlet.ModelAndView;
@@ -68,8 +70,9 @@ public class MemberService {
 		return res;
 	}
 	
-	public int fileUpdate(String memberNum, MultipartFile file) throws Exception{
-		String path="C:\\hj\\workspace\\Airbnb\\src\\main\\webapp\\resources\\images\\member";		
+	public int fileUpdate(String memberNum, MultipartFile file, HttpSession session) throws Exception{
+		String path="C:\\hj\\workspace\\Airbnb\\src\\main\\webapp\\resources\\images\\member";	
+		path=session.getServletContext().getRealPath("resources\\images\\member");
 		System.out.println("실제 저장 경로: "+path);
 		
 		int res = 0;

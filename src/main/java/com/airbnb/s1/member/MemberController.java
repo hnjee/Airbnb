@@ -154,11 +154,13 @@ public class MemberController {
 		String hostDesc = memberVO.getHostDesc();
 		
 		//멤버 파일 
-		memberService.fileUpdate(memberVO.getMemberNum(), file);
+		memberService.fileUpdate(memberVO.getMemberNum(), file, session);
 		
 		memberVO=(MemberVO)session.getAttribute("member");
 		MemberFileVO memberFileVO = memberService.fileSelect(memberVO.getMemberNum());
 		session.setAttribute("file", memberFileVO);
+		System.out.println(memberFileVO.getOriName());
+		System.out.println(memberFileVO.getFileName());
 		
 		if(name !=null || familyName !=null) {
 			memberVO.setName(name);
