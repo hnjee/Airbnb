@@ -82,5 +82,9 @@
 		('p'||#{placeNum},#{memberNum},#{placeName},#{placeLocation},#{placePrice},'image',#{placeType},#{placeMaxGuest},#{placeDesc},#{placeRule},#{bed},#{bathroom},#{checkInTime},#{checkOutTime})
 	</insert>
 	
+	<select id="myPlace" parameterType="MemberVO" resultType="PlaceVO">
+		select * from place where memberNum = #{memberNum}
+	</select>
+	
 
 </mapper>

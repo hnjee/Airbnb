@@ -1,5 +1,7 @@
 package com.airbnb.s1.member;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +13,8 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.airbnb.s1.member.memberFile.MemberFileVO;
+import com.airbnb.s1.place.PlaceService;
+import com.airbnb.s1.place.PlaceVO;
 
 @Controller
 @RequestMapping("/member/**")
@@ -19,6 +23,9 @@ public class MemberController {
 	@Autowired
 	private MemberService memberService;
 
+	@Autowired
+	private PlaceService placeService;
+	
 	@PostMapping("memberJoin")
 	public ModelAndView memberJoin(ModelAndView mv, MemberVO memberVO, HttpSession session) throws Exception {
 
@@ -132,11 +139,8 @@ public class MemberController {
 		
 		String name = memberVO.getName();
 		String familyName= memberVO.getFamilyName();
-		
 		String email = memberVO.getEmail();
-		
 		String pw = memberVO.getPw();
-		
 		String phoneNum = memberVO.getPhoneNum();
 		
 		memberVO=(MemberVO)session.getAttribute("member");
@@ -181,7 +185,22 @@ public class MemberController {
 	
 	
 	@GetMapping("placeUpdate")
-	public void placeUpdate() throws Exception{
+	public ModelAndView placeUpdate(MemberVO memberVO,PlaceVO placeVO, HttpSession session,ModelAndView mv) throws Exception{
+		memberVO=(MemberVO)session.getAttribute("member");
+		System.out.println(memberVO.getMemberNum());
+		
+		List<PlaceVO> placeVOs = placeService.myPlace(memberVO);
+//		for(int i =0; i<placeVOs.size(); i++) {
+//			placeVO = placeVOs.get(i);
+//			
+//			session.setAttribute("place"+i, placeVO);
+//			System.out.println(placeVO.getPlaceName());
+			
+			mv.addObject("list", placeVOs);
+			mv.setViewName("member/placeUpdate");
+			
+			return mv;
+		
 	}
 
 	

@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.airbnb.s1.booking.BookingVO;
+import com.airbnb.s1.member.MemberVO;
 import com.airbnb.s1.member.memberFile.MemberFileDAO;
 import com.airbnb.s1.member.memberFile.MemberFileVO;
 import com.airbnb.s1.place.placeFile.PlaceFileDAO;
@@ -114,6 +115,10 @@ public class PlaceService {
 		System.out.println(placeVO.getPlaceNum());
 		
 		return result;
+	}
+	
+	public List<PlaceVO> myPlace(MemberVO memberVO) throws Exception{
+		return placeDAO.myPlace(memberVO);
 	}
 	
 	

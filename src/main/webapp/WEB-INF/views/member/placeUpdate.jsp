@@ -34,11 +34,12 @@
 				</tr>
 			</thead>
 			<tbody>
+				<c:foreach items="${list}" var=”placeVOs” varStatus=”i”>
 				<tr>
 					<td>1</td>
 					<td id="td_place" style="text-align: left;">
 						<img src="https://a0.muscache.com/im/pictures/874370d8-ab30-4f49-8adc-6aa2439a4dea.jpg?aki_policy=small" width="71px" height="47px">
-						<span style="margin: 0 16px; line-height: 3.4em !important;"> <a href="./placeEdit">어쩌구 저쩌구 숙소입니다 짱짱</a> </span>
+						<span style="margin: 0 16px; line-height: 3.4em !important;"> <a href="./placeEdit">${placeVOs.placeName}</a> </span>
 					</td>
 					<td>4</td>
 					<td>2</td>
@@ -56,29 +57,8 @@
 					</div>
 					</td>
 				</tr>
+				</c:foreach>
 				<!-- 예시용으로 한개 더 넣어놓은 것. 실제로는 placeList를  memberNum으로 검색해서 가져온 List를 forEach로 받아오면 됩니다 -->
-				<tr>
-					<td>2</td>
-					<td id="td_place" style="text-align: left;">
-						<img src="https://a0.muscache.com/im/pictures/874370d8-ab30-4f49-8adc-6aa2439a4dea.jpg?aki_policy=small" width="71px" height="47px">
-						<span style="margin: 0 16px; line-height: 3.4em !important;"> <a href="">어쩌구 저쩌구 숙소2입니다 짱짱</a> </span>
-					</td>
-					<td>4</td>
-					<td>2</td>
-					<td>1</td>
-					<td>70,000</td>
-					<td style="text-align: left;">서울시 마포구 어쩌구동 845 3층</td>
-					<td>
-					<div class="dropdown">
-					    <button class="dropdown-toggle" type="button" data-toggle="dropdown" style="border:0; outline: 0; background: white;"><svg viewBox="0 0 32 32" role="img" aria-label="ff 옵션" focusable="false" style="height: 18px; width: 18px; fill: rgb(118, 118, 118);"><path d="m1.5 16.5a3.5 3.5 0 117 0 3.5 3.5 0 01-7 0zm14.5 3.5a3.5 3.5 0 100-7 3.5 3.5 0 000 7zm11 0a3.5 3.5 0 100-7 3.5 3.5 0 000 7z" fill-rule="evenodd"></path></svg>
-					   </button>
-					    <ul class="dropdown-menu dropdown-menu-right">
-					      <li><a href="./placeEdit">수정</a></li>
-					      <li><a href="#">삭제</a></li>
-					    </ul>
-					</div>
-					</td>
-				</tr>
 			</tbody>
 		</table>
 	</div>

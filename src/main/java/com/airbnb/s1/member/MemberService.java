@@ -1,5 +1,7 @@
 package com.airbnb.s1.member;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.servlet.ModelAndView;
@@ -7,6 +9,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.airbnb.s1.member.memberFile.MemberFileDAO;
 import com.airbnb.s1.member.memberFile.MemberFileVO;
+import com.airbnb.s1.place.PlaceVO;
 import com.airbnb.s1.place.placeFile.PlaceFileVO;
 import com.airbnb.s1.util.FileSaver;
 
@@ -73,5 +76,7 @@ public class MemberService {
 		}
 		return result;
 	}
+	
+	
 	
 }
