@@ -152,15 +152,7 @@ public class MemberController {
 		memberVO=(MemberVO)session.getAttribute("member");
 		
 		String hostDesc = memberVO.getHostDesc();
-		
-		//멤버 파일 
-		memberService.fileUpdate(memberVO.getMemberNum(), file, session);
-		
-		memberVO=(MemberVO)session.getAttribute("member");
-		MemberFileVO memberFileVO = memberService.fileSelect(memberVO.getMemberNum());
-		session.setAttribute("file", memberFileVO);
-		System.out.println(memberFileVO.getOriName());
-		System.out.println(memberFileVO.getFileName());
+
 		
 		if(name !=null || familyName !=null) {
 			memberVO.setName(name);
@@ -191,6 +183,11 @@ public class MemberController {
 			memberVO.setHostDesc(hostDesc);
 			System.out.println("변경 성공4");
 		}
+		
+		//멤버 파일 
+		memberService.fileUpdate(memberVO.getMemberNum(), file, session);
+		MemberFileVO memberFileVO = memberService.fileSelect(memberVO.getMemberNum());
+		session.setAttribute("file", memberFileVO);
 		
 		session.setAttribute("member", memberVO);
 		return "redirect:./memberUpdate";

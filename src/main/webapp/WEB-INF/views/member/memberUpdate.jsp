@@ -15,6 +15,9 @@
 	*{
 		box-sizing: border-box;
 	}
+	._1lg7nazm{
+		border-bottom: 1px solid #DDDDDD;
+	}
 </style>
 </head>
 <body>
