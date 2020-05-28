@@ -89,6 +89,15 @@ public class PlaceService {
 		//List<PlaceVO>로 받아오기
 		List<String> selectedFileNum = placeDAO.selectFileNum(map);
 		pager.makePage(totalCount);	
+		for(int i=0;i<selectedFileNum.size();i++) {
+			if(selectedFileNum.get(i)==null) {
+				selectedFileNum.set(i,"f123");
+			}
+		}
+		
+		System.out.println(selectedFileNum.get(0));
+		System.out.println(selectedFileNum.get(1));
+		
 		Map<String, Object> map2 = new HashMap<String, Object>();		
 		map2.put("placeList", placeDAO.placeList(selectedFileNum));
 		map2.put("totalCount", totalCount);
