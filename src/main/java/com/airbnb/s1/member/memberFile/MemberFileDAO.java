@@ -18,5 +18,9 @@ public class MemberFileDAO {
 	public MemberFileVO fileSelect(String memberNum) throws Exception{
 		return sqlSession.selectOne(NAMESPACE+"fileSelect", memberNum);
 	}
+	
+	public int fileUpdate(MemberFileVO memberFileVO) throws Exception{
+		return sqlSession.update(NAMESPACE+"fileUpdate", memberFileVO);
+	}
 
 }

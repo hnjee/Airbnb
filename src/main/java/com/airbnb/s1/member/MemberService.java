@@ -2,6 +2,8 @@ package com.airbnb.s1.member;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.servlet.ModelAndView;
@@ -43,7 +45,8 @@ public class MemberService {
 	}
 	
 	public int fileInsert(String memberNum, MultipartFile file) throws Exception{
-		String path="C:\\hj\\workspace\\Airbnb\\src\\main\\webapp\\resources\\images\\member";		
+		String path="C:\\hj\\workspace\\Airbnb\\src\\main\\webapp\\resources\\images\\member";	
+		//path=session.getServletContext().getRealPath("resources\\images\\member"); 
 		System.out.println("실제 저장 경로: "+path);
 		
 		int res = 0;
@@ -57,8 +60,35 @@ public class MemberService {
 		}
 		return res;
 	}
+	//멤버 프로필사진 초기화  
+	public int fileInsert(String memberNum) throws Exception{
+		int res = 0;
+		MemberFileVO memberFileVO = new MemberFileVO();		
+		memberFileVO.setMemberNum(memberNum);
+		memberFileVO.setFileName("e097be55-7fe3-4ca0-9e5b-a4eee89b81c0memberImg.webp");
+		memberFileVO.setOriName("memberImg.webp");
+		res = memberFileDAO.fileInsert(memberFileVO);
+		return res;
+	}
 	
-	//memberNum으로 MemberFileVO를 가져오는 메서드 fileOne()
+	public int fileUpdate(String memberNum, MultipartFile file, HttpSession session) throws Exception{
+		String path="C:\\hj\\workspace\\Airbnb\\src\\main\\webapp\\resources\\images\\member";	
+		path=session.getServletContext().getRealPath("resources\\images\\member");
+		System.out.println("실제 저장 경로: "+path);
+		
+		int res = 0;
+		if(file.getSize()>0) {
+			MemberFileVO memberFileVO = new MemberFileVO();
+			String fileName = fileSaver.saveByTransfer(file,path);			
+			memberFileVO.setMemberNum(memberNum);
+			memberFileVO.setFileName(fileName);
+			memberFileVO.setOriName(file.getOriginalFilename());
+			res = memberFileDAO.fileUpdate(memberFileVO);
+		}
+		return res;
+	}
+	
+	//memberNum으로 MemberFileVO를 가져오는 메서드 fileSelect()
 	public MemberFileVO fileSelect(String memberNum) throws Exception{
 		return memberFileDAO.fileSelect(memberNum);	
 	}

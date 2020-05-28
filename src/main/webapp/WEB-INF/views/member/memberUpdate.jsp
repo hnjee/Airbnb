@@ -15,6 +15,9 @@
 	*{
 		box-sizing: border-box;
 	}
+	._1lg7nazm{
+		border-bottom: 1px solid #DDDDDD;
+	}
 </style>
 </head>
 <body>
@@ -72,6 +75,64 @@
 		<div class="_169grxv2">
 			<!-- collapse 아코디언 -->
 			<div class="" id="accordion" role="tablist" aria-multiselectable="true">
+            
+            <!-- 수정 대상 -->
+			<div class="_s50zru">
+			<div style="margin-top: 24px;">
+			<div class="_hgs47m">
+				<div class="_n5lh69r">
+				<div class="_1p3joamp">프로필 사진</div>
+				<div style="margin-top: 8px; margin-bottom: 24px;">
+				<div class="_czm8crp">
+						<img src="${pageContext.request.contextPath}/resources/images/member/${file.fileName}" height="100" width="100">
+				</div>
+				
+				<!-- collapse 부분 -->
+				<div id="collapse2" class="panel-collapse collapse" aria-expanded="false">
+				<div style="margin-top: 8px; margin-bottom: 24px;">
+				<form action="../member/memberUpdate" method="POST" enctype="multipart/form-data">
+					<div style="margin-top: 8px; margin-bottom: 20px;">
+					</div>
+					
+					<div style="margin-bottom: 24px;">
+					<div class="_9hxttoo">
+					<label class="_krjbj" for="memberPic">프로필 사진</label>
+					<div dir="ltr">
+					<div class="_1wcr140x">
+					<div class="_178faes">
+					
+					<input class="_14fdu48d" id="file" name="file" type="file"></div>
+					</div>
+					</div>
+					</div>
+					</div>
+					
+					<div id="airlock-inline-container"></div>
+					<button type="submit" class="_kt3i5a4" aria-busy="false">
+					<span class="_ftj2sg4">저장</span>
+					</button>
+					
+				</form>
+				</div>
+				</div>
+				<!-- collapse 부분 끝-->
+				
+				</div>
+				</div>
+				
+				<div class="_1rtgmd8y">
+				<div class="_1p3joamp">
+				<div class="_1asnseo">
+				<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse2" aria-expanded="false" aria-controls="collapse2">
+				<button type="button" class="_b0ybw8s" aria-busy="false">수정</button>
+				</a>
+				</div>
+				</div>
+				</div>
+			</div>
+			</div>
+			</div>
+            
             
             
             <!-- 수정 대상 -->
