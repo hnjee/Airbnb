@@ -285,7 +285,7 @@
 	    color:#fff;
 	}
 	.cardNum{
-		width :120px;
+		width :145px;
 	}
 	
 </style>
@@ -383,7 +383,7 @@
 			<div class="side1">
 				<div class="tags">
 					<div class="tag"> ${vo.placeName }</div>
-					<div class="font">${vo.name }의 아파트 전체</div>
+					<div class="font">${vo.placeLocation }의 <br>${vo.placeType }</div>
 					
 					
 				</div>
