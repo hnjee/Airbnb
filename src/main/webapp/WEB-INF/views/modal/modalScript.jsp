@@ -26,7 +26,7 @@
 			$('#setEmailJoin').click();
 		});
 		
-		$('#signIn').on('click', function() {
+		/* $('#signIn').on('click', function() {
 
 // 			if (email == ''){
 // 				alert('이메일을 입력해주세요');
@@ -47,7 +47,7 @@
 				return false; 
 			}
 
-		});
+		}); */
 		
 		$('#logOut').on('click', function() {
 			gauth.signOut().then(function() {
