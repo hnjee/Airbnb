@@ -1,5 +1,7 @@
 package com.airbnb.s1.member;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +13,9 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.airbnb.s1.member.memberFile.MemberFileVO;
+import com.airbnb.s1.place.PlaceService;
+import com.airbnb.s1.place.PlaceVO;
+import com.airbnb.s1.place.placeFile.PlaceFileVO;
 
 @Controller
 @RequestMapping("/member/**")
@@ -19,6 +24,9 @@ public class MemberController {
 	@Autowired
 	private MemberService memberService;
 
+	@Autowired
+	private PlaceService placeService;
+	
 	@PostMapping("memberJoin")
 	public ModelAndView memberJoin(ModelAndView mv, MemberVO memberVO, HttpSession session) throws Exception {
 
@@ -188,7 +196,27 @@ public class MemberController {
 	
 	
 	@GetMapping("placeUpdate")
-	public void placeUpdate() throws Exception{
+	public ModelAndView placeUpdate(MemberVO memberVO,PlaceVO placeVO, HttpSession session,ModelAndView mv) throws Exception{
+		PlaceFileVO placeFileVO = new PlaceFileVO();
+		memberVO=(MemberVO)session.getAttribute("member");
+		System.out.println(memberVO.getMemberNum());
+		
+		List<PlaceVO> placeVOs = placeService.myPlace(memberVO);
+		placeVO = placeVOs.get(0);
+		System.out.println(placeVO.getPlaceNum());
+		List<PlaceFileVO> placeFileList = placeService.fileList(placeVO);
+		
+//		placeFileVO = placeFileList.get(0);
+//		System.out.println(placeFileVO.getFileName());
+		
+		System.out.println(placeVO.getPlaceNum());
+			mv.addObject("list", placeVOs);
+			mv.addObject("file", placeFileList);
+			
+			mv.setViewName("member/placeUpdate");
+			
+			return mv;
+		
 	}
 
 	

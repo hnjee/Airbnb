@@ -18,36 +18,45 @@
 			<form class="form-horizontal" action="member/memberJoin" method="post">
 				<div class="form-group" >
 					<div class="col-sm-5">
-						<input type="email" class="form-control" id="checkElemail"
+						<input style="font-size: 16px;" type="email" class="form-control" id="checkElemail"
 							placeholder="이메일 주소" name="email">
 					</div>
 				</div>
 
 				<div class="form-group">
 					<div class="col-sm-5">
-						<input type="text" class="form-control" id="checkElname"
+						<input style="font-size: 16px;" type="text" class="form-control" id="checkElname"
 							placeholder="이름(예: 길동)" name="name">
 					</div>
 				</div>
 
 				<div class="form-group">
 					<div class="col-sm-5">
-						<input type="text" class="form-control" id="checkElfamilyName"
+						<input style="font-size: 16px;" type="text" class="form-control" id="checkElfamilyName"
 							placeholder="성(예: 홍)" name="familyName">
 					</div>
 				</div>
 
 				<div class="form-group">
-					<div class="col-sm-5">
-						<input type="password" class="form-control" id="checkElpw"
+					<div class="col-sm-5" id="pwCheck1">
+						<input style="font-size: 16px;" type="password" class="form-control" id="checkElpw"
 							placeholder="비밀번호 설정하기" name="pw">
+						<p class="alarm1" style="margin-top: 7px; margin-bottom:0px; color: red;">비밀번호는 8자 이상 입력하세요</p>
+					</div>
+				</div>
+				
+				<div class="form-group">
+					<div class="col-sm-5" id="pwCheck2">
+						<input style="font-size: 16px;" type="password" class="form-control" id="checkElCheckpw"
+							placeholder="비밀번호 확인하기" name="pw">
+							<p class="alarm2" style="margin-top: 7px; margin-bottom:0px; color: red;">비밀번호가 일치하지 않습니다</p>
 					</div>
 				</div>
 
 				<div class="form-group">
 					<div class="col-sm-5">
-						<input type="text" class="form-control" id="checkElphoneNum"
-							placeholder="예)010-1234-5678" name="phoneNum">
+						<input style="font-size: 16px;" type="text" class="form-control" id="checkElphoneNum"
+							placeholder="예) 010-1234-5678" name="phoneNum">
 					</div>
 				</div>
 

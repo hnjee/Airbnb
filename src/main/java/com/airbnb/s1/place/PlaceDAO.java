@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.airbnb.s1.booking.BookingVO;
+import com.airbnb.s1.member.MemberVO;
 
 
 @Repository
@@ -54,6 +55,8 @@ public class PlaceDAO {
 		return sqlSession.insert(NAMESPACE+"hostPlaceAdd", placeVO);
 	}
 	
-	
+	public List<PlaceVO> myPlace(MemberVO memberVO) throws Exception{
+		return sqlSession.selectList(NAMESPACE+"myPlace", memberVO);
+	}
 
 }
