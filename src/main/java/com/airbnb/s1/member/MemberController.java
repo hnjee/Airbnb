@@ -200,14 +200,8 @@ public class MemberController {
 	@GetMapping("placeUpdate")
 	public ModelAndView placeUpdate(MemberVO memberVO,PlaceVO placeVO, HttpSession session,ModelAndView mv) throws Exception{
 		memberVO=(MemberVO)session.getAttribute("member");
-
 		List<PlaceVO> placeVOs = placeService.myPlace(memberVO);
-
-		placeVO = placeVOs.get(0);
-
-		System.out.println(placeVO.getPlaceNum());
 			mv.addObject("list", placeVOs);
-
 			mv.setViewName("member/placeUpdate");
 
 			return mv;
@@ -302,4 +296,9 @@ public class MemberController {
 		return mv;
 	}
 
+	public ModelAndView placeDelete(ModelAndView mv,PlaceVO placeVO, PlaceFileVO placeFileVO) throws Exception{
+		
+		return mv;
+	}
+	
 }
