@@ -187,37 +187,44 @@ public class MemberController {
 	
 	@GetMapping("placeUpdate")
 	public ModelAndView placeUpdate(MemberVO memberVO,PlaceVO placeVO, HttpSession session,ModelAndView mv) throws Exception{
-		PlaceFileVO placeFileVO = new PlaceFileVO();
 		memberVO=(MemberVO)session.getAttribute("member");
 		System.out.println(memberVO.getMemberNum());
 		
 		List<PlaceVO> placeVOs = placeService.myPlace(memberVO);
+		
 		placeVO = placeVOs.get(0);
-		System.out.println(placeVO.getPlaceNum());
-		List<PlaceFileVO> placeFileList = placeService.fileList(placeVO);
 		
-//		placeFileVO = placeFileList.get(0);
-//		System.out.println(placeFileVO.getFileName());
-		
-		System.out.println(placeVO.getPlaceNum());
-			mv.addObject("list", placeVOs);
-			mv.addObject("file", placeFileList);
-			
-			mv.setViewName("member/placeUpdate");
-			
-			return mv;
+		mv.addObject("list", placeVOs);
+		mv.setViewName("member/placeUpdate");
+		return mv;
 		
 	}
-
-	
-	
 	
 	@GetMapping("placeEdit")
-	public void placeEdit() throws Exception{
+	public ModelAndView placeEdit(PlaceVO placeVO, ModelAndView mv) throws Exception{
+		mv.addObject("place", placeVO);
+		mv.setViewName("member/placeEdit");
+		
+		return mv;
+	}
+	
+	@PostMapping("placeEdit")
+	public void placeEdit(PlaceVO placeVO) throws Exception{
+	
+		System.out.println(placeVO.getPlaceName());
+		
+		System.out.println(placeVO.getPlaceLocation());
+		
+		System.out.println(placeVO.getPlacePrice());
+		System.out.println(placeVO.getPlaceType());
+		System.out.println(placeVO.getPlaceMaxGuest());
+		System.out.println(placeVO.getPlaceDesc());
+		System.out.println(placeVO.getPlaceRule());
+		System.out.println(placeVO.getBed());
+		System.out.println(placeVO.getBathroom());
+		System.out.println(placeVO.getCheckInTime());
+		System.out.println(placeVO.getCheckOutTime());
 		
 	}
 	
-
-	
-
 }

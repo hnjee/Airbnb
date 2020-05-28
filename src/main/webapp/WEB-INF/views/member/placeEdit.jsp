@@ -80,7 +80,7 @@
 				<div class="_n5lh69r">
 				<div class="_1p3joamp">숙소 이름</div>
 				<div style="margin-top: 8px; margin-bottom: 24px;">
-				<div class="_czm8crp">마포구 최고 뷰 맛집~^^!</div>
+				<div class="_czm8crp">${place.placeName}</div>
 				
 				<!-- collapse 부분 -->
 				<div id="collapse1" class="panel-collapse collapse" aria-expanded="false">
@@ -94,7 +94,7 @@
 					<div class="_1wcr140x">
 					<div class="_178faes">
 					
-					<input class="_14fdu48d" id="placeName" name="placeName" type="text" value="placeName여기에 받아오기"></div>
+					<input class="_14fdu48d" id="placeName" name="placeName" type="text" value="${place.placeName}"></div>
 					</div>
 					</div>
 					</div>
@@ -136,7 +136,7 @@
 				<div class="_n5lh69r">
 				<div class="_1p3joamp">숙소 주소</div>
 				<div style="margin-top: 8px; margin-bottom: 24px;">
-				<div class="_czm8crp">숙소 주소 받아오기(ex. 서울시 마포구 ~)</div>
+				<div class="_czm8crp">${place.placeLocation}</div>
 				
 				<!-- collapse 부분 -->
 				<div id="collapse2" class="panel-collapse collapse" aria-expanded="false">
@@ -151,7 +151,7 @@
 					<div class="_1wcr140x">
 					<div class="_178faes">
 					
-					<input class="_14fdu48d" id="placeLocation" name="placeLocation" type="text" value="placeLocation여기에 받아오기"></div>
+					<input class="_14fdu48d" id="placeLocation" name="placeLocation" type="text" value="${place.placeLocation}"></div>
 					</div>
 					</div>
 					</div>
@@ -191,7 +191,7 @@
 				<div class="_n5lh69r">
 				<div class="_1p3joamp">숙소 1박 가격</div>
 				<div style="margin-top: 8px; margin-bottom: 24px;">
-				<div class="_czm8crp">숙소 가격 받아오기</div>
+				<div class="_czm8crp">${place.placePrice}</div>
 				
 				<!-- collapse 부분 -->
 				<div id="collapse3" class="panel-collapse collapse" aria-expanded="false">
@@ -204,7 +204,7 @@
 					<div class="_1wcr140x">
 					<div class="_178faes">
 					
-					<input class="_14fdu48d" id="placePrice" name="placePrice" type="text" value="placePrice여기에 받아오기"></div>
+					<input class="_14fdu48d" id="placePrice" name="placePrice" type="text" value="${place.placePrice}"></div>
 					</div>
 					</div>
 					</div>
@@ -244,7 +244,7 @@
 				<div class="_n5lh69r">
 				<div class="_1p3joamp">숙소 형태</div>
 				<div style="margin-top: 8px; margin-bottom: 24px;">
-				<div class="_czm8crp">placeType여기에 받아오세요</div>
+				<div class="_czm8crp">${place.placeType}</div>
 				
 				<!-- collapse 부분 -->
 				<div id="collapse4" class="panel-collapse collapse" aria-expanded="false">
@@ -257,7 +257,7 @@
 					<div class="_1wcr140x">
 					<div class="_178faes">
 					
-					<input class="_14fdu48d" id="placeType" name="placeType" type="text" value="placeType여기에 받아오기"></div>
+					<input class="_14fdu48d" id="placeType" name="placeType" type="text" value="${place.placeType}"></div>
 					</div>
 					</div>
 					</div>
@@ -298,7 +298,7 @@
 				<div class="_n5lh69r">
 				<div class="_1p3joamp">최대 게스트 수</div>
 				<div style="margin-top: 8px; margin-bottom: 24px;">
-				<div class="_czm8crp">placeMaxGuest 여기에 받아오세요</div>				
+				<div class="_czm8crp">${place.placeMaxGuest}</div>				
 				<!-- collapse 부분 -->
 				<div id="collapse5" class="panel-collapse collapse" aria-expanded="false">
 				<div style="margin-top: 8px; margin-bottom: 20px;">
@@ -381,7 +381,7 @@
 					<div class="_1wcr140x">
 					<div class="_178faes">
 					
-					<textarea class="_14fdu48d" id="placeDesc" name="placeDesc" >textarea는 여기에 값 넣어줘야합니다.</textarea></div>
+					<textarea class="_14fdu48d" id="placeDesc" name="placeDesc" >${place.placeDesc}</textarea></div>
 					</div>
 					</div>
 					</div>
@@ -432,7 +432,7 @@
 					<div class="_1wcr140x">
 					<div class="_178faes">
 					
-					<textarea class="_14fdu48d" id="placeRule" name="placeRule" >textarea는 여기에 값 넣어줘야합니다.</textarea></div>
+					<textarea class="_14fdu48d" id="placeRule" name="placeRule" >${place.placeRule}</textarea></div>
 					</div>
 					</div>
 					</div>
@@ -472,7 +472,7 @@
 				<div class="_n5lh69r">
 				<div class="_1p3joamp">침대와 화장실 수</div>
 				<div style="margin-top: 8px; margin-bottom: 24px;">
-				<div class="_czm8crp">침대 ?개 화장실 ?개</div>			
+				<div class="_czm8crp">침대 ${place.bed}개 화장실 ${place.bathroom}개</div>			
 				<!-- collapse 부분 -->
 				<div id="collapse8" class="panel-collapse collapse" aria-expanded="false">
 				<div style="margin-top: 8px; margin-bottom: 20px;">
@@ -589,7 +589,7 @@
 				<div class="_n5lh69r">
 				<div class="_1p3joamp">체크인  체크아웃 시간</div>
 				<div style="margin-top: 8px; margin-bottom: 24px;">
-				<div class="_czm8crp">체크인 ?시 체크아웃 ?시</div>			
+				<div class="_czm8crp">체크인 ${place.checkInTime}시 체크아웃 ${place.checkOutTime}시</div>			
 				<!-- collapse 부분 -->
 				<div id="collapse9" class="panel-collapse collapse" aria-expanded="false">
 				<div style="margin-top: 8px; margin-bottom: 20px;">

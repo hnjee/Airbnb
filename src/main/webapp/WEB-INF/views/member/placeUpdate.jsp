@@ -38,7 +38,7 @@
 				<tr>
 					<td>1</td>
 					<td id="td_place" style="text-align: left;">
-						<img src="$https://a0.muscache.com/im/pictures/874370d8-ab30-4f49-8adc-6aa2439a4dea.jpg?aki_policy=small" width="71px" height="47px">
+						<img src="${pageContext.request.contextPath}/resources/images/place/${placeVOs.fileName}" width="71px" height="47px">
 						<span style="margin: 0 16px; line-height: 3.4em !important;"> <a href="./placeEdit">${placeVOs.placeName}</a> </span>
 					</td>
 					<td>${placeVOs.placeMaxGuest}</td>
@@ -51,7 +51,7 @@
 					    <button class="dropdown-toggle" type="button" data-toggle="dropdown" style="border:0; outline: 0; background: white;"><svg viewBox="0 0 32 32" role="img" aria-label="ff 옵션" focusable="false" style="height: 18px; width: 18px; fill: rgb(118, 118, 118);"><path d="m1.5 16.5a3.5 3.5 0 117 0 3.5 3.5 0 01-7 0zm14.5 3.5a3.5 3.5 0 100-7 3.5 3.5 0 000 7zm11 0a3.5 3.5 0 100-7 3.5 3.5 0 000 7z" fill-rule="evenodd"></path></svg>
 					   </button>
 					    <ul class="dropdown-menu dropdown-menu-right">
-					      <li><a href="./placeEdit">수정</a></li>
+					      <li><a href="./placeEdit?placeName=${placeVOs.placeName}&placeLocation=${placeVOs.placeLocation}&placePrice=${placeVOs.placePrice}&placeType=${placeVOs.placeType}&placeMaxGuest=${placeVOs.placeMaxGuest}&placeDesc=${placeVOs.placeDesc}&placeRule=${placeVOs.placeRule}&bed=${placeVOs.bed}&bathroom=${placeVOs.bathroom}&checkInTime=${placeVOs.checkInTime}&checkOutTime=${placeVOs.checkOutTime}">수정</a></li>
 					      <li><a href="#">삭제</a></li>
 					    </ul>
 					</div>

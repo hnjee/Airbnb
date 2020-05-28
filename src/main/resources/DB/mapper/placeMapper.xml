@@ -83,7 +83,9 @@
 	</insert>
 	
 	<select id="myPlace" parameterType="MemberVO" resultType="PlaceVO">
-		select * from place where memberNum = #{memberNum}
+		SELECT pl.*, pf.*
+		FROM place pl Left JOIN placefile pf
+		ON ( pl.placeNum = pf.placeNum) WHERE pl.memberNum = #{memberNum}
 	</select>
 	
 

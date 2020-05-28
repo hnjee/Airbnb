@@ -21,7 +21,10 @@ public class PlaceVO {
 	private Long checkInTime;
 	private Long checkOutTime;
 	private PlaceFileVO placeFileVO;
+	private String fileName;
+	private String oriName;
 	private List<PlaceFileVO> placeFileVOs;
+	
 	
 	private String hostDesc;
 	private String name;
@@ -30,6 +33,20 @@ public class PlaceVO {
 	
 	
 	
+	
+	
+	public String getFileName() {
+		return fileName;
+	}
+	public void setFileName(String fileName) {
+		this.fileName = fileName;
+	}
+	public String getOriName() {
+		return oriName;
+	}
+	public void setOriName(String oriName) {
+		this.oriName = oriName;
+	}
 	public MemberFileVO getMemberFileVO() {
 		return memberFileVO;
 	}
