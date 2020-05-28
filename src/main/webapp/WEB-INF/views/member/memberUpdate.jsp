@@ -386,13 +386,8 @@
 			</div>
 			</div>
 			</div>
-		
-			<div style="float: right; margin-top:15px;">
-			<a href="./memberDelete" style="float:left; border: none !important;
-	
-    color: #000000 !important; font-size: 14px; font-weight: bold;  text-decoration: underline;">회원탈퇴</a>
-			<span style="float:left; margin-left: 8px; position:relative; top:4px;" class="_2frf98"><svg viewBox="0 0 16 16" role="presentation" aria-hidden="true" focusable="false" style="height:14px;width:14px;display:block;fill:currentColor"><path d="m5.3 16c .3 0 .6-.1.8-.4l6.8-6.7c.5-.5.5-1.3 0-1.8l-6.8-6.7c-.5-.5-1.2-.5-1.7 0s-.5 1.2 0 1.7l5.8 5.9-5.8 5.9c-.5.5-.5 1.2 0 1.7.2.3.5.4.9.4"></path></svg></span>
-			</div>
+
+
 		</div>
 		</div>
 		<!-- 수정 폼 끝 -->
