@@ -79,19 +79,14 @@
 			<div class="_hgs47m">
 				<div class="_n5lh69r">
 				<div class="_1p3joamp">프로필 사진</div>
-				<div style="margin-top: 8px; margin-bottom: 24px;">
+				<div style="margin-top: 8px; margin-bottom: 24px;height:100px;">
 				<div class="_czm8crp">
-						<img src="${pageContext.request.contextPath}/resources/images/member/${file.fileName}" height="100" width="100">
-				</div>
-				
-				<!-- collapse 부분 -->
-				<div id="collapse5" class="panel-collapse collapse" aria-expanded="false">
-				<div style="margin-top: 8px; margin-bottom: 24px;">
+						<img style="float: left;" src="${pageContext.request.contextPath}/resources/images/member/1696400a-5b50-4e93-8374-e2b08b30b67420171108111613422oxog.jpg" height="100" width="100">
+				<div style="margin-left:65px; margin-top: 45px; float: left;">
 				<form action="../member/memberUpdate" method="POST" enctype="multipart/form-data">
-					<div style="margin-top: 8px; margin-bottom: 20px;">
-					</div>
 					
-					<div style="margin-bottom: 24px;">
+					
+					<div style="margin-right: 13px;float: left;">
 					<div class="_9hxttoo">
 					<label class="_krjbj" for="memberPic">프로필 사진</label>
 					<div dir="ltr">
@@ -104,28 +99,26 @@
 					</div>
 					</div>
 					
-					<div id="airlock-inline-container"></div>
-					<button type="submit" class="_kt3i5a4" aria-busy="false">
+					
+					<button type="submit" class="_kt3i5a4" aria-busy="false" style="float: left;">
 					<span class="_ftj2sg4">저장</span>
 					</button>
 					
 				</form>
 				</div>
+				
+				</div>
+				
+				<!-- collapse 부분 -->
+				<div id="collapse5" class="panel-collapse collapse" aria-expanded="false">
+				
 				</div>
 				<!-- collapse 부분 끝-->
 				
 				</div>
 				</div>
 				
-				<div class="_1rtgmd8y">
-				<div class="_1p3joamp">
-				<div class="_1asnseo">
-				<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse5" aria-expanded="false" aria-controls="collapse2">
-				<button type="button" class="_b0ybw8s" aria-busy="false">수정</button>
-				</a>
-				</div>
-				</div>
-				</div>
+				
 			</div>
 			</div>
 			</div>
@@ -346,7 +339,7 @@
 				<div id="collapse4" class="panel-collapse collapse" aria-expanded="false">
 				<div style="margin-top: 8px; margin-bottom: 20px;">
 				<form action="../member/memberUpdate" method="POST">
-					<div style="margin-top: 8px; margin-bottom: 17px;">
+					<div style="margin-top: 8px; margin-bottom: 15px;">
 					<div class="_czm8crp">알림, 미리 알림 및 로그인에 도움이 됩니다.</div>
 					</div>
 					
