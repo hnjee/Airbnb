@@ -30,7 +30,7 @@
 			    buyer_tel : '${member.phoneNum}',
 			    buyer_addr : '서울특별시 강남구 삼성동',
 			    buyer_postcode : '123-456',
-			    m_redirect_url : 'http://localhost:8080/s1/'
+			    m_redirect_url : '${pageContext.request.contextPath}'
 			    /* url 주소를 변경해줘야됩니다.  */
 			    //m_redirect_url : 'http://192.168.0.7:8080/???'
 			    //m_redirect_url : ''//결제 완료시 넘어가는 부분

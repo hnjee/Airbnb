@@ -157,7 +157,7 @@ $(document).ready(function(){
 });
 $(".btn-primary").click(function() {
 	if($('.cardNumf').prop("value") != ""){
-	window.open("http://localhost:8080/s1/booking/payment?bookingNum=${bvo.bookingNum }&placeNum=${bvo.placeNum}&checkInDate=${bvo.checkInDate}&checkOutDate=${bvo.checkOutDate}&cardNum="+$(".cardNumf").val(), "PopupWin", "top=200, left=400, width=850,height=600")
+	window.open("${pageContext.request.contextPath}/booking/payment?bookingNum=${bvo.bookingNum }&placeNum=${bvo.placeNum}&checkInDate=${bvo.checkInDate}&checkOutDate=${bvo.checkOutDate}&cardNum="+$(".cardNumf").val(), "PopupWin", "top=200, left=400, width=850,height=600")
 	} else {
 		alert("빈칸을 모두 작성해주세요");
 	}
