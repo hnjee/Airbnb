@@ -74,7 +74,7 @@ public class FileSaver {
 		f2 = new File(f2, fileName);
 		
 		file.transferTo(f);
-		file.transferTo(f2);
+		//file.transferTo(f2);
 		
 		return fileName;
 	}
