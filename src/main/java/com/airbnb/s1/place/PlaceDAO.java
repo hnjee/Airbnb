@@ -97,12 +97,9 @@ public class PlaceDAO {
 		return sqlSession.update(NAMESPACE+"placeUpdate9", placeVO);
 	}
 	
-	public int placeFileDelete(PlaceFileVO placeFileVO) throws Exception{
-		return sqlSession.delete(NAMESPACE+"placeFileDelete", placeFileVO);
-	}
 	
 	public int placeDelete(PlaceVO placeVO) throws Exception{
-		return sqlSession.delete(NAMESPACE+"placeFileDelete", placeVO);
+		return sqlSession.delete(NAMESPACE+"placeDelete", placeVO);
 	}
 	
 	public PlaceFileVO picOne(PlaceVO placeVO) throws Exception{
