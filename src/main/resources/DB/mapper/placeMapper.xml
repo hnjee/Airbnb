@@ -39,9 +39,7 @@
 			</foreach>
 	</select>
 
-	<select id="picOne" >
-		select fileName from placeFile where placeNum='p1' and rowNum = 1;
-	</select>
+	
 
 
  	<!-- totalCount 계산 위한 sql문 -->
@@ -87,7 +85,9 @@
 	</insert>
 	
 	<select id="myPlace" parameterType="MemberVO" resultType="PlaceVO">
-		SELECT* from place where memberNum = #{memberNum}
+		SELECT distinct pl.*, pf.fileName
+		FROM place pl Left JOIN placefile pf
+		ON ( pl.placeNum = pf.placeNum) WHERE pl.memberNum = #{memberNum}
 	</select>
 	
 	<update id="placeUpdate1" parameterType="placeVO" >
@@ -128,6 +128,14 @@
 	<update id="placeUpdate9" parameterType="placeVO" >
 		update place set checkInTime=#{checkInTime}, checkOutTime=#{checkOutTime} where placeNum=#{placeNum}
 	</update>
+	
+	<delete id="placeFileDelete" parameterType="PlaceFileVO">
+		delete placeFile where placeNum=#{placeNum} 
+	</delete>
+	
+	<delete id="placeDelete" parameterType="PlaceVO">
+		delete place where placeNum=#{placeNum} 
+	</delete>
 	
 
 </mapper>

@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 
 import com.airbnb.s1.booking.BookingVO;
 import com.airbnb.s1.member.MemberVO;
+import com.airbnb.s1.place.placeFile.PlaceFileVO;
 
 
 @Repository
@@ -95,5 +96,14 @@ public class PlaceDAO {
 	public int placeUpdate9(PlaceVO placeVO) throws Exception{
 		return sqlSession.update(NAMESPACE+"placeUpdate9", placeVO);
 	}
+	
+	public int placeFileDelete(PlaceFileVO placeFileVO) throws Exception{
+		return sqlSession.delete(NAMESPACE+"placeFileDelete", placeFileVO);
+	}
+	
+	public int placeDelete(PlaceVO placeVO) throws Exception{
+		return sqlSession.delete(NAMESPACE+"placeFileDelete", placeVO);
+	}
+	
 	
 }

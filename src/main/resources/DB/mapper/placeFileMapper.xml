@@ -2,22 +2,22 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-  
+
 <mapper namespace="com.airbnb.s1.place.placeFile.PlaceFileDAO">
 
 	<insert id="fileInsert" parameterType="PlaceFileVO">
 		insert into placeFile values
 		('f'||placeFile_SEQ.nextval,#{placeNum},#{fileName},#{oriName})
 	</insert>
-	
+
 	<select id="fileList" parameterType="PlaceVO" resultType="PlaceFileVO">
-		select * from placeFile where placeNum='p779'
+		select * from placeFile where placeNum=#{placeNum}
 	</select>
 
 	 <select id="fileCount" parameterType="String" resultType="Long">
 	 	select count(placeFileNum) from placeFile where placeNum=#{placeNum}
 	 </select>
 
-	
+
 
 </mapper>

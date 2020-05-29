@@ -165,7 +165,13 @@ public class PlaceService {
 
 	}
 	
+	public int placeFileDelete(PlaceFileVO placeFileVO) throws Exception{
+		return placeDAO.placeFileDelete(placeFileVO);
+	}
 	
+	public int placeDelete(PlaceVO placeVO) throws Exception{
+		return placeDAO.placeDelete(placeVO);
+	}
 	
 	
 }
