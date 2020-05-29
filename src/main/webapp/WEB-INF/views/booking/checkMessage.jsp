@@ -36,19 +36,50 @@
 		.back{
 			width: 100%;
 			min-height: 600px;
-			background-image: url("../resources/w3images/back.png");
-			background-repeat: no-repeat;
-			background-position: center;
-			overflow-y:scroll; 
+			overflow-y:auto; 
 			overflow-x:hidden;
 			height :800px;
 			box-sizing: border-box;
 		}
 		.btn{
-			width: 100%;
-			height : 30px;
-			font-size: 20px;
-			
+			width:97%;
+			height:30px;
+			font-size: 1.4em;
+		}
+		
+		.back:after {
+			background-image: url("../resources/w3images/back.png");
+			top:0;
+		    left:0;
+		    position:absolute;
+		    background-size:100%;
+		    opacity:0.5!important;
+		    filter:alpha(opacity=50);
+		    background-repeat: no-repeat;
+		    background-position: center;
+		    z-index:-1;
+		    content:"";
+		    width:100%;
+		    height:100%;
+
+		}
+		
+		table {
+			  border-collapse: separate;
+			  border-spacing: 0 5px;
+			}
+		.im{
+			 border-left: 4px solid #369;
+			 width: 44px;
+			border-bottom: 1px solid #ccc;
+   			 background: #efefef;
+   			  
+		}
+		.dra {
+			cursor: pointer;
+			font-size: 1.4em;
+			vertical-align: bottom;
+				 
 		}
 		
 	</style>
@@ -72,24 +103,17 @@
 	
 <div class="contents">
 
-  <h2><b>여행</b></h2>
-  <ul class="nav nav-tabs">
-    <li class="active c" id="yet"><a href="#"><b>받은 메시지함</b></a></li>
-    <li class="c" id="already"><a href="#"><b>보낸 메시지함</b></a></li>
-    
-  </ul>
+  <h2><b>Message Box</b></h2><hr>
+
 		
 		<div class="back">
 		<table class="table table-hover">
-			<tr>
-				
-				<td><h2>Name</h2></td>
-				
-			</tr>
+			<br>
 			<c:forEach items="${list}" var="vo">
 			
 			<tr>
-				<td><button class="btn btn-info" title="${vo.s_memberNum }" id="${vo.sendName }">${vo.sendName }</button></td>
+				<td class="im"><img src="${pageContext.request.contextPath}/resources/images/member/${vo.fileName}" height="42" width="42"></td>
+				<td class="dra" title="${vo.memberNum }" id="${vo.name }">${vo.name }</td>
 				
 				
 			</tr>
@@ -108,45 +132,9 @@
 </body>
 <script type="text/javascript">
 
-	$("#yet").click(function() {
-	$(this).attr("class", "active");
-	$("#already").removeClass("active");
-	var ajaxOption = {
-            url : "./sendWho",
-            
-            data : {memberNum:'${member.memberNum}'},
-            type : "POST",
-            dataType : "html"
-            
-    };  
-	$.ajax(ajaxOption).done(function(data){
-       
-        $('.back').children().remove();
-       
-        $('.back').html(data);
-    });
-	})
 
-	$("#already").click(function() {
-	$(this).attr("class", "active");
-	$("#yet").removeClass("active");
-	var ajaxOption = {
-            url : "./receiveWho",
-            
-            data : {memberNum:'${member.memberNum}'},
-            type : "POST",
-            dataType : "html"
-            
-    };  
-	$.ajax(ajaxOption).done(function(data){
-       
-        $('.back').children().remove();
-       
-        $('.back').html(data);
-    });
-	})
 	
-	$(".btn").click(function() {
+	$(".dra").click(function() {
 			
 		        	var s_memberNum = $(this).attr("title")
 		        	var sendName = $(this).attr("id")

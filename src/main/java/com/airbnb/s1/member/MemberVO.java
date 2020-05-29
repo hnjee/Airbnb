@@ -12,6 +12,14 @@ public class MemberVO {
 	private String phoneNum;
 	private Date joinDate;
 	private String hostDesc;
+	private String fileName;
+	
+	public String getFileName() {
+		return fileName;
+	}
+	public void setFileName(String fileName) {
+		this.fileName = fileName;
+	}
 	public String getMemberNum() {
 		return memberNum;
 	}

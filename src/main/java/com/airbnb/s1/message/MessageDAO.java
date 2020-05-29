@@ -6,6 +6,8 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.airbnb.s1.member.MemberVO;
+
 @Repository
 public class MessageDAO {
 	@Autowired
@@ -17,7 +19,7 @@ public class MessageDAO {
 		return sqlSession.insert(NAMESPACE+"send", messageVO);
 	}
 	
-	public List<MessageVO> checkMessage(String memberNum) throws Exception{
+	public List<MemberVO> checkMessage(String memberNum) throws Exception{
 		return sqlSession.selectList(NAMESPACE+"checkMessage", memberNum);
 	}
 	
