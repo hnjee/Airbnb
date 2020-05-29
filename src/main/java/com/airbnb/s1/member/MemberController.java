@@ -217,26 +217,6 @@ public class MemberController {
 
 	@PostMapping("placeEdit")
 	public String placeEdit(PlaceVO placeVO, HttpSession session) throws Exception{
-		System.out.println(placeVO.getMemberNum());
-		System.out.println(placeVO.getPlaceNum());
-		System.out.println(placeVO.getPlaceName());
-		System.out.println(placeVO.getPlaceLocation());
-
-		System.out.println(placeVO.getPlacePrice());
-
-		System.out.println(placeVO.getPlaceType());
-
-		System.out.println(placeVO.getPlaceMaxGuest());
-
-		System.out.println(placeVO.getPlaceDesc());
-
-		System.out.println(placeVO.getPlaceRule());
-
-		System.out.println(placeVO.getBed());
-		System.out.println(placeVO.getBathroom());
-
-		System.out.println(placeVO.getCheckInTime());
-		System.out.println(placeVO.getCheckOutTime());
 
 		if(placeVO.getPlaceName() !=null) {
 			placeVO.setUpdateNum(1);
@@ -296,8 +276,16 @@ public class MemberController {
 		return mv;
 	}
 
-	public ModelAndView placeDelete(ModelAndView mv,PlaceVO placeVO, PlaceFileVO placeFileVO) throws Exception{
-		
+	@GetMapping("placeDelete")
+	public ModelAndView placeDelete(ModelAndView mv,PlaceVO placeVO, PlaceFileVO placeFileVO,MemberVO memberVO) throws Exception{
+		if(placeFileVO.getFileName() != null) {
+			placeService.placeFileDelete(placeFileVO);
+		}else if(placeVO.getFileName() != null) {
+			placeService.placeDelete(placeVO);
+		}
+		List<PlaceVO> placeVOs = placeService.myPlace(memberVO);
+		mv.addObject("list", placeVOs);
+		mv.setViewName("member/placeUpdate");
 		return mv;
 	}
 	

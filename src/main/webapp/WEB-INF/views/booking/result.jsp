@@ -69,7 +69,7 @@
 			<div class="_15tm4du">
 			<div class="_znbf64">
 			<div class="_1uwpj50">
-			<img alt="" crossorigin="anonymous" role="presentation" sizes="674px" src="https://a0.muscache.com/4ea/air/v2/pictures/4407da7a-494a-4deb-a55f-7572fcd9b759.jpg?t=c:w744-h419,r:w744-h419-sfit,e:fjpg-c75" srcset="https://a0.muscache.com/4ea/air/v2/pictures/4407da7a-494a-4deb-a55f-7572fcd9b759.jpg?t=c:w744-h419,r:w744-h419-sfit,e:fjpg-c75 744w,https://a0.muscache.com/4ea/air/v2/pictures/4407da7a-494a-4deb-a55f-7572fcd9b759.jpg?t=c:w1488-h838,r:w1488-h838-sfit,e:fjpg-c75 1488w,https://a0.muscache.com/4ea/air/v2/pictures/4407da7a-494a-4deb-a55f-7572fcd9b759.jpg?t=c:w2232-h1257,r:w2232-h1257-sfit,e:fjpg-c75 2232w,https://a0.muscache.com/4ea/air/v2/pictures/4407da7a-494a-4deb-a55f-7572fcd9b759.jpg?t=c:w2976-h1676,r:w2976-h1676-sfit,e:fjpg-c75 2976w,https://a0.muscache.com/4ea/air/v2/pictures/4407da7a-494a-4deb-a55f-7572fcd9b759.jpg?t=c:w4464-h2514,r:w4464-h2514-sfit,e:fjpg-c75 4464w" style="width: 100%; height: 100%; position: relative; object-fit: cover;">
+			<img src="${pageContext.request.contextPath}/resources/images/place/${fileList[0].fileName}" style="width: 100%; height: 100%; position: relative; object-fit: cover;" >
 			<div class="_uq22ss"></div>
 			</div>
 			
@@ -85,7 +85,7 @@
 			<div class="_1q5n55t">
 			<div class="_xjvqu8z">
 			<div class="_7kd9rz">
-			<img alt="" crossorigin="anonymous" role="presentation" sizes="40px" src="https://a0.muscache.com/4ea/air/v2/pictures/4407da7a-494a-4deb-a55f-7572fcd9b759.jpg?t=c:w80-h80,r:w80-h80-sfit,e:fjpg-c75" srcset="https://a0.muscache.com/4ea/air/v2/pictures/4407da7a-494a-4deb-a55f-7572fcd9b759.jpg?t=c:w80-h80,r:w80-h80-sfit,e:fjpg-c75 80w,https://a0.muscache.com/4ea/air/v2/pictures/4407da7a-494a-4deb-a55f-7572fcd9b759.jpg?t=c:w160-h160,r:w160-h160-sfit,e:fjpg-c75 160w,https://a0.muscache.com/4ea/air/v2/pictures/4407da7a-494a-4deb-a55f-7572fcd9b759.jpg?t=c:w240-h240,r:w240-h240-sfit,e:fjpg-c75 240w,https://a0.muscache.com/4ea/air/v2/pictures/4407da7a-494a-4deb-a55f-7572fcd9b759.jpg?t=c:w320-h320,r:w320-h320-sfit,e:fjpg-c75 320w,https://a0.muscache.com/4ea/air/v2/pictures/4407da7a-494a-4deb-a55f-7572fcd9b759.jpg?t=c:w480-h480,r:w480-h480-sfit,e:fjpg-c75 480w" style="width: 40px; height: 40px; position: relative; object-fit: cover;">
+			<img src="${pageContext.request.contextPath}/resources/images/place/${fileList[0].fileName}" style="width: 40px; height: 40px; position: relative; object-fit: cover;" >
 			</div>
 			<div class="_anh6ot">
 			<a href="" class="_bim8e2w">
@@ -99,7 +99,7 @@
 			</svg>
 			</div>
 			<div class="_1yadbbeu">
-			<a href="" class="./bookingList?memberNum=${member.memberNum}">
+			<a href="./bookingList?memberNum=${member.memberNum}">
 			<span class="_mbimaq2" style="color: black;">여행 계획 더 보기</span>
 			</a>
 			</div>

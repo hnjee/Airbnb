@@ -88,15 +88,21 @@ public class PlaceService {
 		//받아온 fileNum의 배열을 이용해서
 		//List<PlaceVO>로 받아오기
 		List<String> selectedFileNum = placeDAO.selectFileNum(map);
+		
 		pager.makePage(totalCount);	
-		for(int i=0;i<selectedFileNum.size();i++) {
-			if(selectedFileNum.get(i)==null) {
-				selectedFileNum.set(i,"f123");
+		if(selectedFileNum.size()!=0) {
+			for(int i=0;i<selectedFileNum.size();i++) {
+				if(selectedFileNum.get(i)==null) {
+					selectedFileNum.set(i,"f123");
+				}
 			}
+		} else {
+			//결과가 null인 경우
+			System.out.println("size: 0");
 		}
 		
-		System.out.println(selectedFileNum.get(0));
-		System.out.println(selectedFileNum.get(1));
+		
+	
 		
 		Map<String, Object> map2 = new HashMap<String, Object>();		
 		map2.put("placeList", placeDAO.placeList(selectedFileNum));
