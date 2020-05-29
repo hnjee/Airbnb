@@ -95,7 +95,7 @@ public class PlaceService {
 		if(selectedFileNum.size()!=0) {
 			for(int i=0;i<selectedFileNum.size();i++) {
 				if(selectedFileNum.get(i)==null) {
-					selectedFileNum.set(i,"f123");
+					selectedFileNum.set(i,"f0");
 				}
 			}
 		} else {
