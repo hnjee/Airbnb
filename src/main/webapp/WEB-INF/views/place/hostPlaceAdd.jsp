@@ -123,9 +123,10 @@
 
 								<div class="_1hfa947x">
 									<div class="_ni9axhe"></div>
-
+									
+									<div id="test1">
 									<button class="_kt3i5a4" id="previous">이전</button>
-
+									</div>
 									<div class="_10ejfg4u"></div>
 
 									<button class="_kt3i5a4" id="nextPage">다음</button>
@@ -141,7 +142,7 @@
 					var curPage = 1;
 
 					$('#previous').on('click', function() {
-
+						
 						if (curPage == 2) {
 							$.post("addPlace1", function(result) {
 								result = result.trim();
@@ -167,6 +168,11 @@
 							var bedSelected = $('#bed').val();
 							var bathroomSelected = $('#bathroom').val();
 
+							if(placeNameTxt == ''){
+								alert("숙소 이름을 등록해주세요.");
+								return false;
+							}
+							
 							$.post("addPlace2", {
 								placeName : placeNameTxt,
 								placeType : typeSelected,
@@ -191,6 +197,18 @@
 							var checkInTimeTxt = $('#checkInTime').val();
 							var checkOutTimeTxt = $('#checkOutTime').val();
 
+							if(placePriceTxt == ''){
+								alert("숙박 비용을 적어주세요.");
+								return false;
+							}else if(placeDescTxt == ''){
+								alert("숙소 정보를 적어주세요.");
+								return false;
+							}else if(placeRuleTxt == ''){
+								alert("숙소 주의사항을 적어주세요.");
+								return false;
+							}
+							
+							
 							$.post("addPlace3", {
 								placeName : placeNameTxt,
 								placeType : typeSelected,
@@ -210,7 +228,7 @@
 							curPage++;
 							$('#nextPage').html("다음");
 						} else if (curPage == 3) {
-
+							$('#test1').empty();
 							var placeNameTxt = $('#placeName').val();
 							var typeSelected = $('#placeType').val();
 							var MaxGuestSelected = $('#placeMaxGuest').val();
@@ -227,6 +245,11 @@
 							var memberNum = $('#memberNum').val();
 							// 							$(location).attr('href','../');
 
+							if(placeLocationTxt == ''){
+								alert("숙소 주소를 적어주세요.");
+								return false;
+							}
+							
 							$.post("addPlace4", {
 								placeName : placeNameTxt,
 								placeType : typeSelected,
@@ -247,6 +270,9 @@
 								$('#ajaxContents').html(result);
 
 							});
+							
+
+							
 							curPage++;
 							$('#nextPage').html("완료");
 						}
