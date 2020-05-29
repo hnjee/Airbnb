@@ -79,6 +79,7 @@ public class PlaceService {
 		map.put("pager", pager);
 		map.put("guestData", guestData);
 		long totalCount = placeDAO.placeCount(map);
+		System.out.println("count: "+totalCount);
 		
 		//받아온 fileNum의 배열을 이용해서
 		//List<PlaceVO>로 받아오기
