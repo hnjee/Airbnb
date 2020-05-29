@@ -51,6 +51,7 @@
 						
 						if (result>0){
 							alert(msg);
+							
 						} else {
 							msg='결제에 문제가 있어 취소되었습니다.'
 							alert(msg);

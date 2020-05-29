@@ -11,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.airbnb.s1.member.MemberService;
@@ -127,6 +128,7 @@ public class BookingController {
 	}
 	
 	@RequestMapping(value = "payment", method = RequestMethod.POST)
+	@ResponseBody
 	public int bookingDone(BookingVO bookingVO) throws Exception{
 		
 		int result = bookingService.payment(bookingVO);
