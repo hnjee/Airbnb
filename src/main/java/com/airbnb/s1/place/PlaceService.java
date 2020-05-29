@@ -101,9 +101,12 @@ public class PlaceService {
 		} else {
 			//결과가 null인 경우
 			System.out.println("size: 0");
+			
+			selectedFileNum.add(0, "123");
+			System.out.println("check");
 		}
 		
-		
+		System.out.println("set: "+selectedFileNum.get(0));
 	
 		
 		Map<String, Object> map2 = new HashMap<String, Object>();		
