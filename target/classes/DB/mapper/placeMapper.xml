@@ -85,9 +85,7 @@
 	</insert>
 	
 	<select id="myPlace" parameterType="MemberVO" resultType="PlaceVO">
-		SELECT distinct pl.*, pf.fileName
-		FROM place pl Left JOIN placefile pf
-		ON ( pl.placeNum = pf.placeNum) WHERE pl.memberNum = #{memberNum}
+		SELECT * from place where memberNum = #{memberNum}
 	</select>
 	
 	<update id="placeUpdate1" parameterType="placeVO" >
@@ -137,5 +135,8 @@
 		delete place where placeNum=#{placeNum} 
 	</delete>
 	
+	<select id="picOne" parameterType="PlaceVO" resultType="PlaceFileVO">
+	select * from placeFile where placeNum = #{placeNum} and rowNum = 1
+	</select>
 
 </mapper>

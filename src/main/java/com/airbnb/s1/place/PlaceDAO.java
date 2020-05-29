@@ -105,5 +105,8 @@ public class PlaceDAO {
 		return sqlSession.delete(NAMESPACE+"placeFileDelete", placeVO);
 	}
 	
+	public PlaceFileVO picOne(PlaceVO placeVO) throws Exception{
+		return sqlSession.selectOne(NAMESPACE+"picOne", placeVO);
+	}
 	
 }
