@@ -85,8 +85,7 @@ public class PlaceController {
 		Map<String, Object> map = placeService.placeList(placeVO,pager,bookingVO,guestData);		
 		List<PlaceVO> ar = (List<PlaceVO>)map.get("placeList");
 		long totalCount = (long)map.get("totalCount");	
-		System.out.println("first placeNum: "+ar.get(1).getPlaceNum());
-		System.out.println("first fileName: "+ar.get(1).getPlaceFileVO().getFileName());
+		
 	
 		mv.addObject("list", ar);
 		mv.addObject("totalCount", totalCount);
