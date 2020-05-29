@@ -9,7 +9,7 @@
 <style type="text/css">
 	*{ margin: 0; padding: 0; }
  
-	.chat_wrap .header { font-size: 14px; padding: 15px 0; background: #F18C7E; color: white; text-align: center;  }
+	.chat_wrap .header { font-size: 12px; padding: 8px 0; background: #F18C7E; color: white; text-align: center;  }
 	 
 	.chat_wrap .chat { padding-bottom: 80px; background-color: silver; background-color: rgba( 235, 235, 235, 0.5 ); overflow-y:scroll; height :450px;}
 	.chat_wrap .chat ul { width: 100%; list-style: none; }
@@ -60,11 +60,11 @@
     </div>
      
     <div class="input-div">
-        <textarea placeholder="Press Enter for send message." name="message" id="comm"></textarea>
+        <textarea placeholder="Press Button for send message." name="message" id="comm"></textarea>
        
 			   
 			    <button class="btn btn-primary"  style="float: right;">메시지 전송</button>
-		
+				<a href="${pageContext.request.contextPath}/message/checkMessage?memberNum=${member.memberNum }"><b  style="font-size: 1.4em; line-height: 40px;">뒤로 가기</b></a>
     </div>
  	
     <!-- format -->
@@ -85,7 +85,7 @@
 
 <script type="text/javascript">
 
-$(".chat").animate({scrollTop : $(".chat").height()+2500},1);
+$(".chat").animate({scrollTop : $(".chat").height()+5000},1);
 
 $(".btn").click(function() {
 	var message =$('#comm').val();

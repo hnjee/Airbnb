@@ -5,6 +5,19 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
 <mapper	namespace="com.airbnb.s1.message.MessageDAO">
+	
+	
+	<resultMap type="MemberVO" id="MemberVO">
+		<result column="memberNum" property="memberNum"/>
+		<result column="email" property="email"/>
+		<result column="name" property="name"/>
+		<result column="familyName" property="familyName"/>
+		<result column="pw" property="pw"/>
+		<result column="phoneNum" property="phoneNum"/>
+		<result column="joinDate" property="joinDate"/>
+		<result column="hostDesc" property="hostDesc"/>
+		<result column="fileName" property="fileName"/>
+	</resultMap>
 
 	<insert id="send" parameterType="MessageVO">
 		insert into message values (message_seq.nextval, #{s_memberNum}, #{sendName}, #{r_memberNum}, #{receiveName}, #{message}, sysdate, #{placeNum} )
@@ -15,8 +28,19 @@
 		insert into message values (message_seq.nextval, #{s_memberNum}, #{sendName}, #{r_memberNum}, #{receiveName}, #{message}, sysdate, 'p1')
 	</insert>
 	
-	<select id="checkMessage" parameterType = "String" resultType="MessageVO">
-		select * from (select distinct sendName, s_memberNum from message where s_memberNum=#{memberNum} or r_memberNum=#{memberNum}) where s_memberNum not in #{memberNum}
+	<select id="checkMessage" parameterType = "String" resultMap="MemberVO">
+		select m.*, f.fileName from member m left join memberFile f
+		on m.memberNum = f.memberNum
+		where m.memberNum in
+		((select s_memberNum
+		from message
+		where r_membernum= #{memberNum}
+		group by s_memberNum)
+		union
+		(select r_memberNum
+		from message
+		where s_memberNum= #{memberNum}
+		group by r_membernum))
 		
 	</select>
 	
@@ -38,5 +62,7 @@
 		where (s_memberNum=#{s_memberNum} and r_memberNum=#{r_memberNum}) or (s_memberNum=#{r_memberNum} and r_memberNum=#{s_memberNum}))
 		order by messageNum
 	</select>
+	
+	
 
 </mapper>

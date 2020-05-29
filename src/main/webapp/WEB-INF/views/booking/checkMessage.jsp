@@ -45,10 +45,8 @@
 			box-sizing: border-box;
 		}
 		.btn{
-			width: 100%;
-			height : 30px;
-			font-size: 20px;
-			
+			width:100%;
+			height:40px;
 		}
 		
 	</style>
@@ -72,24 +70,20 @@
 	
 <div class="contents">
 
-  <h2><b>여행</b></h2>
-  <ul class="nav nav-tabs">
-    <li class="active c" id="yet"><a href="#"><b>받은 메시지함</b></a></li>
-    <li class="c" id="already"><a href="#"><b>보낸 메시지함</b></a></li>
-    
-  </ul>
+  <h2><b>메시지함</b></h2>
+
 		
 		<div class="back">
 		<table class="table table-hover">
 			<tr>
 				
-				<td><h2>Name</h2></td>
+				<td><h3>Name</h3></td>
 				
 			</tr>
 			<c:forEach items="${list}" var="vo">
 			
 			<tr>
-				<td><button class="btn btn-info" title="${vo.s_memberNum }" id="${vo.sendName }">${vo.sendName }</button></td>
+				<td class="dra" title="${vo.memberNum }" id="${vo.name }"><img src="${pageContext.request.contextPath}/resources/images/member/${vo.fileName}" height="42" width="42">${vo.name }</td>
 				
 				
 			</tr>
@@ -108,45 +102,9 @@
 </body>
 <script type="text/javascript">
 
-	$("#yet").click(function() {
-	$(this).attr("class", "active");
-	$("#already").removeClass("active");
-	var ajaxOption = {
-            url : "./sendWho",
-            
-            data : {memberNum:'${member.memberNum}'},
-            type : "POST",
-            dataType : "html"
-            
-    };  
-	$.ajax(ajaxOption).done(function(data){
-       
-        $('.back').children().remove();
-       
-        $('.back').html(data);
-    });
-	})
 
-	$("#already").click(function() {
-	$(this).attr("class", "active");
-	$("#yet").removeClass("active");
-	var ajaxOption = {
-            url : "./receiveWho",
-            
-            data : {memberNum:'${member.memberNum}'},
-            type : "POST",
-            dataType : "html"
-            
-    };  
-	$.ajax(ajaxOption).done(function(data){
-       
-        $('.back').children().remove();
-       
-        $('.back').html(data);
-    });
-	})
 	
-	$(".btn").click(function() {
+	$(".dra").click(function() {
 			
 		        	var s_memberNum = $(this).attr("title")
 		        	var sendName = $(this).attr("id")
