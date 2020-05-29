@@ -25,6 +25,8 @@ public class MemberService {
 	private MemberFileDAO memberFileDAO;
 	@Autowired
 	private FileSaver fileSaver;
+	@Autowired
+	private HttpSession session;
 	
 	
 
@@ -45,14 +47,14 @@ public class MemberService {
 	}
 	
 	public int fileInsert(String memberNum, MultipartFile file) throws Exception{
-		String path="C:\\hj\\workspace\\Airbnb\\src\\main\\webapp\\resources\\images\\member";	
-		//path=session.getServletContext().getRealPath("resources\\images\\member"); 
+		String path2 = "C:\\hj\\workspace\\Airbnb\\src\\main\\webapp\\resources\\images\\member";	
+		String path = session.getServletContext().getRealPath("resources\\images\\member"); 
 		System.out.println("실제 저장 경로: "+path);
 		
 		int res = 0;
 		if(file.getSize()>0) {
 			MemberFileVO memberFileVO = new MemberFileVO();
-			String fileName = fileSaver.saveByTransfer(file,path);			
+			String fileName = fileSaver.saveByTransfer(file,path,path2);			
 			memberFileVO.setMemberNum(memberNum);
 			memberFileVO.setFileName(fileName);
 			memberFileVO.setOriName(file.getOriginalFilename());
@@ -78,14 +80,14 @@ public class MemberService {
 	}
 	
 	public int fileUpdate(String memberNum, MultipartFile file, HttpSession session) throws Exception{
-		//String path="C:\\hj\\workspace\\Airbnb\\src\\main\\webapp\\resources\\images\\member";	
+		String path2 ="C:\\hj\\workspace\\Airbnb\\src\\main\\webapp\\resources\\images\\member";	
 		String path = session.getServletContext().getRealPath("resources\\images\\member");
 		System.out.println("실제 저장 경로: "+path);
 		
 		int res = 0;
 		if(file.getSize()>0) {
 			MemberFileVO memberFileVO = new MemberFileVO();
-			String fileName = fileSaver.saveByTransfer(file,path);			
+			String fileName = fileSaver.saveByTransfer(file,path,path2);			
 			memberFileVO.setMemberNum(memberNum);
 			memberFileVO.setFileName(fileName);
 			memberFileVO.setOriName(file.getOriginalFilename());
