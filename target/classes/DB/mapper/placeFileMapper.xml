@@ -18,6 +18,7 @@
 	 	select count(placeFileNum) from placeFile where placeNum=#{placeNum}
 	 </select>
 
+	
 
 
 </mapper>

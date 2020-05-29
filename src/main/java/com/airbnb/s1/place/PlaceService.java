@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map;
 
 import javax.servlet.ServletContext;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,12 +14,10 @@ import org.springframework.web.multipart.MultipartFile;
 import com.airbnb.s1.booking.BookingVO;
 import com.airbnb.s1.member.MemberVO;
 import com.airbnb.s1.member.memberFile.MemberFileDAO;
-import com.airbnb.s1.member.memberFile.MemberFileVO;
 import com.airbnb.s1.place.placeFile.PlaceFileDAO;
 import com.airbnb.s1.place.placeFile.PlaceFileVO;
 import com.airbnb.s1.util.FileSaver;
 import com.airbnb.s1.util.Pager;
-import com.airbnb.s1.review.ReviewDAO;
 
 @Service
 public class PlaceService {
@@ -37,7 +36,8 @@ public class PlaceService {
 	private ServletContext servletContext;
 	@Autowired
 	private PlaceFileDAO placeFileDAO;
-		
+	@Autowired
+	private HttpSession session;
 	public int fileInsert(String placeNum,MultipartFile[] files) throws Exception{
 		//실제로 저장되는 경로 path
 		//로컬로 작동할 때는 임시 폴더 이건 사라지는 폴더, 배포하면 서버에 등록되어 파일 사라지지 않는다.
@@ -46,6 +46,7 @@ public class PlaceService {
 		//개발 할 때는 이 주소로 저장 (restart하면 사라지지 않게 직접 저장) -> 계속 파일 저장해놔야하니까
 
 		String path="C:\\hj\\workspace\\Airbnb\\src\\main\\webapp\\resources\\images\\place";
+		path = session.getServletContext().getRealPath("resources\\images\\member");
 		System.out.println("실제 경로: "+path);
 		
 		int res = 0;
@@ -171,6 +172,10 @@ public class PlaceService {
 	
 	public int placeDelete(PlaceVO placeVO) throws Exception{
 		return placeDAO.placeDelete(placeVO);
+	}
+	
+	public PlaceFileVO picOne(PlaceVO placeVO) throws Exception{
+		return placeDAO.picOne(placeVO);
 	}
 	
 	

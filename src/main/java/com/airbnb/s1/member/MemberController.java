@@ -202,14 +202,18 @@ public class MemberController {
 		memberVO=(MemberVO)session.getAttribute("member");
 		List<PlaceVO> placeVOs = placeService.myPlace(memberVO);
 			mv.addObject("list", placeVOs);
+			mv.addObject("size", placeVOs.size());
 			mv.setViewName("member/placeUpdate");
 
 			return mv;
 	}
 
 	@GetMapping("placeEdit")
-	public ModelAndView placeEdit(PlaceVO placeVO, ModelAndView mv) throws Exception{
+	public ModelAndView placeEdit(PlaceVO placeVO, ModelAndView mv,PlaceFileVO placeFileVO) throws Exception{
+		placeFileVO =  placeService.picOne(placeVO);
 		mv.addObject("place", placeVO);
+		System.out.println(placeFileVO.getFileName());
+		mv.addObject("picture", placeFileVO.getFileName());
 		mv.setViewName("member/placeEdit");
 
 		return mv;

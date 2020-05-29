@@ -764,6 +764,10 @@
 		
 		<!-- 오른쪽 배너 -->
 		<div class="_17pxz94u">
+			<img src="${pageContext.request.contextPath}/resources/images/place/${picture}" width="333px" height="300px">
+		</div>
+		
+		<div class="_17pxz94u">
 		<div class="_16tcko6">
 			<section>
 			<div style="margin-top: 32px; margin-bottom: 32px;">
