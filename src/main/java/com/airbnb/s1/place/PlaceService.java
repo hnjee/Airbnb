@@ -46,8 +46,8 @@ public class PlaceService {
 
 		//개발 할 때는 이 주소로 저장 (restart하면 사라지지 않게 직접 저장) -> 계속 파일 저장해놔야하니까
 
-		String path="C:\\hj\\workspace\\Airbnb\\src\\main\\webapp\\resources\\images\\place";
-		path = session.getServletContext().getRealPath("resources\\images\\place");
+		String path2 ="C:\\hj\\workspace\\Airbnb\\src\\main\\webapp\\resources\\images\\place";
+		String path = session.getServletContext().getRealPath("resources\\images\\place");
 		System.out.println("실제 경로: "+path);
 
 		int res = 0;
@@ -56,7 +56,8 @@ public class PlaceService {
 		for(MultipartFile file:files) {
 			if(file.getSize()>0) {
 				PlaceFileVO placeFileVO = new PlaceFileVO();
-				String fileName = fileSaver.saveByTransfer(file,path);
+				String fileName = fileSaver.saveByTransfer(file,path,path2);
+				
 				placeFileVO.setPlaceNum(placeNum);
 				placeFileVO.setFileName(fileName);
 				placeFileVO.setOriName(file.getOriginalFilename());

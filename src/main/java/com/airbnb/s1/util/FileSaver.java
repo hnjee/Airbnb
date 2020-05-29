@@ -31,6 +31,7 @@ public class FileSaver {
 		f = new File(f,fileName);
 		//b. HDD에 저장
 		FileCopyUtils.copy(file.getBytes(),f);
+		
 		return fileName;
 	}
 	
@@ -61,14 +62,20 @@ public class FileSaver {
 	
 	
 	//3.MultipartFile
-	public String saveByTransfer(MultipartFile file, String path) throws Exception{
+	public String saveByTransfer(MultipartFile file, String path, String path2) throws Exception{
 		File f = new File(path);
+		File f2 = new File(path2);
+		
 		if(!f.exists()) {
 			f.mkdirs();
 		}
 		String fileName = this.makeNameByUUID(file.getOriginalFilename());
 		f = new File(f, fileName);
+		f2 = new File(f2, fileName);
+		
 		file.transferTo(f);
+		//file.transferTo(f2);
+		
 		return fileName;
 	}
 	

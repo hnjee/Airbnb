@@ -117,13 +117,13 @@ public class PlaceController {
 		int reviewE = 1;
 		if(reviewCnt==0) {
 			reviewE = 0;
-			mv.addObject("reviewExist", reviewE);
 		} else {
 			//리뷰 평균 계산 
 			float ratingSum = reviewService.ratingSum(pager.getPlaceNum());
 			float ratingAvg = ratingSum/reviewCnt;
 			mv.addObject("rateAvg", Math.round(ratingAvg*100)/100.0);
 		}
+		mv.addObject("reviewExist", reviewE);
 		
 		//amenityKind   
 		List<AmenityVO> amenities = amenityService.amenitySelect(placeNum);

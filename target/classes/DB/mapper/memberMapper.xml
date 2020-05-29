@@ -43,5 +43,14 @@
 		delete member where memberNum=#{memberNum}
 	</delete>
 
+	<select id="googleIdCheck" parameterType="MemberVO" resultType="String">
+		select email from member where email=#{email}
+	</select>
 
+	<insert id="googleJoin" parameterType="MemberVO">
+		insert into member values
+		('m'||MEMBER_SEQ.nextval,#{email},#{name},#{familyName},'google','****',sysdate,'')
+	</insert>
+	
+	
 </mapper>
