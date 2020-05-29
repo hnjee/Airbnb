@@ -114,9 +114,17 @@ public class PlaceController {
 		List<ReviewVO> reviewVOs = reviewService.reviewSelect(pager); 
 		//리뷰 전체 개수 
 		long reviewCnt = reviewService.reviewCount(pager);
-		//리뷰 평균 계산 
-		float ratingSum = reviewService.ratingSum(pager.getPlaceNum());
-		float ratingAvg = ratingSum/reviewCnt;
+		
+		int reviewE = 1;
+		if(reviewCnt==0) {
+			reviewE = 0;
+			mv.addObject("reviewExist", reviewE);
+		} else {
+			//리뷰 평균 계산 
+			float ratingSum = reviewService.ratingSum(pager.getPlaceNum());
+			float ratingAvg = ratingSum/reviewCnt;
+			mv.addObject("rateAvg", Math.round(ratingAvg*100)/100.0);
+		}
 		
 		//amenityKind   
 		List<AmenityVO> amenities = amenityService.amenitySelect(placeNum);
@@ -144,7 +152,6 @@ public class PlaceController {
 		mv.addObject("vo", placeVO);
 		mv.addObject("bookingList", bookingVOs);
 		mv.addObject("reviewList", reviewVOs);
-		mv.addObject("rateAvg", Math.round(ratingAvg*100)/100.0);
 		mv.addObject("reviewCnt", reviewCnt);
 		mv.addObject("pager", pager);
 		mv.setViewName("place/placeSelect");

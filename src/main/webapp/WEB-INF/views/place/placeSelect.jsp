@@ -242,8 +242,9 @@
 				  <div id="selectCalendar"><!-- 달력 --></div>
 				  <a id="target"></a>
 				  <hr>
-
-			   	 <!-- Review -->
+				
+				<!-- Review -->
+				<c:if test="${reviewExist eq 1}">
 				 <h4><strong>후기</strong></h4>	
 			     <div class="review">	    
 			    	<div class="review_rating">
@@ -344,6 +345,8 @@
 						});
 					});
 				</script>
+				</c:if>
+			   
 			  
 				 <!-- Map API -->
 			 	 <h4><strong>${vo.placeLocation}</strong></h4>
