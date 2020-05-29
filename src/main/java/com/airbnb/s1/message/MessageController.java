@@ -10,7 +10,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.airbnb.s1.booking.BookingVO;
 import com.airbnb.s1.member.MemberService;
-
+import com.airbnb.s1.member.MemberVO;
 import com.airbnb.s1.member.memberFile.MemberFileVO;
 import com.airbnb.s1.place.PlaceService;
 import com.airbnb.s1.place.PlaceVO;
@@ -53,7 +53,7 @@ public class MessageController {
 	@RequestMapping(value="checkMessage")
 	public ModelAndView checkMessage(ModelAndView mv, String memberNum) throws Exception {
 		
-		List<MessageVO> ar = messageService.checkMessage(memberNum);
+		List<MemberVO> ar = messageService.checkMessage(memberNum);
 		
 		mv.addObject("memberNum", memberNum);
 		mv.addObject("list", ar);
@@ -62,22 +62,22 @@ public class MessageController {
 		return mv;
 	}
 	
-	@RequestMapping(value="receiveWho", method = RequestMethod.POST)
-	public ModelAndView already(ModelAndView mv, String memberNum) throws Exception {
-		List<MessageVO> arr = messageService.checkMessage_2(memberNum);
-		
-		mv.addObject("list", arr);
-		mv.setViewName("jsp/message");
-		return mv;
-	}
-	@RequestMapping(value="sendWho", method = RequestMethod.POST)
-	public ModelAndView notYet(ModelAndView mv, String memberNum) throws Exception {
-		List<MessageVO> ar = messageService.checkMessage(memberNum);
-		
-		mv.addObject("list", ar);
-		mv.setViewName("jsp/messageWho");
-		return mv;
-	}
+//	@RequestMapping(value="receiveWho", method = RequestMethod.POST)
+//	public ModelAndView already(ModelAndView mv, String memberNum) throws Exception {
+//		List<MessageVO> arr = messageService.checkMessage_2(memberNum);
+//		
+//		mv.addObject("list", arr);
+//		mv.setViewName("jsp/message");
+//		return mv;
+//	}
+//	@RequestMapping(value="sendWho", method = RequestMethod.POST)
+//	public ModelAndView notYet(ModelAndView mv, String memberNum) throws Exception {
+//		List<MessageVO> ar = messageService.checkMessage(memberNum);
+//		
+//		mv.addObject("list", ar);
+//		mv.setViewName("jsp/messageWho");
+//		return mv;
+//	}
 	
 	@RequestMapping(value="messageWindow", method = RequestMethod.POST)
 	public ModelAndView messageWindow(ModelAndView mv, MessageVO messageVO) throws Exception {

@@ -5,6 +5,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.airbnb.s1.member.MemberVO;
+
 @Service
 public class MessageService {
 	@Autowired
@@ -15,7 +17,7 @@ public class MessageService {
 		return messageDAO.send(messageVO);
 	}
 	
-	public List<MessageVO> checkMessage(String memberNum) throws Exception {
+	public List<MemberVO> checkMessage(String memberNum) throws Exception {
 		
 		return messageDAO.checkMessage(memberNum);
 	}
