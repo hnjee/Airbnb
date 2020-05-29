@@ -52,6 +52,20 @@ public class MemberController {
 
 	@GetMapping("googleLogin")
 	public String googleLogin(MemberVO memberVO, HttpSession session) throws Exception {
+		
+		String result =  memberService.googleIdCheck(memberVO);
+		
+		System.out.println(result);
+		
+		if(result == null) {
+			memberService.googleJoin(memberVO);
+			System.out.println("구글로 조인 성공");
+		}
+		memberVO.setPw("google");
+		memberVO = memberService.memberLogin(memberVO);
+		
+		session.setAttribute("member", memberVO);
+		
 //		int reuslt = 0;
 //
 //		String email = memberVO.getEmail();
@@ -77,7 +91,6 @@ public class MemberController {
 //
 //		System.out.println("ok");
 
-		session.setAttribute("member", memberVO);
 
 		return "redirect:../";
 
