@@ -36,17 +36,50 @@
 		.back{
 			width: 100%;
 			min-height: 600px;
-			background-image: url("../resources/w3images/back.png");
-			background-repeat: no-repeat;
-			background-position: center;
-			overflow-y:scroll; 
+			overflow-y:auto; 
 			overflow-x:hidden;
 			height :800px;
 			box-sizing: border-box;
 		}
 		.btn{
-			width:100%;
-			height:40px;
+			width:97%;
+			height:30px;
+			font-size: 1.4em;
+		}
+		
+		.back:after {
+			background-image: url("../resources/w3images/back.png");
+			top:0;
+		    left:0;
+		    position:absolute;
+		    background-size:100%;
+		    opacity:0.5!important;
+		    filter:alpha(opacity=50);
+		    background-repeat: no-repeat;
+		    background-position: center;
+		    z-index:-1;
+		    content:"";
+		    width:100%;
+		    height:100%;
+
+		}
+		
+		table {
+			  border-collapse: separate;
+			  border-spacing: 0 5px;
+			}
+		.im{
+			 border-left: 4px solid #369;
+			 width: 44px;
+			border-bottom: 1px solid #ccc;
+   			 background: #efefef;
+   			  
+		}
+		.dra {
+			cursor: pointer;
+			font-size: 1.4em;
+			vertical-align: bottom;
+				 
 		}
 		
 	</style>
@@ -70,20 +103,17 @@
 	
 <div class="contents">
 
-  <h2><b>메시지함</b></h2>
+  <h2><b>Message Box</b></h2><hr>
 
 		
 		<div class="back">
 		<table class="table table-hover">
-			<tr>
-				
-				<td><h3>Name</h3></td>
-				
-			</tr>
+			<br>
 			<c:forEach items="${list}" var="vo">
 			
 			<tr>
-				<td class="dra" title="${vo.memberNum }" id="${vo.name }"><img src="${pageContext.request.contextPath}/resources/images/member/${vo.fileName}" height="42" width="42">${vo.name }</td>
+				<td class="im"><img src="${pageContext.request.contextPath}/resources/images/member/${vo.fileName}" height="42" width="42"></td>
+				<td class="dra" title="${vo.memberNum }" id="${vo.name }">${vo.name }</td>
 				
 				
 			</tr>

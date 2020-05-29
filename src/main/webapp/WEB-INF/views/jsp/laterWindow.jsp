@@ -63,7 +63,7 @@
         <textarea placeholder="Press Enter for send message." name="message" id="comm"></textarea>
        
 			   
-			    <button class="btn btn-primary"  style="float: right;">메시지 전송</button>
+			    <button class="btn btn-primary">메시지 전송</button>
 			    <a href="${pageContext.request.contextPath}/message/checkMessage?memberNum=${member.memberNum }"><b style="font-size: 1.4em; line-height: 40px;">뒤로 가기</b></a>
 		
     </div>
