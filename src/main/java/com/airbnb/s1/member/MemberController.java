@@ -281,13 +281,10 @@ public class MemberController {
 	}
 
 	@GetMapping("placeDelete")
-	public ModelAndView placeDelete(ModelAndView mv,PlaceVO placeVO, PlaceFileVO placeFileVO,MemberVO memberVO) throws Exception{
-		if(placeFileVO.getFileName() != null) {
-			placeService.placeFileDelete(placeFileVO);
-		}else if(placeVO.getFileName() != null) {
-			placeService.placeDelete(placeVO);
-		}
+	public ModelAndView placeDelete(ModelAndView mv,PlaceVO placeVO,MemberVO memberVO) throws Exception{
+		int result= placeService.placeDelete(placeVO);
 		List<PlaceVO> placeVOs = placeService.myPlace(memberVO);
+		mv.addObject("size", placeVOs.size());
 		mv.addObject("list", placeVOs);
 		mv.setViewName("member/placeUpdate");
 		return mv;
