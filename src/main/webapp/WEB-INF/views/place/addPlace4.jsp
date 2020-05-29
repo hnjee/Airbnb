@@ -15,7 +15,7 @@
 		</div>
 		
 		<filedset>
-		  <input type="checkbox" id="Shower" name="amenity" value="1">Shower
+		  <input type="checkbox" id="Shower" name="amenity" value="1" checked="checked">Shower
 		  <input type="checkbox" id="vehicle2" name="amenity" value="2">Kitchen
 		  <input type="checkbox" id="vehicle3" name="amenity" value="3">Wifi<br>
 		  <input type="checkbox" id="vehicle3" name="amenity" value="4">Heating
@@ -98,7 +98,7 @@
 				$('#formData').submit();
 			} else {
 				//submit event 종료
-				alert("파일을 업로드 하세요");
+				alert("숙소 이미지를 최소 5개이상 등록 해주세요");
 			}
 		});
 	</script>
