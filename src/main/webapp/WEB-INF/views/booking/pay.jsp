@@ -8,289 +8,11 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css"  href="../resources/css/pay.css"> 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-
-
-<title>Insert title here</title>
-<style type="text/css">
-
-	body {
-		margin:0;
-		padding: 0;
-   		box-sizing: border-box;
-   		line-height: 1;
-   }
-   
-   .header {
-   		height: 60px;
-   		width: 100%;
-
-   		padding-top: 20px;
-   		min-width: 700px;
-   		margin-bottom: 40px;
-   		line-height: 30px;
-   }
-   
-   .logo {
-   		float: left;
-   		margin-left: 24px;
-   		margin-right: 90px;
-   		
-   }
-   
-   .header1 > li {
-   	display: inline-block;
-   	margin-right: 10px;
-   	color: gray;
-   	font-size: 0.9em;
-   }
-   
-   .header1 span{
-   	color : black;
-   }
-   
-   .info{
-   		width : 600px;
-   		min-width: 400px;
-   		height: 780px;
-   		
-   		display: inline-block;
-   }
-   
-   .con {
-   		width : 100%;
-   		height : 800px;
-   }
-   
-   .contents {
-   		width : 1040px;
-   		margin: 0 auto;
-   		
-   		box-sizing: border-box;
-   }
-   
-   .side {
-   		float : right;
-   		width: 385px;
-   		height: 520px;
-   		padding : 0 24px;
-   		border: 1px silver solid;
-   }
-   .side1{
-   		width : 335px;
-   		height: 483px;
-   		margin-top: 20px;
-   }
-   
-   
-   .ex {
-   		font-size: 0.9em;
-   		padding : 10px;
-   		width : 100%;
-   		height: 70px;
-   		margin-top: 40px;
-   		border: 1px silver solid;
-   		box-sizing: border-box;
-   		line-height: 50px;
-   		margin-bottom: 60px;
-   }
-   
-   .logo1 {
-   		float: left;
-   		margin-right: 10px;
-   }
-   
-   .check{
-   		width : 100%;
-   		height: 80px;
-   		margin-top: 30px;
-   }
-   .check1 {
-   		display: inline-block;
-   		height: 58px;
-   		width: 284px;
-   }
-   .month {
-   		display: inline-block;
-   		height : 56px;
-   		width : 56px;
-   		background: #F2F2F2;
-   		text-align: center;
-   		padding: 8px;
-   		box-sizing: border-box;
-   		font-size: 0.8em;
-   		line-height: 18px;
-   }
-   .day {
-   		font-size: 1.4em;
-   		
-   }
-   
-   .checkin {
-   		display: inline-block;
-   		width : 110px;
-   		height: 44px;
-   		margin : 8px 16px 6px;
-   		font-size: 0.9em;
-   		line-height: 18px;
-   }
-   
-   hr{
-   	color: silver;
-   }
-   
-   .ca {
-   		display : inline-block;
-   		height: 60px;
-   		box-sizing: border-box;
-   		line-height: 55px;
-   		margin-left: 20px;
-   }
-   .im {
-   		float: left;
-   }
-   .btn-primary {
-   	width : 160px;
-   	height: 50px;
-   	margin-top: 50px;
-   	background-color: #008489;
-   }
-   
-   .img {
-   		width: 100px;
-   		height: 115px;
-   		box-sizing: border-box;
-   		float: right;
-   }
-   .tags {
-   		width : 234px;
-   		height : 116px;
-   		display: inline-block;
-   		box-sizing: border-box;
-   		
-   }
-   .tag {
-   	width : 226px;
-   	height : 66px;
-   	font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif;
-    font-size: 16px;
-    font-weight: 800;
-    line-height: 1.375em;
-    color: #484848;
-    box-sizing: border-box;
-    margin-bottom: 10px;
-   }
-   .font {
-   	font-size: 14px;
-   }
-   .sum {
-   	float : right;
-   }
-   .btn-default{
-   	border: 1px silver solid;
-   	width: 250px;
-   }
-   .foot{
-   	float : right;
-   	font-size : 0.9em;
-   	margin-left: 10px;
-   	height : 40px;
-   	width: 100px;
-   	color: gray;
-   }
-   
-   .footer{
-   	height: 200px;
-   	display: inline-block;
-   }
-   .dropdown-menu {
-   	width : 250px;
-   }
- 
- 	
- 	.in {
- 		float: right;
- 		
- 	}
- 	
- 	
- 	.a {
- 		display: inline-block;
- 		margin-left: 15px;
- 		margin-bottom: 30px;
- 		line-height: 25px;
- 	}
- 	
- 	.b {
- 		font-size: 0.8em;
- 	}
- 	
- 	.caret {
- 		display:inline-block;
- 		margin-left: 120px;
- 		
- 	}
- 	
- 	.exit {
- 		float: right;
- 		font-size: 18px;
- 		cursor: pointer;
- 		color: green;
- 		
- 	}
- 	
-	.ch {		
-		margin-left: 80px;	
-	}
-	.q {
-		float: left;
-		margin-bottom: 25px;
-	}
-	.host {
-		float : right;
-		border: 1px silver solid;
-		width: 48px;
-		height: 48px;
-	}
-	.card {
-		float:right;
-		border: 1px white solid;
-	}
-	.na {
-		display: inline-block;
-		width: 48%;
-		padding: 0 10px;
-	}
-	
-	.box-radio-input input[type="radio"] + span{
-	    display:inline-block;
-	    background:none;
-	    border:1px solid #dfdfdf;    
-	    padding:0px 10px;
-	    text-align:center;
-	    height:35px;
-	    line-height:65px;
-	    font-weight:500;
-	    cursor:pointer;
-	    width: 450px;
-	    height: 65px;
-	    
-	}
-
-	.box-radio-input input[type="radio"]:checked + span{
-	    border:1px solid #23a3a7;
-	    background:#23a3a7;
-	    color:#fff;
-	}
-	.cardNum{
-		width :145px;
-	}
-	
-</style>
-
-
+<title>에어비앤비 결제</title>
 
 </head>
 <body>
@@ -313,7 +35,7 @@
 			<div><h2><b>확인 및 결제</b></h2></div>
 			<div class="ex">
 				<div class="logo1"><img alt="" src="../resources/w3images/logo.png"></div>
-				<b>흔치 않은 기회입니다.</b> ${vo.name }님의 숙소는 보통 예약이 가득 차 있습니다.
+				<b>흔치 않은 기회입니다.</b> ${vo.name}님의 숙소는 보통 예약이 가득 차 있습니다.
 			</div>
 			<div>
 				<div class="card">
@@ -331,35 +53,36 @@
 		      </select>
 			<br>
 			<div>
-				<div class="form-group na">
-			      <label for="usr">이름 </label>
+				<div class="form-group na" style="padding:0px;">
+			      <label for="usr" style="font-weight: bold;">이름 </label>
 			      <input type="text" class="form-control" id="usr">
 			    </div>
-			    <div class="form-group na">
-			      <label for="pwd">성</label>
+			    <div class="form-group na" style="padding-left: 10px">
+			      <label for="pwd" style="font-weight: bold;">성</label>
 			      <input type="text" class="form-control" id="family">
 			    </div>
 			</div>
 			<div>
-				 카드 정보 <br><br>
+				 
+				<label style="font-weight: bold;"> 카드 정보 </label>
 				<div class="input-group">
-			      <input class="cardNum" type="text" class="form-control" name="cardNum" placeholder="카드 번호" required="required" maxlength="4"> - 
-			      <input class="cardNum" type="password" class="form-control" name="cardNum" placeholder="카드 번호" required="required" maxlength="4"> - 
-			      <input class="cardNum" type="password" class="form-control" name="cardNum" placeholder="카드 번호" required="required" maxlength="4"> - 
-			      <input class="cardNum cardNumf" type="text" class="form-control" name="cardNum" placeholder="카드 번호" required="required" maxlength="4" value="">
+			      <input class="cardNum form-control" type="text" class="form-control" name="cardNum" placeholder="카드 번호" required="required" maxlength="4" style="margin-right: 3px;">  
+			      <input class="cardNum form-control" type="password" class="form-control" name="cardNum" placeholder="카드 번호" required="required" maxlength="4" style="margin-right: 3px;">  
+			      <input class="cardNum form-control" type="password" class="form-control" name="cardNum" placeholder="카드 번호" required="required" maxlength="4" style="margin-right: 3px;">  
+			      <input class="cardNum cardNumf form-control" type="text" class="form-control" name="cardNum" placeholder="카드 번호" required="required" maxlength="4">
 			    </div>
-			    <div class="input-group">
-			      <input id="day" type="text" class="form-control" name="day" placeholder="만료일">
-			      <input id="cvv" type="text" class="form-control" name="cvv" placeholder="CVV">
+			    <div class="input-group" style="margin-top: 10px;">
+			      <input id="day" type="text" class="form-control" name="day" placeholder="만료일" maxlength="4" style="margin-right: 3px;">
+			      <input id="cvv" type="text" class="form-control" name="cvv" placeholder="CVV" maxlength="3">
 			    </div>
 			</div><br><br>
 			<div>
-				<div class="form-group na">
-			      <label for="info">청구지 정보 </label>
-			      <input type="text" class="form-control" id="info" placeholder="우편 번호" required="required">
+				<div class="form-group na" style="padding:0px;">
+			      <label for="info" style="font-weight: bold;" >청구지 정보 </label>
+			      <input type="text" class="form-control" id="info" placeholder="우편 번호" required="required" maxlength="5">
 			    </div>
 			    <div class="form-group na">
-			    <label for="nation">국가/지역</label>
+			    <label for="nation" style="font-weight: bold;">국가/지역</label>
 			    <select class="form-control" id="sel2">
 			        <option>한국 </option>
 			        <option>일본 </option>
@@ -371,10 +94,10 @@
 			<div>
 				<h6><b>결제 방식을 선택해주세요.</b></h6>
 			</div>
-			<label class="box-radio-input"><input type="radio" name="cp_item" value="전액" checked="checked" class="total"><span>전액결제</span></label><br>
-			<label class="box-radio-input"><input type="radio" name="cp_item" value="분할" class="ready"><span>분할 결제</span></label>
-		
-			<button type="button" class="btn btn-primary">계속하기</button>
+			<label class="box-radio-input"><input type="radio" name="cp_item" value="전액" checked="checked" class="total"><span style="margin-left: 20px;">전액결제</span></label><br>
+			<label class="box-radio-input"><input type="radio" name="cp_item" value="분할" class="ready"><span style="margin-left: 20px;">분할 결제</span></label>
+			<br>
+			<button type="button" class="btn btn-primary" style="border: none; margin-top: 30px; background-color: #23a3a7">계속하기</button>
 		</div>
 		
 		
