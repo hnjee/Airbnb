@@ -115,8 +115,12 @@ public class MemberService {
 		return memberDAO.memberDelete (memberNum);
 	}
 	
+	public String googleIdCheck(MemberVO memberVO) throws Exception{
+		return memberDAO.googleIdCheck(memberVO);
+	}
 	
-	
-	
+	public int googleJoin(MemberVO memberVO) throws Exception{
+		return memberDAO.googleJoin(memberVO);
+	}
 	
 }

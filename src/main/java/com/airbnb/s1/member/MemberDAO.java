@@ -52,8 +52,12 @@ public class MemberDAO {
 		return sqlSession.delete(NAMESPACE+"memberDelete",memberNum);
 	}
 	
-	
+	public String googleIdCheck(MemberVO memberVO) throws Exception{
+		return sqlSession.selectOne(NAMESPACE+"googleIdCheck", memberVO);
+	}
 
-	
+	public int googleJoin(MemberVO memberVO) throws Exception{
+		return sqlSession.insert(NAMESPACE+"googleJoin", memberVO);
+	}
 	
 }
