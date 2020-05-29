@@ -21,18 +21,20 @@
 	
 </head>
 <body>
-<c:if test="${member.memberNum ne vo.memberNum}">
+<c:choose>
 
-	<script type="text/javascript">
-		$(document).ready(function() {
-			alert("잘못된 접근입니다.");
+<c:when test="${vo.bookingStat ne 1}">
+
+<script type="text/javascript">
+	$(document).ready(function() {
+			alert("결제가 취소되었습니다.");
 			location.href="../";
 		})
-	</script>
+</script>
 
-</c:if>
+</c:when>
 
-<c:if test="${member.memberNum eq vo.memberNum}">
+<c:when test="${member.memberNum eq vo.memberNum}">
 <c:import url="../jsp/header.jsp"></c:import>
 <div class="content">
 	
@@ -121,6 +123,18 @@
 
 <hr>
 <c:import url="../jsp/footer.jsp"></c:import>
-</c:if>
+</c:when>
+<c:when test="${member.memberNum ne vo.memberNum}">
+
+	<script type="text/javascript">
+		$(document).ready(function() {
+			alert("잘못된 접근입니다.");
+			location.href="../";
+		})
+	</script>
+
+</c:when>
+</c:choose>
+
 </body>
 </html>
