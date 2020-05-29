@@ -46,4 +46,8 @@ public class BookingService {
 		return bookingDAO.bookingResult(bookingNum);
 	}
 	
+	public int afterReview(String bookingNum) throws Exception{
+		return bookingDAO.afterReview(bookingNum);
+	}
+	
 }

@@ -19,7 +19,7 @@
 				<td>PayDate</td>
 			</tr>
 			<c:forEach items="${list}" var="bookingVO">
-			
+			<c:if test="${bookingVO.bookingStat eq 2 }">
 			<tr>
 				<td>${bookingVO.bookingNum }</td>
 				<td>${bookingVO.placeVO.placeName }</td>
@@ -28,21 +28,34 @@
 				<td>${bookingVO.payTotal }</td>
 				<td>****-****-****-${bookingVO.payInfo}</td>
 				<td>${bookingVO.payDate}</td>
-				<td><button class="btn btn-primary" title="${bookingVO.placeNum }">리뷰쓰기</button></td>
-				
+				<td><button class="btn btn-primary" title="${bookingVO.placeNum }" id="${bookingVO.bookingNum }">리뷰쓰기</button></td>
 			</tr>
+			</c:if>
+			<c:if test="${bookingVO.bookingStat eq 3 }">
+			<tr>
+				<td>${bookingVO.bookingNum }</td>
+				<td>${bookingVO.placeVO.placeName }</td>
+				<td>${bookingVO.checkInDate }</td>
+				<td>${bookingVO.checkOutDate }</td>
+				<td>${bookingVO.payTotal }</td>
+				<td>****-****-****-${bookingVO.payInfo}</td>
+				<td>${bookingVO.payDate}</td>
+				<td><button class="btn btn-default">리뷰완료</button>
+			</tr>
+			</c:if>
 			
 			</c:forEach>
 		</table>
 		<script type="text/javascript">
-		$(".btn").click(function() {
+		$(".btn-primary").click(function() {
 		     
 		        	var placeNum = $(this).attr("title")
+		        	var bookingNum= $(this).attr("id")
 		        	
 		        	var ajaxOption = {
 		                    url : "./review",
 		                    
-		                    data : {placeNum:placeNum},
+		                    data : {placeNum:placeNum, bookingNum:bookingNum},
 		                    type : "POST",
 		                    dataType : "html"
 		                    

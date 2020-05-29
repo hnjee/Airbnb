@@ -166,8 +166,9 @@ public class BookingController {
 	}
 	
 	@RequestMapping(value="review", method = RequestMethod.POST)
-	public ModelAndView review(ModelAndView mv, String placeNum) throws Exception {
+	public ModelAndView review(ModelAndView mv, String placeNum, String bookingNum) throws Exception {
 		
+		bookingService.afterReview(bookingNum);
 		PlaceVO placeVO = placeService.placeSelect(placeNum);
 		List<PlaceFileVO> placeFileList = placeService.fileList(placeVO);
 		

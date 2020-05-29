@@ -45,5 +45,9 @@ public class BookingDAO {
 	public BookingVO bookingResult(String bookingNum) throws Exception {
 		return sqlSession.selectOne(NAMESPACE+"bookingResult", bookingNum);
 	}
-
+	
+	public int afterReview(String bookingNum) throws Exception {
+		
+		return sqlSession.update(NAMESPACE+"afterReview", bookingNum);
+	}
 }

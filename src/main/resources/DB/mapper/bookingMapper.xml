@@ -50,6 +50,11 @@
 		]]>
 	</update>
 	
+	<update id="afterReview" parameterType="String">
+		update booking set bookingStat=3
+		where bookingNum=#{bookingNum}
+	</update>
+	
 	<select id="bookingSelect" parameterType="BookingVO" resultType="BookingVO">
 		select *
 		from(
@@ -70,10 +75,12 @@
 	</select>
 	
 	<select id="already" parameterType="BookingVO" resultMap="BookingVO">
+		<![CDATA[
 		select b.*, p.placenum, p.placename, p.placeLocation from booking b left join place p
 		on b.placenum = p.placenum
-		where b.memberNum = #{memberNum} and b.bookingStat=2
+		where b.memberNum = #{memberNum} and b.bookingStat>1
 		order by payDate DESC
+		]]>
 	</select>
 	
 	<select id="bookingResult" parameterType="String" resultMap="BookingVO">
