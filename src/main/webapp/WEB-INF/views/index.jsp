@@ -39,9 +39,6 @@
 	<c:import url="./modal/setModal.jsp"></c:import>
 
 	<c:import url="./modal/modalScript.jsp"></c:import>
-	 
-	<a href="./place/fileTest"> Place Image</a>
-	<a href="./member/memberFileInsert">Member Image</a>
 	
 	<script src="https://apis.google.com/js/platform.js?onload=init" async defer></script>	
 	<script type="text/javascript">			
