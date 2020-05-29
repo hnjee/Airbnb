@@ -25,9 +25,9 @@ public class PlaceService {
 	@Autowired
 	private PlaceDAO placeDAO;
 
-	@Autowired 
+	@Autowired
 	private MemberFileDAO memberFileDAO;
-	
+
 
 	//////////////file 이용 시 추가되는 부분
 	@Autowired
@@ -38,44 +38,44 @@ public class PlaceService {
 	private PlaceFileDAO placeFileDAO;
 	@Autowired
 	private HttpSession session;
-	
+
 	public int fileInsert(String placeNum,MultipartFile[] files) throws Exception{
 		//실제로 저장되는 경로 path
 		//로컬로 작동할 때는 임시 폴더 이건 사라지는 폴더, 배포하면 서버에 등록되어 파일 사라지지 않는다.
 //		String path = servletContext.getRealPath("/resources/images/place");
-		
+
 		//개발 할 때는 이 주소로 저장 (restart하면 사라지지 않게 직접 저장) -> 계속 파일 저장해놔야하니까
 
-		//String path="C:\\hj\\workspace\\Airbnb\\src\\main\\webapp\\resources\\images\\place";
-		String path = session.getServletContext().getRealPath("resources\\images\\place");
+		String path="C:\\hj\\workspace\\Airbnb\\src\\main\\webapp\\resources\\images\\place";
+		path = session.getServletContext().getRealPath("resources\\images\\place");
 		System.out.println("실제 경로: "+path);
-		
+
 		int res = 0;
 		
 		//들어온 files를 반복문으로 하나씩 삽입
 		for(MultipartFile file:files) {
 			if(file.getSize()>0) {
 				PlaceFileVO placeFileVO = new PlaceFileVO();
-				String fileName = fileSaver.saveByTransfer(file,path);			
+				String fileName = fileSaver.saveByTransfer(file,path);
 				placeFileVO.setPlaceNum(placeNum);
 				placeFileVO.setFileName(fileName);
 				placeFileVO.setOriName(file.getOriginalFilename());
 				res = placeFileDAO.fileInsert(placeFileVO);
-			}	
+			}
 		}
 		return res;
 	}
-	
+
 	//placeNum으로 placeFileVO 리스트를 가져오는 메서드 fileList()
 	public List<PlaceFileVO> fileList(PlaceVO placeVO) throws Exception{
-		return placeFileDAO.fileList(placeVO);	
+		return placeFileDAO.fileList(placeVO);
 	}
-	
+
 	//placeNum으로 placeFileVO 개수를 가져오는 메서드
 	public long fileCount(String placeNum) throws Exception{
 		return placeFileDAO.fileCount(placeNum);
 	}
-	
+
 	///////////////추가 끝
 
 	public Map placeList(PlaceVO placeVO, Pager pager,BookingVO bookingVO,long guestData) throws Exception {
@@ -86,65 +86,65 @@ public class PlaceService {
 		map.put("pager", pager);
 		map.put("guestData", guestData);
 		long totalCount = placeDAO.placeCount(map);
-		
+
 		//받아온 fileNum의 배열을 이용해서
 		//List<PlaceVO>로 받아오기
 		List<String> selectedFileNum = placeDAO.selectFileNum(map);
-		
-		pager.makePage(totalCount);	
+
+		pager.makePage(totalCount);
 		if(selectedFileNum.size()!=0) {
 			for(int i=0;i<selectedFileNum.size();i++) {
 				if(selectedFileNum.get(i)==null) {
-					selectedFileNum.set(i,"f123");
+					selectedFileNum.set(i,"f0");
 				}
 			}
 		} else {
 			//결과가 null인 경우
 			System.out.println("size: 0");
-			
+
 			selectedFileNum.add(0, "123");
 			System.out.println("check");
 		}
-		
+
 		System.out.println("set: "+selectedFileNum.get(0));
-	
-		
-		Map<String, Object> map2 = new HashMap<String, Object>();		
+
+
+		Map<String, Object> map2 = new HashMap<String, Object>();
 		map2.put("placeList", placeDAO.placeList(selectedFileNum));
 		map2.put("totalCount", totalCount);
-		
-		
+
+
 		return map2;
 	}
-	
-	
+
+
 	public long placeCount(Map map) throws Exception{
-		return placeDAO.placeCount(map);		
+		return placeDAO.placeCount(map);
 	}
-	
+
 	public PlaceVO placeSelect(String placeNum) throws Exception{
 		return placeDAO.placeSelect(placeNum);
 	}
-	
+
 	public List<BookingVO> checkDateSelect(String placeNum) throws Exception{
 		return placeDAO.checkDateSelect(placeNum);
 	}
-	
+
 	public int hostPlaceAdd(PlaceVO placeVO) throws Exception{
 		int result = placeDAO.hostPlaceAdd(placeVO);
 		System.out.println(placeVO.getPlaceNum());
-		
+
 		return result;
 	}
-	
+
 	public List<PlaceVO> myPlace(MemberVO memberVO) throws Exception{
 		return placeDAO.myPlace(memberVO);
 	}
-	
+
 	public int placeUpdate(PlaceVO placeVO) throws Exception{
 
 		int result = 0;
-		
+
 		if(placeVO.getUpdateNum()==1) {
 			result = placeDAO.placeUpdate1(placeVO);
 		}else if(placeVO.getUpdateNum()==2) {
@@ -164,23 +164,20 @@ public class PlaceService {
 		}else if(placeVO.getUpdateNum()==9) {
 			result = placeDAO.placeUpdate9(placeVO);
 		}
-		
+
 		return result;
 
 
 	}
-	
-	public int placeFileDelete(PlaceFileVO placeFileVO) throws Exception{
-		return placeDAO.placeFileDelete(placeFileVO);
-	}
-	
+
+
 	public int placeDelete(PlaceVO placeVO) throws Exception{
 		return placeDAO.placeDelete(placeVO);
 	}
-	
+
 	public PlaceFileVO picOne(PlaceVO placeVO) throws Exception{
 		return placeDAO.picOne(placeVO);
 	}
-	
-	
+
+
 }
