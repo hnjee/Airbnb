@@ -24,13 +24,14 @@ main a{
 	float: left;
 	border: 1px solid #484848;
 	box-sizing: border-box;
+	background-color: #F7F7F7;
 }
 .pic2{
 	width: 25%;
 	height: 100%;
-	background-color: blue;
 	float: left;	
 	overflow: hidden; 
+	background-color: #F7F7F7;
 }
 .pic {
 	width: 100%;
